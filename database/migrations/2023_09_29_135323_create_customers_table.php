@@ -13,19 +13,23 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->string('short_name');
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('fax');
-            $table->string('address');
-            $table->string('city_id');
-            $table->string('town_id');
-            $table->string('country_id');
-            $table->string('tax_office');
-            $table->string('tax_number');
-            $table->string('ispercompany');
+            $table->string('short_name', 30);
+            $table->string('full_name', 200);
+            $table->string('email', 100);
+            $table->string('phone', 12);
+            $table->string('fax', 12);
+            $table->string('address', 255);
+            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('town_id');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('tax_office_id');
+            $table->string('tax_number', 11);
+            $table->boolean('is_person');
+            $table->boolean('is_active');
+            $table->boolean('is_create_balance');
+            $table->decimal('is_creating_balance_amount', 10, 2);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
