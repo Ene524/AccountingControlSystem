@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('country_id');
             $table->string('address', 255);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
