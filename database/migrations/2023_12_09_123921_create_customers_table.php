@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /* 1: Alıcı, 2: Satıcı, 3: Alıcı ve Satıcı */
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->string('first_name', 255);
             $table->string('last_name', 255);
             $table->boolean('is_person');
-            $table->tinyInteger('type'); /* 1: Alıcı, 2: Satıcı, 3: Alıcı ve Satıcı */
+            $table->tinyInteger('type');
             $table->string('tax_number', 10);
             $table->unsignedBigInteger('tax_office_id');
             $table->string('identity_number', 11);
@@ -30,7 +31,7 @@ return new class extends Migration
             $table->string('email', 255);
             $table->string('address', 255);
             $table->unsignedBigInteger('city_id');
-            $table->unsignedBigInteger('country_id', 255);
+            $table->unsignedBigInteger('country_id');
             $table->string('postal_code', 10)->nullable();
             $table->string('specode1', 50);
             $table->string('specode2', 50);
@@ -40,7 +41,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('company_id')->references('id')->on('companies');
+            //$table->foreign('company_id')->references('id')->on('companies');
         });
     }
 
