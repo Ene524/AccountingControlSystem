@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/user', function () {
+        return User::all();
+    });
 });
+
+Route::post('register', [UserController::class, 'register'])->name('api.user.create');
