@@ -67,14 +67,13 @@ class UserController extends Controller
 //            $response->getStatusCode()
 //        );
 
+        $response = Password::sendResetLink($request->only('email'));
 
-        $status = Password::sendResetLink(
-            $request->only('email')
+        return $this->httpResponse(
+            $response == Password::RESET_LINK_SENT,
+            $response == Password::RESET_LINK_SENT ? 'Reset password link sent to your email' : 'Something went wrong',
+            [],
+            $response == Password::RESET_LINK_SENT ? 200 : 400
         );
-
-
-        return $status === Password::RESET_LINK_SENT
-            ? response()->json(['message' => 'Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.'])
-            : response()->json(['message' => 'Şifre sıfırlama bağlantısı gönderilemedi.'], 500);
     }
 }
