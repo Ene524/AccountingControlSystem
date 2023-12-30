@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\UserController\ForgotPasswordRequest;
+use App\Http\Requests\Api\UserController\ResetPasswordRequest;
 use App\Models\User;
 use App\Core\HttpResponse;
 use Illuminate\Auth\Events\PasswordReset;
@@ -59,57 +61,34 @@ class UserController extends Controller
         );
     }
 
-    public function forgotPassword(Request $request)
+    public function forgotPassword(ForgotPasswordRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'email' => 'required|email|exists:users,email',
-        ]);
+        $response = $this->userService->forgotPassword(
+            email: $request->email,
+        );
 
-        if (!$validator->fails()) {
-            $status=Password::sendResetLink($request->only('email'));
-
-
-            if ($status == Password::RESET_LINK_SENT) {
-                return response()->json(['message' => __($status)], 200);
-            } else {
-                return response()->json(['message' => __($status)], 401);
-            }
-        } else {
-            return response()->json(['errors' => $validator->errors()->all()], 401);
-        }
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
     }
 
-    public function resetPassword(Request $request)
+    public function resetPassword(ResetPasswordRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'token' => 'required',
-            'email' => 'required|email|exists:users,email',
-            'password' => 'required|confirmed|min:8',
-        ]);
+        $response = $this->userService->resetPassword(
+            email: $request->email,
+            password: $request->password,
+            token : $request->token,
+        );
 
-        if (!$validator->fails()) {
-            $status = Password::reset(
-                $request->only('email', 'password', 'password_confirmation', 'token'),
-                function ($user) use ($request) {
-                    $user->forceFill([
-                        'password' => Hash::make($request->password),
-                        'remember_token' => Str::random(60),
-                    ])->save();
-
-                    $user->tokens()->delete();
-                    event(new PasswordReset($user));
-                }
-            );
-
-            if ($status == Password::PASSWORD_RESET) {
-                return response()->json(['success' => __('passwords.reset')], 200);
-            } else {
-                return response()->json(['errors' => __("Bir sorun oluştu")], 401);
-            }
-        } else {
-            return response()->json(['errors' => $validator->errors()->all()], 401);
-        }
-
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
 
 
     }

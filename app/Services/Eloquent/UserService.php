@@ -7,9 +7,10 @@ use App\Interfaces\Eloquent\IUserService;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Password;
-
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 
 class UserService implements IUserService
@@ -59,32 +60,42 @@ class UserService implements IUserService
 
     public function forgotPassword(string $email): ServiceResponse
     {
-        $user = $this->findByEmail($email);
+        $status = Password::sendResetLink(Request::only('email'));
 
+        if ($status == Password::RESET_LINK_SENT) {
+            return new ServiceResponse(true, "Reset password link sent", null, 200);
+        } else {
+            return new ServiceResponse(false, "Reset password link not sent", null, 400);
+        }
+    }
 
+    public function resetPassword(string $email, string $password,string $token, ): ServiceResponse
+    {
         $status = Password::reset(
-            $email,
-            function ($user) use ($email) {
+            [
+                'email' => $email, // doğru parametre kullanımı
+                'password' => $password,
+                'password_confirmation' => $password,
+                'token' => $token
+            ],
+            function ($user) use ($email, $password) {
                 $user->forceFill([
-                    'password' => Hash::make($request->password),
+                    'password' => Hash::make($password),
                     'remember_token' => Str::random(60),
                 ])->save();
 
                 $user->tokens()->delete();
-
                 event(new PasswordReset($user));
             }
         );
 
+
         if ($status == Password::PASSWORD_RESET) {
-            return response([
-                'message' => 'Password reset successfully'
-            ]);
+            return new ServiceResponse(true, "Password reset", null, 200);
+
         } else {
-            return new ServiceResponse(false, "User not found", null, 404);
+            return new ServiceResponse(false, "Password not reset - " . $status , null, 400);
         }
 
-
-        return new ServiceResponse(true, "Email sent", null, 200);
     }
 }

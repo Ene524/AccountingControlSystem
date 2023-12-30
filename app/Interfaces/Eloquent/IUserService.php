@@ -29,7 +29,9 @@ interface IUserService
      * @param string $email
      * @return ServiceResponse
      */
-    public function findByEmail(string $email):ServiceResponse;
+    public function findByEmail(string $email): ServiceResponse;
 
-    public function forgotPassword(string $email):ServiceResponse;
+    public function forgotPassword(string $email): ServiceResponse;
+
+    public function resetPassword(string $email,string $password, string $token): ServiceResponse;
 }
