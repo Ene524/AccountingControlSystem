@@ -49,4 +49,9 @@ class User extends Authenticatable
 //       $url= 'http://accountingcontrolsystem.test/api/reset-password?token=' . $token;
 //         $this->notify(new ResetPasswordNotification($url));
 //    }
+
+    public function companies()
+    {
+        return $this->BelongsToMany(Company::class)->withTimestamps();
+    }
 }

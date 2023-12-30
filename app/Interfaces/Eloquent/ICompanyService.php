@@ -4,7 +4,7 @@ namespace App\Interfaces\Eloquent;
 
 use App\Core\ServiceResponse;
 
-interface ICompanyService
+interface ICompanyService extends IEloquentService
 {
     public function create(
         string $title,
@@ -35,4 +35,6 @@ interface ICompanyService
         string $web_service_password,
         int    $integrator_id
     ): ServiceResponse;
+
+
 }
