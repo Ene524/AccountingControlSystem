@@ -43,4 +43,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+//    public function sendPasswordResetNotification($token)
+//    {
+//       $url= 'http://accountingcontrolsystem.test/api/reset-password?token=' . $token;
+//         $this->notify(new ResetPasswordNotification($url));
+//    }
 }

@@ -14,5 +14,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 Route::post('register', [UserController::class, 'register'])->name('api.user.register');
 Route::post('login', [UserController::class, 'login'])->name('api.user.login');
-Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('api.user.forgotPassword');
-
+Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
+Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
