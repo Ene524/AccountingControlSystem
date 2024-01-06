@@ -54,7 +54,7 @@ class CompanyService implements ICompanyService
 
     public function getAll(): ServiceResponse
     {
-        $response=Company::all();
+        $response = Company::all();
         return new ServiceResponse(
             true,
             'Company listed successfully',
@@ -65,11 +65,15 @@ class CompanyService implements ICompanyService
 
     public function getById(int $id): ServiceResponse
     {
-        // TODO: Implement getById() method.
+        $company = Company::where('id', $id)->first();
+        return new ServiceResponse(true, "Company is found", $company, 200);
     }
 
     public function delete(int $id): ServiceResponse
     {
         // TODO: Implement delete() method.
+        $company = Company::where('id', $id)->first();
+
+        return new ServiceResponse(true, "Company is found", $company, 200);
     }
 }

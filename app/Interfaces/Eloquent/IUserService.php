@@ -8,7 +8,7 @@ use App\Core\ServiceResponse;
 /**
  *
  */
-interface IUserService
+interface IUserService extends IEloquentService
 {
     /**
      * @param string $name
