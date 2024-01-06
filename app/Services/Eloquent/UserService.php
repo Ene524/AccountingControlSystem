@@ -60,42 +60,54 @@ class UserService implements IUserService
 
     public function forgotPassword(string $email): ServiceResponse
     {
-        $status = Password::sendResetLink(Request::only('email'));
+        $userResponse = $this->findByEmail($email);
 
-        if ($status == Password::RESET_LINK_SENT) {
-            return new ServiceResponse(true, "Reset password link sent", null, 200);
+        if ($userResponse->isSuccess()) {
+            $status = Password::sendResetLink(Request::only('email'));
+
+            if ($status == Password::RESET_LINK_SENT) {
+                return new ServiceResponse(true, "Reset password link sent", null, 200);
+            } else {
+                return new ServiceResponse(false, "Reset password link not sent", null, 400);
+            }
         } else {
-            return new ServiceResponse(false, "Reset password link not sent", null, 400);
+            return new ServiceResponse(false, "User not found", null, 404);
         }
     }
 
-    public function resetPassword(string $email, string $password,string $token, ): ServiceResponse
+    public function resetPassword(string $email, string $password, string $token,): ServiceResponse
     {
-        $status = Password::reset(
-            [
-                'email' => $email, // doğru parametre kullanımı
-                'password' => $password,
-                'password_confirmation' => $password,
-                'token' => $token
-            ],
-            function ($user) use ($email, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        $userResponse = $this->findByEmail($email);
+        if ($userResponse->isSuccess()) {
+            $status = Password::reset(
+                [
+                    'email' => $email,
+                    'password' => $password,
+                    'password_confirmation' => $password,
+                    'token' => $token
+                ],
+                function ($user) use ($email, $password) {
+                    $user->forceFill([
+                        'password' => Hash::make($password),
+                        'remember_token' => Str::random(60),
+                    ])->save();
 
-                $user->tokens()->delete();
-                event(new PasswordReset($user));
+                    $user->tokens()->delete();
+                    event(new PasswordReset($user));
+                }
+            );
+
+
+            if ($status == Password::PASSWORD_RESET) {
+                return new ServiceResponse(true, "Password reset", null, 200);
+
+            } else {
+                return new ServiceResponse(false, "Password not reset - " . $status, null, 400);
             }
-        );
-
-
-        if ($status == Password::PASSWORD_RESET) {
-            return new ServiceResponse(true, "Password reset", null, 200);
-
         } else {
-            return new ServiceResponse(false, "Password not reset - " . $status , null, 400);
+            return new ServiceResponse(false, "User not found", null, 404);
         }
+
 
     }
 }

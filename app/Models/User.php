@@ -50,8 +50,8 @@ class User extends Authenticatable
 //         $this->notify(new ResetPasswordNotification($url));
 //    }
 
-    public function companies()
+    public function company()
     {
-        return $this->BelongsToMany(Company::class)->withTimestamps();
+        return $this->BelongsToMany(Company::class, 'company_user');
     }
 }

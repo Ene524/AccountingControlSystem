@@ -10,6 +10,8 @@ class Company extends Model
     use HasFactory;
 
 
+
+
     protected $fillable = [
         'title',
         'short_title',
@@ -40,9 +42,9 @@ class Company extends Model
         'integrator_id'
     ];
 
-    public function users()
+    public function user()
     {
-        return $this->BelongsToMany(User::class);
+        return $this->BelongsToMany(User::class, 'company_user');
     }
 
 
