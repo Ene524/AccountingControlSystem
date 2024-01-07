@@ -110,4 +110,19 @@ class UserService implements IUserService
 
 
     }
+
+    public function getAll(): ServiceResponse
+    {
+        // TODO: Implement getAll() method.
+    }
+
+    public function getById(int $id): ServiceResponse
+    {
+        // TODO: Implement getById() method.
+    }
+
+    public function delete(int $id): ServiceResponse
+    {
+        // TODO: Implement delete() method.
+    }
 }

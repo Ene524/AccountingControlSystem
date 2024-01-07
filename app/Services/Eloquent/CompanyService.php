@@ -71,7 +71,6 @@ class CompanyService implements ICompanyService
 
     public function delete(int $id): ServiceResponse
     {
-        // TODO: Implement delete() method.
         $company = Company::where('id', $id)->first();
 
         return new ServiceResponse(true, "Company is found", $company, 200);
