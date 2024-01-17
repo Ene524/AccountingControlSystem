@@ -2,22 +2,35 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\User;
+use App\Interfaces\Eloquent\IUserCompanyConnectService;
 use Illuminate\Http\Request;
 
 class CompanyUserConnectController extends Controller
 {
+    use HttpResponse;
+
+    private IUserCompanyConnectService $userCompanyConnectService;
+
+    public function __construct(IUserCompanyConnectService $userCompanyConnectService)
+    {
+        $this->userCompanyConnectService = $userCompanyConnectService;
+    }
+
     public function create(Request $request)
     {
-        $company = Company::find($request->company_id);
-        $user = User::find($request->user_id);
+        $response = $this->userCompanyConnectService->create(
+            user_id: $request->user_id,
+            company_id: $request->company_id
+        );
 
-        $company->user()->attach($user);
 
-        return response()->json([
-            'message' => 'User connected to company successfully.'
-        ]);
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
     }
 }

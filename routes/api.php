@@ -30,7 +30,7 @@ Route::prefix('user')->group(function () {
     Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
 });
 
-Route::prefix('companyUserConnect')->group(function () {
+Route::prefix('userCompanyConnect')->group(function () {
     Route::post('create', [CompanyUserConnectController::class, 'create'])->name('api.companyUserConnect.create');
     //Route::get('getAll', [CompanyUserConnectController::class, 'getAll'])->name('api.companyUserConnect.getAll');
     //Route::get('getById/{id}', [CompanyUserConnectController::class, 'getById'])->name('api.companyUserConnect.getById');
