@@ -68,4 +68,14 @@ class UserCompanyConnectService implements IUserCompanyConnectService
             );
         }
     }
+
+    public function getCompaniesByUserId(int $user_id): ServiceResponse
+    {
+        // TODO: Implement getCompaniesByUserId() method.
+    }
+
+    public function getUsersByCompanyId(int $company_id): ServiceResponse
+    {
+        // TODO: Implement getUsersByCompanyId() method.
+    }
 }
