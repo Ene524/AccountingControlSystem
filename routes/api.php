@@ -24,10 +24,11 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 
 Route::prefix('user')->group(function () {
-    Route::post('register', [UserController::class, 'register'])->name('api.user.register');
-    Route::post('login', [UserController::class, 'login'])->name('api.user.login');
+    Route::post('register', [UserController::class, 'register'])->name('user.register');
+    Route::post('login', [UserController::class, 'login'])->name('user.login');
     Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
     Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+    Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
 });
 
 Route::prefix('userCompanyConnect')->group(function () {
