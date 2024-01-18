@@ -31,6 +31,7 @@ Route::prefix('user')->group(function () {
     Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
 });
 
+
 Route::prefix('userCompanyConnect')->group(function () {
     Route::post('create', [CompanyUserConnectController::class, 'create'])->name('api.companyUserConnect.create');
     //Route::get('getAll', [CompanyUserConnectController::class, 'getAll'])->name('api.companyUserConnect.getAll');
