@@ -113,16 +113,33 @@ class UserService implements IUserService
 
     public function getAll(): ServiceResponse
     {
-        // TODO: Implement getAll() method.
+        $users = User::all();
+        return new ServiceResponse(true, "Users found", $users, 200);
     }
 
     public function getById(int $id): ServiceResponse
     {
-        // TODO: Implement getById() method.
+        $user = User::find($id);
+        if ($user) {
+            return new ServiceResponse(true, "User found", $user, 200);
+        } else {
+            return new ServiceResponse(false, "User not found", null, 404);
+        }
     }
 
     public function delete(int $id): ServiceResponse
     {
-        // TODO: Implement delete() method.
+        $user=User::delete($id);
+        dd($user);
+    }
+
+    public function updatePassword(string $email, string $oldPassword, string $password): ServiceResponse
+    {
+        // TODO: Implement updatePassword() method.
+    }
+
+    public function updateProfile(string $email, string $name): ServiceResponse
+    {
+        // TODO: Implement updateProfile() method.
     }
 }

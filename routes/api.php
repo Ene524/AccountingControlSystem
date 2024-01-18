@@ -28,7 +28,9 @@ Route::prefix('user')->group(function () {
     Route::post('login', [UserController::class, 'login'])->name('user.login');
     Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
     Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
-    Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
+    Route::post('delete', [UserController::class, 'resetPassword'])->name('user.delete');
+    //Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
+    //Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
 });
 
 

@@ -84,4 +84,10 @@ class UserController extends Controller
 
 
     }
+
+    public function delete($id)
+    {
+        $response = $this->userService->delete($id);
+        dd($response);
+    }
 }
