@@ -13,8 +13,17 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 
+/**
+ *
+ */
 class UserService implements IUserService
 {
+    /**
+     * @param string $name
+     * @param string $email
+     * @param string $password
+     * @return ServiceResponse
+     */
     public function register(string $name, string $email, string $password): ServiceResponse
     {
         $user = $this->findByEmail($email);
@@ -31,6 +40,11 @@ class UserService implements IUserService
         return new ServiceResponse(true, "User created", $user, 201);
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @return ServiceResponse
+     */
     public function login(string $email, string $password): ServiceResponse
     {
         $user = $this->findByEmail($email);
@@ -42,11 +56,15 @@ class UserService implements IUserService
                 return new ServiceResponse(true, "User logged in", ["token" => $token, "user" => $user], 200);
 
             }
-            return new ServiceResponse(false, "Wrong password", null, 400);
+            return new ServiceResponse(false, "User not found or wrong password", null, 400);
         }
         return $user;
     }
 
+    /**
+     * @param string $email
+     * @return ServiceResponse
+     */
     public function findByEmail(string $email): ServiceResponse
     {
         $user = User::where('email', $email)->first();
@@ -58,6 +76,10 @@ class UserService implements IUserService
         return new ServiceResponse(false, "User not found", null, 404);
     }
 
+    /**
+     * @param string $email
+     * @return ServiceResponse
+     */
     public function forgotPassword(string $email): ServiceResponse
     {
         $userResponse = $this->findByEmail($email);
@@ -75,6 +97,12 @@ class UserService implements IUserService
         }
     }
 
+    /**
+     * @param string $email
+     * @param string $password
+     * @param string $token
+     * @return ServiceResponse
+     */
     public function resetPassword(string $email, string $password, string $token,): ServiceResponse
     {
         $userResponse = $this->findByEmail($email);
@@ -111,12 +139,19 @@ class UserService implements IUserService
 
     }
 
+    /**
+     * @return ServiceResponse
+     */
     public function getAll(): ServiceResponse
     {
         $users = User::all();
         return new ServiceResponse(true, "Users found", $users, 200);
     }
 
+    /**
+     * @param int $id
+     * @return ServiceResponse
+     */
     public function getById(int $id): ServiceResponse
     {
         $user = User::find($id);
@@ -127,17 +162,32 @@ class UserService implements IUserService
         }
     }
 
+    /**
+     * @param int $id
+     * @return ServiceResponse
+     */
     public function delete(int $id): ServiceResponse
     {
         $user=User::delete($id);
         dd($user);
     }
 
+    /**
+     * @param string $email
+     * @param string $oldPassword
+     * @param string $password
+     * @return ServiceResponse
+     */
     public function updatePassword(string $email, string $oldPassword, string $password): ServiceResponse
     {
         // TODO: Implement updatePassword() method.
     }
 
+    /**
+     * @param string $email
+     * @param string $name
+     * @return ServiceResponse
+     */
     public function updateProfile(string $email, string $name): ServiceResponse
     {
         // TODO: Implement updateProfile() method.

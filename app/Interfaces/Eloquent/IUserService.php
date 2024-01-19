@@ -31,12 +31,33 @@ interface IUserService extends IEloquentService
      */
     public function findByEmail(string $email): ServiceResponse;
 
+    /**
+     * @param string $email
+     * @return ServiceResponse
+     */
     public function forgotPassword(string $email): ServiceResponse;
 
-    public function resetPassword(string $email,string $password, string $token): ServiceResponse;
+    /**
+     * @param string $email
+     * @param string $password
+     * @param string $token
+     * @return ServiceResponse
+     */
+    public function resetPassword(string $email, string $password, string $token): ServiceResponse;
 
-    public function updatePassword(string $email,string $oldPassword,string $password): ServiceResponse;
+    /**
+     * @param string $email
+     * @param string $oldPassword
+     * @param string $password
+     * @return ServiceResponse
+     */
+    public function updatePassword(string $email, string $oldPassword, string $password): ServiceResponse;
 
-    public function updateProfile(string $email,string $name): ServiceResponse;
+    /**
+     * @param string $email
+     * @param string $name
+     * @return ServiceResponse
+     */
+    public function updateProfile(string $email, string $name): ServiceResponse;
 
 }
