@@ -115,4 +115,8 @@ class UserController extends Controller
             $response->getStatusCode()
         );
     }
+
+    public function getById(){
+
+    }
 }
