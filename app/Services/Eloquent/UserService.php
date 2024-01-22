@@ -169,7 +169,7 @@ class UserService implements IUserService
     public function delete(int $id): ServiceResponse
     {
         $user=User::delete($id);
-        dd($user);
+        return new ServiceResponse(true, "User deleted", $user, 200);
     }
 
     /**

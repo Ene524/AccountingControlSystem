@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\Api\UserController\DeleteRequest;
 use App\Http\Requests\Api\UserController\FindByEmailRequest;
 use App\Http\Requests\Api\UserController\ForgotPasswordRequest;
+use App\Http\Requests\Api\UserController\GetByIdRequest;
 use App\Http\Requests\Api\UserController\ResetPasswordRequest;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Eloquent\IUserService;
 use App\Http\Requests\Api\UserController\LoginRequest;
 use App\Http\Requests\Api\UserController\RegisterRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 
@@ -99,10 +102,18 @@ class UserController extends Controller
 
     }
 
-    public function delete($id)
+    public function delete(DeleteRequest $request)
     {
-        $response = $this->userService->delete($id);
-        dd($response);
+        $user=User::find($request->id);
+        $user->delete();
+        dd("ok");
+//        $response = $this->userService->delete($request->id);
+//        return $this->HttpResponse(
+//            $response->isSuccess(),
+//            $response->getMessage(),
+//            $response->getData(),
+//            $response->getStatusCode()
+//        );
     }
 
     public function getAll()
@@ -116,8 +127,14 @@ class UserController extends Controller
         );
     }
 
-
-    public function getById(){
-
+    public function getById(GetByIdRequest $request)
+    {
+        $response = $this->userService->getById($request->id);
+        return $this->HttpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
     }
 }

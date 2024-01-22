@@ -60,4 +60,10 @@ interface IUserService extends IEloquentService
      */
     public function updateProfile(string $email, string $name): ServiceResponse;
 
+    /**
+     * @param int $id
+     * @return ServiceResponse
+     */
+    public function getById(int $id): ServiceResponse;
+
 }

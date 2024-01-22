@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::prefix('user')->group(function () {
-        Route::post('delete', [UserController::class, 'resetPassword'])->name('user.delete');
+        Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
         Route::get('findByEmail', [UserController::class, 'findByEmail'])->name('user.findByEmail');
         Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
