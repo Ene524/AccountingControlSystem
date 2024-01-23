@@ -65,5 +65,4 @@ interface IUserService extends IEloquentService
      * @return ServiceResponse
      */
     public function getById(int $id): ServiceResponse;
-
 }

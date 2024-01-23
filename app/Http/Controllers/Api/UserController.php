@@ -9,6 +9,7 @@ use App\Http\Requests\Api\UserController\GetByIdRequest;
 use App\Http\Requests\Api\UserController\ResetPasswordRequest;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\UserController\UpdatePassword;
 use App\Interfaces\Eloquent\IUserService;
 use App\Http\Requests\Api\UserController\LoginRequest;
 use App\Http\Requests\Api\UserController\RegisterRequest;
@@ -89,7 +90,7 @@ class UserController extends Controller
         $response = $this->userService->resetPassword(
             email: $request->email,
             password: $request->password,
-            token : $request->token,
+            token: $request->token,
         );
 
         return $this->httpResponse(
@@ -104,16 +105,13 @@ class UserController extends Controller
 
     public function delete(DeleteRequest $request)
     {
-        $user=User::find($request->id);
-        $user->delete();
-        dd("ok");
-//        $response = $this->userService->delete($request->id);
-//        return $this->HttpResponse(
-//            $response->isSuccess(),
-//            $response->getMessage(),
-//            $response->getData(),
-//            $response->getStatusCode()
-//        );
+        $response = $this->userService->delete($request->id);
+        return $this->HttpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
     }
 
     public function getAll()
@@ -130,6 +128,21 @@ class UserController extends Controller
     public function getById(GetByIdRequest $request)
     {
         $response = $this->userService->getById($request->id);
+        return $this->HttpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
+    }
+
+    public function updatePassword(UpdatePassword $request)
+    {
+        $response = $this->userService->updatePassword(
+            email: $request->email,
+            oldPassword: $request->oldPassword,
+            password: $request->password,
+        );
         return $this->HttpResponse(
             $response->isSuccess(),
             $response->getMessage(),

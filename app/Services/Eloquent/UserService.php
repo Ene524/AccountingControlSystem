@@ -168,8 +168,14 @@ class UserService implements IUserService
      */
     public function delete(int $id): ServiceResponse
     {
-        $user=User::delete($id);
-        return new ServiceResponse(true, "User deleted", $user, 200);
+        $user = $this->getById($id);
+        if ($user->isSuccess()) {
+            $user->getData()->delete();
+            return new ServiceResponse(true, 'User deleted', null, 200);
+        }
+        return new ServiceResponse(false, 'User not found', null, 404);
+
+
     }
 
     /**
@@ -180,7 +186,19 @@ class UserService implements IUserService
      */
     public function updatePassword(string $email, string $oldPassword, string $password): ServiceResponse
     {
-        // TODO: Implement updatePassword() method.
+        $userResponse = $this->findByEmail($email);
+        if ($userResponse->isSuccess()) {
+            $user = $userResponse->getData();
+            if (password_verify($oldPassword, $user->password)) {
+                $user->password = $password;
+                $user->save();
+                return new ServiceResponse(true, "Password updated", null, 200);
+            } else {
+                return new ServiceResponse(false, "Wrong password", null, 400);
+            }
+        } else {
+            return new ServiceResponse(false, "User not found", null, 404);
+        }
     }
 
     /**
