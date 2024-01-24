@@ -28,7 +28,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         //Route::get('getById/{id}', [CompanyController::class, 'getById'])->name('api.company.getById');
         //Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('api.company.delete');
     });
-
 });
 
 
