@@ -4,7 +4,7 @@ namespace App\Http\Requests\Api\CompanyController;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyRequest extends FormRequest
+class UpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,32 +22,33 @@ class CompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'short_title' => 'required|string|max:255',
+            'id' => 'required|integer',
+            'title' => 'required|string',
+            'short_title' => 'required|string',
             'is_person' => 'required|boolean',
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'tax_number' => 'required|string|max:255',
-            'identity_number' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'tax_number' => 'required|string',
+            'identity_number' => 'required|string',
+            'address' => 'required|string',
             'city_id' => 'required|integer',
             'town_id' => 'required|integer',
             'country_id' => 'required|integer',
             'tax_office_id' => 'required|integer',
-            'email' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'fax' => 'required|string|max:255',
-            'postal_code' => 'required|string|max:255',
-            'web_site' => 'required|string|max:255',
-            'commercial_register_number' => 'required|string|max:255',
-            'mernis_number' => 'required|string|max:255',
+            'email' => 'required|string',
+            'phone' => 'required|string',
+            'fax' => 'required|string',
+            'postal_code' => 'required|string',
+            'web_site' => 'required|string',
+            'commercial_register_number' => 'required|string',
+            'mernis_number' => 'required|string',
             'e_invoice_status' => 'required|boolean',
             'e_archive_status' => 'required|boolean',
             'e_dispatch_status' => 'required|boolean',
             'e_producer_status' => 'required|boolean',
             'e_voucher_status' => 'required|boolean',
-            'web_service_username' => 'required|string|max:255',
-            'web_service_password' => 'required|string|max:255',
+            'web_service_username' => 'required|string',
+            'web_service_password' => 'required|string',
             'integrator_id' => 'required|integer',
         ];
     }

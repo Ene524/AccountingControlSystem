@@ -17,16 +17,17 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     });
 
     Route::prefix('userCompanyConnect')->group(function () {
-        Route::post('create', [CompanyUserConnectController::class, 'create'])->name('api.companyUserConnect.create');
-        //Route::get('getAll', [CompanyUserConnectController::class, 'getAll'])->name('api.companyUserConnect.getAll');
-        //Route::get('getById/{id}', [CompanyUserConnectController::class, 'getById'])->name('api.companyUserConnect.getById');
-        //Route::delete('delete/{id}', [CompanyUserConnectController::class, 'delete'])->name('api.companyUserConnect.delete');
+        Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
+        //Route::get('getAll', [CompanyUserConnectController::class, 'getAll'])->name('companyUserConnect.getAll');
+        //Route::get('getById/{id}', [CompanyUserConnectController::class, 'getById'])->name('companyUserConnect.getById');
+        //Route::delete('delete/{id}', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
     });
     Route::prefix('company')->group(function () {
-        Route::post('create', [CompanyController::class, 'create'])->name('api.company.create');
-        //Route::get('getAll', [CompanyController::class, 'getAll'])->name('api.company.getAll');
-        //Route::get('getById/{id}', [CompanyController::class, 'getById'])->name('api.company.getById');
-        //Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('api.company.delete');
+        Route::post('create', [CompanyController::class, 'create'])->name('company.create');
+        Route::post('update', [CompanyController::class, 'update'])->name('company.update');
+        Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
+        Route::get('getById/{id}', [CompanyController::class, 'getById'])->name('company.getById');
+        Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('company.delete');
     });
 });
 
