@@ -186,10 +186,10 @@ class CompanyService implements ICompanyService
         $company->title = $title;
         $company->short_title = $short_title;
         $company->is_person = $is_person;
-        $company->first_name = $first_name;
-        $company->last_name = $last_name;
-        $company->tax_number = $tax_number;
-        $company->identity_number = $identity_number;
+        $company->first_name = $first_name ?? '';
+        $company->last_name = $last_name ?? '';
+        $company->tax_number = $tax_number ?? '';
+        $company->identity_number = $identity_number ?? '';
         $company->address = $address;
         $company->city_id = $city_id;
         $company->town_id = $town_id;
