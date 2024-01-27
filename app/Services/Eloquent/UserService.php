@@ -144,7 +144,7 @@ class UserService implements IUserService
      */
     public function getAll(): ServiceResponse
     {
-        $users = User::all();
+        $users = User::paginate(100);
         return new ServiceResponse(true, "Users found", $users, 200);
     }
 
