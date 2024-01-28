@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\Api\UserController\DeleteRequest;
-use App\Http\Requests\Api\UserController\FindByEmailRequest;
-use App\Http\Requests\Api\UserController\ForgotPasswordRequest;
-use App\Http\Requests\Api\UserController\GetByIdRequest;
-use App\Http\Requests\Api\UserController\ResetPasswordRequest;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\UserController\UpdatePassword;
-use App\Interfaces\Eloquent\IUserService;
+use App\Http\Requests\Api\Eloquent\DeleteRequest;
+use App\Http\Requests\Api\Eloquent\GetByIdRequest;
+use App\Http\Requests\Api\UserController\FindByEmailRequest;
+use App\Http\Requests\Api\UserController\ForgotPasswordRequest;
 use App\Http\Requests\Api\UserController\LoginRequest;
 use App\Http\Requests\Api\UserController\RegisterRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Http\Requests\Api\UserController\ResetPasswordRequest;
+use App\Http\Requests\Api\UserController\UpdatePassword;
+use App\Interfaces\Eloquent\IUserService;
 
 
 class UserController extends Controller

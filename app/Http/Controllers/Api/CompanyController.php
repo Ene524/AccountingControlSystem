@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Core\HttpResponse;
 use App\Http\Requests\Api\CompanyController\CreateRequest;
 use App\Http\Requests\Api\CompanyController\UpdateRequest;
+use App\Http\Requests\Api\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICompanyService;
 
 class CompanyController extends Controller
@@ -111,9 +112,9 @@ class CompanyController extends Controller
         );
     }
 
-    public function getById(int $id)
+    public function getById(GetByIdRequest $request)
     {
-        $response = $this->companyService->getById($id);
+        $response = $this->companyService->getById($request->Id);
 
         return $this->httpResponse(
             $response->isSuccess(),

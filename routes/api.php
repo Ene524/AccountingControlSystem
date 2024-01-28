@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
-        Route::get('getById/{id}', [CompanyController::class, 'getById'])->name('company.getById');
+        Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('company.delete');
     });
 });

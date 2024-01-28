@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Api\UserController;
+namespace App\Http\Requests\Api\Eloquent;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteRequest extends FormRequest
+class GetByIdRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class DeleteRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|int',
+            'Id' => 'required|integer',
         ];
     }
 }
