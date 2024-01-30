@@ -45,7 +45,7 @@ class Company extends Model
 
     public function user()
     {
-        return $this->BelongsToMany(User::class, 'company_user');
+        return $this->BelongsToMany(User::class, 'company_user')->withTimestamps();;
     }
 
 

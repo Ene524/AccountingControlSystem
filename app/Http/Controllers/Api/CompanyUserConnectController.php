@@ -17,7 +17,6 @@ class CompanyUserConnectController extends Controller
     {
         $this->userCompanyConnectService = $userCompanyConnectService;
     }
-
     public function create(Request $request)
     {
         $response = $this->userCompanyConnectService->create(
@@ -25,7 +24,15 @@ class CompanyUserConnectController extends Controller
             company_id: $request->company_id
         );
 
-
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
+    }
+    public function getAll(){
+        $response = $this->userCompanyConnectService->getAll();
         return $this->httpResponse(
             $response->isSuccess(),
             $response->getMessage(),

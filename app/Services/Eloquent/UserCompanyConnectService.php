@@ -5,6 +5,7 @@ namespace App\Services\Eloquent;
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserCompanyConnectService;
 use App\Models\Company;
+use App\Models\CompanyUser;
 use App\Models\User;
 
 /**
@@ -18,7 +19,13 @@ class UserCompanyConnectService implements IUserCompanyConnectService
      */
     public function getAll(): ServiceResponse
     {
-        // TODO: Implement getAll() method.
+        $userCompanyConnects = CompanyUser::paginate(10);
+        return new ServiceResponse(
+            true,
+            'User Company Connects retrieved successfully',
+            $userCompanyConnects,
+            200
+        );
     }
 
 
