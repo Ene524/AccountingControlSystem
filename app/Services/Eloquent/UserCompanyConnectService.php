@@ -35,7 +35,11 @@ class UserCompanyConnectService implements IUserCompanyConnectService
      */
     public function getById(int $id): ServiceResponse
     {
-        // TODO: Implement getById() method.
+        $companyUser = CompanyUser::where('id', $id)->first();
+        if (!$companyUser) {
+            return new ServiceResponse(false, "Company User Connection not found", null, 404);
+        }
+        return new ServiceResponse(true, "Company User Connection is found", $companyUser, 200);
     }
 
     /**

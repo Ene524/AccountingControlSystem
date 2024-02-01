@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
         Route::get('getAll', [CompanyUserConnectController::class, 'getAll'])->name('companyUserConnect.getAll');
-        //Route::get('getById/{id}', [CompanyUserConnectController::class, 'getById'])->name('companyUserConnect.getById');
+        Route::get('getById/{id}', [CompanyUserConnectController::class, 'getById'])->name('companyUserConnect.getById');
         //Route::delete('delete/{id}', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
     });
     Route::prefix('company')->group(function () {

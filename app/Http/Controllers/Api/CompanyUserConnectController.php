@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\IUserCompanyConnectService;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class CompanyUserConnectController extends Controller
     {
         $this->userCompanyConnectService = $userCompanyConnectService;
     }
+
     public function create(Request $request)
     {
         $response = $this->userCompanyConnectService->create(
@@ -31,8 +33,22 @@ class CompanyUserConnectController extends Controller
             $response->getStatusCode()
         );
     }
-    public function getAll(){
+
+    public function getAll()
+    {
         $response = $this->userCompanyConnectService->getAll();
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
+    }
+
+    public function getById(GetByIdRequest $request)
+    {
+        $response = $this->userCompanyConnectService->getById($request->id);
+
         return $this->httpResponse(
             $response->isSuccess(),
             $response->getMessage(),
