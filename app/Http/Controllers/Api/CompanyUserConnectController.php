@@ -47,7 +47,7 @@ class CompanyUserConnectController extends Controller
 
     public function getById(GetByIdRequest $request)
     {
-        $response = $this->userCompanyConnectService->getById($request->id);
+        $response = $this->userCompanyConnectService->getById($request->Id);
 
         return $this->httpResponse(
             $response->isSuccess(),

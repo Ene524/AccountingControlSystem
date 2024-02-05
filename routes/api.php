@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
-        Route::delete('delete/{id}', [CompanyController::class, 'delete'])->name('company.delete');
+        Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
     });
 });
 
@@ -37,6 +37,7 @@ Route::prefix('user')->group(function () {
     Route::post('login', [UserController::class, 'login'])->name('user.login');
     Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
     Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+    Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
 });
 
 

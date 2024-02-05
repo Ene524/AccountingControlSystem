@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Core\HttpResponse;
 use App\Http\Requests\Api\CompanyController\CreateRequest;
 use App\Http\Requests\Api\CompanyController\UpdateRequest;
+use App\Http\Requests\Api\Eloquent\DeleteRequest;
 use App\Http\Requests\Api\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICompanyService;
 
@@ -124,9 +125,9 @@ class CompanyController extends Controller
         );
     }
 
-    public function delete(int $id)
+    public function delete(DeleteRequest $request)
     {
-        $response = $this->companyService->delete($id);
+        $response = $this->companyService->delete($request->Id);
 
         return $this->httpResponse(
             $response->isSuccess(),
