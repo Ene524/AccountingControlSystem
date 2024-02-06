@@ -6,7 +6,7 @@ use App\Core\ServiceResponse;
 /**
  *
  */
-interface IUserCompanyConnectService extends IEloquentService
+interface IUserCompanyConnectService
 {
     /**
      * @param int $user_id
@@ -26,4 +26,11 @@ interface IUserCompanyConnectService extends IEloquentService
      * @return ServiceResponse
      */
     public function getUsersByCompanyId(int $company_id): ServiceResponse;
+
+    /**
+     * @param int $user_id
+     * @param int $company_id
+     * @return ServiceResponse
+     */
+    public function delete(int $user_id, int $company_id): ServiceResponse;
 }

@@ -46,10 +46,7 @@ class UserCompanyConnectService implements IUserCompanyConnectService
      * @param int $id
      * @return ServiceResponse
      */
-    public function delete(int $id): ServiceResponse
-    {
-        // TODO: Implement delete() method.
-    }
+
 
     /**
      * @param int $user_id
@@ -88,5 +85,10 @@ class UserCompanyConnectService implements IUserCompanyConnectService
     public function getUsersByCompanyId(int $company_id): ServiceResponse
     {
         // TODO: Implement getUsersByCompanyId() method.
+    }
+
+    public function delete(int $user_id, int $company_id): ServiceResponse
+    {
+
     }
 }
