@@ -45,6 +45,7 @@ class Company extends Model
 
     public function user()
     {
+        //->wherePivot('deleted_at',null);
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
