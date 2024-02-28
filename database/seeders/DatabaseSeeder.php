@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Currency;
 use App\Models\Subdivision;
 use App\Models\TaxOffice;
 use App\Models\Unit;
@@ -1527,5 +1528,13 @@ class DatabaseSeeder extends Seeder
             array("id" => 159, "name" => "Zincir", "global_code" => "MET", 'created_at' => now(), 'updated_at' => now())
         );
         Unit::insert($dataUnits);
+
+        $dataCurrencies=array(
+            array("id"=>0,"currency_code"=>"TRY","currency_name"=>"Türk Lirası","currency_symbol"=>"₺","is_active"=>1,"created_at"=>now(),"updated_at"=>now()),
+            array("id"=>1,"currency_code"=>"USD","currency_name"=>"Amerikan Doları","currency_symbol"=>"$","is_active"=>1,"created_at"=>now(),"updated_at"=>now()),
+            array("id"=>2,"currency_code"=>"EUR","currency_name"=>"Euro","currency_symbol"=>"€","is_active"=>1,"created_at"=>now(),"updated_at"=>now()),
+            array("id"=>3,"currency_code"=>"GBP","currency_name"=>"İngiliz Sterlini","currency_symbol"=>"£","is_active"=>1,"created_at"=>now(),"updated_at"=>now()),
+        );
+        Currency::insert($dataCurrencies);
     }
 }
