@@ -18,12 +18,11 @@ return new class extends Migration
             $table->tinyInteger('invoice_type')->comment('1=>Sales, 2=>Purchase');
             $table->dateTime('invoice_date');
             $table->string('invoice_number',16);
-            $table->date('invoice_date');
             $table->date('due_date');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('payment_term_id');
             $table->unsignedBigInteger('currency_id');
-            $table->decimal('exchange_rate', 8, 8)->default(1);
+            $table->decimal('exchange_rate', 8, 8)->default(0);
             $table->decimal('gross_total', 15, 6);
             $table->decimal('discount_total', 15, 6)->default(0);
             $table->decimal('vat_total', 15, 6)->default(0);
