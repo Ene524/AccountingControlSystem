@@ -1,18 +1,44 @@
 <?php
 
+use App\Http\Controllers\Web\CompanyController;
+use App\Http\Controllers\Web\CompanyUserConnectController;
+use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'auth:sanctum'], function () {
+
+    Route::prefix('user')->group(function () {
+        Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
+        Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
+        Route::get('findByEmail', [UserController::class, 'findByEmail'])->name('user.findByEmail');
+        Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
+        Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
+    });
+
+    Route::prefix('userCompanyConnect')->group(function () {
+        Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
+        Route::post('delete', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
+    });
+    Route::prefix('company')->group(function () {
+        Route::post('create', [CompanyController::class, 'create'])->name('company.create');
+        Route::post('update', [CompanyController::class, 'update'])->name('company.update');
+        Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
+        Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
+        Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
+    });
 });
+
+
+Route::prefix('user')->group(function () {
+    Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
+});
+
+Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
+Route::post('register', [UserController::class, 'register'])->name('user.register');
+Route::get('login', [UserController::class, 'login'])->name('user.login');
+Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
+Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+
+
+
