@@ -28,7 +28,7 @@ class UserController extends Controller
 
     public function showRegister()
     {
-        return view('layouts.auth');
+        return view('modules.authentication.register.index');
     }
     public function register(RegisterRequest $request)
     {
