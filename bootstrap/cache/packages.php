@@ -48,6 +48,17 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'proengsoft/laravel-jsvalidation' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Proengsoft\\JsValidation\\JsValidationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'JsValidator' => 'Proengsoft\\JsValidation\\Facades\\JsValidatorFacade',
+    ),
+  ),
   'rakutentech/laravel-request-docs' => 
   array (
     'providers' => 

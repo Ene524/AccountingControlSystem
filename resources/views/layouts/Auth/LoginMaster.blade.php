@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>Kayıt Ol</title>
+    <title>Giriş Yap</title>
 
     <meta name="description" content=""/>
 
@@ -34,16 +34,15 @@
           class="template-customizer-theme-css"/>
     <link rel="stylesheet" href="{{asset('assets/css/demo.css')}}"/>
 
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}"/>
+{{--    <link rel="stylesheet" href="{{asset('assets/vendor/libs/node-waves/node-waves.css')}}"/>--}}
+{{--    <link rel="stylesheet" href="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}"/>--}}
     <link rel="stylesheet" href="{{asset('assets/vendor/libs/typeahead-js/typeahead.css')}}"/>
-    <link rel="stylesheet" href="{{asset('assets/vendor/libs/@form-validation/form-validation.css')}}"/>
-
+{{--    <link rel="stylesheet" href="{{asset('assets/vendor/libs/@form-validation/form-validation.css')}}"/>--}}
     <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}"/>
 
-    <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>
-    <script src="{{asset('assets/vendor/js/template-customizer.js')}}"></script>
-    <script src="{{asset('assets/js/config.js')}}"></script>
+{{--    <script src="{{asset('assets/vendor/js/helpers.js')}}"></script>--}}
+{{--    <script src="{{asset('assets/vendor/js/template-customizer.js')}}"></script>--}}
+{{--    <script src="{{asset('assets/js/config.js')}}"></script>--}}
     @yield('customStyle')
 </head>
 
@@ -55,12 +54,12 @@
 <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
 <script src="{{asset('assets/vendor/libs/popper/popper.js')}}"></script>
 <script src="{{asset('assets/vendor/js/bootstrap.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/node-waves/node-waves.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/hammer/hammer.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/i18n/i18n.js')}}"></script>
-<script src="{{asset('assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>
-<script src="{{asset('assets/vendor/js/menu.js')}}"></script>
+{{--<script src="{{asset('assets/vendor/libs/node-waves/node-waves.js')}}"></script>--}}
+{{--<script src="{{asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>--}}
+{{--<script src="{{asset('assets/vendor/libs/hammer/hammer.js')}}"></script>--}}
+{{--<script src="{{asset('assets/vendor/libs/i18n/i18n.js')}}"></script>--}}
+{{--<script src="{{asset('assets/vendor/libs/typeahead-js/typeahead.js')}}"></script>--}}
+{{--<script src="{{asset('assets/vendor/js/menu.js')}}"></script>--}}
 
 
 <script src="{{asset('assets/vendor/libs/@form-validation/popular.js')}}"></script>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Web\CompanyController\CreateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Http\Requests\Web\UserController\FindByEmailRequest;
@@ -30,8 +31,9 @@ class UserController extends Controller
     {
         return view('modules.authentication.register.index');
     }
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request,CreateRequest $companyRequest)
     {
+        dd($request->all(),$companyRequest->all());
         $response = $this->userService->register(
             name: $request->name,
             email: $request->email,
@@ -46,6 +48,10 @@ class UserController extends Controller
         );
     }
 
+    public function showLogin()
+    {
+        return view('modules.authentication.login.index');
+    }
     public function login(LoginRequest $request)
     {
         $response = $this->userService->login(

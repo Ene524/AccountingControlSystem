@@ -36,7 +36,10 @@ Route::prefix('user')->group(function () {
 
 Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
 Route::post('register', [UserController::class, 'register'])->name('user.register');
-Route::get('login', [UserController::class, 'login'])->name('user.login');
+
+Route::get('login', [UserController::class, 'showLogin'])->name('user.showLogin');
+Route::post('login', [UserController::class, 'login'])->name('user.login');
+
 Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
 Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
 

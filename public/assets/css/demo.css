@@ -127,3 +127,9 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+.error-help-block {
+  color: #f14668 !important;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

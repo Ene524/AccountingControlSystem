@@ -27,4 +27,11 @@ class RegisterRequest extends FormRequest
             'password' => 'required|string|min:8',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Ad Soyad alanı zorunludur',
+        ];
+    }
 }
