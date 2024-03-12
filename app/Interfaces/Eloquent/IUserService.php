@@ -21,9 +21,10 @@ interface IUserService extends IEloquentService
     /**
      * @param string $email
      * @param string $password
+     * @param bool|null $remember
      * @return ServiceResponse
      */
-    public function login(string $email, string $password): ServiceResponse;
+    public function login(string $email, string $password, ?bool $remember): ServiceResponse;
 
     /**
      * @param string $email
@@ -65,4 +66,6 @@ interface IUserService extends IEloquentService
      * @return ServiceResponse
      */
     public function getById(int $id): ServiceResponse;
+
+    public function logout(): ServiceResponse;
 }

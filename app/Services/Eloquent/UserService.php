@@ -6,10 +6,10 @@ use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 
@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
  */
 class UserService implements IUserService
 {
+
     /**
      * @param string $name
      * @param string $email
@@ -29,7 +30,7 @@ class UserService implements IUserService
         $user = $this->findByEmail($email);
 
         if ($user->isSuccess()) {
-            return new ServiceResponse(false, "User already exists", null, 400);
+            return new ServiceResponse(false, "Bu kullanıcı sistemde mevcut", null, 400);
         }
         $user = User::create([
             'name' => $name,
@@ -37,28 +38,7 @@ class UserService implements IUserService
             'password' => $password
         ]);
 
-        return new ServiceResponse(true, "User created", $user, 201);
-    }
-
-    /**
-     * @param string $email
-     * @param string $password
-     * @return ServiceResponse
-     */
-    public function login(string $email, string $password): ServiceResponse
-    {
-        $user = $this->findByEmail($email);
-
-        if ($user->isSuccess()) {
-            $user = $user->getData();
-            if (password_verify($password, $user->password)) {
-                $token = $user->createToken('auth_token')->plainTextToken;
-                return new ServiceResponse(true, "User logged in", ["token" => $token, "user" => $user], 200);
-
-            }
-            return new ServiceResponse(false, "User not found or wrong password", null, 400);
-        }
-        return $user;
+        return new ServiceResponse(true, "Kullanıcı başarıyla oluşturuldu", $user, 201);
     }
 
     /**
@@ -74,6 +54,31 @@ class UserService implements IUserService
         }
 
         return new ServiceResponse(false, "User not found", null, 404);
+    }
+
+
+    /**
+     * @param string $email
+     * @param string $password
+     * @param bool|null $remember
+     * @return ServiceResponse
+     */
+    public function login(string $email, string $password, ?bool $remember): ServiceResponse
+    {
+        $user = $this->findByEmail($email);
+
+        if ($user->isSuccess()) {
+            $user = $user->getData();
+            if (password_verify($password, $user->password)) {
+//                $token = $user->createToken('auth_token')->plainTextToken;
+//                return new ServiceResponse(true, "User logged in", ["token" => $token, "user" => $user], 200);
+                Auth::login($user, $remember);
+                return new ServiceResponse(true, "User logged in", ["user" => $user], 200);
+
+            }
+            return new ServiceResponse(false, "Kullanıcı bulunamadı ya da şifre yanlış", null, 400);
+        }
+        return $user;
     }
 
     /**
@@ -103,7 +108,7 @@ class UserService implements IUserService
      * @param string $token
      * @return ServiceResponse
      */
-    public function resetPassword(string $email, string $password, string $token,): ServiceResponse
+    public function resetPassword(string $email, string $password, string $token): ServiceResponse
     {
         $userResponse = $this->findByEmail($email);
         if ($userResponse->isSuccess()) {
@@ -140,12 +145,19 @@ class UserService implements IUserService
     }
 
     /**
+     * @param int $id
      * @return ServiceResponse
      */
-    public function getAll(): ServiceResponse
+    public function delete(int $id): ServiceResponse
     {
-        $users = User::paginate(100);
-        return new ServiceResponse(true, "Users found", $users, 200);
+        $user = $this->getById($id);
+        if ($user->isSuccess()) {
+            $user->getData()->delete();
+            return new ServiceResponse(true, 'User deleted', null, 200);
+        }
+        return new ServiceResponse(false, 'User not found', null, 404);
+
+
     }
 
     /**
@@ -163,19 +175,12 @@ class UserService implements IUserService
     }
 
     /**
-     * @param int $id
      * @return ServiceResponse
      */
-    public function delete(int $id): ServiceResponse
+    public function getAll(): ServiceResponse
     {
-        $user = $this->getById($id);
-        if ($user->isSuccess()) {
-            $user->getData()->delete();
-            return new ServiceResponse(true, 'User deleted', null, 200);
-        }
-        return new ServiceResponse(false, 'User not found', null, 404);
-
-
+        $users = User::paginate(100);
+        return new ServiceResponse(true, "Users found", $users, 200);
     }
 
     /**
@@ -208,6 +213,12 @@ class UserService implements IUserService
      */
     public function updateProfile(string $email, string $name): ServiceResponse
     {
-        // TODO: Implement updateProfile() method.
+        return new ServiceResponse(false, "Not implemented", null, 501);
+    }
+
+    public function logout(): ServiceResponse
+    {
+        Auth::logout();
+        return new ServiceResponse(true, "User logged out", null, 200);
     }
 }

@@ -23,7 +23,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'email|required|string|max:255',
+            'email' => 'email|required|string|max:255|unique:users,email',
             'password' => 'required|string|min:8',
         ];
     }
@@ -32,6 +32,13 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name.required' => 'Ad Soyad alanı zorunludur',
+            'name.max' => 'Ad Soyad alanı en fazla 255 karakter olmalıdır',
+            'email.required' => 'E-posta alanı zorunludur',
+            'email.unique' => 'Bu e-posta adresi zaten kullanılmaktadır',
+            'email.email' => 'E-posta alanı geçerli bir e-posta adresi olmalıdır',
+            'email.max' => 'E-posta alanı en fazla 255 karakter olmalıdır',
+            'password.required' => 'Şifre alanı zorunludur',
+
         ];
     }
 }

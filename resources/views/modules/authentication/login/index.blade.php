@@ -38,12 +38,32 @@
                                 <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
                             </a>
                         </div>
-                        <h4 class="mb-1 pt-2">Welcome to Vuexy! 👋</h4>
-                        <p class="mb-4">Please sign-in to your account and start the adventure</p>
+                        <h4 class="mb-1 pt-2">Hoşgeldin 👋</h4>
+                        <p class="mb-4">Hadi giriş yapıp kullanmaya başla</p>
 
-                        <form class="mb-3" action="{{route('user.login')}}" method="GET">
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }} <br>
+                            </div>
+                        @endif
+
+
+
+
+                        @if ($errors->all())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    {{$error}}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endforeach
+                        @endif
+
+
+                        <form class="mb-3" action="{{route('user.login')}}" method="POST">
+                            @csrf
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email or Username</label>
+                                <label for="email" class="form-label">Eposta</label>
                                 <input
                                     type="text"
                                     class="form-control"
@@ -54,8 +74,8 @@
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
-                                    <label class="form-label" for="password">Password</label>
-                                    <a href="auth-forgot-password-basic.html">
+                                    <label class="form-label" for="password">Parola</label>
+                                    <a href="{{route('password.forgot')}}">
                                         <small>Forgot Password?</small>
                                     </a>
                                 </div>
@@ -72,12 +92,12 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                                    <label class="form-check-label" for="remember-me"> Remember Me </label>
+                                    <input class="form-check-input" type="checkbox"  name="remember" id="remember" />
+                                    <label class="form-check-label" for="remember-me"> Beni Hatırla </label>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button class="btn btn-primary d-grid w-100" type="submit">Giriş Yap</button>
                             </div>
                         </form>
 

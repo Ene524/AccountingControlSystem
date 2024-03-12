@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\CompanyUserConnectController;
+use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::middleware("auth")->group(function () {
+
 
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
@@ -14,12 +16,14 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('findByEmail', [UserController::class, 'findByEmail'])->name('user.findByEmail');
         Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
+        Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
     });
 
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
         Route::post('delete', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
     });
+
     Route::prefix('company')->group(function () {
         Route::post('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
@@ -27,20 +31,22 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
     });
-});
 
-
-Route::prefix('user')->group(function () {
-    Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
+    Route::prefix('dashboard')->group(function () {
+        Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
+    });
 });
 
 Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
 Route::post('register', [UserController::class, 'register'])->name('user.register');
 
-Route::get('login', [UserController::class, 'showLogin'])->name('user.showLogin');
+Route::get('/', [UserController::class, 'showLogin'])->name('user.showLogin');
 Route::post('login', [UserController::class, 'login'])->name('user.login');
 
-Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgot');
+Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
+
+Route::get('forgotPassword', [UserController::class, 'showForgotPassword'])->name('password.forgot');
+Route::post('forgotPassword', [UserController::class, 'forgotPassword']);
 Route::post('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
 
 

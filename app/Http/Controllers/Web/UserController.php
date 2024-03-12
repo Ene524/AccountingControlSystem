@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Web\CompanyController\CreateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Http\Requests\Web\UserController\FindByEmailRequest;
@@ -31,40 +30,46 @@ class UserController extends Controller
     {
         return view('modules.authentication.register.index');
     }
-    public function register(RegisterRequest $request,CreateRequest $companyRequest)
+
+    public function register(RegisterRequest $request)
     {
-        dd($request->all(),$companyRequest->all());
         $response = $this->userService->register(
             name: $request->name,
             email: $request->email,
-            password: $request->password
+            password: $request->password,
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        if ($response->isSuccess()) {
+            return redirect()->back()->with('success', $response->getMessage());
+        } else {
+            return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
+
+        }
     }
 
     public function showLogin()
     {
-        return view('modules.authentication.login.index');
+        if (auth()->check()) {
+            return redirect()->route("dashboard.index");
+        } else {
+            return view('modules.authentication.login.index');
+        }
     }
+
     public function login(LoginRequest $request)
     {
         $response = $this->userService->login(
             email: $request->email,
-            password: $request->password
+            password: $request->password,
+            remember: $request->remember,
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        if ($response->isSuccess()) {
+            return redirect()->route("dashboard.index");
+        } else {
+            return redirect()->route("user.login")->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
+
+        }
     }
 
     public function findByEmail(FindByEmailRequest $request)
@@ -157,5 +162,16 @@ class UserController extends Controller
             $response->getData(),
             $response->getStatusCode()
         );
+    }
+
+    public function logout()
+    {
+        $response = $this->userService->logout();
+
+        if ($response->isSuccess()) {
+            return redirect()->route('user.showLogin');
+        } else {
+            return redirect()->back()->with('message', $response->getMessage());
+        }
     }
 }
