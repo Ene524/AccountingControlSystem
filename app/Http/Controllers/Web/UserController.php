@@ -54,7 +54,7 @@ class UserController extends Controller
     public function showLogin()
     {
         if (auth()->check()) {
-            return redirect()->route("dashboard.index");
+            return redirect()->route("modules");
         } else {
             return view('modules.authentication.login.index');
         }
@@ -72,7 +72,7 @@ class UserController extends Controller
         if ($response->isSuccess()) {
             return redirect()->route("dashboard.index");
         } else {
-            return redirect()->route("user.login")->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
+            return redirect()->route("user.showLogin")->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
 
         }
     }

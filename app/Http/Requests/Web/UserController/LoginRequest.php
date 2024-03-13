@@ -26,4 +26,13 @@ class LoginRequest extends FormRequest
             'password' => 'required',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'Eposta alanı boş bırakılamaz',
+            'email.email' => 'Eposta geçersiz',
+            'password.required' => 'Parola alanı boş bırakılamaz',
+        ];
+    }
 }

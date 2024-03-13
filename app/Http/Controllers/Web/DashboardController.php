@@ -9,12 +9,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $company = auth()->user()->company;
-
-        if ($company) {
-
-            return view('modules.dashboard.index.index', compact('company'));
-        }
         return view('modules.dashboard.index.index');
+    }
+
+    public function userCompanyDashboard(){
+        $company = auth()->user()->company;
+        return view('modules.dashboard.user-company-dashboard.index.index', compact('company'));
     }
 }
