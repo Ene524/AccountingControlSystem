@@ -28,7 +28,11 @@ class UserController extends Controller
 
     public function showRegister()
     {
-        return view('modules.authentication.register.index');
+        if (auth()->check()) {
+            return redirect()->route("dashboard.index");
+        } else {
+            return view('modules.authentication.register.index');
+        }
     }
 
     public function register(RegisterRequest $request)
@@ -55,6 +59,7 @@ class UserController extends Controller
             return view('modules.authentication.login.index');
         }
     }
+
 
     public function login(LoginRequest $request)
     {
@@ -84,18 +89,23 @@ class UserController extends Controller
 
     }
 
+    public function showForgotPassword()
+    {
+        return view('emails.forgot-password');
+    }
+
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $response = $this->userService->forgotPassword(
             email: $request->email,
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        if ($response->isSuccess()) {
+            return redirect()->route("password.showForgotPassword")->with('success', $response->getMessage());
+        } else {
+            return redirect()->route("password.forgotPassword")->withErrors(["email" => $response->getMessage()])->onlyInput("email");
+        }
+
     }
 
     public function resetPassword(ResetPasswordRequest $request)

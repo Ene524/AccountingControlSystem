@@ -3,18 +3,19 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-3 col-xs-12 col-md-6">
-            <div class="small-box bg-yellow">
-                <div class="inner">
-                    <h3>0</h3>
-                    <p>Personel</p>
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <h5 class="card-header">Default</h5>
+                <div class="card-body">
+                    <div>
+                        <label for="defaultFormControlInput" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="defaultFormControlInput"
+                               placeholder="John Doe" aria-describedby="defaultFormControlHelp"/>
+                        <div id="defaultFormControlHelp" class="form-text">
+                            We'll never share your details with anyone else.
+                        </div>
+                    </div>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    Detay <i class="fa fa-arrow-circle-right"></i>
-                </a>
             </div>
         </div>
     </div>
