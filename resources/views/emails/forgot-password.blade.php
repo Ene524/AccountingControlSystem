@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Forgot Password Cover - Pages | Vuexy - Bootstrap Admin Template</title>
+    <title>Şifremi unuttum</title>
 
     <meta name="description" content="" />
 
@@ -121,6 +121,13 @@
                 <h3 class="mb-1">Şifremi unuttum? 🔒</h3>
                 <p class="mb-4">E-postanızı girin, şifrenizi sıfırlama mailinizi gönderelim</p>
 
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }} <br>
+                    </div>
+                @endif
+
+
                 @if ($errors->all())
                     @foreach ($errors->all() as $error)
                         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -129,7 +136,6 @@
                         </div>
                     @endforeach
                 @endif
-
 
                 <form class="mb-3" action="{{route('password.forgotPassword')}}" method="POST">
                     @csrf
@@ -185,8 +191,8 @@
 <!-- Page JS -->
 <script src="{{asset('assets/js/pages-auth.js')}}"></script>
 
-<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
-{!! JsValidator::formRequest('App\Http\Requests\Web\UserController\ForgotPasswordRequest') !!}
+{{--<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>--}}
+{{--{!! JsValidator::formRequest('App\Http\Requests\Web\UserController\ForgotPasswordRequest') !!}--}}
 
 </body>
 </html>

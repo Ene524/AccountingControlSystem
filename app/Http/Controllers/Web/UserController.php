@@ -99,12 +99,12 @@ class UserController extends Controller
         $response = $this->userService->forgotPassword(
             email: $request->email,
         );
-
         if ($response->isSuccess()) {
             return redirect()->route("password.showForgotPassword")->with('success', $response->getMessage());
         } else {
-            return redirect()->route("password.forgotPassword")->withErrors(["email" => $response->getMessage()])->onlyInput("email");
+            return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email");
         }
+
 
     }
 

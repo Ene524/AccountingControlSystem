@@ -91,14 +91,15 @@ class UserService implements IUserService
 
         if ($userResponse->isSuccess()) {
             $status = Password::sendResetLink(Request::only('email'));
-//            dd($status);
+
+            sleep(3);
             if ($status == Password::RESET_LINK_SENT) {
                 return new ServiceResponse(true, "Sıfırlama maili gönderildi", null, 200);
             } else {
                 return new ServiceResponse(false, "Sıfırlama maili gönderilemedi", null, 400);
             }
         } else {
-            return new ServiceResponse(false, "User not found", null, 404);
+            return new ServiceResponse(false, "Kullanıcı bulunamadı", null, 404);
         }
     }
 
