@@ -38,6 +38,7 @@ class RegisterRequest extends FormRequest
             'email.email' => 'E-posta alanı geçerli bir e-posta adresi olmalıdır',
             'email.max' => 'E-posta alanı en fazla 255 karakter olmalıdır',
             'password.required' => 'Şifre alanı zorunludur',
+            'password.min' => 'Şifre alanı en az 8 karakter olmalıdır',
 
         ];
     }

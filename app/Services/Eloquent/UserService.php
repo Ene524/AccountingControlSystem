@@ -5,12 +5,9 @@ namespace App\Services\Eloquent;
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
 use App\Models\User;
-use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Str;
 
 
 /**
@@ -96,7 +93,7 @@ class UserService implements IUserService
             if ($status == Password::RESET_LINK_SENT) {
                 return new ServiceResponse(true, "Sıfırlama maili gönderildi", null, 200);
             } else {
-                return new ServiceResponse(false, "Sıfırlama maili gönderilemedi", null, 400);
+                return new ServiceResponse(false, "Sıfırlama maili gönderilemedi, lütfen tekrar deneyin.", null, 400);
             }
         } else {
             return new ServiceResponse(false, "Kullanıcı bulunamadı", null, 404);
@@ -109,40 +106,22 @@ class UserService implements IUserService
      * @param string $token
      * @return ServiceResponse
      */
-    public function resetPassword(string $email, string $password, string $token): ServiceResponse
+    public function resetPassword(string $email, string $password): ServiceResponse
     {
+        // Kullanıcıyı e-posta adresine göre bul
         $userResponse = $this->findByEmail($email);
+
+        // Kullanıcı bulunduysa işlemleri yap
         if ($userResponse->isSuccess()) {
-            $status = Password::reset(
-                [
-                    'email' => $email,
-                    'password' => $password,
-                    'password_confirmation' => $password,
-                    'token' => $token
-                ],
-                function ($user) use ($email, $password) {
-                    $user->forceFill([
-                        'password' => Hash::make($password),
-                        'remember_token' => Str::random(60),
-                    ])->save();
+            $user = $userResponse->getData();
 
-                    $user->tokens()->delete();
-                    event(new PasswordReset($user));
-                }
-            );
+            $user->password = $password;
+            $user->save();
+            return new ServiceResponse(true, "Parola sıfırlandı", null, 200);
 
-
-            if ($status == Password::PASSWORD_RESET) {
-                return new ServiceResponse(true, "Password reset", null, 200);
-
-            } else {
-                return new ServiceResponse(false, "Password not reset - " . $status, null, 400);
-            }
         } else {
-            return new ServiceResponse(false, "User not found", null, 404);
+            return new ServiceResponse(false, "Kullanıcı bulunamadı", null, 404);
         }
-
-
     }
 
     /**

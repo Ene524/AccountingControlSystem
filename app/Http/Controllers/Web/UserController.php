@@ -108,20 +108,29 @@ class UserController extends Controller
 
     }
 
-    public function resetPassword(ResetPasswordRequest $request)
+    public function showPasswordResetToken($token)
+    {
+        return view('emails.reset-password', ['token' => $token]);
+    }
+
+    public function showPasswordReset()
+    {
+        return view('emails.reset-password');
+    }
+
+    public function sendPasswordReset(ResetPasswordRequest $request)
     {
         $response = $this->userService->resetPassword(
             email: $request->email,
-            password: $request->password,
-            token: $request->token,
+            password: $request->password
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+
+        if ($response->isSuccess()) {
+            return redirect()->back()->with('success', $response->getMessage());
+        } else {
+            return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email");
+        }
 
 
     }

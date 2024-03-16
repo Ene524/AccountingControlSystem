@@ -44,7 +44,7 @@ interface IUserService extends IEloquentService
      * @param string $token
      * @return ServiceResponse
      */
-    public function resetPassword(string $email, string $password, string $token): ServiceResponse;
+    public function resetPassword(string $email, string $password): ServiceResponse;
 
     /**
      * @param string $email

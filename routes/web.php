@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware("auth")->group(function () {
-
-
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
@@ -48,7 +46,10 @@ Route::get('logout', [UserController::class, 'logout'])->name('user.logout');
 
 Route::get('forgotPassword', [UserController::class, 'showForgotPassword'])->name('password.showForgotPassword');
 Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('password.forgotPassword');
-Route::get('resetPassword/{token}', [UserController::class, 'resetPassword'])->name('password.reset');
+
+Route::get('resetPassword/{token}', [UserController::class, 'showPasswordResetToken'])->name('password.showResetToken');
+Route::get('resetPassword', [UserController::class, 'showPasswordReset'])->name('password.resetShow');
+Route::post('resetPassword', [UserController::class, 'sendPasswordReset'])->name('password.reset');
 
 
 
