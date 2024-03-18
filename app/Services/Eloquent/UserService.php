@@ -6,7 +6,6 @@ use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
 use App\Mail\VerifyEmail;
 use App\Models\User;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
@@ -61,9 +60,16 @@ class UserService implements IUserService
         return new ServiceResponse(false, "Kullanıcı bilgisi bulunamadı", null, 404);
     }
 
-    public function verifyEmail(EmailVerificationRequest $request): ServiceResponse
+    public function verifyEmail($token): ServiceResponse
     {
-        return new ServiceResponse(true, "Email doğrulaması başarılı", null, 200);
+        $user = User::where('remember_token', $token)->first();
+        if (!$user) {
+            return new ServiceResponse(false, "Kullanıcı bulunamadı", null, 404);
+        } else {
+            $user->email_verified_at = now();
+            $user->save();
+            return new ServiceResponse(true, "Email doğrulaması başarılı", null, 200);
+        }
     }
 
     /**

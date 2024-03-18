@@ -55,7 +55,7 @@ class UserController extends Controller
     public function showLogin()
     {
         if (auth()->check()) {
-            return redirect()->route("modules");
+            return redirect()->route("dashboard.index");
         } else {
             return view('modules.authentication.login.index');
         }
@@ -78,15 +78,15 @@ class UserController extends Controller
         }
     }
 
-    public function verifyEmail(EmailVerificationRequest $request )
+    public function verifyEmail($token )
     {
-        $response = $this->userService->verifyEmail($request->id, $request->hash);
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        $response = $this->userService->verifyEmail($token);
+
+        if ($response->isSuccess()) {
+            return redirect()->route("user.showLogin")->with('success', $response->getMessage());
+        } else {
+            return redirect()->route("user.showLogin")->withErrors(["email" => $response->getMessage()])->onlyInput("email");
+        }
     }
 
     public function findByEmail(FindByEmailRequest $request)

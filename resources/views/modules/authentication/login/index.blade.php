@@ -70,7 +70,8 @@
                                     id="email"
                                     name="email"
                                     placeholder="Enter your email or username"
-                                    autofocus />
+                                    autofocus
+                                    value="{{old('email')}}"/>
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">

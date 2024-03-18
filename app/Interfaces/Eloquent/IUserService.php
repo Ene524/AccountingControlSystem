@@ -19,11 +19,12 @@ interface IUserService extends IEloquentService
      */
     public function register(string $name, string $email, string $password): ServiceResponse;
 
+
     /**
-     * @param EmailVerificationRequest $request
+     * @param string $token
      * @return ServiceResponse
      */
-    public function verifyEmail(EmailVerificationRequest $request): ServiceResponse;
+    public function verifyEmail(string $token): ServiceResponse;
 
     /**
      * @param string $email

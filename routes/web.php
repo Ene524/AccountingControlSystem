@@ -36,6 +36,7 @@ Route::middleware("auth")->group(function () {
     });
 });
 
+#region Public Routes
 Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
 Route::post('register', [UserController::class, 'register'])->name('user.register');
 Route::get('/email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
@@ -51,6 +52,4 @@ Route::post('forgotPassword', [UserController::class, 'forgotPassword'])->name('
 Route::get('resetPassword/{token}', [UserController::class, 'showPasswordResetToken'])->name('password.showResetToken');
 Route::get('resetPassword', [UserController::class, 'showPasswordReset'])->name('password.resetShow');
 Route::post('resetPassword', [UserController::class, 'sendPasswordReset'])->name('password.reset');
-
-
-
+#endregion
