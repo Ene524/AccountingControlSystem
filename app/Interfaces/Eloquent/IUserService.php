@@ -3,6 +3,7 @@
 namespace App\Interfaces\Eloquent;
 
 use App\Core\ServiceResponse;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 /**
@@ -17,6 +18,12 @@ interface IUserService extends IEloquentService
      * @return ServiceResponse
      */
     public function register(string $name, string $email, string $password): ServiceResponse;
+
+    /**
+     * @param EmailVerificationRequest $request
+     * @return ServiceResponse
+     */
+    public function verifyEmail(EmailVerificationRequest $request): ServiceResponse;
 
     /**
      * @param string $email
@@ -67,5 +74,8 @@ interface IUserService extends IEloquentService
      */
     public function getById(int $id): ServiceResponse;
 
+    /**
+     * @return ServiceResponse
+     */
     public function logout(): ServiceResponse;
 }

@@ -38,6 +38,7 @@ Route::middleware("auth")->group(function () {
 
 Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
 Route::post('register', [UserController::class, 'register'])->name('user.register');
+Route::get('/email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
 
 Route::get('/', [UserController::class, 'showLogin'])->name('user.showLogin');
 Route::post('login', [UserController::class, 'login'])->name('user.login');

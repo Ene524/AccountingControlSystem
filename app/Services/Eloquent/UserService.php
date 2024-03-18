@@ -4,10 +4,14 @@ namespace App\Services\Eloquent;
 
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
+use App\Mail\VerifyEmail;
 use App\Models\User;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Request;
+use Mail;
+use Str;
 
 
 /**
@@ -32,10 +36,11 @@ class UserService implements IUserService
         $user = User::create([
             'name' => $name,
             'email' => $email,
-            'password' => $password
+            'password' => $password,
+            'remember_token' => Str::random(40),
         ]);
-
-        return new ServiceResponse(true, "Kullanıcı başarıyla oluşturuldu", $user, 201);
+        Mail::to($user->email)->send(new VerifyEmail($user));
+        return new ServiceResponse(true, "Kullanıcı başarıyla oluşturuldu, doğrulama işlemini sağladıktan sonra sisteme giriş yapabilirsiniz", $user, 201);
     }
 
     /**
@@ -44,15 +49,22 @@ class UserService implements IUserService
      */
     public function findByEmail(string $email): ServiceResponse
     {
-        $user = User::where('email', $email)->first();
+        $user = User::where('email', $email)
+            ->where('deleted_at', null)
+            ->where('email_verified_at', '!=', null)
+            ->first();
 
         if ($user) {
-            return new ServiceResponse(true, "User found", $user, 200);
+            return new ServiceResponse(true, "Kullanıcı bilgisi bulundu", $user, 200);
         }
 
-        return new ServiceResponse(false, "User not found", null, 404);
+        return new ServiceResponse(false, "Kullanıcı bilgisi bulunamadı", null, 404);
     }
 
+    public function verifyEmail(EmailVerificationRequest $request): ServiceResponse
+    {
+        return new ServiceResponse(true, "Email doğrulaması başarılı", null, 200);
+    }
 
     /**
      * @param string $email
@@ -89,7 +101,7 @@ class UserService implements IUserService
         if ($userResponse->isSuccess()) {
             $status = Password::sendResetLink(Request::only('email'));
 
-            sleep(3);
+            sleep(2);
             if ($status == Password::RESET_LINK_SENT) {
                 return new ServiceResponse(true, "Sıfırlama maili gönderildi", null, 200);
             } else {
@@ -103,7 +115,6 @@ class UserService implements IUserService
     /**
      * @param string $email
      * @param string $password
-     * @param string $token
      * @return ServiceResponse
      */
     public function resetPassword(string $email, string $password): ServiceResponse

@@ -13,6 +13,7 @@ use App\Http\Requests\Web\UserController\RegisterRequest;
 use App\Http\Requests\Web\UserController\ResetPasswordRequest;
 use App\Http\Requests\Web\UserController\UpdatePassword;
 use App\Interfaces\Eloquent\IUserService;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 class UserController extends Controller
@@ -75,6 +76,17 @@ class UserController extends Controller
             return redirect()->route("user.showLogin")->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
 
         }
+    }
+
+    public function verifyEmail(EmailVerificationRequest $request )
+    {
+        $response = $this->userService->verifyEmail($request->id, $request->hash);
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
     }
 
     public function findByEmail(FindByEmailRequest $request)
