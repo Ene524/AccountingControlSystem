@@ -4,6 +4,7 @@ namespace App\Services\Eloquent;
 
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\IUserService;
+use App\Jobs\SendEmail;
 use App\Mail\VerifyEmail;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,7 @@ class UserService implements IUserService
             'password' => $password,
             'remember_token' => Str::random(40),
         ]);
-        Mail::to($user->email)->send(new VerifyEmail($user));
+        SendEmail::dispatch($user);
         return new ServiceResponse(true, "Kullanıcı başarıyla oluşturuldu, doğrulama işlemini sağladıktan sonra sisteme giriş yapabilirsiniz", $user, 201);
     }
 
