@@ -13,7 +13,6 @@ use App\Http\Requests\Web\UserController\RegisterRequest;
 use App\Http\Requests\Web\UserController\ResetPasswordRequest;
 use App\Http\Requests\Web\UserController\UpdatePassword;
 use App\Interfaces\Eloquent\IUserService;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 class UserController extends Controller
@@ -78,7 +77,7 @@ class UserController extends Controller
         }
     }
 
-    public function verifyEmail($token )
+    public function verifyEmail($token)
     {
         $response = $this->userService->verifyEmail($token);
 

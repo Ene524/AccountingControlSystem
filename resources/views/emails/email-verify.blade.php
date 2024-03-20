@@ -6,7 +6,6 @@
     Doğrula butonuna tıklayarak e-posta adresini doğrulayabilirsin.
     Doğrulama işleminden sonra {{env('APP_URL')}}'e istediğiniz zaman giriş yaparak kullanabilirsiniz.
 
-    @component('mail::button', ['url' => route('verification.verify', $user->remember_token)])
-        Doğrula
-    @endcomponent
+    <a href="{{ route('verification.verify', $user->remember_token) }}" class="btn btn-primary">Doğrula</a>
+
 @endcomponent
