@@ -8,4 +8,7 @@
 
     <a href="{{ route('verification.verify', $user->remember_token) }}" class="btn btn-primary">Doğrula</a>
 
+    @component('mail::button', [route('verification.verify') => $user->remember_token])
+        Button Text
+    @endcomponent
 @endcomponent
