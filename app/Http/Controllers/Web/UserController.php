@@ -34,7 +34,6 @@ class UserController extends Controller
             return view('modules.authentication.register.index');
         }
     }
-
     public function register(RegisterRequest $request)
     {
         $response = $this->userService->register(
