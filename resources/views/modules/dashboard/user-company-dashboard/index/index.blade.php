@@ -2,6 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
 
+{{--    Doğru componenti çağır--}}
     <div class="row">
         <h2 class="mt-5">Şirket Seçimi</h2>
         Şirket seçimi yapılacak
