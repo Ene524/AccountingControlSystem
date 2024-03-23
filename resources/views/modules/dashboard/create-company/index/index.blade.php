@@ -16,103 +16,121 @@
                         <form class="card-body">
                             <h6>1. Temel Firma Bilgileri</h6>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="multicol-username">Username</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="multicol-username" class="form-control" placeholder="john.doe" />
+                                <label class="col-sm-3 col-form-label" for="title">Title</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="title" class="form-control" placeholder="" />
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="short_title">Short Title</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="short_title" class="form-control" placeholder="" />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="multicol-email">Email</label>
+                                <label class="col-sm-3 col-form-label" for="is_person">Is Person</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group input-group-merge">
-                                        <input
-                                            type="text"
-                                            id="multicol-email"
-                                            class="form-control"
-                                            placeholder="john.doe"
-                                            aria-label="john.doe"
-                                            aria-describedby="multicol-email2" />
-                                        <span class="input-group-text" id="multicol-email2">@example.com</span>
-                                    </div>
+                                    <input type="text" id="is_person" class="form-control" placeholder="" />
                                 </div>
                             </div>
-                            <div class="row form-password-toggle">
-                                <label class="col-sm-3 col-form-label" for="multicol-password">Password</label>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="first_name">First Name</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group input-group-merge">
-                                        <input
-                                            type="password"
-                                            id="multicol-password"
-                                            class="form-control"
-                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                                            aria-describedby="multicol-password2" />
-                                        <span class="input-group-text cursor-pointer" id="multicol-password2"
-                                        ><i class="ti ti-eye-off"></i
-                                            ></span>
-                                    </div>
+                                    <input type="text" id="first_name" class="form-control" placeholder="" />
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="last_name">Last Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="last_name" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="tax_number">Tax Number</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="tax_number" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="identity_number">Identity Number</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="identity_number" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="tax_office_id">Tax Office ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="tax_office_id" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <!-- Add other fields as per your requirements -->
                             <hr class="my-4 mx-n4" />
-                            <h6>2. Personal Info</h6>
+                            <h6>2. Address Info</h6>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="multicol-full-name">Full Name</label>
+                                <label class="col-sm-3 col-form-label" for="address">Address</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="multicol-full-name" class="form-control" placeholder="John Doe" />
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="multicol-country">Country</label>
-                                <div class="col-sm-9">
-                                    <select id="multicol-country" class="select2 form-select" data-allow-clear="true">
-                                        <option value="">Select</option>
-                                        <option value="Australia">Australia</option>
-                                        <option value="Bangladesh">Bangladesh</option>
-                                        <option value="Belarus">Belarus</option>
-                                        <option value="Brazil">Brazil</option>
-                                        <option value="Canada">Canada</option>
-                                        <option value="China">China</option>
-                                        <option value="France">France</option>
-                                        <option value="Germany">Germany</option>
-                                        <option value="India">India</option>
-                                        <option value="Indonesia">Indonesia</option>
-                                        <option value="Israel">Israel</option>
-                                        <option value="Italy">Italy</option>
-                                        <option value="Japan">Japan</option>
-                                        <option value="Korea">Korea, Republic of</option>
-                                        <option value="Mexico">Mexico</option>
-                                        <option value="Philippines">Philippines</option>
-                                        <option value="Russia">Russian Federation</option>
-                                        <option value="South Africa">South Africa</option>
-                                        <option value="Thailand">Thailand</option>
-                                        <option value="Turkey">Turkey</option>
-                                        <option value="Ukraine">Ukraine</option>
-                                        <option value="United Arab Emirates">United Arab Emirates</option>
-                                        <option value="United Kingdom">United Kingdom</option>
-                                        <option value="United States">United States</option>
-                                    </select>
+                                    <input type="text" id="address" class="form-control" placeholder="" />
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="multicol-birthdate">Birth Date</label>
+                                <label class="col-sm-3 col-form-label" for="city_id">City ID</label>
                                 <div class="col-sm-9">
-                                    <input
-                                        type="text"
-                                        id="multicol-birthdate"
-                                        class="form-control dob-picker"
-                                        placeholder="YYYY-MM-DD" />
+                                    <input type="text" id="city_id" class="form-control" placeholder="" />
                                 </div>
                             </div>
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label" for="multicol-phone">Phone No</label>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="town_id">Town ID</label>
                                 <div class="col-sm-9">
-                                    <input
-                                        type="text"
-                                        id="multicol-phone"
-                                        class="form-control phone-mask"
-                                        placeholder="658 799 8941"
-                                        aria-label="658 799 8941" />
+                                    <input type="text" id="town_id" class="form-control" placeholder="" />
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="country_id">Country ID</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="country_id" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="postal_code">Postal Code</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="postal_code" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <!-- Add other fields as per your requirements -->
+                            <hr class="my-4 mx-n4" />
+                            <h6>3. Contact Info</h6>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="email">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="email" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="phone">Phone</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="phone" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="fax">Fax</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="fax" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <!-- Add other fields as per your requirements -->
+                            <hr class="my-4 mx-n4" />
+                            <h6>4. Additional Info</h6>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="web_site">Web Site</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="web_site" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="commercial_register_number">Commercial Register Number</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="commercial_register_number" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                            <!-- Add other fields as per your requirements -->
                             <div class="pt-4">
                                 <div class="row justify-content-end">
                                     <div class="col-sm-9">
@@ -122,6 +140,8 @@
                                 </div>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>
