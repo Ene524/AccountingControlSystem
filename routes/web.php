@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware("auth")->group(function () {
+
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
@@ -16,12 +17,10 @@ Route::middleware("auth")->group(function () {
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
     });
-
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
         Route::post('delete', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
     });
-
     Route::prefix('company')->group(function () {
         Route::post('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
@@ -32,7 +31,8 @@ Route::middleware("auth")->group(function () {
 
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
-        Route::get('userCompanyDashboard', [DashboardController::class, 'userCompanyDashboard'])->name('dashboard.userCompanyDashboard');
+        Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
+        Route::get('createCompany', [DashboardController::class, 'showCreateCompany'])->name('dashboard.showCreateCompany');
     });
 });
 

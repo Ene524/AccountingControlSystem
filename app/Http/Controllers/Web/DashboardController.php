@@ -11,10 +11,14 @@ class DashboardController extends Controller
         return view('modules.dashboard.index.index');
     }
 
-    public function userCompanyDashboard()
+    public function showUserCompanyDashboard()
     {
         $companies = auth()->user()->company;
-        //dd($companies);
         return view('modules.dashboard.user-company-dashboard.index.index', compact('companies'));
+    }
+
+    public function showCreateCompany()
+    {
+        return view('modules.dashboard.create-company.index.index');
     }
 }

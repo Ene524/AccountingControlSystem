@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>Giriş Yap</title>
+    <title>@yield('title')</title>
 
     <meta name="description" content=""/>
 
@@ -65,8 +65,7 @@
 <script src="{{asset('assets/vendor/libs/@form-validation/popular.js')}}"></script>
 <script src="{{asset('assets/vendor/libs/@form-validation/bootstrap5.js')}}"></script>
 <script src="{{asset('assets/vendor/libs/@form-validation/auto-focus.js')}}"></script>
-
-<script src="{{asset('assets/js/main.js')}}"></script>
+{{--<script src="{{asset('assets/js/main.js')}}"></script>--}}
 
 @yield('customScript')
 </body>

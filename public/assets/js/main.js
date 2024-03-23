@@ -4,7 +4,6 @@
 
 'use strict';
 
-window.isRtl = window.Helpers.isRtl();
 window.isDarkStyle = window.Helpers.isDarkStyle();
 let menu,
     animate,

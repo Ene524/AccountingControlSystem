@@ -1,5 +1,5 @@
 @extends('layouts.Auth.LoginMaster')
-@section('title', 'Kayıt ol')
+@section('title', 'Giriş Yap')
 
 @section('content')
     <div class="container-xxl">
