@@ -125,8 +125,6 @@ class UserController extends Controller
         } else {
             return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email");
         }
-
-
     }
 
     public function showPasswordResetToken($token)
