@@ -48,15 +48,15 @@ class UserService implements IUserService
     public function findByEmail(string $email): ServiceResponse
     {
         $user = User::where('email', $email)
-            ->where('deleted_at', null)
-            ->where('email_verified_at', '!=', null)
+            ->whereNull('deleted_at')
             ->first();
 
-        if ($user) {
-            return new ServiceResponse(true, "Kullanıcı bilgisi bulundu", $user, 200);
+
+        if (!$user) {
+            return new ServiceResponse(false, "Kullanıcı bulunamadı", null, 404);
         }
 
-        return new ServiceResponse(false, "Kullanıcı bilgisi bulunamadı", null, 404);
+        return new ServiceResponse(true, "Kullanıcı bulundu", $user, 200);
     }
 
     public function verifyEmail($token): ServiceResponse
@@ -84,14 +84,17 @@ class UserService implements IUserService
         if ($user->isSuccess()) {
             $user = $user->getData();
             if (password_verify($password, $user->password)) {
-//                $token = $user->createToken('auth_token')->plainTextToken;
-//                return new ServiceResponse(true, "User logged in", ["token" => $token, "user" => $user], 200);
                 Auth::login($user, $remember);
-                return new ServiceResponse(true, "User logged in", ["user" => $user], 200);
+                if ($user->email_verified_at == null) {
+                    return new ServiceResponse(false, "Email adresinizi doğrulamadan giriş yapamazsınız", null, 400);
+                }
 
+
+                return new ServiceResponse(true, "User logged in", ["user" => $user], 200);
             }
-            return new ServiceResponse(false, "Kullanıcı bulunamadı ya da şifre yanlış", null, 400);
+            return new ServiceResponse(false, "Kullanıcı bulunamadı ya da şifre yanlış", null, 401);
         }
+
         return $user;
     }
 

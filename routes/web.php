@@ -7,8 +7,7 @@ use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware("auth")->group(function () {
-
+Route::middleware(["auth", "checkVerified"])->group(function () {
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
@@ -16,6 +15,7 @@ Route::middleware("auth")->group(function () {
         Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
+
     });
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
@@ -28,7 +28,6 @@ Route::middleware("auth")->group(function () {
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
     });
-
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
@@ -39,7 +38,9 @@ Route::middleware("auth")->group(function () {
 #region Public Routes
 Route::get('register', [UserController::class, 'showRegister'])->name('user.showRegister');
 Route::post('register', [UserController::class, 'register'])->name('user.register');
-Route::get('/email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
+Route::get('email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
+Route::get('showResendEmail', [UserController::class, 'showResendEmail'])->name('verification.notice');
+
 
 Route::get('/', [UserController::class, 'showLogin'])->name('user.showLogin');
 Route::post('login', [UserController::class, 'login'])->name('user.login');

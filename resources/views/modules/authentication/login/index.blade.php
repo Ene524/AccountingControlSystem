@@ -77,7 +77,7 @@
                                 <div class="d-flex justify-content-between">
                                     <label class="form-label" for="password">Parola</label>
                                     <a href="{{route('password.showForgotPassword')}}">
-                                        <small>Forgot Password?</small>
+                                        <small>Şifremi unuttum?</small>
                                     </a>
                                 </div>
                                 <div class="input-group input-group-merge">

@@ -53,8 +53,8 @@ class UserController extends Controller
 
     public function showLogin()
     {
-        if (auth()->check()) {
-            return redirect()->route("dashboard.userCompanyDashboard");
+        if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
+            return redirect()->route("dashboard.showUserCompanyDashboard");
         } else {
             return view('modules.authentication.login.index');
         }
@@ -70,11 +70,22 @@ class UserController extends Controller
         );
 
         if ($response->isSuccess()) {
-            return redirect()->route("dashboard.userCompanyDashboard");
+            if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
+                return redirect()->route("dashboard.showUserCompanyDashboard");
+            } else {
+                return redirect()->route("user.showLogin");
+            }
+        } else if ($response->getStatusCode() == 400) {
+            return view('emails.resend-email');
         } else {
-            return redirect()->route("user.showLogin")->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
-
+            return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
         }
+    }
+
+    public function showResendEmail()
+    {
+
+        return view('emails.resend-email');
     }
 
     public function verifyEmail($token)
