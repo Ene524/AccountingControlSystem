@@ -60,7 +60,6 @@ class UserController extends Controller
         }
     }
 
-
     public function login(LoginRequest $request)
     {
         $response = $this->userService->login(
