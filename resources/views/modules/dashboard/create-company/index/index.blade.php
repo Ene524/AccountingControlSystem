@@ -13,137 +13,124 @@
                 <div class="col-xxl">
                     <div class="card mb-4">
                         <h5 class="card-header">Firma Bilgilerinizi Doldurunuz</h5>
-                        <form class="card-body">
-                            <h6>1. Temel Firma Bilgileri</h6>
+                        <div class="card-body">
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="short_title">Short Title</label>
+                                <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="short_title" class="form-control" placeholder=""/>
+                                    <input type="text" id="short_title" class="form-control" placeholder="Kısa Ad"/>
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="title">Title</label>
+                                <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="title" class="form-control" placeholder=""/>
+                                    <input type="text" id="title" class="form-control" placeholder="Firma ünvanı"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="is_person">Is Person</label>
-                                <div class="col-sm-9">
-                                    <input type="checkbox" id="is_person" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="first_name">First Name</label>
+                                <label class="col-sm-3 col-form-label" for="first_name">Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="first_name" class="form-control" placeholder=""/>
+                                    <input type="text" id="first_name" class="form-control" placeholder="Ad"/>
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="last_name">Last Name</label>
+                                <label class="col-sm-2 col-form-label" for="last_name">Soyad</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="last_name" class="form-control" placeholder=""/>
+                                    <input type="text" id="last_name" class="form-control" placeholder="Soyad"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="tax_number">Tax Number</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="tax_number" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="identity_number">Identity Number</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="identity_number" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="tax_office_id">Tax Office ID</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="tax_office_id" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                            <!-- Add other fields as per your requirements -->
-                            <hr class="my-4 mx-n4"/>
-                            <h6>2. Address Info</h6>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="address">Address</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="address" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="city_id">City ID</label>
+                                <label class="col-sm-3 col-form-label" for="tax_number">Vergi Numarası</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="city_id" class="form-control" placeholder=""/>
+                                    <input type="text" id="tax_number" class="form-control"
+                                           placeholder="Vergi Numarası"/>
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="town_id">Town ID</label>
+                                <label class="col-sm-2 col-form-label" for="identity_number">Identity Number</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="town_id" class="form-control" placeholder=""/>
+                                    <input type="text" id="identity_number" class="form-control"
+                                           placeholder="Tc kimlik no"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="country_id">Country ID</label>
-                                <div class="col-sm-3">
-                                    <input type="text" id="country_id" class="form-control" placeholder=""/>
-                                </div>
-                                <label class="col-sm-2 col-form-label" for="postal_code">Postal Code</label>
-                                <div class="col-sm-4">
-                                    <input type="text" id="postal_code" class="form-control" placeholder=""/>
+                                <label class="col-sm-3 col-form-label" for="address">Adres</label>
+                                <div class="col-sm-9">
+                                    <textarea id="address" class="form-control" placeholder="Adres"></textarea>
                                 </div>
                             </div>
-                            <!-- Add other fields as per your requirements -->
-                            <hr class="my-4 mx-n4"/>
-                            <h6>3. Contact Info</h6>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="city_id">Şehir</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="city_id" class="form-control" placeholder="Şehir"/>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="town_id" class="form-control" placeholder="İlçe"/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="country_id">Ülke</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="country_id" class="form-control" placeholder="Ülke"/>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="tax_office_id">Vergi Dairesi</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="tax_office_id" class="form-control" placeholder="Vergi Dairesi"/>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="email" class="form-control" placeholder=""/>
+                                    <input type="email" id="email" class="form-control" placeholder="Email"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="phone">Phone</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="phone" class="form-control" placeholder=""/>
+                                <label class="col-sm-3 col-form-label" for="phone">Telefon</label>
+                                <div class="col-sm-3">
+                                    <input type="tel" id="phone" class="form-control" placeholder="Telefon"/>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="fax">Fax</label>
+                                <div class="col-sm-4">
+                                    <input type="tel" id="fax" class="form-control" placeholder="Fax"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="fax">Fax</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="fax" class="form-control" placeholder=""/>
+                                <label class="col-sm-3 col-form-label" for="postal_code">Posta Kodu</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="postal_code" class="form-control" placeholder="Posta Kodu"/>
                                 </div>
-                            </div>
-                            <!-- Add other fields as per your requirements -->
-                            <hr class="my-4 mx-n4"/>
-                            <h6>4. Additional Info</h6>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="web_site">Web Site</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="web_site" class="form-control" placeholder=""/>
+                                <label class="col-sm-2 col-form-label" for="web_site">Web Site</label>
+                                <div class="col-sm-4">
+                                    <input type="url" id="web_site" class="form-control" placeholder="Web Site"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="commercial_register_number">Commercial
-                                    Register Number</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-3 col-form-label" for="commercial_register_number">Ticari Sicil No</label>
+                                <div class="col-sm-3">
                                     <input type="text" id="commercial_register_number" class="form-control"
+                                           placeholder="Ticari Sicil No"/>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="mernis_number">Mernis No</label>
+                                <div class="col-sm-4">
+                                    <input type="text" id="mernis_number" class="form-control" placeholder="Mernis No"/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="web_service_username">Web Service
+                                    Username</label>
+                                <div class="col-sm-3">
+                                    <input type="text" id="web_service_username" class="form-control" placeholder=""/>
+                                </div>
+                                <label class="col-sm-2 col-form-label" for="web_service_password">Web Service
+                                    Password</label>
+                                <div class="col-sm-4">
+                                    <input type="password" id="web_service_password" class="form-control"
                                            placeholder=""/>
                                 </div>
                             </div>
-                            <!-- Add other fields as per your requirements -->
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="kufur">Küfür Ediyorum</label>
+                                <label class="col-sm-3 col-form-label" for="integrator_id">Integrator ID</label>
                                 <div class="col-sm-9">
-                                    <input type="text" id="kufur" class="form-control" placeholder=""/>
+                                    <input type="text" id="integrator_id" class="form-control" placeholder=""/>
                                 </div>
                             </div>
-                            <div class="pt-4">
-                                <div class="row justify-content-end">
-                                    <div class="col-sm-9">
-                                        <button type="submit" class="btn btn-primary me-sm-2 me-1">Submit</button>
-                                        <button type="reset" class="btn btn-label-secondary">
-                                            Cancel
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
