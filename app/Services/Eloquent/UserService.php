@@ -220,4 +220,16 @@ class UserService implements IUserService
         Auth::logout();
         return new ServiceResponse(true, "User logged out", null, 200);
     }
+
+    public function resendEmail(string $email): ServiceResponse
+    {
+        $userResponse = $this->findByEmail($email);
+        if ($userResponse->isSuccess()) {
+            $user = $userResponse->getData();
+            RegisterSendEmail::dispatch($user);
+            return new ServiceResponse(true, "Email gönderimi sağlandı", null, 200);
+        } else {
+            return new ServiceResponse(false, "User not found", null, 404);
+        }
+    }
 }

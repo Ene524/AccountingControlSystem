@@ -75,7 +75,7 @@ class UserController extends Controller
                 return redirect()->route("user.showLogin");
             }
         } else if ($response->getStatusCode() == 400) {
-            return view('emails.resend-email');
+            return redirect()->route('verification.notice');
         } else {
             return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
         }
@@ -83,8 +83,24 @@ class UserController extends Controller
 
     public function showResendEmail()
     {
+        if (auth()->check()) {
+            $user = auth()->user();
+            return view('emails.resend-email', compact('user'));
+        } else {
+            return view('modules.authentication.login.index');
+        }
 
-        return view('emails.resend-email');
+    }
+
+    public function resendEmail()
+    {
+        $response = $this->userService->resendEmail(auth()->user()->email);
+
+        if ($response->isSuccess()) {
+            return redirect()->route("verification.notice")->with('success', $response->getMessage());
+        } else {
+            return redirect()->route("verification.notice")->withErrors(["email" => $response->getMessage()])->onlyInput("email");
+        }
     }
 
     public function verifyEmail($token)

@@ -79,4 +79,6 @@ interface IUserService extends IEloquentService
      * @return ServiceResponse
      */
     public function logout(): ServiceResponse;
+
+    public function resendEmail(string $email): ServiceResponse;
 }

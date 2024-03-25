@@ -40,6 +40,7 @@ Route::get('register', [UserController::class, 'showRegister'])->name('user.show
 Route::post('register', [UserController::class, 'register'])->name('user.register');
 Route::get('email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
 Route::get('showResendEmail', [UserController::class, 'showResendEmail'])->name('verification.notice');
+Route::post('resendEmail', [UserController::class, 'resendEmail'])->name('verification.resend');
 
 
 Route::get('/', [UserController::class, 'showLogin'])->name('user.showLogin');
