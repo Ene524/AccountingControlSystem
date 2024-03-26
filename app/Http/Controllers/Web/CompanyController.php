@@ -23,7 +23,6 @@ class CompanyController extends Controller
 
     public function create(Request $request)
     {
-        dd($request->all());
         $response = $this->companyService->create(
             title: $request->title,
             short_title: $request->short_title,
@@ -53,6 +52,8 @@ class CompanyController extends Controller
             web_service_password: $request->web_service_password,
             integrator_id: $request->integrator_id
         );
+
+        dd($response);
 
         return $this->httpResponse(
             $response->isSuccess(),
@@ -138,6 +139,4 @@ class CompanyController extends Controller
             $response->getStatusCode()
         );
     }
-
-
 }

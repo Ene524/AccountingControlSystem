@@ -12,45 +12,53 @@
 
                     <div class="card-body">
 
-                        @if(session()->has('success'))
+                        @if (session()->has('success'))
                             <div class="alert alert-success">
                                 {{ session()->get('success') }} <br>
                             </div>
                         @endif
 
-                        <form action="{{route('company.create')}}" method="post">
+                        <form action="{{ route('company.create') }}" method="post">
                             @csrf
                             <hr>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="short_title" class="form-control" placeholder="Kısa Ad"/>
+                                    <input type="text" name="short_title" class="form-control" placeholder="Kısa Ad" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="title" class="form-control" placeholder="Firma ünvanı"/>
+                                    <input type="text" name="title" class="form-control" placeholder="Firma ünvanı" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="first_name">Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="first_name" class="form-control" placeholder="Ad"/>
+                                    <input type="text" name="first_name" class="form-control" placeholder="Ad" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="last_name">Soyad</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="last_name" class="form-control" placeholder="Soyad"/>
+                                    <input type="text" name="last_name" class="form-control" placeholder="Soyad" />
                                 </div>
                             </div>
+
+                            <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="first_name">Şahıs Şirketi Mi?</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="first_name" class="form-control" placeholder="Ad" />
+                                </div>
+                            </div>
+
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="tax_number">Vergi Numarası</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="tax_number" class="form-control"
-                                           placeholder="Vergi Numarası"/>
+                                    <input type="text" name="tax_number" class="form-control"
+                                        placeholder="Vergi Numarası" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="identity_number">Identity Number</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="identity_number" class="form-control"
-                                           placeholder="Tc kimlik no"/>
+                                    <input type="text" name="identity_number" class="form-control"
+                                        placeholder="Tc kimlik no" />
                                 </div>
                             </div>
                             <h5 class="card-header text-center">Adres Bilgileri</h5>
@@ -58,43 +66,44 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="address">Adres</label>
                                 <div class="col-sm-9">
-                                    <textarea id="address" class="form-control" placeholder="Adres"></textarea>
+                                    <textarea name="address" class="form-control" placeholder="Adres"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="city_id">Şehir</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="city_id" class="form-control" placeholder="Şehir"/>
+                                    <input type="text" name="city_id" class="form-control" placeholder="Şehir" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="town_id" class="form-control" placeholder="İlçe"/>
+                                    <input type="text" name="town_id" class="form-control" placeholder="İlçe" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="country_id">Ülke</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="country_id" class="form-control" placeholder="Ülke"/>
+                                    <input type="text" name="country_id" class="form-control" placeholder="Ülke" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="tax_office_id">Vergi Dairesi</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="tax_office_id" class="form-control" placeholder="Vergi Dairesi"/>
+                                    <input type="text" name="tax_office_id" class="form-control"
+                                        placeholder="Vergi Dairesi" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" id="email" class="form-control" placeholder="Email"/>
+                                    <input type="email" name="email" class="form-control" placeholder="Email" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="phone">Telefon</label>
                                 <div class="col-sm-3">
-                                    <input type="tel" id="phone" class="form-control" placeholder="Telefon"/>
+                                    <input type="tel" name="phone" class="form-control" placeholder="Telefon" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="fax">Fax</label>
                                 <div class="col-sm-4">
-                                    <input type="tel" id="fax" class="form-control" placeholder="Fax"/>
+                                    <input type="tel" name="fax" class="form-control" placeholder="Fax" />
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -102,7 +111,6 @@
                                     <button type="submit" class="btn btn-primary float-end">Kaydet</button>
                                 </div>
                             </div>
-
                         </form>
                     </div>
 
