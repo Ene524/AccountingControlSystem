@@ -101,8 +101,6 @@
                     Hesap aktivasyon bağlantısı e-posta adresinize gönderildi: <b>{{$user->email}} </b> Devam etmek için içindeki bağlantıyı takip edin.
                 </p>
 
-                {{session()->get('message')}}
-
                 @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }} <br>

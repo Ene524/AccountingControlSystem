@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Http\Controllers\Controller;
 use App\Core\HttpResponse;
-use App\Http\Requests\Web\CompanyController\CreateRequest;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\CompanyController\UpdateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICompanyService;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -21,8 +21,9 @@ class CompanyController extends Controller
         $this->companyService = $companyService;
     }
 
-    public function create(CreateRequest $request)
+    public function create(Request $request)
     {
+        dd($request->all());
         $response = $this->companyService->create(
             title: $request->title,
             short_title: $request->short_title,
@@ -61,7 +62,8 @@ class CompanyController extends Controller
         );
     }
 
-    public function update(UpdateRequest $request){
+    public function update(UpdateRequest $request)
+    {
         $response = $this->companyService->update(
             id: $request->id,
             title: $request->title,

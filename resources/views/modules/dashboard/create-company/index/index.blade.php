@@ -4,16 +4,23 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
 
-
         <div class="row">
+            <div class="col-xxl">
+                <div class="card mb-4">
+                    <h5 class="card-header text-center">Temel Bilgiler</h5>
 
-            <h4 class="py-3 text-center">Ücretsiz Hesap Oluştur</h4>
 
-            <div class="row">
-                <div class="col-xxl">
-                    <div class="card mb-4">
-                        <h5 class="card-header">Firma Bilgilerinizi Doldurunuz</h5>
-                        <div class="card-body">
+                    <div class="card-body">
+
+                        @if(session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }} <br>
+                            </div>
+                        @endif
+
+                        <form action="{{route('company.create')}}" method="post">
+                            @csrf
+                            <hr>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
@@ -46,6 +53,8 @@
                                            placeholder="Tc kimlik no"/>
                                 </div>
                             </div>
+                            <h5 class="card-header text-center">Adres Bilgileri</h5>
+                            <hr>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="address">Adres</label>
                                 <div class="col-sm-9">
@@ -89,61 +98,26 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="postal_code">Posta Kodu</label>
-                                <div class="col-sm-3">
-                                    <input type="text" id="postal_code" class="form-control" placeholder="Posta Kodu"/>
-                                </div>
-                                <label class="col-sm-2 col-form-label" for="web_site">Web Site</label>
-                                <div class="col-sm-4">
-                                    <input type="url" id="web_site" class="form-control" placeholder="Web Site"/>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary float-end">Kaydet</button>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="commercial_register_number">Ticari Sicil No</label>
-                                <div class="col-sm-3">
-                                    <input type="text" id="commercial_register_number" class="form-control"
-                                           placeholder="Ticari Sicil No"/>
-                                </div>
-                                <label class="col-sm-2 col-form-label" for="mernis_number">Mernis No</label>
-                                <div class="col-sm-4">
-                                    <input type="text" id="mernis_number" class="form-control" placeholder="Mernis No"/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="web_service_username">Web Service
-                                    Username</label>
-                                <div class="col-sm-3">
-                                    <input type="text" id="web_service_username" class="form-control" placeholder=""/>
-                                </div>
-                                <label class="col-sm-2 col-form-label" for="web_service_password">Web Service
-                                    Password</label>
-                                <div class="col-sm-4">
-                                    <input type="password" id="web_service_password" class="form-control"
-                                           placeholder=""/>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="integrator_id">Integrator ID</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="integrator_id" class="form-control" placeholder=""/>
-                                </div>
-                            </div>
-                        </div>
 
-
+                        </form>
                     </div>
+
+
                 </div>
             </div>
-
-
         </div>
+
     </div>
 @endsection
 
 @section('customStyle')
-    @include('modules.dashboard.user-company-dashboard.index.components.style')
+    @include('modules.dashboard.create-company.index.components.style')
 @endsection
 
 @section('customScript')
-    @include('modules.dashboard.user-company-dashboard.index.components.script')
+    @include('modules.dashboard.create-company.index.components.script')
 @endsection
