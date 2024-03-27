@@ -7,10 +7,9 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Currency;
-use App\Models\Subdivision;
 use App\Models\TaxOffice;
+use App\Models\Town;
 use App\Models\Unit;
-use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +24,7 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         DB::table('countries')->truncate();
         DB::table('cities')->truncate();
-        DB::table('subdivisions')->truncate();
+        DB::table('towns')->truncate();
         DB::table('tax_offices')->truncate();
         DB::table('currencies')->truncate();
         DB::table('units')->truncate();
@@ -365,7 +364,7 @@ class DatabaseSeeder extends Seeder
         );
         City::insert($dataCities);
 
-        $dataSubdivision = array(
+        $dataTowns = array(
             array("id" => "1", "name" => "Aladağ", "city_id" => "1", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "2", "name" => "Ceyhan", "city_id" => "1", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "3", "name" => "Çukurova", "city_id" => "1", 'created_at' => now(), 'updated_at' => now()),
@@ -1324,7 +1323,8 @@ class DatabaseSeeder extends Seeder
             array("id" => "956", "name" => "Merkez", "city_id" => "81", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "957", "name" => "Yığılca", "city_id" => "81", 'created_at' => now(), 'updated_at' => now()),
         );
-        Subdivision::insert($dataSubdivision);
+    
+        Town::insert($dataTowns);
 
         $dataTaxOffices = array(
             array("id" => 1, "name" => "SİVEREK VERGİ DAİRESİ", "city_id" => 63, 'created_at' => now(), 'updated_at' => now()),
