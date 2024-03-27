@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Integrators;
+use App\Models\Subdivision;
+use App\Models\TaxOffice;
 
 class DashboardController extends Controller
 {
@@ -19,6 +24,12 @@ class DashboardController extends Controller
 
     public function showCreateCompany()
     {
-        return view('modules.dashboard.create-company.index.index');
+        $countries = Country::all();
+        $cities = City::all();
+        $subdivisions = Subdivision::all();
+        $taxOffices = TaxOffice::all();
+        $integrators = Integrators::all();
+
+        return view('modules.dashboard.create-company.index.index', compact('countries', 'cities', 'subdivisions', 'taxOffices', 'integrators'));
     }
 }

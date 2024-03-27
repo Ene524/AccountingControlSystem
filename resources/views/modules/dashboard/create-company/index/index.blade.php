@@ -24,7 +24,8 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="short_title" class="form-control" placeholder="Kısa Ad" />
+                                    <input type="text" name="short_title" class="form-control"
+                                        placeholder="Kısa ünvan" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
                                 <div class="col-sm-4">
@@ -43,9 +44,14 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="first_name">Şahıs Şirketi Mi?</label>
+                                <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="first_name" class="form-control" placeholder="Ad" />
+                                    <select name="is_person" class="form-select">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        <option value="1">Evet</option>
+                                        <option value="0">Hayır</option>
+                                    </select>
+
                                 </div>
                             </div>
 
@@ -55,7 +61,7 @@
                                     <input type="text" name="tax_number" class="form-control"
                                         placeholder="Vergi Numarası" />
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="identity_number">Identity Number</label>
+                                <label class="col-sm-2 col-form-label" for="identity_number">Tc Kimlik Numarası</label>
                                 <div class="col-sm-4">
                                     <input type="text" name="identity_number" class="form-control"
                                         placeholder="Tc kimlik no" />
@@ -72,7 +78,12 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="city_id">Şehir</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="city_id" class="form-control" placeholder="Şehir" />
+                                    <select name="city_id" class="form-control">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
                                 <div class="col-sm-4">
@@ -82,7 +93,12 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="country_id">Ülke</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="country_id" class="form-control" placeholder="Ülke" />
+                                    <select name="country_id" class="form-control">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        @foreach ($countries as $country)
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="tax_office_id">Vergi Dairesi</label>
                                 <div class="col-sm-4">

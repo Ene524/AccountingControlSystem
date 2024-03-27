@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Web\CompanyController\CreateRequest;
 use App\Http\Requests\Web\CompanyController\UpdateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICompanyService;
-use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -21,7 +21,7 @@ class CompanyController extends Controller
         $this->companyService = $companyService;
     }
 
-    public function create(Request $request)
+    public function create(CreateRequest $request)
     {
         $response = $this->companyService->create(
             title: $request->title,

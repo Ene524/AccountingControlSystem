@@ -84,6 +84,9 @@ class UserController extends Controller
     public function showResendEmail()
     {
         if (auth()->check()) {
+            if (auth()->user()->hasVerifiedEmail()) {
+                return redirect()->route("dashboard.showUserCompanyDashboard");
+            }
             $user = auth()->user();
             return view('emails.resend-email', compact('user'));
         } else {
