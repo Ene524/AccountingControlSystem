@@ -87,7 +87,12 @@
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="town_id" class="form-control" placeholder="İlçe" />
+                                    <select name="town_id" class="form-control">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        @foreach ($towns as $town)
+                                            <option value="{{ $town->id }}">{{ $town->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">

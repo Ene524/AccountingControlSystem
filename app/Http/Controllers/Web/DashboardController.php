@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Integrators;
-use App\Models\Subdivision;
 use App\Models\TaxOffice;
+use App\Models\Town;
 
 class DashboardController extends Controller
 {
@@ -26,10 +26,10 @@ class DashboardController extends Controller
     {
         $countries = Country::all();
         $cities = City::all();
-        $subdivisions = Subdivision::all();
+        $towns = Town::all();
         $taxOffices = TaxOffice::all();
         $integrators = Integrators::all();
 
-        return view('modules.dashboard.create-company.index.index', compact('countries', 'cities', 'subdivisions', 'taxOffices', 'integrators'));
+        return view('modules.dashboard.create-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
     }
 }
