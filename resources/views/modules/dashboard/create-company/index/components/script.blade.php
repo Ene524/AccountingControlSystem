@@ -39,7 +39,7 @@
     });
 
 
-    function getCountries(){
+    function getCountries() {
         $.ajax({
             async: false,
             url: '{{route('common.getCountries')}}',
@@ -49,15 +49,14 @@
                 var country = document.querySelector('select[name="country_id"]');
                 country.innerHTML = '';
                 data.forEach(element => {
-                    country.innerHTML += '<option value="'+element.id+'">'+element.name+'</option>';
+                    country.innerHTML += '<option value="' + element.id + '">' + element.name + '</option>';
                 });
             }
         });
     }
 
 
-    function getCitiesByCountryId(){
-
+    function getCitiesByCountryId() {
         $('#country_id').on('change', function (e) {
             var country_id = $("#country_id").val();
 
@@ -66,15 +65,15 @@
                 url: '{{route('common.getCitiesByCountryId')}}',
                 type: "GET",
                 data: {
+                    country_id: country_id
                 },
                 dataType: "json",
                 success: function (data) {
-                    console.log(data);
-                    // var city = document.querySelector('select[name="city_id"]');
-                    // city.innerHTML = '';
-                    // data.forEach(element => {
-                    //     city.innerHTML += '<option value="'+element.id+'">'+element.name+'</option>';
-                    // });
+                    var city = document.querySelector('select[name="city_id"]');
+                    city.innerHTML = '';
+                    data.forEach(element => {
+                        city.innerHTML += '<option value="'+element.id+'">'+element.name+'</option>';
+                    });
                 }
             });
         });

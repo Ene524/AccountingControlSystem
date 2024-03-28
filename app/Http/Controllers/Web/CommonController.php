@@ -18,7 +18,7 @@ class CommonController extends Controller
 
     public function getCitiesByCountryId(Request $request)
     {
-        $cities = City::where('country_id', $request->country_id);
+        $cities = City::where('country_id', $request->country_id)->get();
         return json_encode($cities);
     }
 

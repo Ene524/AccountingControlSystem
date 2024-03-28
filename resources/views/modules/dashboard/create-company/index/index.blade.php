@@ -36,21 +36,23 @@
                                 <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
                                     <input type="text" id="short_title" name="short_title" class="form-control"
-                                        placeholder="Kısa ünvan" />
+                                           placeholder="Kısa ünvan"/>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="title" class="form-control" placeholder="Firma ünvanı" />
+                                    <input type="text" name="title" class="form-control" placeholder="Firma ünvanı"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="first_name">Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Ad" />
+                                    <input type="text" id="first_name" name="first_name" class="form-control"
+                                           placeholder="Ad"/>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="last_name">Soyad</label>
                                 <div class="col-sm-4">
-                                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Soyad" />
+                                    <input type="text" id="last_name" name="last_name" class="form-control"
+                                           placeholder="Soyad"/>
                                 </div>
                             </div>
 
@@ -58,12 +60,12 @@
                                 <label class="col-sm-3 col-form-label" for="tax_number">Vergi Numarası</label>
                                 <div class="col-sm-3">
                                     <input type="text" id="tax_number" name="tax_number" class="form-control"
-                                        placeholder="Vergi Numarası" />
+                                           placeholder="Vergi Numarası"/>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="identity_number">Tc Kimlik Numarası</label>
                                 <div class="col-sm-4">
                                     <input type="text" name="identity_number" class="form-control"
-                                        placeholder="Tc kimlik no" />
+                                           placeholder="Tc kimlik no"/>
                                 </div>
                             </div>
                             <h5 class="card-header text-center">Adres Bilgileri</h5>
@@ -71,7 +73,8 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="address">Adres</label>
                                 <div class="col-sm-9">
-                                    <textarea id="address" name="address" class="form-control" placeholder="Adres"></textarea>
+                                    <textarea id="address" name="address" class="form-control"
+                                              placeholder="Adres"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -111,30 +114,30 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" />
+                                    <input type="email" id="email" name="email" class="form-control"
+                                           placeholder="Email"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="phone">Telefon</label>
                                 <div class="col-sm-3">
-                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Telefon" />
+                                    <input type="tel" id="phone" name="phone" class="form-control"
+                                           placeholder="Telefon"/>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="fax">Fax</label>
                                 <div class="col-sm-4">
-                                    <input type="tel" name="fax" class="form-control" placeholder="Fax" />
+                                    <input type="tel" name="fax" class="form-control" placeholder="Fax"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-12">
                                     <button type="submit" class="btn btn-primary float-end mx-2">Oluştur</button>
                                     <a href="{{ route('dashboard.showUserCompanyDashboard') }}"
-                                        class="btn btn-info float-end">Geri Dön</a>
+                                       class="btn btn-info float-end">Geri Dön</a>
                                 </div>
                             </div>
                         </form>
                     </div>
-
-
                 </div>
             </div>
         </div>
