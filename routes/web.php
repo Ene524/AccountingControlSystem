@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\CommonController;
 use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\CompanyUserConnectController;
 use App\Http\Controllers\Web\DashboardController;
@@ -32,6 +33,10 @@ Route::middleware(["auth", "checkVerified"])->group(function () {
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
         Route::get('createCompany', [DashboardController::class, 'showCreateCompany'])->name('dashboard.showCreateCompany');
+    });
+    Route::prefix('common')->group(function () {
+        Route::get('getCountries', [CommonController::class, 'getCountries'])->name('common.getCountries');
+        Route::get('getCitiesByCountryId', [CommonController::class, 'getCitiesByCountryId'])->name('common.getCitiesByCountryId');
     });
 });
 

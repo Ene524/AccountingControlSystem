@@ -53,8 +53,6 @@ class CompanyController extends Controller
             integrator_id: $request->integrator_id
         );
 
-        dd($response);
-
         return $this->httpResponse(
             $response->isSuccess(),
             $response->getMessage(),

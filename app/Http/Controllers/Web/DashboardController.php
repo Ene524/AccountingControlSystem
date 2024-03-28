@@ -18,7 +18,7 @@ class DashboardController extends Controller
 
     public function showUserCompanyDashboard()
     {
-        $companies = auth()->user()->company()->get();
+        $companies = auth()->user()->companies()->get();
         return view('modules.dashboard.user-company-dashboard.index.index', compact('companies'));
     }
 

@@ -22,9 +22,20 @@
                             @csrf
                             <hr>
                             <div class="row mb-3">
+                                <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
+                                <div class="col-sm-9">
+                                    <select id="is_person" name="is_person" class="form-select">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        <option value="1">Evet</option>
+                                        <option value="0">Hayır</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="short_title" class="form-control"
+                                    <input type="text" id="short_title" name="short_title" class="form-control"
                                         placeholder="Kısa ünvan" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
@@ -35,30 +46,18 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="first_name">Ad</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="first_name" class="form-control" placeholder="Ad" />
+                                    <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Ad" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="last_name">Soyad</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="last_name" class="form-control" placeholder="Soyad" />
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
-                                <div class="col-sm-9">
-                                    <select name="is_person" class="form-select">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                        <option value="1">Evet</option>
-                                        <option value="0">Hayır</option>
-                                    </select>
-
+                                    <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Soyad" />
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="tax_number">Vergi Numarası</label>
                                 <div class="col-sm-3">
-                                    <input type="text" name="tax_number" class="form-control"
+                                    <input type="text" id="tax_number" name="tax_number" class="form-control"
                                         placeholder="Vergi Numarası" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="identity_number">Tc Kimlik Numarası</label>
@@ -72,17 +71,14 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="address">Adres</label>
                                 <div class="col-sm-9">
-                                    <textarea name="address" class="form-control" placeholder="Adres"></textarea>
+                                    <textarea id="address" name="address" class="form-control" placeholder="Adres"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="city_id">Şehir</label>
                                 <div class="col-sm-3">
-                                    <select name="city_id" class="form-control">
+                                    <select id="city_id" name="city_id" class="form-control">
                                         <option value="{{ null }}">Seçiniz</option>
-                                        @foreach ($cities as $city)
-                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                        @endforeach
                                     </select>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
@@ -98,29 +94,30 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="country_id">Ülke</label>
                                 <div class="col-sm-3">
-                                    <select name="country_id" class="form-control">
+                                    <select id="country_id" name="country_id" class="form-control">
                                         <option value="{{ null }}">Seçiniz</option>
-                                        @foreach ($countries as $country)
-                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
-                                        @endforeach
                                     </select>
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="tax_office_id">Vergi Dairesi</label>
                                 <div class="col-sm-4">
-                                    <input type="text" name="tax_office_id" class="form-control"
-                                        placeholder="Vergi Dairesi" />
+                                    <select name="tax_office_id" class="form-control">
+                                        <option value="{{ null }}">Seçiniz</option>
+                                        @foreach ($taxOffices as $taxOffice)
+                                            <option value="{{ $taxOffice->id }}">{{ $taxOffice->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="email">Email</label>
                                 <div class="col-sm-9">
-                                    <input type="email" name="email" class="form-control" placeholder="Email" />
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Email" />
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="phone">Telefon</label>
                                 <div class="col-sm-3">
-                                    <input type="tel" name="phone" class="form-control" placeholder="Telefon" />
+                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Telefon" />
                                 </div>
                                 <label class="col-sm-2 col-form-label" for="fax">Fax</label>
                                 <div class="col-sm-4">
@@ -129,7 +126,9 @@
                             </div>
                             <div class="row mb-3">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-primary float-end">Kaydet</button>
+                                    <button type="submit" class="btn btn-primary float-end mx-2">Oluştur</button>
+                                    <a href="{{ route('dashboard.showUserCompanyDashboard') }}"
+                                        class="btn btn-info float-end">Geri Dön</a>
                                 </div>
                             </div>
                         </form>

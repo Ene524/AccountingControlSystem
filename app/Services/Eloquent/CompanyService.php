@@ -5,6 +5,7 @@ namespace App\Services\Eloquent;
 use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\ICompanyService;
 use App\Models\Company;
+use Illuminate\Support\Facades\Auth;
 
 /**
  *
@@ -52,14 +53,15 @@ class CompanyService implements ICompanyService
         return new ServiceResponse(true, "Company is found", $company, 200);
     }
 
+
     /**
      * @param string $title
      * @param string $short_title
      * @param bool $is_person
-     * @param ?string $first_name
-     * @param ?string $last_name
-     * @param ?string $tax_number
-     * @param ?string $identity_number
+     * @param string|null $first_name
+     * @param string|null $last_name
+     * @param string|null $tax_number
+     * @param string|null $identity_number
      * @param string $address
      * @param int $city_id
      * @param int $town_id
@@ -67,19 +69,20 @@ class CompanyService implements ICompanyService
      * @param int $tax_office_id
      * @param string $email
      * @param string $phone
-     * @param string $fax
-     * @param string $postal_code
-     * @param string $web_site
-     * @param string $commercial_register_number
-     * @param string $mernis_number
-     * @param bool $e_invoice_status
-     * @param bool $e_archive_status
-     * @param bool $e_dispatch_status
-     * @param bool $e_producer_status
-     * @param bool $e_voucher_status
-     * @param string $web_service_username
-     * @param string $web_service_password
-     * @param int $integrator_id
+     * @param string|null $fax
+     * @param string|null $postal_code
+     * @param string|null $web_site
+     * @param string|null $commercial_register_number
+     * @param string|null $mernis_number
+     * @param bool|null $e_invoice_status
+     * @param bool|null $e_archive_status
+     * @param bool|null $e_dispatch_status
+     * @param bool|null $e_producer_status
+     * @param bool|null $e_voucher_status
+     * @param string|null $web_service_username
+     * @param string|null $web_service_password
+     * @param int|null $integrator_id
+     * @param bool $connectWithAuthUser
      * @return ServiceResponse
      */
     public function create(
@@ -97,21 +100,22 @@ class CompanyService implements ICompanyService
         int     $tax_office_id,
         string  $email,
         string  $phone,
-        string  $fax,
-        string  $postal_code,
-        string  $web_site,
-        string  $commercial_register_number,
-        string  $mernis_number,
-        bool    $e_invoice_status,
-        bool    $e_archive_status,
-        bool    $e_dispatch_status,
-        bool    $e_producer_status,
-        bool    $e_voucher_status,
-        string  $web_service_username,
-        string  $web_service_password,
-        int     $integrator_id): ServiceResponse
+        ?string $fax,
+        ?string $postal_code,
+        ?string $web_site,
+        ?string $commercial_register_number,
+        ?string $mernis_number,
+        ?bool   $e_invoice_status,
+        ?bool   $e_archive_status,
+        ?bool   $e_dispatch_status,
+        ?bool   $e_producer_status,
+        ?bool   $e_voucher_status,
+        ?string $web_service_username,
+        ?string $web_service_password,
+        ?int    $integrator_id
+    ): ServiceResponse
     {
-        Company::create([
+        $company = Company::create([
             'title' => $title,
             'short_title' => $short_title,
             'is_person' => $is_person,
@@ -141,6 +145,8 @@ class CompanyService implements ICompanyService
             'integrator_id' => $integrator_id
         ]);
 
+        $user = Auth::user();
+        $user->companies()->syncWithoutDetaching($company->id);
         return new ServiceResponse(
             true,
             'Company created successfully',
