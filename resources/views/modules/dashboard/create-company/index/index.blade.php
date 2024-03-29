@@ -80,35 +80,26 @@
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="city_id">Şehir</label>
                                 <div class="col-sm-3">
-                                    <select id="city_id" name="city_id" class="form-control">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                    </select>
+                                    <input type="text" name="city" class="form-control"
+                                           placeholder="Şehir"/>
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="town_id">İlçe</label>
+                                <label class="col-sm-2 col-form-label" for="town_id">İlçe/Kasaba</label>
                                 <div class="col-sm-4">
-                                    <select name="town_id" class="form-control">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                        @foreach ($towns as $town)
-                                            <option value="{{ $town->id }}">{{ $town->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" name="town" class="form-control"
+                                           placeholder="İlçe/Kasaba"/>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="country_id">Ülke</label>
                                 <div class="col-sm-3">
-                                    <select id="country_id" name="country_id" class="form-control">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                    </select>
+                                    <input type="text"  id="country" name="country" class="form-control typeahead"
+                                           placeholder="Ülke"/>
+
                                 </div>
-                                <label class="col-sm-2 col-form-label" for="tax_office_id">Vergi Dairesi</label>
+                                <label class="col-sm-2 col-form-label" for="tax_office">Vergi Dairesi</label>
                                 <div class="col-sm-4">
-                                    <select name="tax_office_id" class="form-control">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                        @foreach ($taxOffices as $taxOffice)
-                                            <option value="{{ $taxOffice->id }}">{{ $taxOffice->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" name="tax_office" class="form-control"
+                                           placeholder="Vergi Dairesi"/>
                                 </div>
                             </div>
                             <div class="row mb-3">

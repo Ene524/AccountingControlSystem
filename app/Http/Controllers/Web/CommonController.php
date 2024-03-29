@@ -10,15 +10,19 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
-    public function getCountries()
+    public function getCountries(Request $request)
     {
-        $countries = Country::all();
+        $countries = Country::where('name', 'like', $request->get('query') . '%')
+            ->where('deleted_at', null)
+            ->get();
+
         return json_encode($countries);
     }
 
     public function getCitiesByCountryId(Request $request)
     {
-        $cities = City::where('country_id', $request->country_id)->get();
+
+        $cities = City::where('country_id', $request->query)->get();
         return json_encode($cities);
     }
 

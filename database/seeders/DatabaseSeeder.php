@@ -1323,11 +1323,9 @@ class DatabaseSeeder extends Seeder
             array("id" => "956", "name" => "Merkez", "city_id" => "81", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "957", "name" => "Yığılca", "city_id" => "81", 'created_at' => now(), 'updated_at' => now()),
         );
-
         Town::insert($dataTowns);
 
-        $dataTaxOffices =
-            array(
+        $dataTaxOffices =array(
                 array("Id" => "1", "name" => "19 MAYIS MAL MÜDÜRLÜĞÜ", "city_id" => "55", "created_at" => "2024-03-28 14:52:36.700", "updated_at" => "2024-03-28 14:52:36.700"),
                 array("Id" => "2", "name" => "19 MAYIS VERGİ DAİRESİ", "city_id" => "55", "created_at" => "2024-03-28 14:52:36.700", "updated_at" => "2024-03-28 14:52:36.700"),
                 array("Id" => "3", "name" => "23 TEMMUZ VERGİ DAİRESİ", "city_id" => "31", "created_at" => "2024-03-28 14:52:36.700", "updated_at" => "2024-03-28 14:52:36.700"),

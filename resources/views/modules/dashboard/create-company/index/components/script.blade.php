@@ -32,53 +32,55 @@
 
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
+
 <script>
     $(document).ready(function () {
-        getCountries();
-        getCitiesByCountryId();
+        GetCountryAutoComplete();
     });
 
+    var path = "{{ route('common.getCountries') }}";
 
-    function getCountries() {
-        $.ajax({
-            async: false,
-            url: '{{route('common.getCountries')}}',
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                var country = document.querySelector('select[name="country_id"]');
-                country.innerHTML = '';
-                data.forEach(element => {
-                    country.innerHTML += '<option value="' + element.id + '">' + element.name + '</option>';
-                });
-            }
-        });
-    }
+    function GetCountryAutoComplete() {
 
-
-    function getCitiesByCountryId() {
-        $('#country_id').on('change', function (e) {
-            var country_id = $("#country_id").val();
-
-            $.ajax({
-                async: false,
-                url: '{{route('common.getCitiesByCountryId')}}',
-                type: "GET",
-                data: {
-                    country_id: country_id
-                },
-                dataType: "json",
-                success: function (data) {
-                    var city = document.querySelector('select[name="city_id"]');
-                    city.innerHTML = '';
-                    data.forEach(element => {
-                        city.innerHTML += '<option value="'+element.id+'">'+element.name+'</option>';
+        $('#country').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 3,
+            limit: Infinity,
+            source: function (query, process) {
+                return $.getJSON(
+                    path,
+                    {query: query},
+                    function (data) {
+                        return process(data.map((x => x.name)));
                     });
-                }
-            });
+            }
+
         });
-
-
     }
+
+    {{--var path = "{{ route('common.getCountries') }}";--}}
+
+
+    {{--$('#country').typeahead({--}}
+    {{--    hint: true,--}}
+    {{--    highlight: true,--}}
+    {{--    minLength: 3,--}}
+    {{--    limit: Infinity,--}}
+    {{--    source: function (query, process) {--}}
+    {{--        return $.getJSON(--}}
+    {{--            path,--}}
+    {{--            { query: query },--}}
+    {{--            function (data) {--}}
+    {{--                return process(data.map((x => x.name)));--}}
+    {{--            });--}}
+    {{--    }--}}
+
+    {{--});--}}
+
 </script>
+
+
 

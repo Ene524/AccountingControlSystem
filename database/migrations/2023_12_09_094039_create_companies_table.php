@@ -21,10 +21,10 @@ return new class extends Migration
             $table->string('tax_number', 10)->nullable();
             $table->string('identity_number', 11)->nullable();
             $table->string('address', 255);
-            $table->unsignedBigInteger('city_id');
-            $table->unsignedBigInteger('town_id');
-            $table->unsignedBigInteger('country_id');
-            $table->unsignedBigInteger('tax_office_id')->nullable();
+            $table->string('city',100);
+            $table->string('town',100);
+            $table->string('country',100);
+            $table->string('tax_office')->nullable();
             $table->string('email', 200);
             $table->string('phone', 30);
             $table->string('fax', 30)->nullable();
