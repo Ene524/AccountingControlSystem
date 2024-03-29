@@ -36,7 +36,9 @@ Route::middleware(["auth", "checkVerified"])->group(function () {
     });
     Route::prefix('common')->group(function () {
         Route::get('getCountries', [CommonController::class, 'getCountries'])->name('common.getCountries');
-        Route::get('getCitiesByCountryId', [CommonController::class, 'getCitiesByCountryId'])->name('common.getCitiesByCountryId');
+        Route::get('getCities', [CommonController::class, 'getCities'])->name('common.getCities');
+        Route::get('getTowns', [CommonController::class, 'getTowns'])->name('common.getTowns');
+        Route::get('getTaxOffices', [CommonController::class, 'getTaxOffices'])->name('common.getTaxOffices');
     });
 });
 

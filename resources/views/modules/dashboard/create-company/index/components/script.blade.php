@@ -37,17 +37,17 @@
 
 <script>
     $(document).ready(function () {
-        GetCountryAutoComplete();
+        GetCountries();
+        GetCities();
+        GetTowns();
     });
 
-    var path = "{{ route('common.getCountries') }}";
-
-    function GetCountryAutoComplete() {
-
+    function GetCountries() {
+        var path = "{{ route('common.getCountries') }}";
         $('#country').typeahead({
             hint: true,
             highlight: true,
-            minLength: 3,
+            minLength: 2,
             limit: Infinity,
             source: function (query, process) {
                 return $.getJSON(
@@ -61,24 +61,62 @@
         });
     }
 
-    {{--var path = "{{ route('common.getCountries') }}";--}}
+    function GetCities() {
+        var path = "{{ route('common.getCities') }}";
+        $('#city').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 2,
+            limit: Infinity,
+            source: function (query, process) {
+                return $.getJSON(
+                    path,
+                    {query: query},
+                    function (data) {
+                        return process(data.map((x => x.name)));
+                    });
+            }
 
+        });
+    }
 
-    {{--$('#country').typeahead({--}}
-    {{--    hint: true,--}}
-    {{--    highlight: true,--}}
-    {{--    minLength: 3,--}}
-    {{--    limit: Infinity,--}}
-    {{--    source: function (query, process) {--}}
-    {{--        return $.getJSON(--}}
-    {{--            path,--}}
-    {{--            { query: query },--}}
-    {{--            function (data) {--}}
-    {{--                return process(data.map((x => x.name)));--}}
-    {{--            });--}}
-    {{--    }--}}
+    function GetTowns() {
+        var path = "{{ route('common.getTowns') }}";
+        $('#town').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 2,
+            limit: Infinity,
+            source: function (query, process) {
+                return $.getJSON(
+                    path,
+                    {query: query},
+                    function (data) {
+                        return process(data.map((x => x.name)));
+                    });
+            }
 
-    {{--});--}}
+        });
+    }
+
+    function GetTaxOffices() {
+        var path = "{{ route('common.getTowns') }}";
+        $('#town').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 2,
+            limit: Infinity,
+            source: function (query, process) {
+                return $.getJSON(
+                    path,
+                    {query: query},
+                    function (data) {
+                        return process(data.map((x => x.name)));
+                    });
+            }
+
+        });
+    }
 </script>
 
 

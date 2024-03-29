@@ -252,7 +252,7 @@ class DatabaseSeeder extends Seeder
             array("id" => "220", "code" => "TO", "name" => "Tonga", "phone_code" => "676", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "221", "code" => "TT", "name" => "Trinidad And Tobago", "phone_code" => "1868", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "222", "code" => "TN", "name" => "Tunisia", "phone_code" => "216", 'created_at' => now(), 'updated_at' => now()),
-            array("id" => "223", "code" => "TR", "name" => "Turkey", "phone_code" => "90", 'created_at' => now(), 'updated_at' => now()),
+            array("id" => "223", "code" => "TR", "name" => "Türkiye", "phone_code" => "90", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "224", "code" => "TM", "name" => "Turkmenistan", "phone_code" => "7370", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "225", "code" => "TC", "name" => "Turks And Caicos Islands", "phone_code" => "1649", 'created_at' => now(), 'updated_at' => now()),
             array("id" => "226", "code" => "TV", "name" => "Tuvalu", "phone_code" => "688", 'created_at' => now(), 'updated_at' => now()),
