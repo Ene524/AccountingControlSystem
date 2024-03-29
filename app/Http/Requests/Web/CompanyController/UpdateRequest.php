@@ -29,7 +29,7 @@ class UpdateRequest extends FormRequest
             'first_name' => $this->is_person ? 'required|string|max:255' : '',
             'last_name' => $this->is_person ? 'required|string|max:255' : '',
             'tax_number' => $this->is_person ? '' : 'required|max:10',
-            'identity_number' => $this->is_person ? 'required|max:11':'',
+            'identity_number' => $this->is_person ? 'required|max:11' : '',
             'address' => 'required|string',
             'city_id' => 'required|integer',
             'town_id' => 'required|integer',

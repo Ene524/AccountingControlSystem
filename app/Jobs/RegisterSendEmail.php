@@ -19,6 +19,7 @@ class RegisterSendEmail implements ShouldQueue
      */
 
     private $user;
+
     public function __construct($user)
     {
         $this->user = $user;

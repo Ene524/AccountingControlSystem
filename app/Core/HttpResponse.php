@@ -11,7 +11,7 @@ trait HttpResponse
      * @param int $statusCode
      * @return \Illuminate\Http\JsonResponse
      */
-    public function httpResponse($isSuccess = false,$message,  $data = null,$statusCode )
+    public function httpResponse($isSuccess = false, $message, $data = null, $statusCode)
     {
         if (!$message) return response()->json(['message' => 'Message is required'], 500);
 

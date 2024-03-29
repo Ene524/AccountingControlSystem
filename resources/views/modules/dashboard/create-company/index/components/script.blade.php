@@ -3,15 +3,15 @@
 {!! JsValidator::formRequest('App\Http\Requests\Web\CompanyController\CreateRequest') !!}
 
 <script>
-    var is_person = document.querySelector('select[name="is_person"]');
-    var identity_number = document.querySelector('input[name="identity_number"]');
-    var tax_number = document.querySelector('input[name="tax_number"]');
-    var first_name = document.querySelector('input[name="first_name"]');
-    var last_name = document.querySelector('input[name="last_name"]');
+    let is_person = document.querySelector('select[name="is_person"]');
+    let identity_number = document.querySelector('input[name="identity_number"]');
+    let tax_number = document.querySelector('input[name="tax_number"]');
+    let first_name = document.querySelector('input[name="first_name"]');
+    let last_name = document.querySelector('input[name="last_name"]');
 
 
     is_person.addEventListener('change', function () {
-        if (is_person.value == 1) {
+        if (is_person.value) {
             identity_number.disabled = false;
             tax_number.disabled = true;
             tax_number.value = '';
@@ -40,10 +40,11 @@
         GetCountries();
         GetCities();
         GetTowns();
+        GetTaxOffices();
     });
 
     function GetCountries() {
-        var path = "{{ route('common.getCountries') }}";
+        let path = "{{ route('common.getCountries') }}";
         $('#country').typeahead({
             hint: true,
             highlight: true,
@@ -62,7 +63,7 @@
     }
 
     function GetCities() {
-        var path = "{{ route('common.getCities') }}";
+        let path = "{{ route('common.getCities') }}";
         $('#city').typeahead({
             hint: true,
             highlight: true,
@@ -81,7 +82,7 @@
     }
 
     function GetTowns() {
-        var path = "{{ route('common.getTowns') }}";
+        let path = "{{ route('common.getTowns') }}";
         $('#town').typeahead({
             hint: true,
             highlight: true,
@@ -100,8 +101,8 @@
     }
 
     function GetTaxOffices() {
-        var path = "{{ route('common.getTowns') }}";
-        $('#town').typeahead({
+        let path = "{{ route('common.getTaxOffices') }}";
+        $('#tax_office').typeahead({
             hint: true,
             highlight: true,
             minLength: 2,
