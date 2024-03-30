@@ -9,13 +9,6 @@
                 <div class="card mb-4">
                     <h5 class="card-header text-center">Temel Bilgiler</h5>
                     <div class="card-body">
-
-                        @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success') }} <br>
-                            </div>
-                        @endif
-
                         <form action="{{ route('company.create') }}"
                               method="post">
                             @csrf
@@ -31,7 +24,8 @@
                                         <option value="1">Evet</option>
                                         <option value="0">Hayır</option>
                                     </select>
-
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('is_person') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">

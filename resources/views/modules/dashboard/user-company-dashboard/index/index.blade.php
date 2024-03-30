@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 @section('content')
     <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-        id="layout-navbar">
+         id="layout-navbar">
         <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
             <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
                 <i class="ti ti-menu-2 ti-sm"></i>
@@ -15,7 +15,7 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                         <div class="avatar avatar-online">
-                            <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="h-auto rounded-circle" />
+                            <img src="{{ asset('assets/img/avatars/1.png') }}" alt class="h-auto rounded-circle"/>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -25,7 +25,7 @@
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar avatar-online">
                                             <img src="{{ asset('assets/img/avatars/1.png') }}" alt
-                                                class="h-auto rounded-circle" />
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -109,6 +109,7 @@
                                     <div class="card-body d-flex justify-content-between align-items-center">
                                         <div>
                                             <h5 class="card-title">{{ $company->title }}</h5>
+                                            <p class="card-subtitle">{{$company->is_person ? 'Tckn:'.$company->identity_number :'Vkn:'.$company->tax_number }}</p>
                                             <p class="card-text">Oluşturulma:
                                                 {{ \Carbon\Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
                                         </div>
@@ -125,7 +126,8 @@
                 <div class="container mt-5">
                     <div class="justify-content-center">
                         <a href="{{ route('dashboard.showCreateCompany') }}">
-                            <div class="card" style="background-color: transparent;border: 2px dashed #CCC;height: 100px">
+                            <div class="card"
+                                 style="background-color: transparent;border: 2px dashed #CCC;height: 123.75px">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     + Firma Oluştur
                                 </div>

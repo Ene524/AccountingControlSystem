@@ -1,6 +1,6 @@
-<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js') }}"></script>--}}
 
-{!! JsValidator::formRequest('App\Http\Requests\Web\CompanyController\CreateRequest') !!}
+{{--{!! JsValidator::formRequest('App\Http\Requests\Web\CompanyController\CreateRequest') !!}--}}
 
 <script>
     let is_person = document.querySelector('select[name="is_person"]');
@@ -11,7 +11,7 @@
 
 
     is_person.addEventListener('change', function () {
-        if (is_person.value) {
+        if (is_person.value == 1) {
             identity_number.disabled = false;
             tax_number.disabled = true;
             tax_number.value = '';
@@ -24,8 +24,6 @@
             first_name.value = '';
             last_name.value = '';
             identity_number.value = '';
-
-
         }
     });
 

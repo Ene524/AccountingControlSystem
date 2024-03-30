@@ -63,10 +63,10 @@ class CompanyService implements ICompanyService
      * @param string|null $tax_number
      * @param string|null $identity_number
      * @param string $address
-     * @param int $city_id
-     * @param int $town_id
-     * @param int $country_id
-     * @param int $tax_office_id
+     * @param string $city
+     * @param string $town
+     * @param string $country
+     * @param string $tax_office
      * @param string $email
      * @param string $phone
      * @param string|null $fax
@@ -82,7 +82,6 @@ class CompanyService implements ICompanyService
      * @param string|null $web_service_username
      * @param string|null $web_service_password
      * @param int|null $integrator_id
-     * @param bool $connectWithAuthUser
      * @return ServiceResponse
      */
     public function create(
@@ -94,10 +93,10 @@ class CompanyService implements ICompanyService
         ?string $tax_number,
         ?string $identity_number,
         string  $address,
-        int     $city_id,
-        int     $town_id,
-        int     $country_id,
-        int     $tax_office_id,
+        string  $city,
+        string  $town,
+        string  $country,
+        string  $tax_office,
         string  $email,
         string  $phone,
         ?string $fax,
@@ -124,10 +123,10 @@ class CompanyService implements ICompanyService
             'tax_number' => $tax_number ?? '',
             'identity_number' => $identity_number ?? '',
             'address' => $address,
-            'city_id' => $city_id,
-            'town_id' => $town_id,
-            'country_id' => $country_id,
-            'tax_office_id' => $tax_office_id,
+            'city' => $city,
+            'town' => $town,
+            'country' => $country,
+            'tax_office' => $tax_office,
             'email' => $email,
             'phone' => $phone,
             'fax' => $fax,
