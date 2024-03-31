@@ -37,6 +37,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\CheckEmailVerification::class,
+            \App\Http\Middleware\CheckSelectedCompany::class,
         ],
 
         'api' => [
@@ -66,5 +67,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'checkVerified' => \App\Http\Middleware\CheckEmailVerification::class,
+        'checkSelectedCompany' => \App\Http\Middleware\CheckSelectedCompany::class,
     ];
 }

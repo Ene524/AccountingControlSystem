@@ -41,8 +41,6 @@ class DashboardController extends Controller
         $user=auth()->user();
         $user->company_id=$request->company_id;
         $user->save();
-
-
         return redirect()->route('dashboard.index');
     }
 }
