@@ -22,6 +22,12 @@
         <!-- /Search -->
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">
+            <li class="nav-item">
+                <span class="navbar-text">
+                    <span class="badge bg-secondary fs-6">Secondary</span>
+                </span>
+            </li>
+            <li class="vr mx-2"></li>
             <!-- Language -->
             <li class="nav-item dropdown-language dropdown me-2 me-xl-0">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -29,22 +35,26 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="en" data-text-direction="ltr">
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="en"
+                           data-text-direction="ltr">
                             <span class="align-middle">English</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="fr" data-text-direction="ltr">
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="fr"
+                           data-text-direction="ltr">
                             <span class="align-middle">French</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="ar" data-text-direction="rtl">
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="ar"
+                           data-text-direction="rtl">
                             <span class="align-middle">Arabic</span>
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="javascript:void(0);" data-language="de" data-text-direction="ltr">
+                        <a class="dropdown-item" href="javascript:void(0);" data-language="de"
+                           data-text-direction="ltr">
                             <span class="align-middle">German</span>
                         </a>
                     </li>
@@ -202,7 +212,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
-                                            <img src="{{asset('assets/img/avatars/1.png')}}" alt class="h-auto rounded-circle"/>
+                                            <img src="{{asset('assets/img/avatars/1.png')}}" alt
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -246,7 +257,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
-                                            <img src="{{asset('assets/img/avatars/2.png')}}" alt class="h-auto rounded-circle"/>
+                                            <img src="{{asset('assets/img/avatars/2.png')}}" alt
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -292,7 +304,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
-                                            <img src="{{asset('assets/img/avatars/9.png')}}" alt class="h-auto rounded-circle"/>
+                                            <img src="{{asset('assets/img/avatars/9.png')}}" alt
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -338,7 +351,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
-                                            <img src="{{asset('assets/img/avatars/5.png')}}" alt class="h-auto rounded-circle"/>
+                                            <img src="{{asset('assets/img/avatars/5.png')}}" alt
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -360,7 +374,8 @@
                                 <div class="d-flex">
                                     <div class="flex-shrink-0 me-3">
                                         <div class="avatar">
-                                            <img src="{{asset('assets/img/avatars/6.png')}}" alt class="h-auto rounded-circle"/>
+                                            <img src="{{asset('assets/img/avatars/6.png')}}" alt
+                                                 class="h-auto rounded-circle"/>
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
@@ -428,7 +443,8 @@
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar avatar-online">
-                                        <img src="{{asset('assets/img/avatars/1.png')}}" alt class="h-auto rounded-circle"/>
+                                        <img src="{{asset('assets/img/avatars/1.png')}}" alt
+                                             class="h-auto rounded-circle"/>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">

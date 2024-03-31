@@ -19,10 +19,16 @@
                                 <div class="col-sm-9">
                                     <select id="is_person"
                                             name="is_person"
-                                            class="form-select">
+                                            class="form-select required">
                                         <option value="{{ null }}">Seçiniz</option>
-                                        <option value="1">Evet</option>
-                                        <option value="0">Hayır</option>
+                                        <option
+                                            value="1" {{old('is_person')!=null ? old('is_person')==1 ? 'selected': null :''}}>
+                                            Evet
+                                        </option>
+                                        <option
+                                            value="0" {{old('is_person')!=null ? old('is_person')==0 ? 'selected': null :''}}>
+                                            Hayır
+                                        </option>
                                     </select>
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('is_person') ?? ''}}</span>
@@ -35,8 +41,12 @@
                                     <input type="text"
                                            id="short_title"
                                            name="short_title"
-                                           class="form-control"
-                                           placeholder="Kısa ünvan"/>
+                                           class="form-control required"
+                                           placeholder="Kısa ünvan"
+                                           value="{{old('short_title')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('short_title') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="title">Ünvan</label>
@@ -44,8 +54,12 @@
                                     <input type="text"
                                            id="title"
                                            name="title"
-                                           class="form-control"
-                                           placeholder="Firma ünvanı"/>
+                                           class="form-control required"
+                                           placeholder="Firma ünvanı"
+                                           value="{{old('title')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('title') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -56,7 +70,11 @@
                                            id="first_name"
                                            name="first_name"
                                            class="form-control"
-                                           placeholder="Ad"/>
+                                           placeholder="Ad"
+                                           value="{{old('first_name')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('first_name') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="last_name">Soyad</label>
@@ -65,7 +83,12 @@
                                            id="last_name"
                                            name="last_name"
                                            class="form-control"
-                                           placeholder="Soyad"/>
+                                           placeholder="Soyad"
+                                           vale="{{old('last_name')}}"
+                                    />
+                                    <span
+                                        class=" help-block error-help-block
+                                           mx-1"> {{$errors->first('last_name') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -75,8 +98,13 @@
                                     <input type="text"
                                            id="tax_number"
                                            name="tax_number"
-                                           class="form-control"
-                                           placeholder="Vergi Numarası"/>
+                                           class="form-control required"
+                                           placeholder="Vergi Numarası"
+                                           value="{{old('tax_number')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('tax_number') ?? ''}}</span>
+
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="identity_number">Tc Kimlik Numarası</label>
@@ -84,8 +112,12 @@
                                     <input type="text"
                                            id="identity_number"
                                            name="identity_number"
-                                           class="form-control"
-                                           placeholder="Tc kimlik no"/>
+                                           class="form-control required"
+                                           placeholder="Tc kimlik no"
+                                           value="{{old('identity_number')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
                                 </div>
                             </div>
                             <h5 class="card-header text-center">Adres Bilgileri</h5>
@@ -96,8 +128,12 @@
                                 <div class="col-sm-9">
                                     <textarea id="address"
                                               name="address"
-                                              class="form-control"
-                                              placeholder="Adres"></textarea>
+                                              class="form-control required"
+                                              placeholder="Adres">
+                                        {{old('address')}}
+                                    </textarea>
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('address') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -107,8 +143,12 @@
                                     <input type="text"
                                            id="city"
                                            name="city"
-                                           class="form-control"
-                                           placeholder="Şehir"/>
+                                           class="form-control required"
+                                           placeholder="Şehir"
+                                           value="{{old('city')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('city') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="town">İlçe/Kasaba</label>
@@ -116,8 +156,12 @@
                                     <input type="text"
                                            id="town"
                                            name="town"
-                                           class="form-control"
-                                           placeholder="İlçe/Kasaba"/>
+                                           class="form-control required"
+                                           placeholder="İlçe/Kasaba"
+                                           value="{{old('town')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('town') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -127,8 +171,12 @@
                                     <input type="text"
                                            id="country"
                                            name="country"
-                                           class="form-control typeahead"
-                                           placeholder="Ülke"/>
+                                           class="form-control required"
+                                           placeholder="Ülke"
+                                           value="{{old('country')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('country') ?? ''}}</span>
 
                                 </div>
                                 <label class="col-sm-2 col-form-label"
@@ -138,7 +186,11 @@
                                            id="tax_office"
                                            name="tax_office"
                                            class="form-control"
-                                           placeholder="Vergi Dairesi"/>
+                                           placeholder="Vergi Dairesi"
+                                           value="{{old('tax_office')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('tax_office') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -149,7 +201,11 @@
                                            id="email"
                                            name="email"
                                            class="form-control"
-                                           placeholder="Email"/>
+                                           placeholder="Email"
+                                           value="{{old('email')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('email') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -160,7 +216,11 @@
                                            id="phone"
                                            name="phone"
                                            class="form-control"
-                                           placeholder="Telefon"/>
+                                           placeholder="Telefon"
+                                           value="{{old('phone')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('phone') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="fax">Fax</label>
@@ -169,7 +229,11 @@
                                            id="fax"
                                            name="fax"
                                            class="form-control"
-                                           placeholder="Fax"/>
+                                           placeholder="Fax"
+                                           value="{{old('fax')}}"
+                                    />
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('fax') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">

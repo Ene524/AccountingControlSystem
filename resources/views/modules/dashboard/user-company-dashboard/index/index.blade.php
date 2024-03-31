@@ -107,13 +107,17 @@
                             <div class="justify-content-center">
                                 <div class="card">
                                     <div class="card-body d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <h5 class="card-title">{{ $company->title }}</h5>
-                                            <p class="card-subtitle">{{$company->is_person ? 'Tckn:'.$company->identity_number :'Vkn:'.$company->tax_number }}</p>
-                                            <p class="card-text">Oluşturulma:
-                                                {{ \Carbon\Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
-                                        </div>
-                                        <a href="#" class="btn btn-success">Firma Girişi</a>
+                                        <form action="{{route('dashboard.selectCompany')}}" method="post">
+                                            @csrf
+                                            <div>
+                                                <input type="hidden" name="company_id" value="{{$company->id}}">
+                                                <h5 class="card-title">{{ $company->title }}</h5>
+                                                <p class="card-subtitle">{{$company->is_person ? 'Tckn:'.$company->identity_number :'Vkn:'.$company->tax_number }}</p>
+                                                <p class="card-text">Oluşturulma:
+                                                    {{ \Carbon\Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
+                                            </div>
+                                            <button class="btn btn-success">Firma Girişi</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

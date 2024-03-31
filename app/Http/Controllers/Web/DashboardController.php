@@ -8,11 +8,14 @@ use App\Models\Country;
 use App\Models\Integrators;
 use App\Models\TaxOffice;
 use App\Models\Town;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        //$company= Auth::user()->companies()->where('id', $request->company_id)->first();
+        //dd($company);
         return view('modules.dashboard.index.index');
     }
 
@@ -31,5 +34,15 @@ class DashboardController extends Controller
         $integrators = Integrators::all();
 
         return view('modules.dashboard.create-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+    }
+
+    public function selectCompany(Request $request)
+    {
+        $user=auth()->user();
+        $user->company_id=$request->company_id;
+        $user->save();
+
+
+        return redirect()->route('dashboard.index');
     }
 }

@@ -52,13 +52,7 @@ class CompanyController extends Controller
             web_service_password: $request->web_service_password,
             integrator_id: $request->integrator_id
         );
-
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        return redirect()->route("dashboard.showUserCompanyDashboard")->with('success', $response->getMessage());
     }
 
     public function update(UpdateRequest $request)

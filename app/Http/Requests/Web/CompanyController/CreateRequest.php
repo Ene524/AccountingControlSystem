@@ -47,11 +47,12 @@ class CreateRequest extends FormRequest
             'tax_number.required' => 'Vergi numarası zorunludur',
             'identity_number.required' => 'Kimlik numarası zorunludur',
             'address.required' => 'Adres zorunludur',
-            'city_id.required' => 'Şehir bilgisi zorunludur',
-            'town_id.required' => 'İlçe bilgisi zorunludur',
-            'country_id.required' => 'Ülke bilgisi zorunludur',
+            'city.required' => 'Şehir bilgisi zorunludur',
+            'town.required' => 'İlçe bilgisi zorunludur',
+            'country.required' => 'Ülke bilgisi zorunludur',
             'email.required' => 'E-posta zorunludur',
             'phone.required' => 'Telefon zorunludur',
+
         ];
 
     }
