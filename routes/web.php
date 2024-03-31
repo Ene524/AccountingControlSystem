@@ -8,7 +8,7 @@ use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(["auth", "checkVerified","checkSelectedCompany"])->group(function () {
+Route::middleware(["auth","checkVerified","checkSelectedCompany"])->group(function () {
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');

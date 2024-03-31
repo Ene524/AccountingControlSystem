@@ -15,17 +15,12 @@ class CheckSelectedCompany
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->routeIs('dashboard.showUserCompanyDashboard') ||
-            $request->routeIs('dashboard.selectCompany') ||
-            $request->routeIs('user.logout')
-        ) {
+        if ($request->routeIs(['dashboard.showUserCompanyDashboard', 'dashboard.selectCompany', 'user.logout'])) {
             return $next($request);
         }
 
-        if(auth()->check() === true){
-            if (auth()->user()->company_id === null) {
-                return redirect()->route('dashboard.showUserCompanyDashboard');
-            }
+        if (auth()->check() && auth()->user()->company_id === null) {
+            return redirect()->route('dashboard.showUserCompanyDashboard');
         }
 
         return $next($request);

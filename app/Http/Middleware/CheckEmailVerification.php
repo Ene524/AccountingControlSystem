@@ -10,15 +10,20 @@ class CheckEmailVerification
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || $request->routeIs('verification.notice') || $request->routeIs('verification.resend')
-            || $request->routeIs('verification.verify') || $request->routeIs('password.showForgotPassword')
-        ) {
+        if (!auth()->check() ||
+            $request->routeIs([
+                'verification.notice',
+                'verification.resend',
+                'verification.verify',
+                'password.showForgotPassword'
+            ])) {
             return $next($request);
         }
 
         if (!auth()->user()->hasVerifiedEmail()) {
             return redirect()->route("verification.notice");
         }
+
         return $next($request);
     }
 }

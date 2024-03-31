@@ -24,7 +24,8 @@
         <ul class="navbar-nav flex-row align-items-center ms-auto">
             <li class="nav-item">
                 <span class="navbar-text">
-                    <span class="badge bg-secondary fs-6">Secondary</span>
+                    <span class="badge bg-secondary fs-6">//BURAYA FİRMA ADI GELECEK</span>
+
                 </span>
             </li>
             <li class="vr mx-2"></li>
