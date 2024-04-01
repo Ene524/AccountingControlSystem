@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Country;
-use App\Models\TaxOffice;
 use App\Models\Town;
 use Illuminate\Http\Request;
 
@@ -20,27 +19,16 @@ class CommonController extends Controller
         return json_encode($countries);
     }
 
-    public function getCities(Request $request)
+    public function getCitiesByCountryId(Request $request)
     {
-        $cities = City::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
+
+        $cities = City::where('country_id', $request->query)->get();
         return json_encode($cities);
     }
 
-    public function getTowns(Request $request)
+    public function getTownsByCityId($cityId)
     {
-        $towns = Town::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
-        return json_encode($towns);
-    }
-
-    public function getTaxOffices(Request $request)
-    {
-        $towns = TaxOffice::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
+        $towns = Town::where('city_id', $cityId)->get();
         return json_encode($towns);
     }
 }
