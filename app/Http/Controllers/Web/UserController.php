@@ -47,7 +47,6 @@ class UserController extends Controller
             return redirect()->back()->with('success', $response->getMessage());
         } else {
             return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
-
         }
     }
 
@@ -92,7 +91,6 @@ class UserController extends Controller
         } else {
             return view('modules.authentication.login.index');
         }
-
     }
 
     public function resendEmail()
@@ -126,7 +124,6 @@ class UserController extends Controller
             $response->getData(),
             $response->getStatusCode()
         );
-
     }
 
     public function showForgotPassword()
@@ -169,8 +166,6 @@ class UserController extends Controller
         } else {
             return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email");
         }
-
-
     }
 
     public function delete(DeleteRequest $request)

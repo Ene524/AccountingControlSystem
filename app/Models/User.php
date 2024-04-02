@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Company::class)->withTimestamps();
     }
+
+    public function getActiveCompany()
+    {
+        return $this->companies()->where('id', $this->company_id)->first();
+    }
 }
