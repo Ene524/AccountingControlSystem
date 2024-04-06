@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
+    //TODO Servislerle entegre edilecek
     public function getCountries(Request $request)
     {
         $countries = Country::where('name', 'like', $request->get('query') . '%')
