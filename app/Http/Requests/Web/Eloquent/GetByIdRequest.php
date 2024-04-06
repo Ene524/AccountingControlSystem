@@ -22,7 +22,7 @@ class GetByIdRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Id' => 'required|integer',
+            'id' => 'required|integer',
         ];
     }
 }

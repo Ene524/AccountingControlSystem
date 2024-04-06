@@ -151,7 +151,7 @@
                     <div class="justify-content-center">
                         <a href="{{ route('dashboard.showCreateCompany') }}">
                             <div class="card"
-                                 style="background-color: transparent;border: 2px dashed #CCC;height: 123.75px">
+                                 style="background-color: transparent;border: 2px dashed #CCC;height: 161.81px">
                                 <div class="card-body d-flex justify-content-center align-items-center">
                                     + Firma Oluştur
                                 </div>

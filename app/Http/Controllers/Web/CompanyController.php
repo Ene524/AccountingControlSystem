@@ -110,7 +110,7 @@ class CompanyController extends Controller
 
     public function getById(GetByIdRequest $request)
     {
-        $response = $this->companyService->getById($request->Id);
+        $response = $this->companyService->getById($request->id);
 
         return $this->httpResponse(
             $response->isSuccess(),
@@ -122,7 +122,7 @@ class CompanyController extends Controller
 
     public function delete(DeleteRequest $request)
     {
-        $response = $this->companyService->delete($request->Id);
+        $response = $this->companyService->delete($request->id);
 
         return $this->httpResponse(
             $response->isSuccess(),

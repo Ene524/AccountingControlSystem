@@ -170,7 +170,7 @@ class UserController extends Controller
 
     public function delete(DeleteRequest $request)
     {
-        $response = $this->userService->delete($request->Id);
+        $response = $this->userService->delete($request->id);
         return $this->HttpResponse(
             $response->isSuccess(),
             $response->getMessage(),
@@ -192,7 +192,7 @@ class UserController extends Controller
 
     public function getById(GetByIdRequest $request)
     {
-        $response = $this->userService->getById($request->Id);
+        $response = $this->userService->getById($request->id);
         return $this->HttpResponse(
             $response->isSuccess(),
             $response->getMessage(),
