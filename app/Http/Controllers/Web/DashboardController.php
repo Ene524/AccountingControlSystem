@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Models\City;
-use App\Models\Town;
-use App\Models\Country;
-use App\Models\TaxOffice;
-use App\Models\Integrators;
-use Illuminate\Http\Request;
+use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Interfaces\Eloquent\IDashboardService;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Integrators;
+use App\Models\TaxOffice;
+use App\Models\Town;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    use HttpResponse;
+
+    private IDashboardService $dashboardService;
+
+    public function __construct(IDashboardService $dashboardService)
+    {
+        $this->dashboardService = $dashboardService;
+    }
+
     public function index(Request $request)
     {
         return view('modules.dashboard.index.index');
@@ -20,9 +30,12 @@ class DashboardController extends Controller
 
     public function showUserCompanyDashboard()
     {
-        // $companies = auth()->user()->companies()->get();
-        $companies = Auth::user()->companies()->get();
-        return view('modules.dashboard.user-company-dashboard.index.index', compact('companies'));
+        $response = $this->dashboardService->showUserCompanyDashboard();
+        if ($response->isSuccess()) {
+            return view('modules.dashboard.user-company-dashboard.index.index', compact('response'));
+        } else {
+            return redirect()->route('dashboard.showUserCompanyDashboard')->with('error', $response->getMessage());
+        }
     }
 
     public function showCreateCompany()
@@ -38,9 +51,11 @@ class DashboardController extends Controller
 
     public function selectCompany(Request $request)
     {
-        $user = auth()->user();
-        $user->company_id = $request->company_id;
-        $user->save();
-        return redirect()->route('dashboard.index');
+        $response = $this->dashboardService->selectCompany($request->company_id);
+        if ($response->isSuccess()) {
+            return redirect()->route('dashboard.index');
+        } else {
+            return redirect()->route('dashboard.index')->with('error', $response->getMessage());
+        }
     }
 }

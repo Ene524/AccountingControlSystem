@@ -65,7 +65,8 @@ if (document.getElementById('layout-menu')) {
                         let layoutCollapsedVal = window.Helpers.isCollapsed() ? 'collapsed' : 'expanded';
                         layoutCollapsedCustomizerOptions.querySelector(`input[value="${layoutCollapsedVal}"]`).click();
                     }
-                } catch (e) {}
+                } catch (e) {
+                }
             }
         });
     });
@@ -214,6 +215,7 @@ if (document.getElementById('layout-menu')) {
                 });
             });
         }
+
         function directionChange(textDirection) {
             if (textDirection === 'rtl') {
                 if (localStorage.getItem('templateCustomizer-' + templateName + '--Rtl') !== 'true')
@@ -388,7 +390,8 @@ if (document.getElementById('layout-menu')) {
                         localStorage.getItem('templateCustomizer-' + templateName + '--LayoutCollapsed') === 'true',
                         false
                     );
-            } catch (e) {}
+            } catch (e) {
+            }
         }
     }
 })();
@@ -470,7 +473,7 @@ if (typeof $ !== 'undefined') {
             };
 
             // Search JSON
-            var searchJson = 'search-vertical.json'; // For vertical layout
+            var searchJ1son = 'search-vertical.json'; // For vertical layout
             if ($('#layout-menu').hasClass('menu-horizontal')) {
                 var searchJson = 'search-horizontal.json'; // For vertical layout
             }
@@ -502,7 +505,7 @@ if (typeof $ !== 'undefined') {
                             source: filterConfig(searchData.pages),
                             templates: {
                                 header: '<h6 class="suggestions-header text-primary mb-0 mx-3 mt-3 pb-2">Pages</h6>',
-                                suggestion: function ({ url, icon, name }) {
+                                suggestion: function ({url, icon, name}) {
                                     return (
                                         '<a href="' +
                                         url +
@@ -533,7 +536,7 @@ if (typeof $ !== 'undefined') {
                             source: filterConfig(searchData.files),
                             templates: {
                                 header: '<h6 class="suggestions-header text-primary mb-0 mx-3 mt-3 pb-2">Files</h6>',
-                                suggestion: function ({ src, name, subtitle, meta }) {
+                                suggestion: function ({src, name, subtitle, meta}) {
                                     return (
                                         '<a href="javascript:;">' +
                                         '<div class="d-flex w-50">' +
@@ -573,7 +576,7 @@ if (typeof $ !== 'undefined') {
                             source: filterConfig(searchData.members),
                             templates: {
                                 header: '<h6 class="suggestions-header text-primary mb-0 mx-3 mt-3 pb-2">Members</h6>',
-                                suggestion: function ({ name, src, subtitle }) {
+                                suggestion: function ({name, src, subtitle}) {
                                     return (
                                         '<a href="app-user-view-account.html">' +
                                         '<div class="d-flex align-items-center">' +

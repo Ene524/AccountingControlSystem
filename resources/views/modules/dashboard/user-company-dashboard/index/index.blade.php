@@ -100,8 +100,8 @@
 
             <h4 class="py-3 text-center">Firma Listesi</h4>
 
-            @if ($companies->count() > 0)
-                @foreach ($companies as $company)
+            @if ($response->getData()->count() > 0)
+                @foreach ($response->getData() as $company)
                     <div class="col-md-6 col-xl-4">
                         <div class="container mt-5">
                             <div class="justify-content-center">

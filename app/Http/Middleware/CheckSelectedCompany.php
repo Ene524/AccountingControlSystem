@@ -11,16 +11,27 @@ class CheckSelectedCompany
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response) $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->routeIs(['dashboard.showUserCompanyDashboard', 'dashboard.selectCompany', 'user.logout'])) {
-            return $next($request);
-        }
+
 
         if (auth()->check() && auth()->user()->company_id === null) {
-            return redirect()->route('dashboard.showUserCompanyDashboard');
+            if ($request->routeIs(
+                ['dashboard.showUserCompanyDashboard',
+                    'dashboard.selectCompany',
+                    'user.logout',
+                    'dashboard.show',
+                    'dashboard.showCreateCompany',
+                    'dashboard.selectCompany',
+                    'company.create',
+                ]
+            )) {
+                return $next($request);
+            } else {
+                return redirect()->route('dashboard.showUserCompanyDashboard');
+            }
         }
 
         return $next($request);

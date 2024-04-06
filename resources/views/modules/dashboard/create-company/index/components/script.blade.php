@@ -59,7 +59,6 @@
 
         });
     }
-
     function GetCities() {
         let path = "{{ route('common.getCities') }}";
         $('#city').typeahead({
@@ -78,7 +77,6 @@
 
         });
     }
-
     function GetTowns() {
         let path = "{{ route('common.getTowns') }}";
         $('#town').typeahead({
@@ -97,7 +95,6 @@
 
         });
     }
-
     function GetTaxOffices() {
         let path = "{{ route('common.getTaxOffices') }}";
         $('#tax_office').typeahead({
