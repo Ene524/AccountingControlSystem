@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-xxl">
                 <div class="card mb-4">
-                    <h5 class="card-header text-center">Temel Bilgiler</h5>
+                    <h5 class="card-header text-center pb-0 pt-1">Temel Bilgiler</h5>
                     <div class="card-body">
                         <form action="{{ route('company.create') }}"
                               method="post">
@@ -120,7 +120,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
                                 </div>
                             </div>
-                            <h5 class="card-header text-center">Adres Bilgileri</h5>
+
                             <hr>
                             <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label"

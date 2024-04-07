@@ -31,11 +31,7 @@ class DashboardController extends Controller
     public function showUserCompanyDashboard()
     {
         $response = $this->dashboardService->showUserCompanyDashboard();
-        if ($response->isSuccess()) {
-            return view('modules.dashboard.user-company-dashboard.index.index', compact('response'));
-        } else {
-            return redirect()->route('dashboard.showUserCompanyDashboard')->with('error', $response->getMessage());
-        }
+        return view('modules.dashboard.user-company-dashboard.index.index', compact('response'));
     }
 
     public function showCreateCompany()

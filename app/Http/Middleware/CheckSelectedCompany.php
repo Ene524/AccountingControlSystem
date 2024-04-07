@@ -15,18 +15,16 @@ class CheckSelectedCompany
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-
         if (auth()->check() && auth()->user()->company_id === null) {
             if ($request->routeIs(
                 ['dashboard.showUserCompanyDashboard',
                     'dashboard.selectCompany',
-                    'user.logout',
                     'dashboard.show',
                     'dashboard.showCreateCompany',
                     'dashboard.selectCompany',
                     'company.create',
-                ]
+                    'company.delete',
+                    'user.logout']
             )) {
                 return $next($request);
             } else {

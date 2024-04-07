@@ -67,7 +67,7 @@
                                     <i class="flex-shrink-0 ti ti-credit-card me-2 ti-sm"></i>
                                     <span class="flex-grow-1 align-middle">Billing</span>
                                     <span
-                                            class="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">2</span>
+                                        class="flex-shrink-0 badge badge-center rounded-pill bg-label-danger w-px-20 h-px-20">2</span>
                                 </span>
                             </a>
                         </li>
@@ -111,7 +111,7 @@
         <div class="row">
             <h4 class="py-3 text-center">Firma Listesi</h4>
 
-            @if ($response->getData()->count() > 0)
+            @if ($response->getData())
                 @foreach ($response->getData() as $company)
                     <div class="col-md-6 col-xl-4">
                         <div class="container mt-5">
@@ -128,7 +128,7 @@
                                                        style="position:absolute;top:10px;right:10px;"
                                                        data-id="{{ $company->id }}"
                                                     >
-                                                        <i class="fa fa-trash text-gray"></i>
+                                                        <i class="fa fa-trash text-black-50"></i>
                                                     </a>
                                                 </h5>
                                                 <p class="card-subtitle">{{$company->is_person ? 'Tckn : '.$company->identity_number :'Vkn : '.$company->tax_number }}</p>
