@@ -122,6 +122,7 @@
                                               method="post">
                                             @csrf
                                             <div>
+                                                <input type="hidden" name="company_id" value="{{$company->id}}">
                                                 <h5 class="card-title">{{ $company->title }}
                                                     <a href="#"
                                                        class="deleteCompany"

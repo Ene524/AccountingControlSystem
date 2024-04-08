@@ -24,7 +24,10 @@ class CheckSelectedCompany
                     'dashboard.selectCompany',
                     'company.create',
                     'company.delete',
-                    'user.logout']
+                    'user.logout',
+                    'verification.notice',
+                    'verification.resend'
+                ]
             )) {
                 return $next($request);
             } else {
