@@ -19,12 +19,12 @@ class CheckSelectedCompany
             if ($request->routeIs(
                 ['dashboard.showUserCompanyDashboard',
                     'dashboard.selectCompany',
-                    'dashboard.show',
                     'dashboard.showCreateCompany',
                     'dashboard.selectCompany',
                     'company.create',
                     'company.delete',
                     'user.logout',
+                    'user.showLogin',
                     'verification.notice',
                     'verification.resend'
                 ]
