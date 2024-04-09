@@ -25,7 +25,7 @@ class CreateRequest extends FormRequest
             'title' => 'required|string|max:255',
             'short_title' => 'nullable|string|max:50',
             'is_person' => 'required',
-            'tax_number' => $this->is_person != 0 ? 'required|string|size:10' : '',
+            'tax_number' => $this->is_person != 1 ? 'required|string|size:10' : '',
             'identity_number' => $this->is_person == 1 ? 'required|string|size:11' : '',
             'address' => 'nullable|string|max:255',
             'city' => 'required',
@@ -41,7 +41,7 @@ class CreateRequest extends FormRequest
         return [
             'title.required' => 'Ünvan zorunludur',
             'short_title.required' => 'Kısa ünvan zorunludur',
-            'is_person.required' => 'Kişi bilgisi zorunludur',
+            'is_person.required' => 'Tür seçimi zorunludur',
             'first_name.required' => 'Ad zorunludur',
             'last_name.required' => 'Soyad zorunludur',
             'tax_number.required' => 'Vergi numarası zorunludur',
@@ -52,6 +52,8 @@ class CreateRequest extends FormRequest
             'country.required' => 'Ülke bilgisi zorunludur',
             'email.required' => 'E-posta zorunludur',
             'phone.required' => 'Telefon zorunludur',
+            'tax_number.size' => 'Vergi numarası 10 haneli olmalıdır',
+            'identity_number.size' => 'Kimlik numarası 11 haneli olmalıdır',
 
         ];
 
