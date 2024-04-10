@@ -1,4 +1,3 @@
-<!-- Menu -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="index.html" class="app-brand-link">
@@ -16,7 +15,7 @@
                         fill="#7367F0" />
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+            <span class="app-brand-text demo menu-text fw-bold">H<small>esap</small> K<small>ontrol</small></span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -34,15 +33,14 @@
         </li>
         <li class="menu-item">
             <a href="app-kanban.html" class="menu-link">
-                <i class="menu-icon tf-icons ti ti-layout-kanban"></i>
-                <div data-i18n="Kanban">Kanban</div>
+                <i class="menu-icon ti ti-home"></i>
+                <div data-i18n="Anasayfa">Anasayfa</div>
             </a>
         </li>
-        <!-- e-commerce-app menu start -->
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
-                <div data-i18n="eCommerce">eCommerce</div>
+                <div data-i18n="Cari Hesaplar">Cari Hesaplar</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -74,8 +72,5 @@
                 </li>
             </ul>
         </li>
-        <!-- e-commerce-app menu end -->
-
     </ul>
 </aside>
-<!-- / Menu -->

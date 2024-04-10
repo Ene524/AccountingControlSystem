@@ -84,7 +84,7 @@
                                            name="last_name"
                                            class="form-control"
                                            placeholder="Soyad"
-                                           vale="{{old('last_name')}}"
+                                           value="{{old('last_name')}}"
                                     />
                                     <span
                                         class=" help-block error-help-block

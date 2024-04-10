@@ -26,7 +26,11 @@ class CheckSelectedCompany
                     'user.logout',
                     'user.showLogin',
                     'verification.notice',
-                    'verification.resend'
+                    'verification.resend',
+                    'common.getCountries',
+                    'common.getCities',
+                    'common.getTowns',
+                    'common.getTaxOffices',
                 ]
             )) {
                 return $next($request);
@@ -34,7 +38,6 @@ class CheckSelectedCompany
                 return redirect()->route('dashboard.showUserCompanyDashboard');
             }
         }
-
         return $next($request);
     }
 }
