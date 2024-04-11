@@ -15,7 +15,7 @@
                         fill="#7367F0" />
                 </svg>
             </span>
-            <span class="app-brand-text demo menu-text fw-bold">H<small>esap</small> K<small>ontrol</small></span>
+            <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
