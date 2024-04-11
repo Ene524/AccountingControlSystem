@@ -1,4 +1,4 @@
-@extends('layouts.Auth.LoginMaster')
+@extends('layouts.master')
 @section('title', 'Firma Ekle')
 @section('content')
 

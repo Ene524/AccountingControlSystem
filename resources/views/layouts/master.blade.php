@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr"
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-wide" dir="ltr"
       data-theme="theme-default" data-assets-path="../../assets/" data-template="vertical-menu-template">
 
 <head>
@@ -29,7 +29,7 @@
 
 
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
-    <script src="{{ asset('assets/vendor/js/template-customizer.js') }}/"></script>
+{{--    <script src="{{ asset('assets/vendor/js/template-customizer.js') }}/"></script>--}}
     <script src="{{ asset('assets/js/config.js') }}"></script>
     @yield('customStyle')
 </head>
@@ -48,7 +48,7 @@
             <div class="content-wrapper">
 
 
-                <div class="container-xxl flex-grow-1 container-p-y">
+                <div class="container-fluid flex-grow-1 container-p-y">
                     {{--<h4><span class="text-muted fw-light">Forms /</span> Basic Inputs</h4>--}}
 
                  @yield('content')

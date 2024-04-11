@@ -27,50 +27,26 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <!-- Apps & Pages -->
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text" data-i18n="Apps & Pages">Apps &amp; Pages</span>
         </li>
         <li class="menu-item">
-            <a href="app-kanban.html" class="menu-link">
+            <a href="{{route('dashboard.index')}}" class="menu-link">
                 <i class="menu-icon ti ti-home"></i>
                 <div data-i18n="Anasayfa">Anasayfa</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-shopping-cart"></i>
-                <div data-i18n="Cari Hesaplar">Cari Hesaplar</div>
+            <a href="#" class="menu-link">
+                <i class="menu-icon ti ti-users"></i>
+                <div data-i18n="Müşteriler">Müşteriler</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="app-ecommerce-dashboard.html" class="menu-link">
-                        <div data-i18n="Dashboard">Dashboard</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <div data-i18n="Products">Products</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="app-ecommerce-product-list.html" class="menu-link">
-                                <div data-i18n="Product List">Product List</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="app-ecommerce-product-add.html" class="menu-link">
-                                <div data-i18n="Add Product">Add Product</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="app-ecommerce-category-list.html" class="menu-link">
-                                <div data-i18n="Category List">Category List</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="menu-link">
+                <i class="menu-icon ti ti-users"></i>
+                <div data-i18n="Malzeme ve Hizmetler">Malzeme ve Hizmetler</div>
+            </a>
         </li>
     </ul>
 </aside>
