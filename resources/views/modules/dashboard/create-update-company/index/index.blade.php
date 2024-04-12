@@ -17,16 +17,12 @@
                                 <label class="col-sm-3 col-form-label"
                                        for="is_person">Şahıs Şirketi Mi?</label>
                                 <div class="col-sm-9">
-                                    <select id="is_person"
-                                            name="is_person"
-                                            class="form-select required">
-                                        <option value="{{ null }}">Seçiniz</option>
-                                        <option
-                                            value="1" {{old('is_person')!=null ? old('is_person')==1 ? 'selected': null :''}}>
+                                    <select id="is_person" name="is_person" class="form-select required">
+                                        <option value="">Seçiniz</option>
+                                        <option value="1" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person == 1 ? 'selected' : '' }}>
                                             Evet
                                         </option>
-                                        <option
-                                            value="0" {{old('is_person')!=null ? old('is_person')==0 ? 'selected': null :''}}>
+                                        <option value="0" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person === 0 ? 'selected' : '' }}>
                                             Hayır
                                         </option>
                                     </select>
@@ -43,11 +39,12 @@
                                            name="short_title"
                                            class="form-control required"
                                            placeholder="Kısa ünvan"
-                                           value="{{old('short_title')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->short_title ?? old('short_title')) : old('short_title') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('short_title') ?? ''}}</span>
                                 </div>
+
                                 <label class="col-sm-2 col-form-label"
                                        for="title">Ünvan</label>
                                 <div class="col-sm-4">
@@ -56,8 +53,8 @@
                                            name="title"
                                            class="form-control required"
                                            placeholder="Firma ünvanı"
-                                           value="{{old('title')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->title ?? old('title')) : old('title') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('title') ?? ''}}</span>
                                 </div>
@@ -71,8 +68,8 @@
                                            name="first_name"
                                            class="form-control"
                                            placeholder="Ad"
-                                           value="{{old('first_name')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->first_name ?? old('first_name')) : old('first_name') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('first_name') ?? ''}}</span>
                                 </div>
@@ -84,8 +81,8 @@
                                            name="last_name"
                                            class="form-control"
                                            placeholder="Soyad"
-                                           value="{{old('last_name')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->last_name ?? old('last_name')) : old('last_name') }}">
+
                                     <span
                                         class=" help-block error-help-block
                                            mx-1"> {{$errors->first('last_name') ?? ''}}</span>
@@ -100,8 +97,8 @@
                                            name="tax_number"
                                            class="form-control required"
                                            placeholder="Vergi Numarası"
-                                           value="{{old('tax_number')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->tax_number ?? old('tax_number')) : old('tax_number') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('tax_number') ?? ''}}</span>
 
@@ -114,8 +111,8 @@
                                            name="identity_number"
                                            class="form-control required"
                                            placeholder="Tc kimlik no"
-                                           value="{{old('identity_number')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->identity_number ?? old('identity_number')) : old('identity_number') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
                                 </div>
@@ -130,8 +127,7 @@
                                               name="address"
                                               class="form-control required"
                                               placeholder="Adres">
-                                        {{old('address')}}
-                                    </textarea>
+                                           {{ isset($response) ? ($response->getData()->address ?? old('address')) : old('address') }}                                    </textarea>
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('address') ?? ''}}</span>
                                 </div>
@@ -145,8 +141,8 @@
                                            name="city"
                                            class="form-control required"
                                            placeholder="Şehir"
-                                           value="{{old('city')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->city ?? old('city')) : old('city') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('city') ?? ''}}</span>
                                 </div>
@@ -158,8 +154,8 @@
                                            name="town"
                                            class="form-control required"
                                            placeholder="İlçe/Kasaba"
-                                           value="{{old('town')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->town ?? old('town')) : old('town') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('town') ?? ''}}</span>
                                 </div>
@@ -173,8 +169,8 @@
                                            name="country"
                                            class="form-control required"
                                            placeholder="Ülke"
-                                           value="{{old('country')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->country ?? old('country')) : old('country') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('country') ?? ''}}</span>
 
@@ -187,8 +183,8 @@
                                            name="tax_office"
                                            class="form-control"
                                            placeholder="Vergi Dairesi"
-                                           value="{{old('tax_office')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->tax_office ?? old('tax_office')) : old('tax_office') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('tax_office') ?? ''}}</span>
                                 </div>
@@ -202,8 +198,8 @@
                                            name="email"
                                            class="form-control"
                                            placeholder="Email"
-                                           value="{{old('email')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->email ?? old('email')) : old('email') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('email') ?? ''}}</span>
                                 </div>
@@ -217,8 +213,8 @@
                                            name="phone"
                                            class="form-control"
                                            placeholder="Telefon"
-                                           value="{{old('phone')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->phone ?? old('phone')) : old('phone') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('phone') ?? ''}}</span>
                                 </div>
@@ -230,8 +226,8 @@
                                            name="fax"
                                            class="form-control"
                                            placeholder="Fax"
-                                           value="{{old('fax')}}"
-                                    />
+                                           value="{{ isset($response) ? ($response->getData()->fax ?? old('fax')) : old('fax') }}">
+
                                     <span
                                         class="help-block error-help-block mx-1"> {{$errors->first('fax') ?? ''}}</span>
                                 </div>
@@ -255,9 +251,9 @@
 @endsection
 
 @section('customStyle')
-    @include('modules.dashboard.create-company.index.components.style')
+    @include('modules.dashboard.create-update-company.index.components.style')
 @endsection
 
 @section('customScript')
-    @include('modules.dashboard.create-company.index.components.script')
+    @include('modules.dashboard.create-update-company.index.components.script')
 @endsection

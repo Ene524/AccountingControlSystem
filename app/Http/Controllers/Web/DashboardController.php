@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Eloquent\ICompanyService;
 use App\Interfaces\Eloquent\IDashboardService;
 use App\Models\City;
 use App\Models\Country;
@@ -17,10 +18,12 @@ class DashboardController extends Controller
     use HttpResponse;
 
     private IDashboardService $dashboardService;
+    private ICompanyService $companyService;
 
-    public function __construct(IDashboardService $dashboardService)
+    public function __construct(IDashboardService $dashboardService,ICompanyService $companyService)
     {
         $this->dashboardService = $dashboardService;
+        $this->companyService = $companyService;
     }
 
     public function index(Request $request)
@@ -42,7 +45,28 @@ class DashboardController extends Controller
         $taxOffices = TaxOffice::all();
         $integrators = Integrators::all();
 
-        return view('modules.dashboard.create-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+        return view('modules.dashboard.create-update-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+    }
+
+    public function editCompany(Request $request)
+    {
+        $response = $this->companyService->getById($request->id);
+        $countries = Country::all();
+        $cities = City::all();
+        $towns = Town::all();
+        $taxOffices = TaxOffice::all();
+        $integrators = Integrators::all();
+        return view('modules.dashboard.create-update-company.index.index', compact('response', 'countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+    }
+
+    public function updateCompany(Request $request)
+    {
+        $response = $this->companyService->updateCompany($request->all());
+        if ($response->isSuccess()) {
+            return redirect()->route('dashboard.index')->with('success', $response->getMessage());
+        } else {
+            return redirect()->route('dashboard.index')->with('error', $response->getMessage());
+        }
     }
 
     public function selectCompany(Request $request)

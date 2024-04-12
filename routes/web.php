@@ -33,6 +33,7 @@ Route::middleware(["auth","checkVerified","checkSelectedCompany"])->group(functi
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
         Route::get('createCompany', [DashboardController::class, 'showCreateCompany'])->name('dashboard.showCreateCompany');
+        Route::get('editCompany', [DashboardController::class, 'editCompany'])->name('dashboard.editCompany');
         Route::post('selectCompany}', [DashboardController::class, 'selectCompany'])->name('dashboard.selectCompany');
     });
     Route::prefix('common')->group(function () {
