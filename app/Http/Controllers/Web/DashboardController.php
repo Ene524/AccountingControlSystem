@@ -26,7 +26,7 @@ class DashboardController extends Controller
         $this->companyService = $companyService;
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('modules.dashboard.index.index');
     }
