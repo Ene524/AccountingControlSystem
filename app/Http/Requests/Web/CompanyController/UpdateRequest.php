@@ -19,37 +19,29 @@ class UpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function messages(): array
     {
         return [
-            'id' => 'required|integer',
-            'title' => 'required|string',
-            'short_title' => 'required|string',
-            'is_person' => 'required|boolean',
-            'first_name' => $this->is_person ? 'required|string|max:255' : '',
-            'last_name' => $this->is_person ? 'required|string|max:255' : '',
-            'tax_number' => $this->is_person ? '' : 'required|max:10',
-            'identity_number' => $this->is_person ? 'required|max:11' : '',
-            'address' => 'required|string',
-            'city_id' => 'required|integer',
-            'town_id' => 'required|integer',
-            'country_id' => 'required|integer',
-            'tax_office_id' => 'required|integer',
-            'email' => 'required|string',
-            'phone' => 'required|string',
-            'fax' => 'required|string',
-            'postal_code' => 'required|string',
-            'web_site' => 'required|string',
-            'commercial_register_number' => 'required|string',
-            'mernis_number' => 'required|string',
-            'e_invoice_status' => 'required|boolean',
-            'e_archive_status' => 'required|boolean',
-            'e_dispatch_status' => 'required|boolean',
-            'e_producer_status' => 'required|boolean',
-            'e_voucher_status' => 'required|boolean',
-            'web_service_username' => 'required|string',
-            'web_service_password' => 'required|string',
-            'integrator_id' => 'required|integer',
+            'id.required' => 'Firma bilgisi zorunludur',
+            'title.required' => 'Ünvan zorunludur',
+            'short_title.required' => 'Kısa ünvan zorunludur',
+            'is_person.required' => 'Tür seçimi zorunludur',
+            'first_name.required' => 'Ad zorunludur',
+            'last_name.required' => 'Soyad zorunludur',
+            'tax_number.required' => 'Vergi numarası zorunludur',
+            'identity_number.required' => 'Kimlik numarası zorunludur',
+            'address.required' => 'Adres zorunludur',
+            'city.required' => 'Şehir bilgisi zorunludur',
+            'town.required' => 'İlçe bilgisi zorunludur',
+            'country.required' => 'Ülke bilgisi zorunludur',
+            'email.required' => 'E-posta zorunludur',
+            'phone.required' => 'Telefon zorunludur',
+            'tax_number.size' => 'Vergi numarası 10 haneli olmalıdır',
+            'identity_number.size' => 'Kimlik numarası 11 haneli olmalıdır',
+
         ];
+
     }
+
+
 }

@@ -70,11 +70,9 @@ class UserController extends Controller
         if ($response->isSuccess()) {
 
             if (auth()->check() && auth()->user()->hasVerifiedEmail()) {
-                if(auth()->user()->company_id === null){
+                if (auth()->user()->company_id === null) {
                     return redirect()->route("dashboard.showUserCompanyDashboard");
-
-                }
-                else{
+                } else {
                     return redirect()->route("dashboard.index");
                 }
             } else {
@@ -87,7 +85,6 @@ class UserController extends Controller
         }
 
         return redirect()->back()->withErrors(["email" => $response->getMessage()])->onlyInput("email", "remember");
-
     }
 
     public function showResendEmail()

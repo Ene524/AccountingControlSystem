@@ -23,7 +23,6 @@ class CompanyController extends Controller
 
     public function create(CreateRequest $request)
     {
-        //dd($request->all());
         $response = $this->companyService->create(
             title: $request->title,
             short_title: $request->short_title,
@@ -68,10 +67,10 @@ class CompanyController extends Controller
             tax_number: $request->tax_number,
             identity_number: $request->identity_number,
             address: $request->address,
-            city_id: $request->city_id,
-            town_id: $request->town_id,
-            country_id: $request->country_id,
-            tax_office_id: $request->tax_office_id,
+            city: $request->city,
+            town: $request->town,
+            country: $request->country,
+            tax_office: $request->tax_office,
             email: $request->email,
             phone: $request->phone,
             fax: $request->fax,
@@ -89,17 +88,20 @@ class CompanyController extends Controller
             integrator_id: $request->integrator_id
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        if ($response->isSuccess()) {
+            return redirect()->route('dashboard.showUserCompanyDashboard')->with('success', $response->getMessage());
+        } else {
+            return redirect()->route('dashboard.showUserCompanyDashboard')->with('error', $response->getMessage());
+        }
+
+
+
     }
 
     public function getAll()
     {
         $response = $this->companyService->getAll();
+
 
         return $this->httpResponse(
             $response->isSuccess(),

@@ -16,7 +16,6 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     use HttpResponse;
-
     private IDashboardService $dashboardService;
     private ICompanyService $companyService;
 
@@ -61,6 +60,7 @@ class DashboardController extends Controller
 
     public function updateCompany(Request $request)
     {
+        dd($request->all());
         $response = $this->companyService->updateCompany($request->all());
         if ($response->isSuccess()) {
             return redirect()->route('dashboard.index')->with('success', $response->getMessage());

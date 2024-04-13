@@ -1,8 +1,10 @@
 <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
+<script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
+
 
 <script>
-    $(document).ready(function () {
-        $('.deleteCompany').click(function () {
+    $(document).ready(function() {
+        $('.deleteCompany').click(function() {
             let company_id = $(this).data('id');
             let companyDiv = $(this).closest('.col-md-6.col-xl-4');
 
@@ -38,7 +40,7 @@
                                         confirmButton: 'btn btn-success waves-effect waves-light'
                                     }
                                 }).then(() => {
-                                    companyDiv.fadeOut(1000, function () {
+                                    companyDiv.fadeOut(1000, function() {
                                         $(this).remove();
                                     });
                                 });
@@ -50,3 +52,10 @@
         });
     });
 </script>
+
+
+@if (session('success'))
+    <script>
+        toastr["success"]("{{ session('success') }}")
+    </script>
+@endif

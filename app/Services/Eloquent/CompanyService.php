@@ -186,7 +186,35 @@ class CompanyService implements ICompanyService
      * @param int $integrator_id
      * @return ServiceResponse
      */
-    public function update(int $id, string $title, string $short_title, bool $is_person, ?string $first_name, ?string $last_name, ?string $tax_number, ?string $identity_number, string $address, int $city_id, int $town_id, int $country_id, int $tax_office_id, string $email, string $phone, string $fax, string $postal_code, string $web_site, string $commercial_register_number, string $mernis_number, bool $e_invoice_status, bool $e_archive_status, bool $e_dispatch_status, bool $e_producer_status, bool $e_voucher_status, string $web_service_username, string $web_service_password, int $integrator_id): ServiceResponse
+    public function update(
+        int     $id,
+        string  $title,
+        string  $short_title,
+        bool    $is_person,
+        ?string $first_name,
+        ?string $last_name,
+        ?string $tax_number,
+        ?string $identity_number,
+        string  $address,
+        string  $city,
+        string  $town,
+        string  $country,
+        string  $tax_office,
+        string  $email,
+        string  $phone,
+        ?string $fax,
+        ?string $postal_code,
+        ?string $web_site,
+        ?string $commercial_register_number,
+        ?string $mernis_number,
+        ?bool   $e_invoice_status,
+        ?bool   $e_archive_status,
+        ?bool   $e_dispatch_status,
+        ?bool   $e_producer_status,
+        ?bool   $e_voucher_status,
+        ?string $web_service_username,
+        ?string $web_service_password,
+        ?int    $integrator_id): ServiceResponse
     {
         $company = $this->getById($id)->getData();
 
@@ -201,10 +229,10 @@ class CompanyService implements ICompanyService
             $company->tax_number = $tax_number ?? '';
             $company->identity_number = $identity_number ?? '';
             $company->address = $address;
-            $company->city_id = $city_id;
-            $company->town_id = $town_id;
-            $company->country_id = $country_id;
-            $company->tax_office_id = $tax_office_id;
+            $company->city = $city;
+            $company->town = $town;
+            $company->country = $country;
+            $company->tax_office = $tax_office;
             $company->email = $email;
             $company->phone = $phone;
             $company->fax = $fax;
