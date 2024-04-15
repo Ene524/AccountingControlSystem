@@ -28,7 +28,7 @@
             <li class="nav-item">
                 <span class="navbar-text">
                     <a href="{{route('dashboard.showUserCompanyDashboard')}}">
-                    <span class="badge bg-secondary fs-6">{{$user->getActiveCompany()->title}}</span>
+                    <span class="badge bg-secondary fs-6">{{$user->getActiveCompany()->title ?? ''}}</span>
                         </a>
 
                 </span>

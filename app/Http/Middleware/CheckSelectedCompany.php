@@ -17,12 +17,15 @@ class CheckSelectedCompany
     {
         if (auth()->check() && auth()->user()->company_id === null) {
             if ($request->routeIs(
-                ['dashboard.showUserCompanyDashboard',
+                [
+                    'dashboard.showUserCompanyDashboard',
                     'dashboard.selectCompany',
                     'dashboard.showCreateCompany',
-                    'dashboard.selectCompany',
+                    'dashboard.editCompany',
+                    'dashboard.updateCompany',
                     'company.create',
                     'company.delete',
+                    'company.update',
                     'user.logout',
                     'user.showLogin',
                     'verification.notice',
@@ -33,6 +36,7 @@ class CheckSelectedCompany
                     'common.getTaxOffices',
                 ]
             )) {
+
                 return $next($request);
             } else {
                 return redirect()->route('dashboard.showUserCompanyDashboard');

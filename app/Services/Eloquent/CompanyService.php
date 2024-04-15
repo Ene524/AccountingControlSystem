@@ -18,7 +18,7 @@ class CompanyService implements ICompanyService
     public function getAll(): ServiceResponse
     {
         $companies = Company::paginate(100);
-        return new ServiceResponse(true, 'Company listed successfully', $companies, 200);
+        return new ServiceResponse(true, 'Firmalar başarılı bir şekilde listelendi', $companies, 200);
     }
 
     /**
@@ -44,9 +44,9 @@ class CompanyService implements ICompanyService
     {
         $company = Company::where('id', $id)->first();
         if (!$company) {
-            return new ServiceResponse(false, "Company not found", null, 404);
+            return new ServiceResponse(false, "Firma bulunamadı", null, 404);
         }
-        return new ServiceResponse(true, "Company is found", $company, 200);
+        return new ServiceResponse(true, "Firma bulundu", $company, 200);
     }
 
 
@@ -144,7 +144,7 @@ class CompanyService implements ICompanyService
         $user->companies()->syncWithoutDetaching($company->id);
         return new ServiceResponse(
             true,
-            'Company created successfully',
+            'Firma başarılı bir şekilde oluşturuldu',
             null,
             200
         );
@@ -214,7 +214,7 @@ class CompanyService implements ICompanyService
         $company = $this->getById($id)->getData();
 
         if (!$company) {
-            return new ServiceResponse(false, "Company not found", null, 404);
+            return new ServiceResponse(false, "Firma bulunamadı", null, 404);
         } else {
             $company->title = $title;
             $company->short_title = $short_title;

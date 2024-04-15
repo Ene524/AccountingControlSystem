@@ -10,8 +10,8 @@
                     <h5 class="card-header text-center ">Temel Bilgiler</h5>
                     <div class="card-body">
                         <form
-                                action="{{ isset($response) && $response->isSuccess() ? route('company.update') : route('company.create') }}"
-                                method="post">
+                            action="{{ isset($response) && $response->isSuccess() ? route('company.update') : route('company.create') }}"
+                            method="post">
                             @csrf
                             <hr>
                             <input type="hidden"
@@ -24,16 +24,16 @@
                                     <select id="is_person" name="is_person" class="form-select required">
                                         <option value="">Seçiniz</option>
                                         <option
-                                                value="1" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person == 1 ? 'selected' : '' }}>
+                                            value="1" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person == 1 ? 'selected' : (old('is_person')==1 ? 'selected':'') }}>
                                             Evet
                                         </option>
                                         <option
-                                                value="0" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person === 0 ? 'selected' : '' }}>
+                                            value="0" {{ isset($response) && $response->isSuccess() && $response->getData()->is_person === 0 ? 'selected' : (old('is_person')==0 ? 'selected':'') }}>
                                             Hayır
                                         </option>
                                     </select>
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('is_person') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('is_person') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -48,7 +48,7 @@
                                            value="{{ isset($response) ? ($response->getData()->short_title ?? old('short_title')) : old('short_title') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('short_title') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('short_title') ?? ''}}</span>
                                 </div>
 
                                 <label class="col-sm-2 col-form-label"
@@ -62,7 +62,7 @@
                                            value="{{ isset($response) ? ($response->getData()->title ?? old('title')) : old('title') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('title') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('title') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -77,7 +77,7 @@
                                            value="{{ isset($response) ? ($response->getData()->first_name ?? old('first_name')) : old('first_name') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('first_name') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('first_name') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="last_name">Soyad</label>
@@ -90,7 +90,7 @@
                                            value="{{ isset($response) ? ($response->getData()->last_name ?? old('last_name')) : old('last_name') }}">
 
                                     <span
-                                            class=" help-block error-help-block
+                                        class=" help-block error-help-block
                                            mx-1"> {{$errors->first('last_name') ?? ''}}</span>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                            value="{{ isset($response) ? ($response->getData()->tax_number ?? old('tax_number')) : old('tax_number') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('tax_number') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('tax_number') ?? ''}}</span>
 
                                 </div>
                                 <label class="col-sm-2 col-form-label"
@@ -120,7 +120,7 @@
                                            value="{{ isset($response) ? ($response->getData()->identity_number ?? old('identity_number')) : old('identity_number') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
                                 </div>
                             </div>
 
@@ -130,12 +130,14 @@
                                        for="address">Adres</label>
                                 <div class="col-sm-9">
                                     <textarea id="address"
+                                              rows="1"
                                               name="address"
                                               class="form-control required"
                                               placeholder="Adres">
-                                           {{ isset($response) ? ($response->getData()->address ?? old('address')) : old('address') }}                                    </textarea>
+                                           {{ isset($response) ? ($response->getData()->address ?? old('address')) : old('address') }}
+                                    </textarea>
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('address') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('address') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -147,10 +149,11 @@
                                            name="city"
                                            class="form-control required"
                                            placeholder="Şehir"
+
                                            value="{{ isset($response) ? ($response->getData()->city ?? old('city')) : old('city') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('city') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('city') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="town">İlçe/Kasaba</label>
@@ -163,7 +166,7 @@
                                            value="{{ isset($response) ? ($response->getData()->town ?? old('town')) : old('town') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('town') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('town') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -178,7 +181,7 @@
                                            value="{{ isset($response) ? ($response->getData()->country ?? old('country')) : old('country') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('country') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('country') ?? ''}}</span>
 
                                 </div>
                                 <label class="col-sm-2 col-form-label"
@@ -192,7 +195,7 @@
                                            value="{{ isset($response) ? ($response->getData()->tax_office ?? old('tax_office')) : old('tax_office') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('tax_office') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('tax_office') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -207,7 +210,7 @@
                                            value="{{ isset($response) ? ($response->getData()->email ?? old('email')) : old('email') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('email') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('email') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -222,7 +225,7 @@
                                            value="{{ isset($response) ? ($response->getData()->phone ?? old('phone')) : old('phone') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('phone') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('phone') ?? ''}}</span>
                                 </div>
                                 <label class="col-sm-2 col-form-label"
                                        for="fax">Fax</label>
@@ -235,7 +238,7 @@
                                            value="{{ isset($response) ? ($response->getData()->fax ?? old('fax')) : old('fax') }}">
 
                                     <span
-                                            class="help-block error-help-block mx-1"> {{$errors->first('fax') ?? ''}}</span>
+                                        class="help-block error-help-block mx-1"> {{$errors->first('fax') ?? ''}}</span>
                                 </div>
                             </div>
                             <div class="row mb-3">

@@ -8,7 +8,7 @@ use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(["auth","checkVerified","checkSelectedCompany"])->group(function () {
+Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(function () {
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
@@ -34,7 +34,6 @@ Route::middleware(["auth","checkVerified","checkSelectedCompany"])->group(functi
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
         Route::get('createCompany', [DashboardController::class, 'showCreateCompany'])->name('dashboard.showCreateCompany');
         Route::get('editCompany', [DashboardController::class, 'editCompany'])->name('dashboard.editCompany');
-        Route::get('updateCompany', [DashboardController::class, 'updateCompany'])->name('dashboard.updateCompany');
         Route::post('selectCompany}', [DashboardController::class, 'selectCompany'])->name('dashboard.selectCompany');
     });
     Route::prefix('common')->group(function () {

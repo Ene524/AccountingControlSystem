@@ -1,14 +1,14 @@
 <aside id="layout-menu"
        class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="index.html"
+        <a href="{{route('dashboard.index')}}"
            class="app-brand-link">
             <span class="app-brand-logo demo">
                 <svg width="32"
                      height="22"
                      viewBox="0 0 32 22"
                      fill="none"
-                     xmlns="http:/www.w3.org/2000/svg">
+                >
                     <path fill-rule="evenodd"
                           clip-rule="evenodd"
                           d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z"
@@ -73,22 +73,22 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Satış Faturaları">Satış Faturaları</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Satış İrsaliyeleri">Satış İrsaliyeleri</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-sticky.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Satış Siparişler">Satış Siparişler</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-sticky.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Satış Teklifleri">Satış Teklifleri</div>
                     </a>
                 </li>
@@ -101,22 +101,22 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="form-layouts-vertical.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Alış Faturaları">Alış Faturaları</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-horizontal.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Alış İrsaliyeleri">Alış İrsaliyeleri</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-sticky.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Alış Siparişler">Alış Siparişler</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="form-layouts-sticky.html" class="menu-link">
+                    <a href="#" class="menu-link">
                         <div data-i18n="Alış Teklifleri">Alış Teklifleri</div>
                     </a>
                 </li>

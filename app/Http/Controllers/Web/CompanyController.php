@@ -87,6 +87,7 @@ class CompanyController extends Controller
             web_service_password: $request->web_service_password,
             integrator_id: $request->integrator_id
         );
+        
 
         if ($response->isSuccess()) {
             return redirect()->route('dashboard.showUserCompanyDashboard')->with('success', $response->getMessage());
