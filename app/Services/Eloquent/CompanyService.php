@@ -244,12 +244,7 @@ class CompanyService implements ICompanyService
             $company->web_service_password = $web_service_password;
             $company->integrator_id = $integrator_id;
             $company->save();
-            return new ServiceResponse(
-                true,
-                'Firma başarıyla güncellendi',
-                null,
-                200
-            );
+            return new ServiceResponse(true, 'Firma başarıyla güncellendi', null, 200);
         }
     }
 }
