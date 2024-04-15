@@ -18,12 +18,7 @@ class CompanyService implements ICompanyService
     public function getAll(): ServiceResponse
     {
         $companies = Company::paginate(100);
-        return new ServiceResponse(
-            true,
-            'Company listed successfully',
-            $companies,
-            200
-        );
+        return new ServiceResponse(true, 'Company listed successfully', $companies, 200);
     }
 
     /**
@@ -251,7 +246,7 @@ class CompanyService implements ICompanyService
             $company->save();
             return new ServiceResponse(
                 true,
-                'Company updated successfully',
+                'Firma başarıyla güncellendi',
                 null,
                 200
             );
