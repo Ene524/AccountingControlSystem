@@ -53,7 +53,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="#"
+            <a href="{{route('customer.index')}}"
                class="menu-link">
                 <i class="menu-icon ti ti-users"></i>
                 <div data-i18n="Müşteriler">Müşteriler</div>

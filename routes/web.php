@@ -3,6 +3,7 @@
 use App\Http\Controllers\Web\CommonController;
 use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\CompanyUserConnectController;
+use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,6 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
-
     });
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
@@ -41,6 +41,10 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('getCities', [CommonController::class, 'getCities'])->name('common.getCities');
         Route::get('getTowns', [CommonController::class, 'getTowns'])->name('common.getTowns');
         Route::get('getTaxOffices', [CommonController::class, 'getTaxOffices'])->name('common.getTaxOffices');
+    });
+    Route::prefix('customer')->group(function () {
+        Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
+        Route::get('getAll', [CustomerController::class, 'getAll'])->name('customer.getAll');
     });
 });
 
