@@ -1,3 +1,4 @@
+<script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
 <script>
     let is_person = document.querySelector('select[name="is_person"]');
     let identity_number = document.querySelector('input[name="identity_number"]');
@@ -20,7 +21,10 @@
         identity_number.value = '';
     }
 
-    is_person.addEventListener('change', function () {
+
+
+
+    $('.select2').on('select2:select', function(e) {
         if (is_person.value == 1) {
             identity_number.disabled = false;
             tax_number.disabled = true;
@@ -41,11 +45,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         GetCountries();
         GetCities();
         GetTowns();
         GetTaxOffices();
+        $('.select2').select2();
     });
 
     function GetCountries() {
@@ -55,17 +60,19 @@
             highlight: true,
             minLength: 2,
             limit: Infinity,
-            source: function (query, process) {
+            source: function(query, process) {
                 return $.getJSON(
-                    path,
-                    {query: query},
-                    function (data) {
+                    path, {
+                        query: query
+                    },
+                    function(data) {
                         return process(data.map((x => x.name)));
                     });
             }
 
         });
     }
+
     function GetCities() {
         let path = "{{ route('common.getCities') }}";
         $('#city').typeahead({
@@ -73,17 +80,19 @@
             highlight: true,
             minLength: 2,
             limit: Infinity,
-            source: function (query, process) {
+            source: function(query, process) {
                 return $.getJSON(
-                    path,
-                    {query: query},
-                    function (data) {
+                    path, {
+                        query: query
+                    },
+                    function(data) {
                         return process(data.map((x => x.name)));
                     });
             }
 
         });
     }
+
     function GetTowns() {
         let path = "{{ route('common.getTowns') }}";
         $('#town').typeahead({
@@ -91,17 +100,19 @@
             highlight: true,
             minLength: 2,
             limit: Infinity,
-            source: function (query, process) {
+            source: function(query, process) {
                 return $.getJSON(
-                    path,
-                    {query: query},
-                    function (data) {
+                    path, {
+                        query: query
+                    },
+                    function(data) {
                         return process(data.map((x => x.name)));
                     });
             }
 
         });
     }
+
     function GetTaxOffices() {
         let path = "{{ route('common.getTaxOffices') }}";
         $('#tax_office').typeahead({
@@ -109,11 +120,12 @@
             highlight: true,
             minLength: 2,
             limit: Infinity,
-            source: function (query, process) {
+            source: function(query, process) {
                 return $.getJSON(
-                    path,
-                    {query: query},
-                    function (data) {
+                    path, {
+                        query: query
+                    },
+                    function(data) {
                         return process(data.map((x => x.name)));
                     });
             }
@@ -121,7 +133,3 @@
         });
     }
 </script>
-
-
-
-

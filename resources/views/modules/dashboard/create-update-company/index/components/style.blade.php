@@ -1,11 +1,6 @@
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}" />
 <style>
-    <
-    style type
-
-    =
-    "text/css"
-    >
     body {
-        overflow-x: hidden;
+        overflow-y: hidden;
     }
 </style>

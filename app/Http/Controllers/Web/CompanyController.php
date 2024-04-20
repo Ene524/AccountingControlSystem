@@ -50,7 +50,8 @@ class CompanyController extends Controller
             e_voucher_status: $request->e_voucher_status,
             web_service_username: $request->web_service_username,
             web_service_password: $request->web_service_password,
-            integrator_id: $request->integrator_id
+            integrator_id: $request->integrator_id,
+            is_active: $request->is_active
         );
         return redirect()->route("dashboard.showUserCompanyDashboard")->with('success', $response->getMessage());
     }
@@ -95,9 +96,6 @@ class CompanyController extends Controller
         } else {
             return redirect()->route('dashboard.showUserCompanyDashboard')->with('error', $response->getMessage());
         }
-
-
-
     }
 
     public function getAll()
