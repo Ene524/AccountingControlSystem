@@ -19,7 +19,9 @@ class CustomerService implements ICustomerService
      */
     public function getAll(): ServiceResponse
     {
-        $customers = Customer::all();
+        $customers = Customer::where('is_active', true)
+            ->where('company_id', auth()->user()->company_id)
+            ->get();
         return new ServiceResponse(true, "Müşteriler getirildi", $customers, 200);
     }
 

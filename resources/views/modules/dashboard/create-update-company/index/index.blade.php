@@ -7,17 +7,16 @@
         <div class="row">
             <div class="col-xxl">
                 <div class="card mb-4">
-                    <h5 class="card-header text-center ">Temel Bilgiler</h5>
+                    <h6 class="card-header text-center ">Temel Bilgiler</h6>
                     <div class="card-body">
                         <form
                             action="{{ isset($response) && $response->isSuccess() ? route('company.update') : route('company.create') }}"
                             method="post">
                             @csrf
-                            <hr>
                             <input type="hidden"
                                    name="id"
                                    value="{{ isset($response) ? $response->getData()->id : '' }}">
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="is_person">Şahıs Şirketi Mi?</label>
                                 <div class="col-sm-9">
@@ -36,7 +35,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('is_person') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="short_title">Kısa Ad</label>
                                 <div class="col-sm-3">
@@ -65,7 +64,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('title') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="first_name">Ad</label>
                                 <div class="col-sm-3">
@@ -94,7 +93,7 @@
                                            mx-1"> {{$errors->first('last_name') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="tax_number">Vergi Numarası</label>
                                 <div class="col-sm-3">
@@ -123,9 +122,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('identity_number') ?? ''}}</span>
                                 </div>
                             </div>
-
-                            <hr>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="address">Adres</label>
                                 <div class="col-sm-9">
@@ -140,7 +137,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('address') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="city">Şehir</label>
                                 <div class="col-sm-3">
@@ -169,7 +166,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('town') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="country">Ülke</label>
                                 <div class="col-sm-3">
@@ -198,7 +195,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('tax_office') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="email">Email</label>
                                 <div class="col-sm-9">
@@ -213,7 +210,7 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('email') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label class="col-sm-3 col-form-label"
                                        for="phone">Telefon</label>
                                 <div class="col-sm-3">
@@ -241,7 +238,26 @@
                                         class="help-block error-help-block mx-1"> {{$errors->first('fax') ?? ''}}</span>
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
+                                <label class="col-sm-3 col-form-label"
+                                       for="is_active">Aktif mi?</label>
+                                <div class="col-sm-9">
+                                    <select id="is_active" name="is_active" class="form-select required">
+                                        <option value="">Seçiniz</option>
+                                        <option
+                                            value="1" {{ isset($response) && $response->isSuccess() && $response->getData()->is_active == 1 ? 'selected' : (old('is_active')==1 ? 'selected':'') }}>
+                                            Evet
+                                        </option>
+                                        <option
+                                            value="0" {{ isset($response) && $response->isSuccess() && $response->getData()->is_active === 0 ? 'selected' : (old('is_active')==0 ? 'selected':'') }}>
+                                            Hayır
+                                        </option>
+                                    </select>
+                                    <span
+                                        class="help-block error-help-block mx-1"> {{$errors->first('is_active') ?? ''}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-12">
                                     <button type="submit"
                                             class="btn btn-primary float-end mx-2">Oluştur

@@ -33,7 +33,8 @@ interface ICompanyService extends IEloquentService
         ?bool   $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int    $integrator_id
+        ?int    $integrator_id,
+        bool    $is_active,
     ): ServiceResponse;
 
     public function update(
@@ -64,5 +65,7 @@ interface ICompanyService extends IEloquentService
         bool   $e_voucher_status,
         string $web_service_username,
         string $web_service_password,
-        int    $integrator_id): ServiceResponse;
+        int    $integrator_id,
+        bool  $is_active,
+    ): ServiceResponse;
 }

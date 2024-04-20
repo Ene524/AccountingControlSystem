@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Eloquent\ICustomerService;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-
+    use HttpResponse;
     private ICustomerService $customerService;
 
     public function __construct(ICustomerService $customerService)

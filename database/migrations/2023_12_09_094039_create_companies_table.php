@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -21,9 +20,9 @@ return new class extends Migration
             $table->string('tax_number', 10)->nullable();
             $table->string('identity_number', 11)->nullable();
             $table->string('address', 255);
-            $table->string('city',100);
-            $table->string('town',100);
-            $table->string('country',100);
+            $table->string('city', 100);
+            $table->string('town', 100);
+            $table->string('country', 100);
             $table->string('tax_office')->nullable();
             $table->string('email', 200);
             $table->string('phone', 30);
@@ -40,7 +39,7 @@ return new class extends Migration
             $table->string('web_service_username', 100)->nullable();
             $table->string('web_service_password', 100)->nullable();
             $table->unsignedBigInteger('integrator_id')->nullable();
-
+            $table->boolean('is_active')->default(1);
 
             $table->timestamps();
             $table->softDeletes();

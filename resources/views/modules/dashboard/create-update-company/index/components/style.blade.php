@@ -1,5 +1,11 @@
 <style>
-    .mb-3 {
-        margin-bottom: 14px !important;
+    <
+    style type
+
+    =
+    "text/css"
+    >
+    body {
+        overflow-x: hidden;
     }
 </style>

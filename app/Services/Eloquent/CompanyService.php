@@ -50,36 +50,6 @@ class CompanyService implements ICompanyService
     }
 
 
-    /**
-     * @param string $title
-     * @param string $short_title
-     * @param bool $is_person
-     * @param string|null $first_name
-     * @param string|null $last_name
-     * @param string|null $tax_number
-     * @param string|null $identity_number
-     * @param string $address
-     * @param string $city
-     * @param string $town
-     * @param string $country
-     * @param string $tax_office
-     * @param string $email
-     * @param string $phone
-     * @param string|null $fax
-     * @param string|null $postal_code
-     * @param string|null $web_site
-     * @param string|null $commercial_register_number
-     * @param string|null $mernis_number
-     * @param bool|null $e_invoice_status
-     * @param bool|null $e_archive_status
-     * @param bool|null $e_dispatch_status
-     * @param bool|null $e_producer_status
-     * @param bool|null $e_voucher_status
-     * @param string|null $web_service_username
-     * @param string|null $web_service_password
-     * @param int|null $integrator_id
-     * @return ServiceResponse
-     */
     public function create(
         string  $title,
         string  $short_title,
@@ -107,7 +77,8 @@ class CompanyService implements ICompanyService
         ?bool   $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int    $integrator_id
+        ?int    $integrator_id,
+        bool    $is_active
     ): ServiceResponse
     {
         $company = Company::create([
@@ -137,7 +108,8 @@ class CompanyService implements ICompanyService
             'e_voucher_status' => $e_voucher_status,
             'web_service_username' => $web_service_username,
             'web_service_password' => $web_service_password,
-            'integrator_id' => $integrator_id
+            'integrator_id' => $integrator_id,
+            'is_active' => $is_active
         ]);
 
         $user = Auth::user();
@@ -150,37 +122,6 @@ class CompanyService implements ICompanyService
         );
     }
 
-    /**
-     * @param int $id
-     * @param string $title
-     * @param string $short_title
-     * @param bool $is_person
-     * @param string $first_name
-     * @param string $last_name
-     * @param string $tax_number
-     * @param string $identity_number
-     * @param string $address
-     * @param int $city_id
-     * @param int $town_id
-     * @param int $country_id
-     * @param int $tax_office_id
-     * @param string $email
-     * @param string $phone
-     * @param string $fax
-     * @param string $postal_code
-     * @param string $web_site
-     * @param string $commercial_register_number
-     * @param string $mernis_number
-     * @param bool $e_invoice_status
-     * @param bool $e_archive_status
-     * @param bool $e_dispatch_status
-     * @param bool $e_producer_status
-     * @param bool $e_voucher_status
-     * @param string $web_service_username
-     * @param string $web_service_password
-     * @param int $integrator_id
-     * @return ServiceResponse
-     */
     public function update(
         int     $id,
         string  $title,
@@ -209,7 +150,9 @@ class CompanyService implements ICompanyService
         ?bool   $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int    $integrator_id): ServiceResponse
+        ?int    $integrator_id,
+        bool    $is_active
+    ): ServiceResponse
     {
         $company = $this->getById($id)->getData();
 
@@ -243,6 +186,7 @@ class CompanyService implements ICompanyService
             $company->web_service_username = $web_service_username;
             $company->web_service_password = $web_service_password;
             $company->integrator_id = $integrator_id;
+            $company->is_active = $is_active;
             $company->save();
             return new ServiceResponse(true, 'Firma başarıyla güncellendi', null, 200);
         }
