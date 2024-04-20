@@ -33,6 +33,7 @@ class CreateRequest extends FormRequest
             'country' => 'required',
             'email' => 'required|string|email|max:255',
             'phone' => 'required|string|max:255',
+            'is_active' => 'required'
         ];
     }
 

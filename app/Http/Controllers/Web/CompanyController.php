@@ -23,6 +23,7 @@ class CompanyController extends Controller
 
     public function create(CreateRequest $request)
     {
+//        dd($request->all());
         $response = $this->companyService->create(
             title: $request->title,
             short_title: $request->short_title,

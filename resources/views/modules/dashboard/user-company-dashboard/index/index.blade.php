@@ -33,6 +33,7 @@
                                                 >
                                                     <i class="fa fa-edit text-secondary"></i>
                                                 </a>
+
                                             </h5>
                                             <p class="card-subtitle">{{$company->is_person ? 'Tckn : '.$company->identity_number :'Vkn : '.$company->tax_number }}</p>
                                             <p class="card-text">Oluşturulma:

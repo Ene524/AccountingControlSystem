@@ -185,11 +185,11 @@
                                     <select id="is_active" name="is_active" class="form-select required">
                                         <option value="">Seçiniz</option>
                                         <option value="1"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active == 1 ? 'selected' : (old('is_active') == 1 ? 'selected' : '') }}>
+                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active == 1 ? 'selected' :  '' }}>
                                             Evet
                                         </option>
                                         <option value="0"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active === 0 ? 'selected' : (old('is_active') == 0 ? 'selected' : '') }}>
+                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active === 0 ? 'selected' : '' }}>
                                             Hayır
                                         </option>
                                     </select>

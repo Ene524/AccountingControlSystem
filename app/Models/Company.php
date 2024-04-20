@@ -38,7 +38,8 @@ class Company extends Model
         'e_voucher_status',
         'web_service_username',
         'web_service_password',
-        'integrator_id'
+        'integrator_id',
+        'is_active'
     ];
 
     public function users()

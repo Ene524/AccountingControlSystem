@@ -39,7 +39,7 @@ return new class extends Migration {
             $table->string('web_service_username', 100)->nullable();
             $table->string('web_service_password', 100)->nullable();
             $table->unsignedBigInteger('integrator_id')->nullable();
-            $table->boolean('is_active')->default(1);
+            $table->boolean('is_active');
 
             $table->timestamps();
             $table->softDeletes();
