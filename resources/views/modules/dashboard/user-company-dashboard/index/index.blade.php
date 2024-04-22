@@ -19,22 +19,33 @@
                                             <input type="hidden"
                                                    name="company_id"
                                                    value="{{$company->id}}">
-                                            <h5 class="card-title">{{ $company->title }}
-                                                <a href="#"
-                                                   class="deleteCompany"
-                                                   style="position:absolute;top:10px;right:10px;"
-                                                   data-id="{{ $company->id }}"
-                                                >
-                                                    <i class="fa fa-trash text-secondary"></i>
-                                                </a>
+                                            <h5 class="card-title">{{ $company->title }}</h5>
+                                            <a href="#"
+                                               class="deleteCompany"
+                                               style="position:absolute;top:10px;right:10px;"
+                                               data-id="{{ $company->id }}"
+                                            >
+                                                <i class="fa fa-trash text-secondary"></i>
+                                            </a>
 
-                                                <a href="{{route('dashboard.editCompany', ['id' => $company->id])}}"
-                                                   style="position:absolute;top:50px;right:10px;"
-                                                >
-                                                    <i class="fa fa-edit text-secondary"></i>
-                                                </a>
+                                            <a href="{{route('dashboard.editCompany', ['id' => $company->id])}}"
+                                               style="position:absolute;top:50px;right:10px;"
+                                            >
+                                                <i class="fa fa-edit text-secondary"></i>
+                                            </a>
 
-                                            </h5>
+                                            @if($company->is_active==1)
+                                                <span class="badge bg-label-primary"
+                                                      style="position:absolute;bottom:10px;right:10px;">
+                                                Aktif
+                                            </span>
+                                            @else
+                                                <span class="badge bg-label-danger"
+                                                      style="position:absolute;bottom:10px;right:10px;">
+                                                Pasif
+                                            </span>
+                                            @endif
+
                                             <p class="card-subtitle">{{$company->is_person ? 'Tckn : '.$company->identity_number :'Vkn : '.$company->tax_number }}</p>
                                             <p class="card-text">Oluşturulma:
                                                 {{ \Carbon\Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
