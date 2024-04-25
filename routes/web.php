@@ -44,7 +44,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
     });
     Route::prefix('customer')->group(function () {
         Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
-        Route::get('getAll', [CustomerController::class, 'getAll'])->name('customer.getAll');
+        Route::get('getCustomers', [CustomerController::class, 'getCustomers'])->name('customer.getCustomers');
     });
 });
 

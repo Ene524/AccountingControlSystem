@@ -21,7 +21,7 @@ class CustomerController extends Controller
         return view ('modules.customer.index.index');
     }
 
-    public function getAll()
+    public function getCustomers()
     {
         $response = $this->customerService->getAll();
 

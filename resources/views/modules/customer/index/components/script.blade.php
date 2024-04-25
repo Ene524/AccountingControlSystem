@@ -178,7 +178,7 @@
 
     function getCustomerList() {
         $.ajax({
-            url: '{{route('customer.getAll')}}',
+            url: '{{route('customer.getCustomers')}}',
             type: 'GET',
             success: function (response) {
                 gridOptions.api.setRowData(response.response);
