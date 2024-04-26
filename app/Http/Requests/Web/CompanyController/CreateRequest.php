@@ -55,7 +55,7 @@ class CreateRequest extends FormRequest
             'phone.required' => 'Telefon zorunludur',
             'tax_number.size' => 'Vergi numarası 10 haneli olmalıdır',
             'identity_number.size' => 'Kimlik numarası 11 haneli olmalıdır',
-
+            'is_active.required' => 'Durum seçimi zorunludur'
         ];
 
     }

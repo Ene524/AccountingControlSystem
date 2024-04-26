@@ -19,16 +19,12 @@
                                 <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
                                 <div class="col-sm-9">
                                     <select id="is_person" name="is_person" class="form-select select2">
-                                        <option value="">Seçiniz</option>
-                                        <option value="1"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_person == 1 ? 'selected' : (old('is_person') == 1 ? 'selected' : '') }}>
-                                            Evet
-                                        </option>
-                                        <option value="0"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_person === 0 ? 'selected' : (old('is_person') == 0 ? 'selected' : '') }}>
-                                            Hayır
-                                        </option>
+                                        <option value="" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') === null ? 'selected' : '' }}>Seçiniz</option>
+                                        <option value="1" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') == 1 ? 'selected' : '' }}>Evet</option>
+                                        <option value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') === '0' ? 'selected' : '' }}>Hayır</option>
                                     </select>
+
+
                                     <span class="help-block error-help-block mx-1">
                                         {{ $errors->first('is_person') ?? '' }}</span>
                                 </div>
@@ -180,18 +176,12 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label class="col-sm-3 col-form-label" for="is_active">Aktif mi?</label>
+                                <label class="col-sm-3 col-form-label" for="is_activ1e">Aktif mi?</label>
                                 <div class="col-sm-9">
-                                    <select id="is_active" name="is_active" class="form-select required">
-                                        <option value="">Seçiniz</option>
-                                        <option value="1"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active == 1 ? 'selected' :  '' }}>
-                                            Evet
-                                        </option>
-                                        <option value="0"
-                                            {{ isset($response) && $response->isSuccess() && $response->getData()->is_active === 0 ? 'selected' : '' }}>
-                                            Hayır
-                                        </option>
+                                    <select id="is_active" name="is_active" class="form-select select2">
+                                        <option value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') === null ? 'selected' : '' }}>Seçiniz</option>
+                                        <option value="1" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') == 1 ? 'selected' : '' }}>Evet</option>
+                                        <option value="0" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') === '0' ? 'selected' : '' }}>Hayır</option>
                                     </select>
                                     <span class="help-block error-help-block mx-1">
                                         {{ $errors->first('is_active') ?? '' }}</span>
