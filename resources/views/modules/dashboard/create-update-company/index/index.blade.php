@@ -176,7 +176,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label class="col-sm-3 col-form-label" for="is_activ1e">Aktif mi?</label>
+                                <label class="col-sm-3 col-form-label" for="is_active">Aktif mi?</label>
                                 <div class="col-sm-9">
                                     <select id="is_active" name="is_active" class="form-select select2">
                                         <option value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') === null ? 'selected' : '' }}>Seçiniz</option>
