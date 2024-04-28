@@ -18,10 +18,12 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
     });
+
     Route::prefix('userCompanyConnect')->group(function () {
         Route::post('create', [CompanyUserConnectController::class, 'create'])->name('companyUserConnect.create');
         Route::post('delete', [CompanyUserConnectController::class, 'delete'])->name('companyUserConnect.delete');
     });
+
     Route::prefix('company')->group(function () {
         Route::post('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
@@ -29,6 +31,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
     });
+
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
@@ -36,15 +39,19 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('editCompany', [DashboardController::class, 'editCompany'])->name('dashboard.editCompany');
         Route::post('selectCompany}', [DashboardController::class, 'selectCompany'])->name('dashboard.selectCompany');
     });
+
     Route::prefix('common')->group(function () {
         Route::get('getCountries', [CommonController::class, 'getCountries'])->name('common.getCountries');
         Route::get('getCities', [CommonController::class, 'getCities'])->name('common.getCities');
         Route::get('getTowns', [CommonController::class, 'getTowns'])->name('common.getTowns');
         Route::get('getTaxOffices', [CommonController::class, 'getTaxOffices'])->name('common.getTaxOffices');
     });
+
     Route::prefix('customer')->group(function () {
         Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
         Route::get('getCustomers', [CustomerController::class, 'getCustomers'])->name('customer.getCustomers');
+        Route::get('create', [CustomerController::class, 'create'])->name('customer.create');
+        Route::post('create', [CustomerController::class, 'store']);
     });
 });
 

@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card mb-4">
                 <h5 class="card-header d-flex justify-content-between align-items-center">Müşteri Listesi
-                    <a href="{{}}" class="btn btn-primary">Yeni Müşteri Ekle</a>
+                    <a href="{{route('customer.create')}}" class="btn btn-primary">Yeni Müşteri Ekle</a>
                 </h5>
 
                 <div class="card-body">

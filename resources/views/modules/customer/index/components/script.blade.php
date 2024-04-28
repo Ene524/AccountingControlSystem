@@ -8,10 +8,10 @@
 
     var columnDefs = [
         {
-            headerName: 'ID',
+            headerName: '#',
             field: 'id',
             sortable: true,
-            filter: true,
+            filter: 'agTextColumnFilter',
             checkboxSelection: true,
             headerCheckboxSelection: true,
             headerCheckboxSelectionFilteredOnly: true,

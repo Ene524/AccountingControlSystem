@@ -19,10 +19,28 @@ class UpdateRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+    public function rules(): array
+    {
+        return [
+            'id' => 'required',
+            'title' => 'required|string|max:255',
+            'short_title' => 'nullable|string|max:50',
+            'is_person' => 'required',
+            'tax_number' => $this->is_person != 1 ? 'required|string|size:10' : '',
+            'identity_number' => $this->is_person == 1 ? 'required|string|size:11' : '',
+            'address' => 'nullable|string|max:255',
+            'city' => 'required',
+            'town' => 'required',
+            'country' => 'required',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|string|max:255',
+            'is_active' => 'required'
+        ];
+    }
+
     public function messages(): array
     {
         return [
-            'id.required' => 'Firma bilgisi zorunludur',
             'title.required' => 'Ünvan zorunludur',
             'short_title.required' => 'Kısa ünvan zorunludur',
             'is_person.required' => 'Tür seçimi zorunludur',
@@ -38,10 +56,11 @@ class UpdateRequest extends FormRequest
             'phone.required' => 'Telefon zorunludur',
             'tax_number.size' => 'Vergi numarası 10 haneli olmalıdır',
             'identity_number.size' => 'Kimlik numarası 11 haneli olmalıdır',
-
+            'is_active.required' => 'Durum seçimi zorunludur'
         ];
 
     }
+
 
 
 }

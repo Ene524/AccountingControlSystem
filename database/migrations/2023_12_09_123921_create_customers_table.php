@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
+            $table->boolean('is_person');
             $table->string('customer_code', 50);
             $table->string('title', 255);
             $table->string('first_name', 255);
             $table->string('last_name', 255);
-            $table->boolean('is_person');
             $table->string('tax_number', 10);
             $table->string('identity_number', 11);
             $table->string('phone', 255);
