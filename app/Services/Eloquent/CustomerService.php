@@ -28,7 +28,7 @@ class CustomerService implements ICustomerService
         string $town,
         string $country,
         string $tax_office,
-        string $postalCode,
+        string $postal_code,
         string $specode1,
         string $specode2,
         string $specode3,
