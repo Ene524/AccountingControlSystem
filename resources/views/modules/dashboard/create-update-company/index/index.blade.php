@@ -19,10 +19,15 @@
                                 <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
                                 <div class="col-sm-9">
                                     <select id="is_person" name="is_person" class="form-select select2">
-                                        <option value="" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') === null ? 'selected' : '' }}>Seçiniz</option>
-                                        <option value="1" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') == 1 ? 'selected' : '' }}>Evet</option>
-                                        <option value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : '') === '0' ? 'selected' : '' }}>Hayır</option>
+                                        <option value="" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) === '' ? 'selected' : '' }}>Seçiniz</option>
+                                        <option value="1" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '1' ? 'selected' : '' }}>Evet</option>
+                                        <option value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '0' && old('is_person') !== '' ? 'selected' : '' }}>Hayır</option>
                                     </select>
+
+
+
+
+
 
 
                                     <span class="help-block error-help-block mx-1">

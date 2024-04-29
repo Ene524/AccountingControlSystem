@@ -24,7 +24,7 @@ class CreateRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'short_title' => 'nullable|string|max:50',
-            'is_person' => 'required',
+            'is_person' => 'boolean',
             'tax_number' => $this->is_person != 1 ? 'required|string|size:10' : '',
             'identity_number' => $this->is_person == 1 ? 'required|string|size:11' : '',
             'address' => 'nullable|string|max:255',
