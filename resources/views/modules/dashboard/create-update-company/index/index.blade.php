@@ -24,12 +24,6 @@
                                         <option value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '0' && old('is_person') !== '' ? 'selected' : '' }}>Hayır</option>
                                     </select>
 
-
-
-
-
-
-
                                     <span class="help-block error-help-block mx-1">
                                         {{ $errors->first('is_person') ?? '' }}</span>
                                 </div>
@@ -180,13 +174,13 @@
                                         {{ $errors->first('fax') ?? '' }}</span>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-3">
                                 <label class="col-sm-3 col-form-label" for="is_active">Aktif mi?</label>
                                 <div class="col-sm-9">
                                     <select id="is_active" name="is_active" class="form-select select2">
-                                        <option value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') === null ? 'selected' : '' }}>Seçiniz</option>
-                                        <option value="1" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') == 1 ? 'selected' : '' }}>Evet</option>
-                                        <option value="0" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : '') === '0' ? 'selected' : '' }}>Hayır</option>
+                                        <option value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>Seçiniz</option>
+                                        <option value="1" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>Evet</option>
+                                        <option value="0" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>Hayır</option>
                                     </select>
                                     <span class="help-block error-help-block mx-1">
                                         {{ $errors->first('is_active') ?? '' }}</span>
