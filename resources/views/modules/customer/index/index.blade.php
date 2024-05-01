@@ -2,6 +2,9 @@
 @section('title', 'Müşteri Listesi')
 @section('content')
 
+    <h4 class="py-1 mb-2">
+        <span class="text-muted fw-light">Müşteriler/</span>Müşteri Listesi
+    </h4>
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">

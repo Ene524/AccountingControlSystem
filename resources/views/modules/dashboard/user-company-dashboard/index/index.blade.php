@@ -2,6 +2,9 @@
 @section('title', 'Firma Seçimi')
 @section('content')
 
+    <h4 class="py-1 mb-2">
+        <span class="text-muted fw-light">Dashboard/</span>Kullanıcı Firmalar
+    </h4>
     <div class="row">
         <h4 class="py-3 text-center">Firma Listesi</h4>
 

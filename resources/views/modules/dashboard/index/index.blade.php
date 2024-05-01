@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('title', 'Dashboard')
 @section('content')
+
+    <h4 class="py-1 mb-2">
+        <span class="text-muted fw-light">Dashboard/</span>Dashboard
+    </h4>
     <div class="row">
         <div class="col-md-12">
             <div class="card mb-4">
