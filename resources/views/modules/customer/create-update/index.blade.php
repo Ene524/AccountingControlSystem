@@ -182,6 +182,28 @@
                                         {{ $errors->first('fax') ?? '' }}</span>
                             </div>
                         </div>
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label" for="mobile_phone">Gsm</label>
+                            <div class="col-sm-9">
+                                <input type="tel" id="mobile_phone" name="mobile_phone" class="form-control"
+                                       placeholder="Gsm"
+                                       value="{{ isset($response) ? $response->getData()->mobile_phone ?? old('mobile_phone') : old('mobile_phone') }}">
+
+                                <span class="help-block error-help-block mx-1">
+                                        {{ $errors->first('mobile_phone') ?? '' }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label" for="web_site">Web Site</label>
+                            <div class="col-sm-9">
+                                <input type="tel" id="web_site" name="web_site" class="form-control"
+                                       placeholder="Web site"
+                                       value="{{ isset($response) ? $response->getData()->web_site ?? old('web_site') : old('web_site') }}">
+
+                                <span class="help-block error-help-block mx-1">
+                                        {{ $errors->first('web_site') ?? '' }}</span>
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="is_active">Aktif mi?</label>
                             <div class="col-sm-9">
