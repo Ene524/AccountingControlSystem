@@ -33,8 +33,8 @@ class CustomerService implements ICustomerService
         string $specode2,
         string $specode3,
         string $note,
-        bool   $is_active): ServiceResponse
-    {
+        bool   $is_active
+    ): ServiceResponse {
         $customer = Customer::create([
             'company_id' => $company_id,
             'customer_code' => $customer_code,
@@ -54,7 +54,7 @@ class CustomerService implements ICustomerService
             'town' => $town,
             'country' => $country,
             'tax_office' => $tax_office,
-            'postal_code' => $postalCode,
+            'postal_code' => $postal_code,
             'specode1' => $specode1,
             'specode2' => $specode2,
             'specode3' => $specode3,
@@ -62,7 +62,6 @@ class CustomerService implements ICustomerService
             'is_active' => $is_active
         ]);
         return new ServiceResponse(true, "Müşteri oluşturuldu", $customer, 201);
-
     }
 
     /**

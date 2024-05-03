@@ -29,6 +29,8 @@
             identity_number.disabled = false;
             tax_number.disabled = true;
             tax_number.value = '';
+            first_name.disabled=false;
+            last_name.disabled=false;
         } else {
             tax_number.disabled = false;
             identity_number.disabled = true;
