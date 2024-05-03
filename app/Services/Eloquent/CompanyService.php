@@ -30,6 +30,10 @@ class CompanyService implements ICompanyService
         $company = $this->getById($id);
         if ($company->isSuccess()) {
             $company->getData()->delete();
+            if(auth()->user()->company_id== $id){
+                auth()->user()->company_id = null;
+                auth()->user()->save();
+            }
             //$company->getData()->users()->detach(); Kullanıcılarla ilişkili olan firmaları silmek için
             return new ServiceResponse(true, 'Firma silindi', null, 200);
         }

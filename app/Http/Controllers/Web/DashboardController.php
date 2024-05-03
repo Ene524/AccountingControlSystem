@@ -61,6 +61,7 @@ class DashboardController extends Controller
     public function selectCompany(Request $request)
     {
         $response = $this->dashboardService->selectCompany($request->company_id);
+
         if ($response->isSuccess()) {
             return redirect()->route('dashboard.index');
         } else {

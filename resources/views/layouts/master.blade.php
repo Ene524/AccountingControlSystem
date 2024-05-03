@@ -31,6 +31,8 @@
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/vendor/js/template-customizer.js') }}/"></script>
     <script src="{{ asset('assets/js/config.js') }}"></script>
+    <link href="{{ asset('assets/vendor/libs/toastr/toastr.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/libs/animate-css/animate.css') }}" rel="stylesheet">
     @yield('customStyle')
 </head>
 
@@ -74,10 +76,22 @@
 <script src="{{asset('assets/vendor/libs/i18n/i18n.js') }}"></script>
 <script src="{{asset('assets/vendor/libs/typeahead-js/typeahead.js') }}"></script>
 <script src="{{asset('assets/vendor/js/menu.js')}}"></script>
-
-
 <script src="{{ asset('assets/js/main.js')}}"></script>
+<script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
 @yield('customScript')
+
+@if (session('success'))
+    <script>
+        toastr["success"]("{{ session()->get('success') }}")
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        toastr["error"]("{{ session()->get('error') }}")
+    </script>
+@endif
+
 </body>
 
 </html>

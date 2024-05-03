@@ -1,5 +1,5 @@
 <script src="{{ asset('assets/vendor/libs/sweetalert2/sweetalert2.js') }}"></script>
-<script src="{{ asset('assets/vendor/libs/toastr/toastr.js') }}"></script>
+
 
 
 <script>
@@ -52,10 +52,3 @@
         });
     });
 </script>
-
-
-@if (session('success'))
-    <script>
-        toastr["success"]("{{ session('success') }}")
-    </script>
-@endif
