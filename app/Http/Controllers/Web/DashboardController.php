@@ -63,9 +63,9 @@ class DashboardController extends Controller
         $response = $this->dashboardService->selectCompany($request->company_id);
 
         if ($response->isSuccess()) {
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard.index')->with('success', $response->getMessage());
         } else {
-            return redirect()->route('dashboard.index')->with('error', $response->getMessage());
+            return redirect()->route('dashboard.showUserCompanyDashboard')->with('error', $response->getMessage());
         }
     }
 }

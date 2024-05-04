@@ -13,26 +13,26 @@ class CustomerService implements ICustomerService
         int    $company_id,
         string $customer_code,
         string $title,
-        string $first_name,
-        string $last_name,
+        ?string $first_name,
+        ?string $last_name,
         bool   $is_person,
-        string $tax_number,
-        string $identity_number,
-        string $phone,
-        string $fax,
-        string $mobile_phone,
-        string $web_site,
-        string $email,
-        string $address,
-        string $city,
-        string $town,
-        string $country,
-        string $tax_office,
-        string $postal_code,
-        string $specode1,
-        string $specode2,
-        string $specode3,
-        string $note,
+        ?string $tax_number,
+        ?string $identity_number,
+        ?string $phone,
+        ?string $fax,
+        ?string $mobile_phone,
+        ?string $web_site,
+        ?string $email,
+        ?string $address,
+        ?string $city,
+        ?string $town,
+        ?string $country,
+        ?string $tax_office,
+        ?string $postal_code,
+        ?string $specode1,
+        ?string $specode2,
+        ?string $specode3,
+        ?string $note,
         bool   $is_active
     ): ServiceResponse {
         $customer = Customer::create([
@@ -61,6 +61,7 @@ class CustomerService implements ICustomerService
             'note' => $note,
             'is_active' => $is_active
         ]);
+
         return new ServiceResponse(true, "Müşteri oluşturuldu", $customer, 201);
     }
 
@@ -69,9 +70,7 @@ class CustomerService implements ICustomerService
      */
     public function getAll(): ServiceResponse
     {
-        $customers = Customer::where('is_active', true)
-            ->where('company_id', auth()->user()->company_id)
-            ->get();
+        $customers = Customer::where('company_id', auth()->user()->company_id)->get();
         return new ServiceResponse(true, "Müşteriler getirildi", $customers, 200);
     }
 

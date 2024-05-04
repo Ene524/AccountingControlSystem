@@ -39,26 +39,54 @@
             width: 150,
         },
         {
+            headerName: 'Durum',
+            field: 'is_active',
+            sortable: true,
+            filter: 'agSetColumnFilter',
+            width: 200,
+            cellRenderer: customerActive,
+            filterParams: {
+                values: ['1', '0'],
+                cellRenderer: customerActive,
+                valueFormatter: function(params) {
+                    return params.value === '1' ? 'Aktif' : 'Pasif';
+                },
+                textCustomComparator: function(filter, value, filterText) {
+                    return value === filterText;
+                }
+            },
+        },
+        {
             headerName: 'Müşteri Tipi',
             field: 'is_person',
             sortable: true,
-            filter: 'agTextColumnFilter',
+            filter: 'agSetColumnFilter',
             width: 200,
             cellRenderer: customerType,
+            filterParams: {
+                values: ['1', '0'],
+                cellRenderer: customerType,
+                valueFormatter: function(params) {
+                    return params.value === '1' ? 'Şahıs Firması' : 'Tüzel Firma';
+                },
+                textCustomComparator: function(filter, value, filterText) {
+                    return value === filterText;
+                }
+            },
         },
         {
             headerName: 'Adı',
             field: 'name',
             sortable: true,
             filter: 'agTextColumnFilter',
-            width: 200,
+            width: 160,
         },
         {
             headerName: 'Soyadı',
             field: 'surname',
             sortable: true,
             filter: 'agTextColumnFilter',
-            width: 200,
+            width: 160,
         },
         {
             headerName: 'Telefon',
@@ -106,14 +134,14 @@
             headerName: 'Oluşturulma Tarihi',
             field: 'created_at',
             sortable: true,
-            filter: 'agTextColumnFilter',
+            filter: 'agDateColumnFilter',
             width: 200,
         },
         {
             headerName: 'Güncelleme Tarihi',
             field: 'updated_at',
             sortable: true,
-            filter: true,
+            filter: 'agDateColumnFilter',
             width: 200,
         },
     ];
@@ -160,8 +188,29 @@
                 title = "Şahıs Firması";
             }
             if (params.value == "0") {
-                color = "success";
+                color = "info";
                 title = "Tüzel Firma";
+            }
+
+            var actions = '<span class="badge bg-' + color + '  badge-pill">' + title + '</span>';
+            return actions;
+        }
+    }
+
+    function customerActive(params) {
+        if (params.value === "" || params.value === undefined || params.value === null) {
+            return '';
+        } else {
+            var title = "";
+            var color = "";
+
+            if (params.value == "1") {
+                color = "success";
+                title = "Aktif";
+            }
+            if (params.value == "0") {
+                color = "danger";
+                title = "Pasif";
             }
 
             var actions = '<span class="badge bg-' + color + '  badge-pill">' + title + '</span>';

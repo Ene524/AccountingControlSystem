@@ -5,6 +5,7 @@
     <h4 class="py-1 mb-2">
         <span class="text-muted fw-light">Müşteriler/</span>Müşteri Ekle
     </h4>
+
     <div class="row">
         <div class="col-xxl">
             <div class="card mb-4">
@@ -280,6 +281,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('customStyle')

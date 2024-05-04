@@ -35,6 +35,11 @@ class CustomerController extends Controller
         );
     }
 
+    public function create()
+    {
+        return view('modules.customer.create-update.index');
+    }
+
     public function store(CreateRequest $request)
     {
         $response = $this->customerService->create(
@@ -64,16 +69,12 @@ class CustomerController extends Controller
             is_active: $request->is_active
         );
 
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
+        if ($response->isSuccess()) {
+            return redirect()->route('customer.index')->with('success', $response->getMessage());
+        } else {
+            return redirect()->route('customer.create')->with('error', $response->getMessage());
+        }
     }
 
-    public function create()
-    {
-        return view('modules.customer.create-update.index');
-    }
+
 }
