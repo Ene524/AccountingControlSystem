@@ -3,7 +3,7 @@
 @section('content')
 
     <h4 class="py-1 mb-2">
-        <span class="text-muted fw-light">Müşteriler/</span>Müşteri Ekle
+        <span class="text-muted fw-light">Müşteriler/</span>{{isset($response) && $response->isSuccess() ? 'Müşteri Güncelle' : 'Müşteri Ekle'}}
     </h4>
 
     <div class="row">

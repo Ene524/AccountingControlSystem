@@ -3,7 +3,8 @@
 @section('content')
 
     <h4 class="py-1 mb-2">
-        <span class="text-muted fw-light">Dashboard/</span>Firma Ekle
+        <span
+                class="text-muted fw-light">Dashboard/</span>{{isset($response) && $response->isSuccess() ? 'Firma Güncelle' : 'Firma Ekle'}}
     </h4>
     <div class="row">
         <div class="col-xxl">
@@ -11,8 +12,8 @@
                 <h6 class="card-header text-center ">Temel Bilgiler</h6>
                 <div class="card-body">
                     <form
-                        action="{{ isset($response) && $response->isSuccess() ? route('company.update') : route('company.create') }}"
-                        method="post">
+                            action="{{ isset($response) && $response->isSuccess() ? route('company.update') : route('company.create') }}"
+                            method="post">
                         @csrf
                         <input type="hidden" name="id"
                                value="{{ isset($response) ? $response->getData()->id : '' }}">
@@ -20,14 +21,16 @@
                             <label class="col-sm-3 col-form-label" for="is_person">Şahıs Şirketi Mi?</label>
                             <div class="col-sm-9">
                                 <select id="is_person" name="is_person" class="form-select select2">
-                                    <option value="" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) === '' ? 'selected' : '' }}>
+                                    <option
+                                            value="" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) === '' ? 'selected' : '' }}>
                                         Seçiniz
                                     </option>
-                                    <option value="1" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '1' ? 'selected' : '' }}>
+                                    <option
+                                            value="1" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '1' ? 'selected' : '' }}>
                                         Evet
                                     </option>
                                     <option
-                                        value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '0' && old('is_person') !== '' ? 'selected' : '' }}>
+                                            value="0" {{ old('is_person', isset($response) && $response->isSuccess() ? $response->getData()->is_person : null) == '0' && old('is_person') !== '' ? 'selected' : '' }}>
                                         Hayır
                                     </option>
                                 </select>
@@ -74,7 +77,7 @@
                                        value="{{ isset($response) ? $response->getData()->last_name ?? old('last_name') : old('last_name') }}">
 
                                 <span
-                                    class=" help-block error-help-block
+                                        class=" help-block error-help-block
                                            mx-1">
                                         {{ $errors->first('last_name') ?? '' }}</span>
                             </div>
@@ -103,7 +106,8 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label" for="address">Adres</label>
                             <div class="col-sm-9">
-                                    <textarea id="address" rows="1" name="address" class="form-control required" placeholder="Adres">
+                                    <textarea id="address" rows="1" name="address" class="form-control required"
+                                              placeholder="Adres">
                                            {{ isset($response) ? $response->getData()->address ?? old('address') : old('address') }}
                                     </textarea>
                                 <span class="help-block error-help-block mx-1">
@@ -186,14 +190,16 @@
                             <label class="col-sm-3 col-form-label" for="is_active">Aktif mi?</label>
                             <div class="col-sm-9">
                                 <select id="is_active" name="is_active" class="form-select select2">
-                                    <option value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
+                                    <option
+                                            value="" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
                                         Seçiniz
                                     </option>
-                                    <option value="1" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
+                                    <option
+                                            value="1" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
                                         Evet
                                     </option>
                                     <option
-                                        value="0" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
+                                            value="0" {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
                                         Hayır
                                     </option>
                                 </select>
@@ -203,10 +209,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary float-end mx-2">Oluştur
-                                </button>
-                                <a href="{{ route('dashboard.showUserCompanyDashboard') }}"
-                                   class="btn btn-info float-end">Geri Dön</a>
+                                <button type="submit" class="btn btn-primary float-end mx-2">{{isset($response) && $response->isSuccess() ? 'Güncelle' : 'Oluştur'}}</button>
+                                <a href="{{ route('dashboard.showUserCompanyDashboard') }}" class="btn btn-info float-end">Geri Dön</a>
                             </div>
                         </div>
                     </form>
