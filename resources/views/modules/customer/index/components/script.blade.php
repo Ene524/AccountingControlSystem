@@ -156,7 +156,9 @@
             resizable: true,
 
         },
+        //enableRangeSelection: true,
         allowContextMenuWithControlKey: true,
+        getContextMenuItems: getContextMenuItems,
         floatingFilter: true,
         rowSelection: 'single',
         statusBar: {
@@ -216,6 +218,29 @@
             var actions = '<span class="badge bg-' + color + '  badge-pill">' + title + '</span>';
             return actions;
         }
+    }
+
+    function getContextMenuItems(params) {
+        var result = [
+            {
+                name: 'Düzenle',
+                action: function () {
+                    console.log(params.node.data.id);
+                    //window.location = '/Customer/Edit?id=' + params.node.data.id + '';
+                }
+            },
+            {
+                // custom item
+                name: 'Sil',
+                action: function () {
+                }
+            },
+            'separator',
+            'copy',
+            'export'
+        ];
+
+        return result;
     }
 
     document.addEventListener('DOMContentLoaded', function () {
