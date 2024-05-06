@@ -10,12 +10,12 @@ class CustomerService implements ICustomerService
 {
 
     public function create(
-        int    $company_id,
-        string $customer_code,
-        string $title,
+        int     $company_id,
+        string  $customer_code,
+        string  $title,
         ?string $first_name,
         ?string $last_name,
-        bool   $is_person,
+        bool    $is_person,
         ?string $tax_number,
         ?string $identity_number,
         ?string $phone,
@@ -33,8 +33,9 @@ class CustomerService implements ICustomerService
         ?string $specode2,
         ?string $specode3,
         ?string $note,
-        bool   $is_active
-    ): ServiceResponse {
+        bool    $is_active
+    ): ServiceResponse
+    {
         $customer = Customer::create([
             'company_id' => $company_id,
             'customer_code' => $customer_code,
@@ -79,7 +80,13 @@ class CustomerService implements ICustomerService
      */
     public function getById(int $id): ServiceResponse
     {
+        $customer = Customer::find($id);
+        if ($customer) {
+            return new ServiceResponse(true, "Müşteri bulundu", $customer, 200);
+        } else {
+            return new ServiceResponse(false, "Müşteri bulunamadı", null, 404);
 
+        }
     }
 
     /**
