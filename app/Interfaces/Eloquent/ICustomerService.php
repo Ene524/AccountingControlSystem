@@ -33,4 +33,5 @@ interface ICustomerService extends IEloquentService
         bool   $is_active
     ): ServiceResponse;
 
+
 }

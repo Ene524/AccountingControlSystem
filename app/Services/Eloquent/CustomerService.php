@@ -79,7 +79,7 @@ class CustomerService implements ICustomerService
      */
     public function getById(int $id): ServiceResponse
     {
-        // TODO: Implement getById() method.
+
     }
 
     /**

@@ -48,10 +48,10 @@
             filterParams: {
                 values: ['1', '0'],
                 cellRenderer: customerActive,
-                valueFormatter: function(params) {
+                valueFormatter: function (params) {
                     return params.value === '1' ? 'Aktif' : 'Pasif';
                 },
-                textCustomComparator: function(filter, value, filterText) {
+                textCustomComparator: function (filter, value, filterText) {
                     return value === filterText;
                 }
             },
@@ -66,10 +66,10 @@
             filterParams: {
                 values: ['1', '0'],
                 cellRenderer: customerType,
-                valueFormatter: function(params) {
+                valueFormatter: function (params) {
                     return params.value === '1' ? 'Şahıs Firması' : 'Tüzel Firma';
                 },
-                textCustomComparator: function(filter, value, filterText) {
+                textCustomComparator: function (filter, value, filterText) {
                     return value === filterText;
                 }
             },
@@ -230,7 +230,6 @@
                 }
             },
             {
-                // custom item
                 name: 'Sil',
                 action: function () {
                 }
