@@ -9,6 +9,12 @@ use App\Http\Requests\Web\CompanyController\UpdateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICompanyService;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\Integrators;
+use App\Models\TaxOffice;
+use App\Models\Town;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -99,6 +105,17 @@ class CompanyController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $response = $this->companyService->getById($id);
+        $countries = Country::all();
+        $cities = City::all();
+        $towns = Town::all();
+        $taxOffices = TaxOffice::all();
+        $integrators = Integrators::all();
+        return view('modules.dashboard.create-update-company.index.index', compact('response', 'countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+    }
+
     public function getAll()
     {
         $response = $this->companyService->getAll();
@@ -112,9 +129,9 @@ class CompanyController extends Controller
         );
     }
 
-    public function getById(GetByIdRequest $request)
+    public function getById($id)
     {
-        $response = $this->companyService->getById($request->id);
+        $response = $this->companyService->getById($id);
 
         return $this->httpResponse(
             $response->isSuccess(),
@@ -124,9 +141,9 @@ class CompanyController extends Controller
         );
     }
 
-    public function delete(DeleteRequest $request)
+    public function delete($id)
     {
-        $response = $this->companyService->delete($request->id);
+        $response = $this->companyService->delete($id);
 
         return $this->httpResponse(
             $response->isSuccess(),

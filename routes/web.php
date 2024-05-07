@@ -26,6 +26,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
 
     Route::prefix('company')->group(function () {
         Route::post('create', [CompanyController::class, 'create'])->name('company.create');
+        Route::get('edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');

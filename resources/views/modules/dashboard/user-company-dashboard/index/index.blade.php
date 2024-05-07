@@ -31,7 +31,7 @@
                                                 <i class="fa fa-trash text-secondary"></i>
                                             </a>
 
-                                            <a href="{{route('dashboard.editCompany', ['id' => $company->id])}}"
+                                            <a href="{{route('company.edit', ['id' => $company->id])}}"
                                                style="position:absolute;top:50px;right:10px;"
                                             >
                                                 <i class="fa fa-edit text-secondary"></i>

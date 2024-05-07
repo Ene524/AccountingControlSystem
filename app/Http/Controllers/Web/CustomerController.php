@@ -78,7 +78,9 @@ class CustomerController extends Controller
 
     public function edit($id)
     {
-        
+        $response = $this->customerService->getById($id);
+
+        return view('modules.customer.create-update.index', compact('response'));
     }
 
 
