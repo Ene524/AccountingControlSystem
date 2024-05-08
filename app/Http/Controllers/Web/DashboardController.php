@@ -36,17 +36,6 @@ class DashboardController extends Controller
         return view('modules.dashboard.user-company-dashboard.index.index', compact('response'));
     }
 
-    public function showCreateCompany()
-    {
-        $countries = Country::all();
-        $cities = City::all();
-        $towns = Town::all();
-        $taxOffices = TaxOffice::all();
-        $integrators = Integrators::all();
-
-        return view('modules.dashboard.create-update-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
-    }
-
     public function selectCompany(Request $request)
     {
         $response = $this->dashboardService->selectCompany($request->company_id);

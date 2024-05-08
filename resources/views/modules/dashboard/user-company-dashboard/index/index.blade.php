@@ -67,7 +67,7 @@
         <div class="col-md-6 col-xl-4">
             <div class="container mt-5">
                 <div class="justify-content-center">
-                    <a href="{{ route('dashboard.showCreateCompany') }}">
+                    <a href="{{ route('company.create') }}">
                         <div class="card"
                              style="background-color: transparent;border: 2px dashed #CCC;height: 161.81px">
                             <div class="card-body d-flex justify-content-center align-items-center">

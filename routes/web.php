@@ -25,7 +25,8 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
     });
 
     Route::prefix('company')->group(function () {
-        Route::post('create', [CompanyController::class, 'create'])->name('company.create');
+        Route::get('create', [CompanyController::class, 'create'])->name('company.create');
+        Route::post('create', [CompanyController::class, 'store'])->name('company.store');;
         Route::get('edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
         Route::post('update', [CompanyController::class, 'update'])->name('company.update');
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
@@ -36,7 +37,6 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
     Route::prefix('dashboard')->group(function () {
         Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('userCompanyDashboard', [DashboardController::class, 'showUserCompanyDashboard'])->name('dashboard.showUserCompanyDashboard');
-        Route::get('createCompany', [DashboardController::class, 'showCreateCompany'])->name('dashboard.showCreateCompany');
         Route::get('editCompany', [DashboardController::class, 'editCompany'])->name('dashboard.editCompany');
         Route::post('selectCompany}', [DashboardController::class, 'selectCompany'])->name('dashboard.selectCompany');
     });

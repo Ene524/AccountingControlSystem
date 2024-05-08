@@ -27,7 +27,17 @@ class CompanyController extends Controller
         $this->companyService = $companyService;
     }
 
-    public function create(CreateRequest $request)
+    public function create()
+    {
+        $countries = Country::all();
+        $cities = City::all();
+        $towns = Town::all();
+        $taxOffices = TaxOffice::all();
+        $integrators = Integrators::all();
+
+        return view('modules.dashboard.create-update-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+    }
+    public function store(CreateRequest $request)
     {
 
         $response = $this->companyService->create(
@@ -141,9 +151,10 @@ class CompanyController extends Controller
         );
     }
 
-    public function delete($id)
+    //TODO: Delete metodu kontrol edilecek
+    public function delete(DeleteRequest $request)
     {
-        $response = $this->companyService->delete($id);
+        $response = $this->companyService->delete($request->id);
 
         return $this->httpResponse(
             $response->isSuccess(),

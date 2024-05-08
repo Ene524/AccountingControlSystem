@@ -20,10 +20,10 @@ class CheckSelectedCompany
                 [
                     'dashboard.showUserCompanyDashboard',
                     'dashboard.selectCompany',
-                    'dashboard.showCreateCompany',
-                    'dashboard.editCompany',
-                    'dashboard.updateCompany',
                     'company.create',
+                    'company.edit',
+                    'company.update',
+                    'company.store',
                     'company.delete',
                     'company.update',
                     'user.logout',
