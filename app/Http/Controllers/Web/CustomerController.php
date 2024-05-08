@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\CustomerController\CreateRequest;
+use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICustomerService;
 
 class CustomerController extends Controller
@@ -76,7 +77,7 @@ class CustomerController extends Controller
         }
     }
 
-    public function edit($id)
+    public function edit(GetByIdRequest $id)
     {
         $response = $this->customerService->getById($id);
 

@@ -139,7 +139,7 @@ class CompanyController extends Controller
         );
     }
 
-    public function getById($id)
+    public function getById(GetByIdRequest $id)
     {
         $response = $this->companyService->getById($id);
 
@@ -151,7 +151,6 @@ class CompanyController extends Controller
         );
     }
 
-    //TODO: Delete metodu kontrol edilecek
     public function delete(DeleteRequest $request)
     {
         $response = $this->companyService->delete($request->id);
