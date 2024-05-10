@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use Illuminate\Http\JsonResponse;
+
 trait HttpResponse
 {
     /**
@@ -9,7 +11,7 @@ trait HttpResponse
      * @param string $message
      * @param null $data
      * @param int $statusCode
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function httpResponse($isSuccess = false, $message, $data = null, $statusCode)
     {

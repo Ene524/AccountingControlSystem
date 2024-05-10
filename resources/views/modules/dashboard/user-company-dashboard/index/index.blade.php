@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 @extends('layouts.master')
 @section('title', 'Firma Seçimi')
 @section('content')
@@ -51,7 +52,7 @@
 
                                             <p class="card-subtitle">{{$company->is_person ? 'Tckn : '.$company->identity_number :'Vkn : '.$company->tax_number }}</p>
                                             <p class="card-text">Oluşturulma:
-                                                {{ \Carbon\Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
+                                                {{ Carbon::parse($company->created_at)->format('d.m.Y') }}</p>
 
                                         </div>
                                         <button class="btn btn-success">Seç</button>
