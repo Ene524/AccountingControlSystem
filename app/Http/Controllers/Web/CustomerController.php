@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Web;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\CustomerController\CreateRequest;
-use App\Http\Requests\Web\Eloquent\GetByIdRequest;
 use App\Interfaces\Eloquent\ICustomerService;
 
 class CustomerController extends Controller
@@ -77,11 +76,48 @@ class CustomerController extends Controller
         }
     }
 
-    public function edit(GetByIdRequest $id)
+    public function edit($id)
     {
         $response = $this->customerService->getById($id);
 
+
         return view('modules.customer.create-update.index', compact('response'));
+    }
+
+    public function update(CreateRequest $request)
+    {
+        $response=$this->customerService->update(
+            id: $request->id,
+            customer_code: $request->customer_code,
+            title: $request->title,
+            first_name: $request->first_name,
+            last_name: $request->last_name,
+            is_person: $request->is_person,
+            tax_number: $request->tax_number,
+            identity_number: $request->identity_number,
+            phone: $request->phone,
+            fax: $request->fax,
+            mobile_phone: $request->mobile_phone,
+            web_site: $request->web_site,
+            email: $request->email,
+            address: $request->address,
+            city: $request->city,
+            town: $request->town,
+            country: $request->country,
+            tax_office: $request->tax_office,
+            postal_code: $request->postal_code,
+            specode1: $request->specode1,
+            specode2: $request->specode2,
+            specode3: $request->specode3,
+            note: $request->note,
+            is_active: $request->is_active
+        );
+
+        if ($response->isSuccess()) {
+            return redirect()->route('customer.index')->with('success', $response->getMessage());
+        } else {
+            return redirect()->route('customer.edit', $request->id)->with('error', $response->getMessage());
+        }
     }
 
 

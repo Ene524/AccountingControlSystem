@@ -226,7 +226,7 @@
                 name: 'Düzenle',
                 action: function () {
                     console.log(params.node.data.id);
-                    //window.location = '/Customer/Edit?id=' + params.node.data.id + '';
+                    window.location = '/customer/edit/' + params.node.data.id;
                 }
             },
             {
