@@ -55,6 +55,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::post('create', [CustomerController::class, 'store']);
         Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
         Route::post('edit/{id}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::delete('delete', [CustomerController::class, 'delete'])->name('customer.delete');
     });
 });
 

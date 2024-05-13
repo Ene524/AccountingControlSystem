@@ -86,7 +86,7 @@ class CustomerController extends Controller
 
     public function update(CreateRequest $request)
     {
-        $response=$this->customerService->update(
+        $response = $this->customerService->update(
             id: $request->id,
             customer_code: $request->customer_code,
             title: $request->title,
@@ -120,5 +120,15 @@ class CustomerController extends Controller
         }
     }
 
+    public function delete()
+    {
+        $response = $this->customerService->delete(request()->id);
 
+        return $this->httpResponse(
+            $response->isSuccess(),
+            $response->getMessage(),
+            $response->getData(),
+            $response->getStatusCode()
+        );
+    }
 }

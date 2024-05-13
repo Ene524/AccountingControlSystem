@@ -6,12 +6,36 @@ use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\ICustomerService;
 use App\Models\Customer;
 
-/**
- *
- */
 class CustomerService implements ICustomerService
 {
 
+    /**
+     * @param int $company_id
+     * @param string $customer_code
+     * @param string $title
+     * @param string|null $first_name
+     * @param string|null $last_name
+     * @param bool $is_person
+     * @param string|null $tax_number
+     * @param string|null $identity_number
+     * @param string|null $phone
+     * @param string|null $fax
+     * @param string|null $mobile_phone
+     * @param string|null $web_site
+     * @param string|null $email
+     * @param string|null $address
+     * @param string|null $city
+     * @param string|null $town
+     * @param string|null $country
+     * @param string|null $tax_office
+     * @param string|null $postal_code
+     * @param string|null $specode1
+     * @param string|null $specode2
+     * @param string|null $specode3
+     * @param string|null $note
+     * @param bool $is_active
+     * @return ServiceResponse
+     */
     public function create(
         int     $company_id,
         string  $customer_code,
@@ -70,7 +94,7 @@ class CustomerService implements ICustomerService
     }
 
     /**
-     * @inheritDoc
+     * @return ServiceResponse
      */
     public function getAll(): ServiceResponse
     {
@@ -78,12 +102,20 @@ class CustomerService implements ICustomerService
         return new ServiceResponse(true, "Müşteriler getirildi", $customers, 200);
     }
 
+
     /**
-     * @inheritDoc
+     * @param int $id
+     * @return ServiceResponse
      */
     public function delete(int $id): ServiceResponse
     {
-        // TODO: Implement delete() method.
+        $customer = $this->getById($id)->getData();
+        if (!$customer) {
+            return new ServiceResponse(false, "Müşteri bulunamadı", null, 404);
+        } else {
+            $customer->delete();
+            return new ServiceResponse(true, "Müşteri silindi", null, 200);
+        }
     }
 
     /**
@@ -172,7 +204,8 @@ class CustomerService implements ICustomerService
     }
 
     /**
-     * @inheritDoc
+     * @param int $id
+     * @return ServiceResponse
      */
     public function getById(int $id): ServiceResponse
     {
