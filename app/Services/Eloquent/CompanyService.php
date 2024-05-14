@@ -30,7 +30,7 @@ class CompanyService implements ICompanyService
         $company = $this->getById($id);
         if ($company->isSuccess()) {
             $company->getData()->delete();
-            if(auth()->user()->company_id== $id){
+            if (auth()->user()->company_id == $id) {
                 auth()->user()->company_id = null;
                 auth()->user()->save();
             }
@@ -46,15 +46,18 @@ class CompanyService implements ICompanyService
      */
     public function getById(int $id): ServiceResponse
     {
-        $company = Company::where('id', $id)->first();
-        if (!$company) {
+        $company = Company::find($id);
+        if ($company) {
+            return new ServiceResponse(true, "Firma bulundu", $company, 200);
+
+        } else {
             return new ServiceResponse(false, "Firma bulunamadı", null, 404);
         }
-        return new ServiceResponse(true, "Firma bulundu", $company, 200);
     }
 
 
-    public function create(
+    public
+    function create(
         string  $title,
         string  $short_title,
         bool    $is_person,
@@ -126,7 +129,8 @@ class CompanyService implements ICompanyService
         );
     }
 
-    public function update(
+    public
+    function update(
         int     $id,
         string  $title,
         string  $short_title,

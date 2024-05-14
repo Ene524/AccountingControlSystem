@@ -35,11 +35,6 @@ class CustomerController extends Controller
         );
     }
 
-    public function create()
-    {
-        return view('modules.customer.create-update.index');
-    }
-
     public function store(CreateRequest $request)
     {
         $response = $this->customerService->create(
@@ -76,12 +71,20 @@ class CustomerController extends Controller
         }
     }
 
+    public function create()
+    {
+        return view('modules.customer.create-update.index');
+    }
+
     public function edit($id)
     {
         $response = $this->customerService->getById($id);
 
-
-        return view('modules.customer.create-update.index', compact('response'));
+        if ($response->isSuccess()) {
+            return view('modules.customer.create-update.index', compact('response'));
+        } else {
+            return view('modules.customer.index.index', compact('response'))->with('error', $response->getMessage());
+        }
     }
 
     public function update(CreateRequest $request)
