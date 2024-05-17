@@ -246,6 +246,8 @@
                         buttonsStyling: false
                     }).then((result) => {
                         if (result.isConfirmed) {
+
+
                             $.ajax({
                                 url: "{{ route('customer.delete') }}",
                                 type: 'DELETE',
@@ -264,13 +266,14 @@
                                                 confirmButton: 'btn btn-success waves-effect waves-light'
                                             }
                                         }).then(() => {
-                                            companyDiv.fadeOut(1000, function() {
-                                                $(this).remove();
-                                            });
+                                            const sel = gridOptions.api.getSelectedRows();
+                                            gridOptions.api.applyTransaction({remove: sel});
                                         });
                                     }
+
                                 }
                             });
+
                         }
                     });
                 }
