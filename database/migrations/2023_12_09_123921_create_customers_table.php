@@ -32,9 +32,9 @@ return new class extends Migration
             $table->string('country',100)->nullable();
             $table->string('tax_office')->nullable();
             $table->string('postal_code', 10)->nullable();
-            $table->string('specode1', 50)->nullable();;
-            $table->string('specode2', 50)->nullable();;
-            $table->string('specode3', 50)->nullable();;
+            $table->string('specode1', 50)->nullable();
+            $table->string('specode2', 50)->nullable();
+            $table->string('specode3', 50)->nullable();
             $table->string('note', 255)->nullable();
             $table->boolean('is_active');
             $table->timestamps();
