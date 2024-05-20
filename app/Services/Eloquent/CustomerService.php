@@ -101,8 +101,6 @@ class CustomerService implements ICustomerService
         $customers = Customer::where('company_id', auth()->user()->company_id)->get();
         return new ServiceResponse(true, "Müşteriler getirildi", $customers, 200);
     }
-
-
     /**
      * @param int $id
      * @return ServiceResponse
