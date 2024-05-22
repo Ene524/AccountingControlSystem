@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Currency;
+use App\Models\Tax;
 use App\Models\TaxExemptionCode;
 use App\Models\TaxOffice;
 use App\Models\Town;
