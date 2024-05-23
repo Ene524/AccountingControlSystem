@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
             $table->string('code', 10);
-            $table->string('description', 500);
+            $table->string('name', 500);
             $table->boolean('otv')->default(false);
             $table->boolean('witholding')->default(false);
             $table->boolean('accommodationtax')->default(false);

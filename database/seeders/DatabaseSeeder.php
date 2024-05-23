@@ -2660,35 +2660,9 @@ class DatabaseSeeder extends Seeder
         );
         TaxExemptionCode::insert($dataTaxExemptionCodes);
 
+        //TODO Alanlar ve insertler kontrol edilecek
         $dataWitholdingCodes = array(
-            array('id' => '1', 'code' => '0003', 'description' => 'GELİR VERGİSİ STOPAJI  (STPJ)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '2', 'code' => '0011', 'description' => 'KURUMLAR VERGİSİ STOPAJI (KURUMLAR VERGİSİ STOPAJI)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '3', 'code' => '0021', 'description' => 'BANKA MUAMELELERİ VERGİSİ (BMV)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '4', 'code' => '0059', 'description' => 'KONAKLAMA VERGİSİ (KONAKLAMA VERGİSİ)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '5', 'code' => '0061', 'description' => 'KAYNAK KULLANIMI DESTEKLEME FONU KESİNTİSİ (KKDF KESİNTİ)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '6', 'code' => '0071', 'description' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 1.LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '7', 'code' => '0073', 'description' => 'KOLALI GAZOZ, ALKOLLÜ İÇECEKLER VE TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3.LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '8', 'code' => '0074', 'description' => 'DAYANIKLI TÜKETİM VE DİĞER MALLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 4.LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '9', 'code' => '0075', 'description' => 'ALKOLLÜ İÇECEKLERE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3A LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '10', 'code' => '0076', 'description' => 'TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3B LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '11', 'code' => '0077', 'description' => 'KOLALI GAZOZLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3C LİSTE)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '12', 'code' => '1047', 'description' => 'DAMGA VERGİSİ (DAMGA V)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '13', 'code' => '1048', 'description' => '5035 SAYILI KANUNA GÖRE DAMGA VERGİSİ (5035SKDAMGAV)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '14', 'code' => '4071', 'description' => 'ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ (ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '15', 'code' => '4080', 'description' => 'ÖZEL İLETİŞİM VERGİSİ (Ö.İLETİŞİM V)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '16', 'code' => '4081', 'description' => '5035 SAYILI KANUNA GÖRE ÖZEL İLETİŞİM VERGİSİ (5035ÖZİLETV.)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '17', 'code' => '4171', 'description' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖTV TEVKİFATI (PTR-DGZ ÖTV TEVKİFAT)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '18', 'code' => '8001', 'description' => 'BORSA TESCİL ÜCRETİ (BORSA TES.ÜC.)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '19', 'code' => '8002', 'description' => 'ENERJİ FONU (ENERJİ FONU)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '20', 'code' => '8004', 'description' => 'TRT PAYI (TRT PAYI)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '21', 'code' => '8005', 'description' => 'ELEKTRİK TÜKETİM VERGİSİ (ELK.TÜK.VER.)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '22', 'code' => '8006', 'description' => 'TELSİZ KULLANIM ÜCRETİ (TK KULLANIM)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '23', 'code' => '8007', 'description' => 'TELSİZ RUHSAT ÜCRETİ (TK RUHSAT)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '24', 'code' => '8008', 'description' => 'ÇEVRE TEMİZLİK VERGİSİ (ÇEV. TEM .VER.)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '25', 'code' => '9015', 'description' => 'KATMA DEĞER VERGİSİ TEVKİFATI (KDV TEVKİFAT)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '26', 'code' => '9021', 'description' => '4961 BANKA SİGORTA MUAMELELERİ VERGİSİ (4961BANKASMV)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '27', 'code' => '9040', 'description' => 'MERA FONU (MERA FONU)', 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '28', 'code' => '9077', 'description' => 'MOTORLU TAŞIT ARAÇLARINA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (TESCİLE TABİ OLANLAR) (ÖTV 2.LİSTE)', 'created_at' => now(), 'updated_at' => now()),
+            //array('id' => '1',  'code' => '601', 'name' => 'YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+','numerator' => 1,'created_at' => now(), 'updated_at' => now()),
 
         );
         WitholdingCode::insert($dataWitholdingCodes);
@@ -2723,6 +2697,6 @@ class DatabaseSeeder extends Seeder
             array('id' => '27', 'code' => '0077', 'description' => 'KOLALI GAZOZLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3C LİSTE)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
             array('id' => '28', 'code' => '9077', 'description' => 'MOTORLU TAŞIT ARAÇLARINA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (TESCİLE TABİ OLANLAR) (ÖTV 2.LİSTE)', 'otv' => true, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
         );
-        Tax::insert($dataTaxes);
+        //Tax::insert($dataTaxes);
     }
 }
