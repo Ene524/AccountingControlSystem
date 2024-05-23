@@ -32,6 +32,8 @@ class DatabaseSeeder extends Seeder
         DB::table('currencies')->truncate();
         DB::table('units')->truncate();
         DB::table('tax_exemption_codes')->truncate();
+        DB::table('taxes')->truncate();
+        DB::table('witholding_codes')->truncate();
 
         $dataCountries = array(
             array("id" => "1", "code" => "AF", "name" => "Afghanistan", "phone_code" => "93", 'created_at' => now(), 'updated_at' => now()),
@@ -2660,43 +2662,42 @@ class DatabaseSeeder extends Seeder
         );
         TaxExemptionCode::insert($dataTaxExemptionCodes);
 
-        //TODO Alanlar ve insertler kontrol edilecek
-        $dataWitholdingCodes = array(
-            //array('id' => '1',  'code' => '601', 'name' => 'YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+','numerator' => 1,'created_at' => now(), 'updated_at' => now()),
+
+        $dataWitholdingCodes = array(//array('id' => '1',  'code' => '601', 'name' => 'YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+','numerator' => 1,'created_at' => now(), 'updated_at' => now()),
 
         );
         WitholdingCode::insert($dataWitholdingCodes);
 
         $dataTaxes = array(
-            array('id' => '1', 'code' => '0003', 'description' => 'GELİR VERGİSİ STOPAJI  (STPJ)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '2', 'code' => '0011', 'description' => 'KURUMLAR VERGİSİ STOPAJI (KURUMLAR VERGİSİ STOPAJI)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '3', 'code' => '0021', 'description' => 'BANKA MUAMELELERİ VERGİSİ (BMV)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '4', 'code' => '0061', 'description' => 'KAYNAK KULLANIMI DESTEKLEME FONU KESİNTİSİ (KKDF KESİNTİ)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '5', 'code' => '1047', 'description' => 'DAMGA VERGİSİ (DAMGA V)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '6', 'code' => '1048', 'description' => '5035 SAYILI KANUNA GÖRE DAMGA VERGİSİ (5035SKDAMGAV)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '7', 'code' => '4071', 'description'  => 'ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ (ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '8', 'code' => '4080', 'description'  => '4080 ÖZEL İLETİŞİM VERGİSİ (Ö.İLETİŞİM V)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '9', 'code' => '4081', 'description'  => '5035 SAYILI KANUNA GÖRE ÖZEL İLETİŞİM VERGİSİ (5035ÖZİLETV.)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '10', 'code' => '4171', 'description' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖTV TEVKİFATI (PTR-DGZ ÖTV TEVKİFAT)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '11', 'code' => '8001', 'description' => 'BORSA TESCİL ÜCRETİ (BORSA TES.ÜC.)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '12', 'code' => '8002', 'description' => 'ENERJİ FONU (ENERJİ FONU)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '13', 'code' => '8004', 'description' => 'TRT PAYI (TRT PAYI)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '14', 'code' => '8005', 'description' => 'ELEKTRİK TÜKETİM VERGİSİ (ELK.TÜK.VER.)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '15', 'code' => '8006', 'description' => 'TELSİZ KULLANIM ÜCRETİ (TK KULLANIM)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '16', 'code' => '8007', 'description' => 'TELSİZ RUHSAT ÜCRETİ', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '17', 'code' => '8008', 'description' => 'ÇEVRE TEMİZLİK VERGİSİ (ÇEV. TEM .VER.)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '18', 'code' => '9021', 'description' => '4961 BANKA SİGORTA MUAMELELERİ VERGİSİ (4961BANKASMV)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '19', 'code' => '9040', 'description' => 'MERA FONU (MERA FONU)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '20', 'code' => 'SGK_PRIM', 'description' => 'GK PRİM KESİNTİSİ (SGK PRİM KESİNTİSİ)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '21', 'code' => '0059', 'description' => 'KONAKLAMA VERGİSİ (KONAKLAMA VERGİSİ)', 'otv' => false, 'witholding' => false, 'accomodationtax' => true, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '22', 'code' => '0071', 'description' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 1.LİSTE)', 'otv' => true, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '23', 'code' => '0073', 'description' => 'KOLALI GAZOZ, ALKOLLÜ İÇECEKLER VE TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3.LİSTE)', 'otv' => true, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '24', 'code' => '0074', 'description' => 'DAYANIKLI TÜKETİM VE DİĞER MALLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 4.LİSTE)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '25', 'code' => '0075', 'description' => 'ALKOLLÜ İÇECEKLERE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3A LİSTE)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '26', 'code' => '0076', 'description' => 'TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3B LİSTE)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '27', 'code' => '0077', 'description' => 'KOLALI GAZOZLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3C LİSTE)', 'otv' => false, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
-            array('id' => '28', 'code' => '9077', 'description' => 'MOTORLU TAŞIT ARAÇLARINA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (TESCİLE TABİ OLANLAR) (ÖTV 2.LİSTE)', 'otv' => true, 'witholding' => false, 'accomodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '1', 'code' => '0003', 'name' => 'GELİR VERGİSİ STOPAJI  (STPJ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '2', 'code' => '0011', 'name' => 'KURUMLAR VERGİSİ STOPAJI (KURUMLAR VERGİSİ STOPAJI)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '3', 'code' => '0021', 'name' => 'BANKA MUAMELELERİ VERGİSİ (BMV)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '4', 'code' => '0061', 'name' => 'KAYNAK KULLANIMI DESTEKLEME FONU KESİNTİSİ (KKDF KESİNTİ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '5', 'code' => '1047', 'name' => 'DAMGA VERGİSİ (DAMGA V)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '6', 'code' => '1048', 'name' => '5035 SAYILI KANUNA GÖRE DAMGA VERGİSİ (5035SKDAMGAV)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '7', 'code' => '4071', 'name' => 'ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ (ELEKTRİK VE HAVAGAZI TÜKETİM VERGİSİ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '8', 'code' => '4080', 'name' => '4080 ÖZEL İLETİŞİM VERGİSİ (Ö.İLETİŞİM V)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '9', 'code' => '4081', 'name' => '5035 SAYILI KANUNA GÖRE ÖZEL İLETİŞİM VERGİSİ (5035ÖZİLETV.)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '10', 'code' => '4171', 'name' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖTV TEVKİFATI (PTR-DGZ ÖTV TEVKİFAT)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '11', 'code' => '8001', 'name' => 'BORSA TESCİL ÜCRETİ (BORSA TES.ÜC.)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '12', 'code' => '8002', 'name' => 'ENERJİ FONU (ENERJİ FONU)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '13', 'code' => '8004', 'name' => 'TRT PAYI (TRT PAYI)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '14', 'code' => '8005', 'name' => 'ELEKTRİK TÜKETİM VERGİSİ (ELK.TÜK.VER.)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '15', 'code' => '8006', 'name' => 'TELSİZ KULLANIM ÜCRETİ (TK KULLANIM)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '16', 'code' => '8007', 'name' => 'TELSİZ RUHSAT ÜCRETİ', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '17', 'code' => '8008', 'name' => 'ÇEVRE TEMİZLİK VERGİSİ (ÇEV. TEM .VER.)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '18', 'code' => '9021', 'name' => '4961 BANKA SİGORTA MUAMELELERİ VERGİSİ (4961BANKASMV)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '19', 'code' => '9040', 'name' => 'MERA FONU (MERA FONU)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '20', 'code' => 'SGK_PRIM', 'name' => 'GK PRİM KESİNTİSİ (SGK PRİM KESİNTİSİ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '21', 'code' => '0059', 'name' => 'KONAKLAMA VERGİSİ (KONAKLAMA VERGİSİ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => true, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '22', 'code' => '0071', 'name' => 'PETROL VE DOĞALGAZ ÜRÜNLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 1.LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '23', 'code' => '0073', 'name' => 'KOLALI GAZOZ, ALKOLLÜ İÇECEKLER VE TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3.LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '24', 'code' => '0074', 'name' => 'DAYANIKLI TÜKETİM VE DİĞER MALLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 4.LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '25', 'code' => '0075', 'name' => 'ALKOLLÜ İÇECEKLERE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3A LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '26', 'code' => '0076', 'name' => 'TÜTÜN MAMÜLLERİNE İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3B LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '27', 'code' => '0077', 'name' => 'KOLALI GAZOZLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3C LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => '28', 'code' => '9077', 'name' => 'MOTORLU TAŞIT ARAÇLARINA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (TESCİLE TABİ OLANLAR) (ÖTV 2.LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
         );
-        //Tax::insert($dataTaxes);
+        Tax::insert($dataTaxes);
     }
 }
