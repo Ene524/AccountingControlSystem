@@ -2,12 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Currency;
-use App\Models\Tax;
+use App\Models\TaxCode;
 use App\Models\TaxExemptionCode;
 use App\Models\TaxOffice;
 use App\Models\Town;
@@ -2663,12 +2661,38 @@ class DatabaseSeeder extends Seeder
         TaxExemptionCode::insert($dataTaxExemptionCodes);
 
 
-        $dataWitholdingCodes = array(//array('id' => '1',  'code' => '601', 'name' => 'YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+','numerator' => 1,'created_at' => now(), 'updated_at' => now()),
-
+        $dataWitholdingCodes = array(
+            array('id' => 1, 'code' => 601, 'name' => "YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+", 'numerator' => 4, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 2, 'code' => 602, 'name' => "ETÜT, PLAN-PROJE, DANIŞMANLIK, DENETİM VE BENZERİ HİZMETLER*GT 117-Bölüm (3.2.2)]", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 3, 'code' => 603, 'name' => "MAKİNE, TEÇHİZAT, DEMİRBAŞ VE TAŞITLARA AİT TADİL, BAKIM VE ONARIM HİZMETLERİ *GT 117-Bölüm (3.2.3)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 4, 'code' => 604, 'name' => "YEMEK SERVİS HİZMETİ *GT 117-Bölüm (3.2.4)+", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 5, 'code' => 605, 'name' => "ORGANİZASYON HİZMETİ *GT 117-Bölüm (3.2.4)+", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 6, 'code' => 606, 'name' => "İŞGÜCÜ TEMİN HİZMETLERİ *GT 117-Bölüm (3.2.5)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 7, 'code' => 607, 'name' => "ÖZEL GÜVENLİK HİZMETİ *GT 117-Bölüm (3.2.5)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 8, 'code' => 608, 'name' => "YAPI DENETİM HİZMETLERİ *GT 117-Bölüm (3.2.6)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 9, 'code' => 609, 'name' => "FASON OLARAK YAPTIRILAN TEKSTİL VE KONFEKSİYON İŞLERİ, ÇANTA VE AYAKKABI DİKİM İŞLERİ VE BU İŞLERE ARACILIK HİZMETLERİ *GT 117-Bölüm (3.2.7)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 10, 'code' => 610, 'name' => "TURİSTİK MAĞAZALARA VERİLEN MÜŞTERİ BULMA / GÖTÜRME HİZMETLERİ *GT 117-Bölüm (3.2.8)+ ", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 11, 'code' => 611, 'name' => "SPOR KULÜPLERİNİN YAYIN, REKLÂM VE İSİM HAKKI GELİRLERİNE KONU İŞLEMLERİ *GT 117-Bölüm (3.2.9)+ ", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 12, 'code' => 612, 'name' => "TEMİZLİK HİZMETİ *GT 117-Bölüm (3.2.10)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 13, 'code' => 613, 'name' => "ÇEVRE VE BAHÇE BAKIM HİZMETLERİ *GT 117-Bölüm (3.2.10)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 14, 'code' => 614, 'name' => "SERVİS TAŞIMACILIĞI HİZMETİ *GT 117-Bölüm (3.2.11)+", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 15, 'code' => 615, 'name' => "HER TÜRLÜ BASKI VE BASIM HİZMETLERİ *GT 117-Bölüm (3.2.12)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 16, 'code' => 616, 'name' => "5018 SAYILI KANUNA EKLİ CETVELLERDEKİ İDARE, KURUM VE KURUŞLARA YAPILAN DİĞER HİZMETLER *GT 117-Bölüm (3.2.13)+", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 17, 'code' => 617, 'name' => "HURDA METALDEN ELDE EDİLEN KÜLÇE TESLİMLERİ *GT 117Bölüm (3.3.1)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 18, 'code' => 618, 'name' => "HURDA METALDEN ELDE EDİLENLER DIŞINDAKİ BAKIR, ÇİNKO VE ALÜMİNYUM KÜLÇE TESLİMLERİ *GT 117-Bölüm (3.3.1)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 19, 'code' => 619, 'name' => "BAKIR, ÇİNKO VE ALÜMİNYUM ÜRÜNLERİNİN TESLİMİ *GT 117Bölüm (3.3.2)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 20, 'code' => 620, 'name' => "İSTİSNADAN VAZGEÇENLERİN HURDA VE ATIK TESLİMİ *GT 117Bölüm (3.3.3)+", 'numerator' => 7, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 21, 'code' => 621, 'name' => "METAL, PLASTİK, LASTİK, KAUÇUK, KÂĞIT VE CAM HURDA VE ATIKLARDAN ELDE EDİLEN HAMMADDE TESLİMİ *GT 117-Bölüm (3.3.4)]", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 22, 'code' => 622, 'name' => "PAMUK, TİFTİK, YÜN VE YAPAĞI İLE HAM POST VE DERİ TESLİMLERİ *GT 117-Bölüm (3.3.5)+", 'numerator' => 9, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 23, 'code' => 623, 'name' => "AĞAÇ VE ORMAN ÜRÜNLERİ TESLİMİ *GT 117-Bölüm (3.3.6)+", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 24, 'code' => 624, 'name' => "YÜK TAŞIMACILIĞI HİZMETİ [KDVGUT-(I/C-2.1.3.2.11)]", 'numerator' => 2, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 25, 'code' => 625, 'name' => "TİCARİ REKLAM HİZMETLERİ [KDVGUT-(I/C-2.1.3.2.15)]", 'numerator' => 3, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 26, 'code' => 626, 'name' => "DİĞER TESLİMLER [KDVGUT-(I/C-2.1.3.3.7.)]", 'numerator' => 2, 'created_at' => now(), 'updated_at' => now()),
+            array('id' => 27, 'code' => 627, 'name' => "DEMİR-ÇELİK ÜRÜNLERİNİN TESLİMİ [KDVGUT-(I/C-2.1.3.3.8)]", 'numerator' => 5, 'created_at' => now(), 'updated_at' => now()),
         );
         WitholdingCode::insert($dataWitholdingCodes);
 
-        $dataTaxes = array(
+        $dataTaxCodes = array(
             array('id' => '1', 'code' => '0003', 'name' => 'GELİR VERGİSİ STOPAJI  (STPJ)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
             array('id' => '2', 'code' => '0011', 'name' => 'KURUMLAR VERGİSİ STOPAJI (KURUMLAR VERGİSİ STOPAJI)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
             array('id' => '3', 'code' => '0021', 'name' => 'BANKA MUAMELELERİ VERGİSİ (BMV)', 'otv' => false, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
@@ -2698,6 +2722,6 @@ class DatabaseSeeder extends Seeder
             array('id' => '27', 'code' => '0077', 'name' => 'KOLALI GAZOZLARA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (ÖTV 3C LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
             array('id' => '28', 'code' => '9077', 'name' => 'MOTORLU TAŞIT ARAÇLARINA İLİŞKİN ÖZEL TÜKETİM VERGİSİ (TESCİLE TABİ OLANLAR) (ÖTV 2.LİSTE)', 'otv' => true, 'witholding' => false, 'accommodationtax' => false, 'created_at' => now(), 'updated_at' => now()),
         );
-        Tax::insert($dataTaxes);
+        TaxCode::insert($dataTaxCodes);
     }
 }

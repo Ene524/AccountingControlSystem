@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,14 +16,16 @@ return new class extends Migration
             $table->string('code', 50);
             $table->string('name', 200);
             $table->string('description', 255)->nullable();
+            $table->tinyInteger('type')->default(1)->comment('1: Product, 2: Service');
             $table->decimal('sell_price', 10, 2)->nullable();
             $table->decimal('purchase_price', 10, 2)->nullable();
             $table->unsignedBigInteger('unit_id')->nullable();
             $table->tinyInteger('vat')->nullable();
             $table->string('barcode', 50)->nullable()->nullable();
-            $table->boolean('can_deduct')->default(0)->nullable();
-            $table->string('deduct_id')->nullable();
+            $table->boolean('is_witholding')->default(false)->nullable();
+            $table->unsignedBigInteger('witholding_id', 50)->nullable();
             $table->unsignedBigInteger('tax_exemption_id')->nullable();
+            $table->unsignedBigInteger('tax_id')->nullable();
             $table->string('specode1', 50)->nullable();
             $table->string('specode2', 50)->nullable();
             $table->string('specode3', 50)->nullable();
@@ -34,6 +35,7 @@ return new class extends Migration
             $table->foreign('company_id')->references('id')->on('companies');
             $table->foreign('unit_id')->references('id')->on('units');
             $table->foreign('tax_exemption_id')->references('id')->on('tax_exemption_codes');
+            $table->foreign('tax_id')->references('id')->on('tax_codes');
         });
     }
 
