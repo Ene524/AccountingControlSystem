@@ -17,12 +17,10 @@ class ProductController extends Controller
     {
         $this->productService = $productService;
     }
-
     public function index()
     {
-        return view('modules.customer.index.index');
+        return view('modules.product.index.index');
     }
-
     public function getProducts()
     {
         $response = $this->productService->getAll();
@@ -34,12 +32,30 @@ class ProductController extends Controller
             $response->getStatusCode()
         );
     }
-
+    public function create()
+    {
+        return view('modules.product.create-update.index');
+    }
     public function store(CreateRequest $request)
     {
         $response = $this->productService->create(
-           //TODO : Request içerisindeki tüm alanları al
-
+            company_id: $request->company_id,
+            code: $request->code,
+            name: $request->name,
+            description: $request->description,
+            type: $request->type,
+            sell_price: $request->sell_price,
+            purchase_price: $request->purchase_price,
+            unit_id: $request->unit_id,
+            vat: $request->vat,
+            barcode: $request->barcode,
+            is_witholding: $request->is_witholding,
+            witholding_id: $request->witholding_id,
+            tax_exemption_id: $request->tax_exemption_id,
+            tax_id: $request->tax_id,
+            specode1: $request->specode1,
+            specode2: $request->specode2,
+            specode3: $request->specode3
         );
 
         if ($response->isSuccess()) {
@@ -48,50 +64,37 @@ class ProductController extends Controller
             return redirect()->route('customer.create')->with('error', $response->getMessage());
         }
     }
-
-    public function create()
-    {
-        return view('modules.customer.create-update.index');
-    }
-
     public function edit($id)
     {
-        $response = $this->customerService->getById($id);
+        $response = $this->productService->getById($id);
 
         if ($response->isSuccess()) {
             return view('modules.customer.create-update.index', compact('response'));
         } else {
-            return view('modules.customer.index.index', compact('response'))->with('error', $response->getMessage());
+            return view('modules.product.index.index', compact('response'))->with('error', $response->getMessage());
         }
     }
-
     public function update(CreateRequest $request)
     {
         $response = $this->customerService->update(
             id: $request->id,
-            customer_code: $request->customer_code,
-            title: $request->title,
-            first_name: $request->first_name,
-            last_name: $request->last_name,
-            is_person: $request->is_person,
-            tax_number: $request->tax_number,
-            identity_number: $request->identity_number,
-            phone: $request->phone,
-            fax: $request->fax,
-            mobile_phone: $request->mobile_phone,
-            web_site: $request->web_site,
-            email: $request->email,
-            address: $request->address,
-            city: $request->city,
-            town: $request->town,
-            country: $request->country,
-            tax_office: $request->tax_office,
-            postal_code: $request->postal_code,
+            company_id: $request->company_id,
+            code: $request->code,
+            name: $request->name,
+            description: $request->description,
+            type: $request->type,
+            sell_price: $request->sell_price,
+            purchase_price: $request->purchase_price,
+            unit_id: $request->unit_id,
+            vat: $request->vat,
+            barcode: $request->barcode,
+            is_witholding: $request->is_witholding,
+            witholding_id: $request->witholding_id,
+            tax_exemption_id: $request->tax_exemption_id,
+            tax_id: $request->tax_id,
             specode1: $request->specode1,
             specode2: $request->specode2,
-            specode3: $request->specode3,
-            note: $request->note,
-            is_active: $request->is_active
+            specode3: $request->specode3
         );
 
         if ($response->isSuccess()) {
@@ -100,7 +103,6 @@ class ProductController extends Controller
             return redirect()->route('customer.edit', $request->id)->with('error', $response->getMessage());
         }
     }
-
     public function delete()
     {
         $response = $this->customerService->delete(request()->id);

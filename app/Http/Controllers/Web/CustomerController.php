@@ -12,17 +12,14 @@ class CustomerController extends Controller
     use HttpResponse;
 
     private ICustomerService $customerService;
-
     public function __construct(ICustomerService $customerService)
     {
         $this->customerService = $customerService;
     }
-
     public function index()
     {
         return view('modules.customer.index.index');
     }
-
     public function getCustomers()
     {
         $response = $this->customerService->getAll();
@@ -34,7 +31,10 @@ class CustomerController extends Controller
             $response->getStatusCode()
         );
     }
-
+    public function create()
+    {
+        return view('modules.customer.create-update.index');
+    }
     public function store(CreateRequest $request)
     {
         $response = $this->customerService->create(
@@ -70,12 +70,6 @@ class CustomerController extends Controller
             return redirect()->route('customer.create')->with('error', $response->getMessage());
         }
     }
-
-    public function create()
-    {
-        return view('modules.customer.create-update.index');
-    }
-
     public function edit($id)
     {
         $response = $this->customerService->getById($id);
@@ -86,7 +80,6 @@ class CustomerController extends Controller
             return view('modules.customer.index.index', compact('response'))->with('error', $response->getMessage());
         }
     }
-
     public function update(CreateRequest $request)
     {
         $response = $this->customerService->update(
@@ -122,7 +115,6 @@ class CustomerController extends Controller
             return redirect()->route('customer.edit', $request->id)->with('error', $response->getMessage());
         }
     }
-
     public function delete()
     {
         $response = $this->customerService->delete(request()->id);

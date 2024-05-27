@@ -29,6 +29,7 @@ return new class extends Migration {
             $table->string('specode1', 50)->nullable();
             $table->string('specode2', 50)->nullable();
             $table->string('specode3', 50)->nullable();
+            $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
 
