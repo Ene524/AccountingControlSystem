@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         DB::table('currencies')->truncate();
         DB::table('units')->truncate();
         DB::table('tax_exemption_codes')->truncate();
-        DB::table('taxes')->truncate();
+        DB::table('tax_codes')->truncate();
         DB::table('witholding_codes')->truncate();
 
         $dataCountries = array(
@@ -2659,7 +2659,6 @@ class DatabaseSeeder extends Seeder
             array("id" => 98, "code" => "812", "name" => "Noterler tarafından verilen hizmetler", "created_at" => now(), "updated_at" => now()),
         );
         TaxExemptionCode::insert($dataTaxExemptionCodes);
-
 
         $dataWitholdingCodes = array(
             array('id' => 1, 'code' => 601, 'name' => "YAPIM İŞLERİ İLE BU İŞLERLE BİRLİKTE İFA EDİLEN MÜHENDİSLİKMİMARLIK VE ETÜT-PROJE HİZMETLERİ *GT 117-Bölüm (3.2.1)+", 'numerator' => 4, 'created_at' => now(), 'updated_at' => now()),
