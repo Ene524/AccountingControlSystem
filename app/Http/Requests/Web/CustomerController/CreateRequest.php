@@ -23,7 +23,7 @@ class CreateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'customer_code' => 'required|string|max:50',
+            'code' => 'required|string|max:50',
             'title' => 'required|string|max:255',
             'first_name' => $this->is_person == 1 ? 'required|string|max:255' : '',
             'last_name' => $this->is_person == 1 ? 'required|string|max:255' : '',

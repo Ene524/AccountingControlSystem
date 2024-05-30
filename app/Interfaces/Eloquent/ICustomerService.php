@@ -11,7 +11,7 @@ interface ICustomerService extends IEloquentService
 {
     public function create(
         int     $company_id,
-        string  $customer_code,
+        string  $code,
         string  $title,
         ?string $first_name,
         ?string $last_name,
@@ -38,7 +38,7 @@ interface ICustomerService extends IEloquentService
 
     public function update(
         int     $id,
-        string  $customer_code,
+        string  $code,
         string  $title,
         ?string $first_name,
         ?string $last_name,

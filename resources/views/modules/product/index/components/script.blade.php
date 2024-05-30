@@ -3,7 +3,7 @@
 
 <script>
     $(document).ready(function () {
-        getCustomerList();
+        getProductList();
     });
 
     var columnDefs = [
@@ -18,7 +18,7 @@
             width: 100,
         },
         {
-            headerName: 'Ünvan',
+            headerName: 'KO',
             field: 'title',
             sortable: true,
             filter: 'agTextColumnFilter',
@@ -225,14 +225,12 @@
             {
                 name: 'Düzenle',
                 action: function () {
-                    window.location = '/customer/edit/' + params.node.data.id;
+                    window.location = '/product/edit/' + params.node.data.id;
                 }
             },
             {
                 name: 'Sil',
                 action: function () {
-                    //console.log(params.node.data.id);
-
                     Swal.fire({
                         title: 'Firmanızı silmek istediğinizden emin misiniz?',
                         icon: 'warning',
@@ -249,7 +247,7 @@
 
 
                             $.ajax({
-                                url: "{{ route('customer.delete') }}",
+                                url: "{{ route('product.delete') }}",
                                 type: 'DELETE',
                                 data: {
                                     _token: "{{ csrf_token() }}",
@@ -293,9 +291,9 @@
 
     });
 
-    function getCustomerList() {
+    function getProductList() {
         $.ajax({
-            url: '{{route('customer.getCustomers')}}',
+            url: '{{route('product.getCustomers')}}',
             type: 'GET',
             success: function (response) {
                 gridOptions.api.setRowData(response.response);

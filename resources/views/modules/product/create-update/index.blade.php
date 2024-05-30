@@ -42,14 +42,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-3 col-form-label" for="customer_code">Müşteri Kodu</label>
+                            <label class="col-sm-3 col-form-label" for="code">Müşteri Kodu</label>
                             <div class="col-sm-3">
-                                <input type="text" id="customer_code" name="customer_code" class="form-control required"
+                                <input type="text" id="code" name="code" class="form-control required"
                                        placeholder="Kısa ünvan"
-                                       value="{{ isset($response) ? $response->getData()->customer_code ?? old('customer_code') : old('customer_code') }}">
+                                       value="{{ isset($response) ? $response->getData()->code ?? old('code') : old('code') }}">
 
                                 <span class="help-block error-help-block mx-1">
-                                    {{ $errors->first('customer_code') ?? '' }}</span>
+                                    {{ $errors->first('code') ?? '' }}</span>
                             </div>
 
                             <label class="col-sm-2 col-form-label" for="title">Ünvan</label>
@@ -289,9 +289,9 @@
 @endsection
 
 @section('customStyle')
-    @include('modules.customer.create-update.components.style')
+    @include('modules.product.create-update.components.style')
 @endsection
 
 @section('customScript')
-    @include('modules.customer.create-update.components.script')
+    @include('modules.product.create-update.components.script')
 @endsection

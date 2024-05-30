@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\CompanyUserConnectController;
 use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -57,6 +58,18 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::post('edit/{id}', [CustomerController::class, 'update'])->name('customer.update');
         Route::delete('delete', [CustomerController::class, 'delete'])->name('customer.delete');
     });
+
+    Route::prefix('product')->group(function () {
+        Route::get('index', [ProductController::class, 'index'])->name('product.index');
+        Route::get('getProducts', [ProductController::class, 'getProducts'])->name('product.getCustomers');
+        Route::get('create', [ProductController::class, 'create'])->name('product.create');
+        Route::post('create', [ProductController::class, 'store']);
+        Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::post('edit/{id}', [ProductController::class, 'update'])->name('product.update');
+        Route::delete('delete', [ProductController::class, 'delete'])->name('product.delete');
+    });
+
+
 });
 
 #region Public Routes

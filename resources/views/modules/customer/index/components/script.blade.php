@@ -6,6 +6,7 @@
         getCustomerList();
     });
 
+    //TODO Sütunları netleştir
     var columnDefs = [
         {
             headerName: '#',
@@ -16,6 +17,13 @@
             headerCheckboxSelection: true,
             headerCheckboxSelectionFilteredOnly: true,
             width: 100,
+        },
+        {
+            headerName: 'Kodu',
+            field: 'code',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 160,
         },
         {
             headerName: 'Ünvan',
@@ -231,8 +239,6 @@
             {
                 name: 'Sil',
                 action: function () {
-                    //console.log(params.node.data.id);
-
                     Swal.fire({
                         title: 'Firmanızı silmek istediğinizden emin misiniz?',
                         icon: 'warning',

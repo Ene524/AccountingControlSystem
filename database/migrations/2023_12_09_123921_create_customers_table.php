@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('company_id');
             $table->boolean('is_person');
-            $table->string('customer_code', 50);
+            $table->string('code', 50);
             $table->string('title', 255);
             $table->string('first_name', 255)->nullable();
             $table->string('last_name', 255)->nullable();

@@ -39,7 +39,7 @@ class CustomerController extends Controller
     {
         $response = $this->customerService->create(
             company_id: auth()->user()->company_id,
-            customer_code: $request->customer_code,
+            code: $request->code,
             title: $request->title,
             first_name: $request->first_name,
             last_name: $request->last_name,
@@ -84,7 +84,7 @@ class CustomerController extends Controller
     {
         $response = $this->customerService->update(
             id: $request->id,
-            customer_code: $request->customer_code,
+            code: $request->code,
             title: $request->title,
             first_name: $request->first_name,
             last_name: $request->last_name,

@@ -11,7 +11,7 @@ class CustomerService implements ICustomerService
 
     /**
      * @param int $company_id
-     * @param string $customer_code
+     * @param string $code
      * @param string $title
      * @param string|null $first_name
      * @param string|null $last_name
@@ -38,7 +38,7 @@ class CustomerService implements ICustomerService
      */
     public function create(
         int     $company_id,
-        string  $customer_code,
+        string  $code,
         string  $title,
         ?string $first_name,
         ?string $last_name,
@@ -65,7 +65,7 @@ class CustomerService implements ICustomerService
     {
         $customer = Customer::create([
             'company_id' => $company_id,
-            'customer_code' => $customer_code,
+            'code' => $code,
             'title' => $title,
             'first_name' => $first_name,
             'last_name' => $last_name,
@@ -118,7 +118,7 @@ class CustomerService implements ICustomerService
 
     /**
      * @param int $id
-     * @param string $customer_code
+     * @param string $code
      * @param string $title
      * @param string|null $first_name
      * @param string|null $last_name
@@ -145,7 +145,7 @@ class CustomerService implements ICustomerService
      */
     public function update(
         int     $id,
-        string  $customer_code,
+        string  $code,
         string  $title,
         ?string $first_name,
         ?string $last_name,
@@ -173,7 +173,7 @@ class CustomerService implements ICustomerService
         if (!$customer) {
             return new ServiceResponse(false, "Müşteri bulunamadı", null, 404);
         } else {
-            $customer->customer_code = $customer_code;
+            $customer->code = $code;
             $customer->title = $title;
             $customer->first_name = $first_name;
             $customer->last_name = $last_name;

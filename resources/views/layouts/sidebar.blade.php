@@ -60,7 +60,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="#"
+            <a href="{{route('product.index')}}"
                class="menu-link">
                 <i class="menu-icon ti ti-package"></i>
                 <div data-i18n="Malzeme ve Hizmetler">Malzeme ve Hizmetler</div>
