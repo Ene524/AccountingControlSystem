@@ -91,7 +91,7 @@ class ProductService implements IProductService
         ?string $specode3
     ): ServiceResponse
     {
-        $product = Product::creat([
+        $product = Product::create([
             'company_id' => $company_id,
             'code' => $code,
             'name' => $name,

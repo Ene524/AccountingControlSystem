@@ -17,10 +17,12 @@ class ProductController extends Controller
     {
         $this->productService = $productService;
     }
+
     public function index()
     {
         return view('modules.product.index.index');
     }
+
     public function getProducts()
     {
         $response = $this->productService->getAll();
@@ -32,14 +34,16 @@ class ProductController extends Controller
             $response->getStatusCode()
         );
     }
+
     public function create()
     {
         return view('modules.product.create-update.index');
     }
+
     public function store(CreateRequest $request)
     {
         $response = $this->productService->create(
-            company_id: $request->company_id,
+            company_id: auth()->user()->company_id,
             code: $request->code,
             name: $request->name,
             description: $request->description,
@@ -61,19 +65,21 @@ class ProductController extends Controller
         if ($response->isSuccess()) {
             return redirect()->route('customer.index')->with('success', $response->getMessage());
         } else {
-            return redirect()->route('customer.create')->with('error', $response->getMessage());
+            return redirect()->route('product.create')->with('error', $response->getMessage());
         }
     }
+
     public function edit($id)
     {
         $response = $this->productService->getById($id);
 
         if ($response->isSuccess()) {
-            return view('modules.customer.create-update.index', compact('response'));
+            return view('modules.product.create-update.index', compact('response'));
         } else {
             return view('modules.product.index.index', compact('response'))->with('error', $response->getMessage());
         }
     }
+
     public function update(CreateRequest $request)
     {
         $response = $this->customerService->update(
@@ -98,11 +104,12 @@ class ProductController extends Controller
         );
 
         if ($response->isSuccess()) {
-            return redirect()->route('customer.index')->with('success', $response->getMessage());
+            return redirect()->route('product.index')->with('success', $response->getMessage());
         } else {
-            return redirect()->route('customer.edit', $request->id)->with('error', $response->getMessage());
+            return redirect()->route('product.edit', $request->id)->with('error', $response->getMessage());
         }
     }
+
     public function delete()
     {
         $response = $this->customerService->delete(request()->id);

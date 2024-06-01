@@ -24,6 +24,18 @@ class CreateRequest extends FormRequest
         return [
             'code' => 'required|string',
             'name' => 'required|string',
+            'type' => 'required',
+            'is_active' => 'required',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'code.required' => 'Kod alanı boş bırakılamaz.',
+            'name.required' => 'Ad alanı boş bırakılamaz.',
+            'type.required' => 'Tip alanı boş bırakılamaz.',
+            'is_active.required' => 'Aktif alanı boş bırakılamaz.',
         ];
     }
 }

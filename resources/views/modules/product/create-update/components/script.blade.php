@@ -1,4 +1,5 @@
 <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script>
     let is_person = document.querySelector('select[name="is_person"]');
     let identity_number = document.querySelector('input[name="identity_number"]');
@@ -44,7 +45,7 @@
     });
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
 
 <script>
     $(document).ready(function() {
