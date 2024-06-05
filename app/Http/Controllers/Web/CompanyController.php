@@ -8,6 +8,7 @@ use App\Http\Requests\Web\CompanyController\CreateRequest;
 use App\Http\Requests\Web\CompanyController\UpdateRequest;
 use App\Http\Requests\Web\Eloquent\DeleteRequest;
 use App\Http\Requests\Web\Eloquent\GetByIdRequest;
+use App\Interfaces\Eloquent\ICommonService;
 use App\Interfaces\Eloquent\ICompanyService;
 use App\Models\City;
 use App\Models\Country;
@@ -21,19 +22,21 @@ class CompanyController extends Controller
     use HttpResponse;
 
     private ICompanyService $companyService;
+    private ICommonService $commonService;
 
-    public function __construct(ICompanyService $companyService)
+    public function __construct(ICompanyService $companyService, ICommonService $commonService)
     {
         $this->companyService = $companyService;
+        $this->commonService = $commonService;
     }
 
     public function create()
     {
-        $countries = Country::all();
-        $cities = City::all();
-        $towns = Town::all();
-        $taxOffices = TaxOffice::all();
-        $integrators = Integrators::all();
+        $countries = $this->commonService->getCountries();
+        $cities = $this->commonService->getCities();
+        $towns = $this->commonService->getTowns();
+        $taxOffices = $this->commonService->getTaxOffices();
+        $integrators = $this->commonService->getIntegrators();
 
         return view('modules.dashboard.create-update-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
     }

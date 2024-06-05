@@ -57,31 +57,37 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-3 col-form-label" for="sell_price">Sell Price</label>
+                            <label class="col-sm-3 col-form-label" for="sell_price">Satış Fiyatı</label>
                             <div class="col-sm-3">
-                                <input type="number" id="sell_price" name="sell_price" class="form-control" step="0.01"
+                                <input type="number" id="sell_price" name="sell_price" class="form-control" step="1"
                                     placeholder="0,00">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
                             </div>
-                            <label class="col-sm-3 col-form-label text-end" for="purchase_price">Purchase Price</label>
+                            <label class="col-sm-3 col-form-label text-end" for="purchase_price">Alış Fiyatı</label>
                             <div class="col-sm-3">
                                 <input type="number" id="purchase_price" name="purchase_price" class="form-control"
-                                    step="0.01">
+                                    step="1"  placeholder="0,00">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-3 col-form-label" for="vat">VAT</label>
+
+                            <label class="col-sm-3 col-form-label" for="vat">Kdv</label>
                             <div class="col-sm-3">
-                                <input type="number" id="vat" name="vat" class="form-control" min="0"
-                                    max="100">
+                               <select class="form-control select2" name="vat" id="vat">
+                                    <option value="0">0%</option>
+                                    <option value="1">1%</option>
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                               </select>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
                             </div>
-                            <label class="col-sm-3 col-form-label text-end" for="unit_id">Unit ID</label>
+                            <label class="col-sm-3 col-form-label text-end" for="unit_id">Birim</label>
                             <div class="col-sm-3">
                                 <input type="number" id="unit_id" name="unit_id" class="form-control">
+
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
                             </div>
@@ -96,7 +102,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-3 col-form-label" for="is_witholding">Is Withholding</label>
+                            <label class="col-sm-3 col-form-label" for="is_witholding">Tevkifat Bilgisi</label>
                             <div class="col-sm-5 checkbox-inline">
                                 <label class="switch switch-square switch-lg">
                                     <input type="checkbox" class="switch-input" id="is_witholding" name="is_witholding">
@@ -115,7 +121,7 @@
                             </div>
 
 
-                            <label class="col-sm-1 col-form-label" for="witholding_id">witholding_id</label>
+                            <label class="col-sm-1 col-form-label" for="witholding_id">Tevkifat Kodu</label>
                             <div class="col-sm-3">
                                 <input type="number" id="witholding_id" name="witholding_id" class="form-control">
                                 <span
