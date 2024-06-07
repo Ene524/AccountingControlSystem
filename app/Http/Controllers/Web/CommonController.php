@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Eloquent\ICommonService;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\TaxOffice;
@@ -11,36 +12,30 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
+    private ICommonService $commonService;
+
+    public function __construct(ICommonService $commonService)
+    {
+        $this->commonService = $commonService;
+    }
     public function getCountries(Request $request)
     {
-        $countries = Country::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
-
-        return json_encode($countries);
+        $countries = $this->commonService->getCountries($request->get('query'));
+        return json_encode($countries->getData());
     }
-
     public function getCities(Request $request)
     {
-        $cities = City::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
-        return json_encode($cities);
+        $cities = $this->commonService->getCities($request->get('query'));
+        return json_encode($cities->getData());
     }
-
     public function getTowns(Request $request)
     {
-        $towns = Town::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
-        return json_encode($towns);
+        $towns = $this->commonService->getTowns($request->get('query'));
+        return json_encode($towns->getData());
     }
-
     public function getTaxOffices(Request $request)
     {
-        $taxoffices = TaxOffice::where('name', 'like', $request->get('query') . '%')
-            ->where('deleted_at', null)
-            ->get();
-        return json_encode($taxoffices);
+        $taxoffices = $this->commonService->getTaxOffices($request->get('query'));
+        return json_encode($taxoffices->getData());
     }
 }

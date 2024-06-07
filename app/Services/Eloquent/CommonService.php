@@ -13,28 +13,37 @@ use App\Models\Town;
 class CommonService implements ICommonService
 {
 
-    public function getCountries(): ServiceResponse
+    public function getCountries($query=null): ServiceResponse
     {
-        $countries = Country::all();
+        $countries = Country::where('name', 'like', $query . '%')
+            ->where('deleted_at', null)
+            ->get();
+
         return new ServiceResponse(true,"Ülkeler başarıyla getirildi",$countries,200);
 
     }
 
-    public function getCities(): ServiceResponse
+    public function getCities($query=null): ServiceResponse
     {
-        $cities = City::all();
+        $cities = City::where('name', 'like', $query . '%')
+            ->where('deleted_at', null)
+            ->get();
         return new ServiceResponse(true,"Şehirler başarıyla getirildi",$cities,200);
     }
 
-    public function getTowns(): ServiceResponse
+    public function getTowns($query=null): ServiceResponse
     {
-        $towns= Town::all();
+        $towns= Town::where('name', 'like', $query . '%')
+            ->where('deleted_at', null)
+            ->get();
         return new ServiceResponse(true,"İlçeler başarıyla getirildi",$towns,200);
     }
 
-    public function getTaxOffices(): ServiceResponse
+    public function getTaxOffices($query=null): ServiceResponse
     {
-        $taxOffices = TaxOffice::all();
+        $taxOffices = TaxOffice::where('name', 'like', $query . '%')
+            ->where('deleted_at', null)
+            ->get();
         return new ServiceResponse(true,"Vergi Daireleri başarıyla getirildi",$taxOffices,200);
     }
 

@@ -6,9 +6,9 @@ use App\Core\ServiceResponse;
 
 interface ICommonService
 {
-    public function getCountries():ServiceResponse;
-    public function getCities():ServiceResponse;
-    public function getTowns():ServiceResponse;
-    public function getTaxOffices():ServiceResponse;
+    public function getCountries(string $query):ServiceResponse;
+    public function getCities(string $query):ServiceResponse;
+    public function getTowns(string $query):ServiceResponse;
+    public function getTaxOffices(string $query):ServiceResponse;
     public function getIntegrators():ServiceResponse;
 }

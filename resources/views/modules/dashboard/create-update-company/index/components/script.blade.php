@@ -88,6 +88,7 @@
                         query: query
                     },
                     function(data) {
+                        console.log(data);
                         return process(data.map((x => x.name)));
                     });
             }
