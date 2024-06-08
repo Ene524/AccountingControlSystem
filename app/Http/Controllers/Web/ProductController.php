@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\ProductController\CreateRequest;
+use App\Interfaces\Eloquent\ICommonService;
 use App\Interfaces\Eloquent\IProductService;
 use App\Models\Unit;
 
@@ -13,10 +14,12 @@ class ProductController extends Controller
     use HttpResponse;
 
     private IProductService $productService;
+    private ICommonService $commonService;
 
-    public function __construct(IProductService $productService)
+    public function __construct(IProductService $productService, ICommonService $commonService)
     {
         $this->productService = $productService;
+        $this->commonService = $commonService;
     }
 
     public function index()
@@ -38,11 +41,13 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('modules.product.create-update.index');
+        $units=$this->commonService->getUnits()->getData();
+        return view('modules.product.create-update.index',compact('units'));
     }
 
     public function store(CreateRequest $request)
     {
+        dd($request->all());
         $response = $this->productService->create(
             company_id: auth()->user()->company_id,
             code: $request->code,

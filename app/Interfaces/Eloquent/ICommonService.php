@@ -11,4 +11,5 @@ interface ICommonService
     public function getTowns(string $query):ServiceResponse;
     public function getTaxOffices(string $query):ServiceResponse;
     public function getIntegrators():ServiceResponse;
+    public function getUnits():ServiceResponse;
 }

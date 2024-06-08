@@ -20,14 +20,14 @@
                             <label class="col-sm-3 col-form-label" for="code">Kodu</label>
                             <div class="col-sm-2">
                                 <input type="text" id="code" name="code" class="form-control " maxlength="50"
-                                    placeholder="Kodu">
+                                       placeholder="Kodu">
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
                             </div>
 
                             <label class="col-sm-1 col-form-label" for="name">Adı</label>
                             <div class="col-sm-6">
                                 <input type="text" id="name" name="name" class="form-control " maxlength="200"
-                                    placeholder="Adı">
+                                       placeholder="Adı">
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('name') ?? '' }}</span>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <label class="col-sm-3 col-form-label" for="description">Açıklama</label>
                             <div class="col-sm-9">
                                 <input type="text" id="description" name="description" class="form-control "
-                                    maxlength="255" placeholder="Açıklama">
+                                       maxlength="255" placeholder="Açıklama">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
                             </div>
@@ -45,12 +45,12 @@
                             <div class="col-sm-9" style="line-height: 30px">
                                 <div class="form-check form-check-inline" style="line-height: 30px">
                                     <input class="form-check-input" type="radio" name="type" id="type1"
-                                        value="1">
+                                           value="1">
                                     <label class="form-check-label" for="type1">Ürün</label>
                                 </div>
                                 <div class="form-check form-check-inline" style="line-height: 30px">
                                     <input class="form-check-input" type="radio" name="type" id="type2"
-                                        value="2">
+                                           value="2">
                                     <label class="form-check-label" for="type2">Hizmet</label>
                                 </div>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('type') ?? '' }}</span>
@@ -60,14 +60,14 @@
                             <label class="col-sm-3 col-form-label" for="sell_price">Satış Fiyatı</label>
                             <div class="col-sm-3">
                                 <input type="number" id="sell_price" name="sell_price" class="form-control" step="1"
-                                    placeholder="0,00">
+                                       placeholder="0,00">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end" for="purchase_price">Alış Fiyatı</label>
                             <div class="col-sm-3">
                                 <input type="number" id="purchase_price" name="purchase_price" class="form-control"
-                                    step="1"  placeholder="0,00">
+                                       step="1" placeholder="0,00">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
                             </div>
@@ -76,18 +76,22 @@
 
                             <label class="col-sm-3 col-form-label" for="vat">Kdv</label>
                             <div class="col-sm-3">
-                               <select class="form-control select2" name="vat" id="vat">
+                                <select class="form-control select2" name="vat" id="vat">
                                     <option value="0">0%</option>
                                     <option value="1">1%</option>
                                     <option value="10">10%</option>
                                     <option value="20">20%</option>
-                               </select>
+                                </select>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end" for="unit_id">Birim</label>
                             <div class="col-sm-3">
-                                <input type="number" id="unit_id" name="unit_id" class="form-control">
-
+                                <select class="form-control select2" name="unit_id" id="unit_id">
+                                    <option value="">Seçiniz</option>
+                                    @foreach($units as $unit)
+                                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                                    @endforeach
+                                </select>
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
                             </div>
@@ -96,7 +100,7 @@
                             <label class="col-sm-3 col-form-label" for="barcode">Barcode</label>
                             <div class="col-sm-9">
                                 <input type="text" id="barcode" name="barcode" class="form-control"
-                                    maxlength="50">
+                                       maxlength="50">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
                             </div>
@@ -133,7 +137,7 @@
                             <label class="col-sm-3 col-form-label" for="witholding_id">Exemption/TaxId</label>
                             <div class="col-sm-4">
                                 <input type="number" id="tax_exemption_id" name="tax_exemption_id"
-                                    class="form-control">
+                                       class="form-control">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
                             </div>
@@ -146,7 +150,7 @@
                             <label class="col-sm-3 col-form-label" for="specode1">Specode1/2/3</label>
                             <div class="col-sm-3">
                                 <input type="text" id="specode1" name="specode1" class="form-control"
-                                    maxlength="50">
+                                       maxlength="50">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('specode1') ?? '' }}</span>
                             </div>
@@ -154,7 +158,7 @@
 
                             <div class="col-sm-3">
                                 <input type="text" id="specode2" name="specode2" class="form-control"
-                                    maxlength="50">
+                                       maxlength="50">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('specode2') ?? '' }}</span>
                             </div>
@@ -162,7 +166,7 @@
 
                             <div class="col-sm-3">
                                 <input type="text" id="specode3" name="specode3" class="form-control"
-                                    maxlength="50">
+                                       maxlength="50">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('specode3') ?? '' }}</span>
                             </div>
