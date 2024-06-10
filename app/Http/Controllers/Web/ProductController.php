@@ -6,7 +6,6 @@ use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\ProductController\CreateRequest;
 use App\Interfaces\Eloquent\IProductService;
-use App\Models\Unit;
 
 class ProductController extends Controller
 {

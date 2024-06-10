@@ -9,7 +9,6 @@ use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
 
-
 Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(function () {
     Route::prefix('user')->group(function () {
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
@@ -69,7 +68,6 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::delete('delete', [ProductController::class, 'delete'])->name('product.delete');
     });
 
-
 });
 
 #region Public Routes
@@ -78,7 +76,6 @@ Route::post('register', [UserController::class, 'register'])->name('user.registe
 Route::get('email/verify/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
 Route::get('showResendEmail', [UserController::class, 'showResendEmail'])->name('verification.notice');
 Route::post('resendEmail', [UserController::class, 'resendEmail'])->name('verification.resend');
-
 
 Route::get('/', [UserController::class, 'showLogin'])->name('user.showLogin');
 Route::post('login', [UserController::class, 'login'])->name('user.login');

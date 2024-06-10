@@ -18,7 +18,6 @@ class CommonService implements ICommonService
         $countries = Country::where('name', 'like', $query . '%')
             ->where('deleted_at', null)
             ->get();
-
         return new ServiceResponse(true,"Ülkeler başarıyla getirildi",$countries,200);
 
     }
