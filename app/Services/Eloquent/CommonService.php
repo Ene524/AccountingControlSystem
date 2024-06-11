@@ -9,53 +9,52 @@ use App\Models\Country;
 use App\Models\Integrators;
 use App\Models\TaxOffice;
 use App\Models\Town;
-use App\Models\Unit;
 
 class CommonService implements ICommonService
 {
 
-    public function getCountries($query=null): ServiceResponse
+    public function getCountries($query = null): ServiceResponse
     {
         $countries = Country::where('name', 'like', $query . '%')
             ->where('deleted_at', null)
             ->get();
-        return new ServiceResponse(true,"Ülkeler başarıyla getirildi",$countries,200);
+        return new ServiceResponse(true, "Ülkeler başarıyla getirildi", $countries, 200);
 
     }
 
-    public function getCities($query=null): ServiceResponse
+    public function getCities($query = null): ServiceResponse
     {
         $cities = City::where('name', 'like', $query . '%')
             ->where('deleted_at', null)
             ->get();
-        return new ServiceResponse(true,"Şehirler başarıyla getirildi",$cities,200);
+        return new ServiceResponse(true, "Şehirler başarıyla getirildi", $cities, 200);
     }
 
-    public function getTowns($query=null): ServiceResponse
+    public function getTowns($query = null): ServiceResponse
     {
-        $towns= Town::where('name', 'like', $query . '%')
+        $towns = Town::where('name', 'like', $query . '%')
             ->where('deleted_at', null)
             ->get();
-        return new ServiceResponse(true,"İlçeler başarıyla getirildi",$towns,200);
+        return new ServiceResponse(true, "İlçeler başarıyla getirildi", $towns, 200);
     }
 
-    public function getTaxOffices($query=null): ServiceResponse
+    public function getTaxOffices($query = null): ServiceResponse
     {
         $taxOffices = TaxOffice::where('name', 'like', $query . '%')
             ->where('deleted_at', null)
             ->get();
-        return new ServiceResponse(true,"Vergi Daireleri başarıyla getirildi",$taxOffices,200);
+        return new ServiceResponse(true, "Vergi Daireleri başarıyla getirildi", $taxOffices, 200);
     }
 
     public function getIntegrators(): ServiceResponse
     {
         $integrators = Integrators::all();
-        return new ServiceResponse(true,"Entegratörler başarıyla getirildi",$integrators,200);
+        return new ServiceResponse(true, "Entegratörler başarıyla getirildi", $integrators, 200);
     }
 
     public function getUnits(): ServiceResponse
     {
-        $units = Unit::all();
-        return new ServiceResponse(true,"Birimler başarıyla getirildi",$units,200);
+        $units = $this->getUnits();
+        return new ServiceResponse(true, "Birimler başarıyla getirildi", $units, 200);
     }
 }
