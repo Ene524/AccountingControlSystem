@@ -9,6 +9,7 @@ use App\Models\Country;
 use App\Models\Integrators;
 use App\Models\TaxOffice;
 use App\Models\Town;
+use App\Models\Unit;
 
 class CommonService implements ICommonService
 {
@@ -50,5 +51,11 @@ class CommonService implements ICommonService
     {
         $integrators = Integrators::all();
         return new ServiceResponse(true,"Entegratörler başarıyla getirildi",$integrators,200);
+    }
+
+    public function getUnits(): ServiceResponse
+    {
+        $units = Unit::all();
+        return new ServiceResponse(true,"Birimler başarıyla getirildi",$units,200);
     }
 }

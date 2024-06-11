@@ -25,6 +25,7 @@ class CreateRequest extends FormRequest
             'code' => 'required|string',
             'name' => 'required|string',
             'type' => 'required',
+            'unit_id' => 'required',
             'is_active' => 'required',
         ];
     }
@@ -35,6 +36,7 @@ class CreateRequest extends FormRequest
             'code.required' => 'Kod alanı boş bırakılamaz.',
             'name.required' => 'Ad alanı boş bırakılamaz.',
             'type.required' => 'Tip alanı boş bırakılamaz.',
+            'unit_id.required' => 'Birim alanı boş bırakılamaz.',
             'is_active.required' => 'Aktif alanı boş bırakılamaz.',
         ];
     }

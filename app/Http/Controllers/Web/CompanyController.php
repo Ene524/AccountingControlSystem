@@ -120,11 +120,11 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $response = $this->companyService->getById($id);
-        $countries = Country::all();
-        $cities = City::all();
-        $towns = Town::all();
-        $taxOffices = TaxOffice::all();
-        $integrators = Integrators::all();
+        $countries = $this->commonService->getCountries();
+        $cities = $this->commonService->getCities();
+        $towns = $this->commonService->getTowns();
+        $taxOffices = $this->commonService->getTaxOffices();
+        $integrators = $this->commonService->getIntegrators();
         return view('modules.dashboard.create-update-company.index.index', compact('response', 'countries', 'cities', 'towns', 'taxOffices', 'integrators'));
     }
 

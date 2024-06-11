@@ -6,7 +6,7 @@
     let first_name = document.querySelector('input[name="first_name"]');
     let last_name = document.querySelector('input[name="last_name"]');
 
-    if (is_person.value == 1) {
+    if (is_person.value == 1)   {
         identity_number.disabled = false;
         tax_number.disabled = true;
         tax_number.value = '';
