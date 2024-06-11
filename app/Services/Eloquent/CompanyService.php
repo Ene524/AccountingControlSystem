@@ -18,6 +18,7 @@ class CompanyService implements ICompanyService
     public function getAll(): ServiceResponse
     {
         $companies = Company::paginate(100);
+
         return new ServiceResponse(true, 'Firmalar başarılı bir şekilde listelendi', $companies, 200);
     }
 
@@ -34,9 +35,11 @@ class CompanyService implements ICompanyService
                 auth()->user()->company_id = null;
                 auth()->user()->save();
             }
+
             //$company->getData()->users()->detach(); Kullanıcılarla ilişkili olan firmaları silmek için
             return new ServiceResponse(true, 'Firma silindi', null, 200);
         }
+
         return new ServiceResponse(false, 'Firma bulunamadı', null, 404);
     }
 
@@ -48,46 +51,74 @@ class CompanyService implements ICompanyService
     {
         $company = Company::find($id);
         if ($company) {
-            return new ServiceResponse(true, "Firma bulundu", $company, 200);
+            return new ServiceResponse(true, 'Firma bulundu', $company, 200);
 
         } else {
-            return new ServiceResponse(false, "Firma bulunamadı", null, 404);
+            return new ServiceResponse(false, 'Firma bulunamadı', null, 404);
         }
     }
 
-
-    public
-    function create(
-        string  $title,
-        string  $short_title,
-        bool    $is_person,
+    /**
+     * @param string $title
+     * @param string $short_title
+     * @param bool $is_person
+     * @param string|null $first_name
+     * @param string|null $last_name
+     * @param string|null $tax_number
+     * @param string|null $identity_number
+     * @param string $address
+     * @param string $city
+     * @param string $town
+     * @param string $country
+     * @param string $tax_office
+     * @param string $email
+     * @param string $phone
+     * @param string|null $fax
+     * @param string|null $postal_code
+     * @param string|null $web_site
+     * @param string|null $commercial_register_number
+     * @param string|null $mernis_number
+     * @param bool|null $e_invoice_status
+     * @param bool|null $e_archive_status
+     * @param bool|null $e_dispatch_status
+     * @param bool|null $e_producer_status
+     * @param bool|null $e_voucher_status
+     * @param string|null $web_service_username
+     * @param string|null $web_service_password
+     * @param int|null $integrator_id
+     * @param bool $is_active
+     * @return ServiceResponse
+     */
+    public function create(
+        string $title,
+        string $short_title,
+        bool $is_person,
         ?string $first_name,
         ?string $last_name,
         ?string $tax_number,
         ?string $identity_number,
-        string  $address,
-        string  $city,
-        string  $town,
-        string  $country,
-        string  $tax_office,
-        string  $email,
-        string  $phone,
+        string $address,
+        string $city,
+        string $town,
+        string $country,
+        string $tax_office,
+        string $email,
+        string $phone,
         ?string $fax,
         ?string $postal_code,
         ?string $web_site,
         ?string $commercial_register_number,
         ?string $mernis_number,
-        ?bool   $e_invoice_status,
-        ?bool   $e_archive_status,
-        ?bool   $e_dispatch_status,
-        ?bool   $e_producer_status,
-        ?bool   $e_voucher_status,
+        ?bool $e_invoice_status,
+        ?bool $e_archive_status,
+        ?bool $e_dispatch_status,
+        ?bool $e_producer_status,
+        ?bool $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int    $integrator_id,
-        bool    $is_active
-    ): ServiceResponse
-    {
+        ?int $integrator_id,
+        bool $is_active
+    ): ServiceResponse {
         $company = Company::create([
             'title' => $title,
             'short_title' => $short_title,
@@ -116,11 +147,12 @@ class CompanyService implements ICompanyService
             'web_service_username' => $web_service_username,
             'web_service_password' => $web_service_password,
             'integrator_id' => $integrator_id,
-            'is_active' => $is_active
+            'is_active' => $is_active,
         ]);
 
         $user = Auth::user();
         $user->companies()->syncWithoutDetaching($company->id);
+
         return new ServiceResponse(
             true,
             'Firma başarılı bir şekilde oluşturuldu',
@@ -129,43 +161,73 @@ class CompanyService implements ICompanyService
         );
     }
 
-    public
-    function update(
-        int     $id,
-        string  $title,
-        string  $short_title,
-        bool    $is_person,
+    /**
+     * @param int $id
+     * @param string $title
+     * @param string $short_title
+     * @param bool $is_person
+     * @param string|null $first_name
+     * @param string|null $last_name
+     * @param string|null $tax_number
+     * @param string|null $identity_number
+     * @param string $address
+     * @param string $city
+     * @param string $town
+     * @param string $country
+     * @param string $tax_office
+     * @param string $email
+     * @param string $phone
+     * @param string|null $fax
+     * @param string|null $postal_code
+     * @param string|null $web_site
+     * @param string|null $commercial_register_number
+     * @param string|null $mernis_number
+     * @param bool|null $e_invoice_status
+     * @param bool|null $e_archive_status
+     * @param bool|null $e_dispatch_status
+     * @param bool|null $e_producer_status
+     * @param bool|null $e_voucher_status
+     * @param string|null $web_service_username
+     * @param string|null $web_service_password
+     * @param int|null $integrator_id
+     * @param bool $is_active
+     * @return ServiceResponse
+     */
+    public function update(
+        int $id,
+        string $title,
+        string $short_title,
+        bool $is_person,
         ?string $first_name,
         ?string $last_name,
         ?string $tax_number,
         ?string $identity_number,
-        string  $address,
-        string  $city,
-        string  $town,
-        string  $country,
-        string  $tax_office,
-        string  $email,
-        string  $phone,
+        string $address,
+        string $city,
+        string $town,
+        string $country,
+        string $tax_office,
+        string $email,
+        string $phone,
         ?string $fax,
         ?string $postal_code,
         ?string $web_site,
         ?string $commercial_register_number,
         ?string $mernis_number,
-        ?bool   $e_invoice_status,
-        ?bool   $e_archive_status,
-        ?bool   $e_dispatch_status,
-        ?bool   $e_producer_status,
-        ?bool   $e_voucher_status,
+        ?bool $e_invoice_status,
+        ?bool $e_archive_status,
+        ?bool $e_dispatch_status,
+        ?bool $e_producer_status,
+        ?bool $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int    $integrator_id,
-        bool    $is_active
-    ): ServiceResponse
-    {
+        ?int $integrator_id,
+        bool $is_active
+    ): ServiceResponse {
         $company = $this->getById($id)->getData();
 
-        if (!$company) {
-            return new ServiceResponse(false, "Firma bulunamadı", null, 404);
+        if (! $company) {
+            return new ServiceResponse(false, 'Firma bulunamadı', null, 404);
         } else {
             $company->title = $title;
             $company->short_title = $short_title;
@@ -196,6 +258,7 @@ class CompanyService implements ICompanyService
             $company->integrator_id = $integrator_id;
             $company->is_active = $is_active;
             $company->save();
+
             return new ServiceResponse(true, 'Firma başarıyla güncellendi', null, 200);
         }
     }

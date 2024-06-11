@@ -111,7 +111,7 @@ class ProductService implements IProductService
             'specode3' => $specode3
         ]);
 
-        return new ServiceResponse(true, "Ürün oluşturuldu", $product, 201);
+        return new ServiceResponse(true, "Ürün/hizmet oluşturuldu", $product, 201);
     }
 
     /**
@@ -155,7 +155,7 @@ class ProductService implements IProductService
     {
         $product = $this->getById($id)->getData();
         if (!$product) {
-            return new ServiceResponse(false, "Ürün bulunamadı", null, 404);
+            return new ServiceResponse(false, "Ürün/hizmet bulunamadı", null, 404);
         } else {
             $product->code = $code;
             $product->name = $name;
@@ -174,6 +174,7 @@ class ProductService implements IProductService
             $product->specode2 = $specode2;
             $product->specode3 = $specode3;
             $product->save();
+            return new ServiceResponse(true, "Ürün/hizmet güncellendi", $product, 200);
         }
     }
 }

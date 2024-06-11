@@ -9,10 +9,10 @@ use App\Models\Country;
 use App\Models\Integrators;
 use App\Models\TaxOffice;
 use App\Models\Town;
+use App\Models\Unit;
 
 class CommonService implements ICommonService
 {
-
     public function getCountries($query = null): ServiceResponse
     {
         $countries = Country::where('name', 'like', $query . '%')
@@ -54,7 +54,7 @@ class CommonService implements ICommonService
 
     public function getUnits(): ServiceResponse
     {
-        $units = $this->getUnits();
+        $units = Unit::all();
         return new ServiceResponse(true, "Birimler başarıyla getirildi", $units, 200);
     }
 }

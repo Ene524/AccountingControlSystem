@@ -40,13 +40,12 @@ class ProductController extends Controller
 
     public function create()
     {
-        $units=$this->commonService->getUnits()->getData();
+        $units=$this->commonService->getUnits();
         return view('modules.product.create-update.index',compact('units'));
     }
 
     public function store(CreateRequest $request)
     {
-        dd($request->all());
         $response = $this->productService->create(
             company_id: auth()->user()->company_id,
             code: $request->code,
@@ -77,9 +76,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $response = $this->productService->getById($id);
-
-        if ($response->isSuccess()) {
-            return view('modules.product.create-update.index', compact('response'));
+        $units=$this->commonService->getUnits()->getData();
+        if ($response!=null) {
+            return view('modules.product.create-update.index', compact('response','units'));
         } else {
             return view('modules.product.index.index', compact('response'))->with('error', $response->getMessage());
         }
