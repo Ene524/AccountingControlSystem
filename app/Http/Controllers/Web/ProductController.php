@@ -40,7 +40,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        $units=$this->commonService->getUnits();
+        $tax_exemptions=$this->commonService->
+        $units=$this->commonService->getUnits()->getData();
         return view('modules.product.create-update.index',compact('units'));
     }
 

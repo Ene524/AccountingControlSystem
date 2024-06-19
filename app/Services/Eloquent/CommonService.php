@@ -7,6 +7,8 @@ use App\Interfaces\Eloquent\ICommonService;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Integrators;
+use App\Models\TaxCode;
+use App\Models\TaxExemptionCode;
 use App\Models\TaxOffice;
 use App\Models\Town;
 use App\Models\Unit;
@@ -56,5 +58,17 @@ class CommonService implements ICommonService
     {
         $units = Unit::all();
         return new ServiceResponse(true, "Birimler başarıyla getirildi", $units, 200);
+    }
+
+    public function getTaxExemptions(): ServiceResponse
+    {
+        $taxExemption=TaxExemptionCode::all();
+        return new ServiceResponse(true,"Vergi muafiyet kodları getirildi",$taxExemption,200);
+    }
+
+    public function getTaxes(): ServiceResponse
+    {
+        $taxes=TaxCode::all();
+        return new ServiceResponse(true,"Vergiler getirildi",$taxes,200);
     }
 }

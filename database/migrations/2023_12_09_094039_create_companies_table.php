@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('last_name', 255)->nullable();
             $table->string('tax_number', 10)->nullable();
             $table->string('identity_number', 11)->nullable();
-            $table->string('address', 255);
+            $table->string('address', 255)->nullable();
             $table->string('city', 100);
             $table->string('town', 100);
             $table->string('country', 100);
