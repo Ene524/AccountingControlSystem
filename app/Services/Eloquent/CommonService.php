@@ -12,6 +12,7 @@ use App\Models\TaxExemptionCode;
 use App\Models\TaxOffice;
 use App\Models\Town;
 use App\Models\Unit;
+use App\Models\WitholdingCode;
 
 class CommonService implements ICommonService
 {
@@ -69,6 +70,12 @@ class CommonService implements ICommonService
     public function getTaxes(): ServiceResponse
     {
         $taxes=TaxCode::all();
-        return new ServiceResponse(true,"Vergiler getirildi",$taxes,200);
+        return new ServiceResponse(true,"Vergi kodları getirildi",$taxes,200);
+    }
+
+    public function getWitholdings():ServiceResponse
+    {
+        $witholdings=WitholdingCode::all();
+        return new ServiceResponse(true,"Tevkifat kodları getirildi",$witholdings,200);
     }
 }

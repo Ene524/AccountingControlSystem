@@ -165,3 +165,10 @@
 .select2-container{
     display: block !important;
 }
+
+.select2-container .select2-choice {
+    display: block!important;
+    height: 36px!important;
+    white-space: nowrap!important;
+    line-height: 26px!important;
+}

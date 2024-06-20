@@ -40,9 +40,11 @@ class ProductController extends Controller
 
     public function create()
     {
-        $tax_exemptions=$this->commonService->
+        $taxExemptions=$this->commonService->getTaxExemptions()->getData();
+        $witholdings=$this->commonService->getWitholdings()->getData();
         $units=$this->commonService->getUnits()->getData();
-        return view('modules.product.create-update.index',compact('units'));
+        $taxes=$this->commonService->getTaxes()->getData();
+        return view('modules.product.create-update.index',compact('units','taxExemptions','witholdings','taxes'));
     }
 
     public function store(CreateRequest $request)
@@ -77,9 +79,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         $response = $this->productService->getById($id);
+        $taxExemptions=$this->commonService->getTaxExemptions()->getData();
+        $witholdings=$this->commonService->getWitholdings()->getData();
         $units=$this->commonService->getUnits()->getData();
+        $taxes=$this->commonService->getTaxes()->getData();
         if ($response!=null) {
-            return view('modules.product.create-update.index', compact('response','units'));
+            return view('modules.product.create-update.index', compact('response','units','taxExemptions','witholdings','taxes'));
         } else {
             return view('modules.product.index.index', compact('response'))->with('error', $response->getMessage());
         }
