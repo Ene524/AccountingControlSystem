@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\Eloquent\ICommonService;
-use App\Models\City;
-use App\Models\Country;
-use App\Models\TaxOffice;
-use App\Models\Town;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
@@ -18,21 +14,25 @@ class CommonController extends Controller
     {
         $this->commonService = $commonService;
     }
+
     public function getCountries(Request $request)
     {
         $countries = $this->commonService->getCountries($request->get('query'));
         return json_encode($countries->getData());
     }
+
     public function getCities(Request $request)
     {
         $cities = $this->commonService->getCities($request->get('query'));
         return json_encode($cities->getData());
     }
+
     public function getTowns(Request $request)
     {
         $towns = $this->commonService->getTowns($request->get('query'));
         return json_encode($towns->getData());
     }
+
     public function getTaxOffices(Request $request)
     {
         $taxoffices = $this->commonService->getTaxOffices($request->get('query'));
