@@ -33,7 +33,7 @@ class CustomerController extends Controller
     }
     public function create()
     {
-        return view('modules.customer.create-edit.index');
+        return view('modules.customer.create.index');
     }
     public function store(CreateRequest $request)
     {
@@ -75,7 +75,7 @@ class CustomerController extends Controller
         $response = $this->customerService->getById($id);
 
         if ($response->isSuccess()) {
-            return view('modules.customer.create-edit.index', compact('response'));
+            return view('modules.customer.edit.index', compact('response'));
         } else {
             return view('modules.customer.index.index', compact('response'))->with('error', $response->getMessage());
         }

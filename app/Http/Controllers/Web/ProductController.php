@@ -44,11 +44,12 @@ class ProductController extends Controller
         $witholdings=$this->commonService->getWitholdings()->getData();
         $units=$this->commonService->getUnits()->getData();
         $taxes=$this->commonService->getTaxes()->getData();
-        return view('modules.product.create-update.index',compact('units','taxExemptions','witholdings','taxes'));
+        return view('modules.product.create.index',compact('units','taxExemptions','witholdings','taxes'));
     }
 
     public function store(CreateRequest $request)
     {
+        dd($request->all());
         $response = $this->productService->create(
             company_id: auth()->user()->company_id,
             code: $request->code,
@@ -84,7 +85,7 @@ class ProductController extends Controller
         $units=$this->commonService->getUnits()->getData();
         $taxes=$this->commonService->getTaxes()->getData();
         if ($response!=null) {
-            return view('modules.product.create-update.index', compact('response','units','taxExemptions','witholdings','taxes'));
+            return view('modules.product.edit.index', compact('response','units','taxExemptions','witholdings','taxes'));
         } else {
             return view('modules.product.index.index', compact('response'))->with('error', $response->getMessage());
         }

@@ -18,7 +18,8 @@
                         @csrf
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="code">Kodu</label>
+                                   for="code">Kodu
+                            </label>
                             <div class="col-sm-2">
                                 <input type="text"
                                        id="code"
@@ -31,7 +32,8 @@
                             </div>
 
                             <label class="col-sm-1 col-form-label"
-                                   for="name">Adı</label>
+                                   for="name">Adı
+                            </label>
                             <div class="col-sm-6">
                                 <input type="text"
                                        id="name"
@@ -45,7 +47,8 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="description">Açıklama</label>
+                                   for="description">Açıklama
+                            </label>
                             <div class="col-sm-9">
                                 <input type="text"
                                        id="description"
@@ -60,7 +63,8 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label"
-                                   for="type">Tür</label>
+                                   for="type">Tür
+                            </label>
                             <div class="col-sm-9"
                                  style="line-height: 30px">
                                 <div class="form-check form-check-inline"
@@ -72,7 +76,8 @@
                                            value="1"
                                             {{ (old('type') == '1') || (isset($response) && $response->isSuccess() && $response->getData()->type == 1) ? 'checked' : '' }}>
                                     <label class="form-check-label"
-                                           for="type1">Ürün</label>
+                                           for="type1">Ürün
+                                    </label>
                                 </div>
                                 <div class="form-check form-check-inline"
                                      style="line-height: 30px">
@@ -83,14 +88,16 @@
                                            value="2"
                                             {{ (old('type') == '2') || (isset($response) && $response->isSuccess() && $response->getData()->type == 2) ? 'checked' : '' }}>
                                     <label class="form-check-label"
-                                           for="type2">Hizmet</label>
+                                           for="type2">Hizmet
+                                    </label>
                                 </div>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('type') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="sell_price">Satış Fiyatı</label>
+                                   for="sell_price">Satış Fiyatı
+                            </label>
                             <div class="col-sm-3">
                                 <input type="number"
                                        id="sell_price"
@@ -104,7 +111,8 @@
                                         class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end"
-                                   for="purchase_price">Alış Fiyatı</label>
+                                   for="purchase_price">Alış Fiyatı
+                            </label>
                             <div class="col-sm-3">
                                 <input type="number"
                                        id="purchase_price"
@@ -120,20 +128,22 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="vat">Kdv</label>
+                                   for="vat">Kdv
+                            </label>
                             <div class="col-sm-3">
                                 <select class="form-control select2"
                                         name="vat"
                                         id="vat">
-                                    <option value="0"  {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>0%</option>
-                                    <option value="1"  {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>1%</option>
+                                    <option value="0" {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>0%</option>
+                                    <option value="1" {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>1%</option>
                                     <option value="10" {{isset($response) && $response->getData()->vat==10 ? 'selected' : ''}}>10%</option>
                                     <option value="20" {{isset($response) && $response->getData()->vat==20 ? 'selected' : ''}}>20%</option>
                                 </select>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end"
-                                   for="unit_id">Birim</label>
+                                   for="unit_id">Birim
+                            </label>
                             <div class="col-sm-3">
                                 <select class="form-control select2"
                                         name="unit_id"
@@ -149,7 +159,8 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="barcode">Barcode</label>
+                                   for="barcode">Barcode
+                            </label>
                             <div class="col-sm-9">
                                 <input type="text"
                                        id="barcode"
@@ -162,7 +173,8 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="is_witholding">Tevkifat Bilgisi</label>
+                                   for="is_witholding">Tevkifat Bilgisi
+                            </label>
                             <div class="col-sm-5 checkbox-inline">
                                 <label class="switch switch-square switch-lg">
                                     <input type="checkbox"
@@ -185,7 +197,8 @@
 
 
                             <label class="col-sm-1 col-form-label"
-                                   for="witholding_id">Tevkifat Kodu</label>
+                                   for="witholding_id">Tevkifat Kodu
+                            </label>
                             <div class="col-sm-3">
                                 <select class="form-control select2"
                                         name="witholding_id"
@@ -229,7 +242,8 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="specode1">Specode1/2/3</label>
+                                   for="specode1">Specode1/2/3
+                            </label>
                             <div class="col-sm-3">
                                 <input type="text"
                                        id="specode1"
@@ -264,7 +278,8 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label"
-                                   for="is_active">Aktif mi?</label>
+                                   for="is_active">Aktif mi?
+                            </label>
                             <div class="col-sm-9">
                                 <select id="is_active"
                                         name="is_active"
@@ -292,7 +307,8 @@
                                         class="btn btn-primary float-end mx-2">Oluştur
                                 </button>
                                 <a href="{{ route('product.index') }}"
-                                   class="btn btn-info float-end">Geri Dön</a>
+                                   class="btn btn-info float-end">Geri Dön
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -304,9 +320,9 @@
 @endsection
 
 @section('customStyle')
-    @include('modules.product.create-update.components.style')
+    @include('modules.product.create.components.style')
 @endsection
 
 @section('customScript')
-    @include('modules.product.create-update.components.script')
+    @include('modules.product.create.components.script')
 @endsection

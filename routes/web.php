@@ -28,7 +28,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('create', [CompanyController::class, 'store'])->name('company.store');
         Route::get('edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
-        Route::post('edit', [CompanyController::class, 'update'])->name('company.edit');
+        Route::post('edit', [CompanyController::class, 'update']);
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
@@ -54,7 +54,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [CustomerController::class, 'create'])->name('customer.create');
         Route::post('create', [CustomerController::class, 'store']);
         Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
-        Route::post('edit/{id}', [CustomerController::class, 'update'])->name('customer.edit');
+        Route::post('edit/{id}', [CustomerController::class, 'update'])->name('customer.update');
         Route::delete('delete', [CustomerController::class, 'delete'])->name('customer.delete');
     });
 
@@ -64,10 +64,9 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [ProductController::class, 'create'])->name('product.create');
         Route::post('create', [ProductController::class, 'store']);
         Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-        Route::post('edit/{id}', [ProductController::class, 'update'])->name('product.edit');
+        Route::post('edit/{id}', [ProductController::class, 'update']);
         Route::delete('delete', [ProductController::class, 'delete'])->name('product.delete');
     });
-
 });
 
 #region Public Routes
