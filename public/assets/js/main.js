@@ -299,7 +299,7 @@ if (document.getElementById('layout-menu')) {
     //   Helpers._addClass('dropdown-menu-end', document.querySelectorAll('#layout-navbar .dropdown-menu'));
     // }
 
-    // Auto update layout based on screen size
+    // Auto edit layout based on screen size
     window.Helpers.setAutoUpdate(true);
 
     // Toggle Password Visibility
@@ -371,7 +371,7 @@ if (document.getElementById('layout-menu')) {
 
     // If current layout is vertical and current window screen is > small
 
-    // Auto update menu collapsed/expanded based on the themeConfig
+    // Auto edit menu collapsed/expanded based on the themeConfig
     if (typeof TemplateCustomizer !== 'undefined') {
         if (window.templateCustomizer.settings.defaultMenuCollapsed) {
             window.Helpers.setCollapsed(true, false);
@@ -431,7 +431,7 @@ if (typeof $ !== 'undefined') {
                 }
             }
         });
-        // Note: Following code is required to update container class of typeahead dropdown width on focus of search input. setTimeout is required to allow time to initiate Typeahead UI.
+        // Note: Following code is required to edit container class of typeahead dropdown width on focus of search input. setTimeout is required to allow time to initiate Typeahead UI.
         setTimeout(function () {
             var twitterTypeahead = $('.twitter-typeahead');
             searchInput.on('focus', function () {

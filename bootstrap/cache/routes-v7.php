@@ -13,21 +13,21 @@
 
 app('router')->setCompiledRoutes(
     array (
-  'compiled' => 
+  'compiled' =>
   array (
     0 => false,
-    1 => 
+    1 =>
     array (
-      '/sanctum/csrf-cookie' => 
+      '/sanctum/csrf-cookie' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'sanctum.csrf-cookie',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -38,16 +38,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/request-docs' => 
+      '/request-docs' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'request-docs.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -58,16 +58,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/request-docs/api' => 
+      '/request-docs/api' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'request-docs.api',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -78,16 +78,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/request-docs/config' => 
+      '/request-docs/config' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'request-docs.config',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -98,16 +98,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/_ignition/health-check' => 
+      '/_ignition/health-check' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'ignition.healthCheck',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -118,16 +118,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/_ignition/execute-solution' => 
+      '/_ignition/execute-solution' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'ignition.executeSolution',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -137,16 +137,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/_ignition/update-config' => 
+      '/_ignition/edit-config' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'ignition.updateConfig',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -156,16 +156,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/api/user' => 
+      '/api/user' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'generated::Bb7w9zf2kvnOdNkn',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -176,16 +176,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/user/delete' => 
+      '/user/delete' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.delete',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -195,16 +195,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/user/getAll' => 
+      '/user/getAll' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.getAll',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -215,16 +215,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/user/findByEmail' => 
+      '/user/findByEmail' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.findByEmail',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -235,16 +235,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/user/getById' => 
+      '/user/getById' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.getById',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -254,16 +254,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/user/updatePassword' => 
+      '/user/updatePassword' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
-            '_route' => 'password.update',
+            '_route' => 'password.edit',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -273,16 +273,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/userCompanyConnect/create' => 
+      '/userCompanyConnect/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'companyUserConnect.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -292,16 +292,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/userCompanyConnect/delete' => 
+      '/userCompanyConnect/delete' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'companyUserConnect.delete',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -311,16 +311,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/company/create' => 
+      '/company/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -330,14 +330,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.store',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -347,16 +347,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/company/update' => 
+      '/company/edit' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
-            '_route' => 'company.update',
+            '_route' => 'company.edit',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -366,16 +366,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/company/getAll' => 
+      '/company/getAll' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.getAll',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -386,16 +386,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/company/getById' => 
+      '/company/getById' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.getById',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -406,16 +406,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/company/delete' => 
+      '/company/delete' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.delete',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -425,16 +425,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/dashboard/index' => 
+      '/dashboard/index' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'dashboard.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -445,16 +445,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/dashboard/userCompanyDashboard' => 
+      '/dashboard/userCompanyDashboard' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'dashboard.showUserCompanyDashboard',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -465,16 +465,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/dashboard/editCompany' => 
+      '/dashboard/editCompany' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'dashboard.editCompany',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -485,16 +485,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/dashboard/selectCompany}' => 
+      '/dashboard/selectCompany}' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'dashboard.selectCompany',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -504,16 +504,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/common/getCountries' => 
+      '/common/getCountries' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'common.getCountries',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -524,16 +524,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/common/getCities' => 
+      '/common/getCities' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'common.getCities',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -544,16 +544,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/common/getTowns' => 
+      '/common/getTowns' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'common.getTowns',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -564,16 +564,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/common/getTaxOffices' => 
+      '/common/getTaxOffices' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'common.getTaxOffices',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -584,16 +584,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/customer/index' => 
+      '/customer/index' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'customer.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -604,16 +604,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/customer/getCustomers' => 
+      '/customer/getCustomers' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'customer.getCustomers',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -624,16 +624,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/customer/create' => 
+      '/customer/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'customer.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -643,14 +643,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'generated::bndxLTOhcfiQOtCx',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -660,16 +660,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/customer/delete' => 
+      '/customer/delete' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'customer.delete',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -679,16 +679,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/product/index' => 
+      '/product/index' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'product.index',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -699,16 +699,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/product/getProducts' => 
+      '/product/getProducts' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'product.getCustomers',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -719,16 +719,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/product/create' => 
+      '/product/create' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'product.create',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -738,14 +738,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'generated::ojhWsZTmdM0yKfYb',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -755,16 +755,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/product/delete' => 
+      '/product/delete' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'product.delete',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'DELETE' => 0,
           ),
@@ -774,16 +774,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/register' => 
+      '/register' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.showRegister',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -793,14 +793,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.register',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -810,16 +810,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/showResendEmail' => 
+      '/showResendEmail' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'verification.notice',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -830,16 +830,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/resendEmail' => 
+      '/resendEmail' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'verification.resend',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -849,16 +849,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/' => 
+      '/' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.showLogin',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -869,16 +869,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/login' => 
+      '/login' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.login',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -888,16 +888,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/logout' => 
+      '/logout' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'user.logout',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -908,16 +908,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/forgotPassword' => 
+      '/forgotPassword' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.showForgotPassword',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -927,14 +927,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.forgotPassword',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -944,16 +944,16 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/resetPassword' => 
+      '/resetPassword' =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.resetShow',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -963,14 +963,14 @@ app('router')->setCompiledRoutes(
           5 => false,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.reset',
           ),
           1 => NULL,
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -981,25 +981,25 @@ app('router')->setCompiledRoutes(
         ),
       ),
     ),
-    2 => 
+    2 =>
     array (
       0 => '{^(?|/re(?|quest\\-docs/_astro/(.*js|.*css|.*png|.*jpg|.*jpeg|.*gif|.*svg|.*ico|.*woff|.*woff2|.*ttf|.*eot|.*otf|.*map)(*:120)|setPassword/([^/]++)(*:148))|/c(?|ompany/edit/([^/]++)(*:182)|ustomer/edit/([^/]++)(?|(*:214)))|/product/edit/([^/]++)(?|(*:249))|/email/verify/([^/]++)(*:280))/?$}sDu',
     ),
-    3 => 
+    3 =>
     array (
-      120 => 
+      120 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'request-docs.assets',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'slug',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1010,19 +1010,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      148 => 
+      148 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'password.showResetToken',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'token',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1033,19 +1033,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      182 => 
+      182 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'company.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'id',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1056,19 +1056,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      214 => 
+      214 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'customer.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'id',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1078,17 +1078,17 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
-            '_route' => 'customer.update',
+            '_route' => 'customer.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'id',
           ),
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -1098,19 +1098,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      249 => 
+      249 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'product.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'id',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1120,17 +1120,17 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
-          0 => 
+          0 =>
           array (
-            '_route' => 'product.update',
+            '_route' => 'product.edit',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'id',
           ),
-          2 => 
+          2 =>
           array (
             'POST' => 0,
           ),
@@ -1140,19 +1140,19 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      280 => 
+      280 =>
       array (
-        0 => 
+        0 =>
         array (
-          0 => 
+          0 =>
           array (
             '_route' => 'verification.verify',
           ),
-          1 => 
+          1 =>
           array (
             0 => 'token',
           ),
-          2 => 
+          2 =>
           array (
             'GET' => 0,
             'HEAD' => 1,
@@ -1162,7 +1162,7 @@ app('router')->setCompiledRoutes(
           5 => true,
           6 => NULL,
         ),
-        1 => 
+        1 =>
         array (
           0 => NULL,
           1 => NULL,
@@ -1176,181 +1176,181 @@ app('router')->setCompiledRoutes(
     ),
     4 => NULL,
   ),
-  'attributes' => 
+  'attributes' =>
   array (
-    'sanctum.csrf-cookie' => 
+    'sanctum.csrf-cookie' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'sanctum/csrf-cookie',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show',
         'controller' => 'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController@show',
         'namespace' => NULL,
         'prefix' => 'sanctum',
-        'where' => 
+        'where' =>
         array (
         ),
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
         'as' => 'sanctum.csrf-cookie',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'request-docs.index' => 
+    'request-docs.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'request-docs',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@index',
         'controller' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@index',
         'as' => 'request-docs.index',
-        'middleware' => 
+        'middleware' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'request-docs.api' => 
+    'request-docs.api' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'request-docs/api',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@api',
         'controller' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@api',
         'as' => 'request-docs.api',
-        'middleware' => 
+        'middleware' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'request-docs.config' => 
+    'request-docs.config' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'request-docs/config',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@config',
         'controller' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@config',
         'as' => 'request-docs.config',
-        'middleware' => 
+        'middleware' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'request-docs.assets' => 
+    'request-docs.assets' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'request-docs/_astro/{slug}',
-      'action' => 
+      'action' =>
       array (
         'uses' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@assets',
         'controller' => 'Rakutentech\\LaravelRequestDocs\\Controllers\\LaravelRequestDocsController@assets',
         'as' => 'request-docs.assets',
-        'middleware' => 
+        'middleware' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
         'slug' => '.*js|.*css|.*png|.*jpg|.*jpeg|.*gif|.*svg|.*ico|.*woff|.*woff2|.*ttf|.*eot|.*otf|.*map',
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'ignition.healthCheck' => 
+    'ignition.healthCheck' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => '_ignition/health-check',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled',
         ),
@@ -1359,34 +1359,34 @@ app('router')->setCompiledRoutes(
         'as' => 'ignition.healthCheck',
         'namespace' => NULL,
         'prefix' => '_ignition',
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'ignition.executeSolution' => 
+    'ignition.executeSolution' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => '_ignition/execute-solution',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled',
         ),
@@ -1395,34 +1395,34 @@ app('router')->setCompiledRoutes(
         'as' => 'ignition.executeSolution',
         'namespace' => NULL,
         'prefix' => '_ignition',
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'ignition.updateConfig' => 
+    'ignition.updateConfig' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
-      'uri' => '_ignition/update-config',
-      'action' => 
+      'uri' => '_ignition/edit-config',
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'Spatie\\LaravelIgnition\\Http\\Middleware\\RunnableSolutionsEnabled',
         ),
@@ -1431,35 +1431,35 @@ app('router')->setCompiledRoutes(
         'as' => 'ignition.updateConfig',
         'namespace' => NULL,
         'prefix' => '_ignition',
-        'where' => 
+        'where' =>
         array (
         ),
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Bb7w9zf2kvnOdNkn' => 
+    'generated::Bb7w9zf2kvnOdNkn' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'api/user',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'api',
           1 => 'auth:sanctum',
@@ -1469,35 +1469,35 @@ app('router')->setCompiledRoutes(
 }";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000003fa0000000000000000";}}',
         'namespace' => NULL,
         'prefix' => 'api',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'generated::Bb7w9zf2kvnOdNkn',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.delete' => 
+    'user.delete' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'user/delete',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1508,36 +1508,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@delete',
         'namespace' => NULL,
         'prefix' => '/user',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.delete',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.getAll' => 
+    'user.getAll' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'user/getAll',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1548,36 +1548,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@getAll',
         'namespace' => NULL,
         'prefix' => '/user',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.getAll',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.findByEmail' => 
+    'user.findByEmail' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'user/findByEmail',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1588,35 +1588,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@findByEmail',
         'namespace' => NULL,
         'prefix' => '/user',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.findByEmail',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.getById' => 
+    'user.getById' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'user/getById',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1627,35 +1627,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@getById',
         'namespace' => NULL,
         'prefix' => '/user',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.getById',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.update' => 
+    'password.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'user/updatePassword',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1666,35 +1666,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@updatePassword',
         'namespace' => NULL,
         'prefix' => '/user',
-        'where' => 
+        'where' =>
         array (
         ),
-        'as' => 'password.update',
+        'as' => 'password.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'companyUserConnect.create' => 
+    'companyUserConnect.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'userCompanyConnect/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1705,35 +1705,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyUserConnectController@create',
         'namespace' => NULL,
         'prefix' => '/userCompanyConnect',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'companyUserConnect.create',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'companyUserConnect.delete' => 
+    'companyUserConnect.delete' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'userCompanyConnect/delete',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1744,36 +1744,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyUserConnectController@delete',
         'namespace' => NULL,
         'prefix' => '/userCompanyConnect',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'companyUserConnect.delete',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.create' => 
+    'company.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'company/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1784,35 +1784,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@create',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.create',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.store' => 
+    'company.store' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'company/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1823,36 +1823,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@store',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.store',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.edit' => 
+    'company.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'company/edit/{id}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1863,75 +1863,75 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@edit',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.update' => 
+    'company.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
-      'uri' => 'company/update',
-      'action' => 
+      'uri' => 'company/edit',
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
           2 => 'checkVerified',
           3 => 'checkSelectedCompany',
         ),
-        'uses' => 'App\\Http\\Controllers\\Web\\CompanyController@update',
-        'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@update',
+        'uses' => 'App\\Http\\Controllers\\Web\\CompanyController@edit',
+        'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@edit',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
-        'as' => 'company.update',
+        'as' => 'company.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.getAll' => 
+    'company.getAll' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'company/getAll',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1942,36 +1942,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@getAll',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.getAll',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.getById' => 
+    'company.getById' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'company/getById',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -1982,35 +1982,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@getById',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.getById',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'company.delete' => 
+    'company.delete' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'company/delete',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2021,36 +2021,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CompanyController@delete',
         'namespace' => NULL,
         'prefix' => '/company',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'company.delete',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'dashboard.index' => 
+    'dashboard.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'dashboard/index',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2061,36 +2061,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\DashboardController@index',
         'namespace' => NULL,
         'prefix' => '/dashboard',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'dashboard.index',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'dashboard.showUserCompanyDashboard' => 
+    'dashboard.showUserCompanyDashboard' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'dashboard/userCompanyDashboard',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2101,36 +2101,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\DashboardController@showUserCompanyDashboard',
         'namespace' => NULL,
         'prefix' => '/dashboard',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'dashboard.showUserCompanyDashboard',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'dashboard.editCompany' => 
+    'dashboard.editCompany' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'dashboard/editCompany',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2141,35 +2141,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\DashboardController@editCompany',
         'namespace' => NULL,
         'prefix' => '/dashboard',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'dashboard.editCompany',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'dashboard.selectCompany' => 
+    'dashboard.selectCompany' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'dashboard/selectCompany}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2180,36 +2180,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\DashboardController@selectCompany',
         'namespace' => NULL,
         'prefix' => '/dashboard',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'dashboard.selectCompany',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'common.getCountries' => 
+    'common.getCountries' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'common/getCountries',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2220,36 +2220,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CommonController@getCountries',
         'namespace' => NULL,
         'prefix' => '/common',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'common.getCountries',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'common.getCities' => 
+    'common.getCities' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'common/getCities',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2260,36 +2260,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CommonController@getCities',
         'namespace' => NULL,
         'prefix' => '/common',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'common.getCities',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'common.getTowns' => 
+    'common.getTowns' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'common/getTowns',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2300,36 +2300,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CommonController@getTowns',
         'namespace' => NULL,
         'prefix' => '/common',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'common.getTowns',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'common.getTaxOffices' => 
+    'common.getTaxOffices' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'common/getTaxOffices',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2340,36 +2340,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CommonController@getTaxOffices',
         'namespace' => NULL,
         'prefix' => '/common',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'common.getTaxOffices',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.index' => 
+    'customer.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'customer/index',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2380,36 +2380,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@index',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'customer.index',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.getCustomers' => 
+    'customer.getCustomers' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'customer/getCustomers',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2420,36 +2420,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@getCustomers',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'customer.getCustomers',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.create' => 
+    'customer.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'customer/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2460,35 +2460,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@create',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'customer.create',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bndxLTOhcfiQOtCx' => 
+    'generated::bndxLTOhcfiQOtCx' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'customer/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2499,36 +2499,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@store',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'generated::bndxLTOhcfiQOtCx',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.edit' => 
+    'customer.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'customer/edit/{id}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2539,74 +2539,74 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@edit',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'customer.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.update' => 
+    'customer.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'customer/edit/{id}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
           2 => 'checkVerified',
           3 => 'checkSelectedCompany',
         ),
-        'uses' => 'App\\Http\\Controllers\\Web\\CustomerController@update',
-        'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@update',
+        'uses' => 'App\\Http\\Controllers\\Web\\CustomerController@edit',
+        'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@edit',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
-        'as' => 'customer.update',
+        'as' => 'customer.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'customer.delete' => 
+    'customer.delete' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'customer/delete',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2617,36 +2617,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\CustomerController@delete',
         'namespace' => NULL,
         'prefix' => '/customer',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'customer.delete',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.index' => 
+    'product.index' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'product/index',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2657,36 +2657,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@index',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'product.index',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.getCustomers' => 
+    'product.getCustomers' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'product/getProducts',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2697,36 +2697,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@getProducts',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'product.getCustomers',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.create' => 
+    'product.create' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'product/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2737,35 +2737,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@create',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'product.create',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ojhWsZTmdM0yKfYb' => 
+    'generated::ojhWsZTmdM0yKfYb' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'product/create',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2776,36 +2776,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@store',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'generated::ojhWsZTmdM0yKfYb',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.edit' => 
+    'product.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'product/edit/{id}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2816,74 +2816,74 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@edit',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'product.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.update' => 
+    'product.edit' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'product/edit/{id}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
           2 => 'checkVerified',
           3 => 'checkSelectedCompany',
         ),
-        'uses' => 'App\\Http\\Controllers\\Web\\ProductController@update',
-        'controller' => 'App\\Http\\Controllers\\Web\\ProductController@update',
+        'uses' => 'App\\Http\\Controllers\\Web\\ProductController@edit',
+        'controller' => 'App\\Http\\Controllers\\Web\\ProductController@edit',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
-        'as' => 'product.update',
+        'as' => 'product.edit',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'product.delete' => 
+    'product.delete' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'DELETE',
       ),
       'uri' => 'product/delete',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
           1 => 'auth',
@@ -2894,36 +2894,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\ProductController@delete',
         'namespace' => NULL,
         'prefix' => '/product',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'product.delete',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.showRegister' => 
+    'user.showRegister' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'register',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2931,35 +2931,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showRegister',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.showRegister',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.register' => 
+    'user.register' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'register',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -2967,36 +2967,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@register',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.register',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'verification.verify' => 
+    'verification.verify' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'email/verify/{token}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3004,36 +3004,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@verifyEmail',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'verification.verify',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'verification.notice' => 
+    'verification.notice' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'showResendEmail',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3041,35 +3041,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showResendEmail',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'verification.notice',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'verification.resend' => 
+    'verification.resend' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'resendEmail',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3077,36 +3077,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@resendEmail',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'verification.resend',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.showLogin' => 
+    'user.showLogin' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => '/',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3114,35 +3114,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showLogin',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.showLogin',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.login' => 
+    'user.login' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'login',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3150,36 +3150,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@login',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.login',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'user.logout' => 
+    'user.logout' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'logout',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3187,36 +3187,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@logout',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'user.logout',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.showForgotPassword' => 
+    'password.showForgotPassword' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'forgotPassword',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3224,35 +3224,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showForgotPassword',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.showForgotPassword',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.forgotPassword' => 
+    'password.forgotPassword' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'forgotPassword',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3260,36 +3260,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@forgotPassword',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.forgotPassword',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.showResetToken' => 
+    'password.showResetToken' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'resetPassword/{token}',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3297,36 +3297,36 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showPasswordResetToken',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.showResetToken',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.resetShow' => 
+    'password.resetShow' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'GET',
         1 => 'HEAD',
       ),
       'uri' => 'resetPassword',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3334,35 +3334,35 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@showPasswordReset',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.resetShow',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'password.reset' => 
+    'password.reset' =>
     array (
-      'methods' => 
+      'methods' =>
       array (
         0 => 'POST',
       ),
       'uri' => 'resetPassword',
-      'action' => 
+      'action' =>
       array (
-        'middleware' => 
+        'middleware' =>
         array (
           0 => 'web',
         ),
@@ -3370,19 +3370,19 @@ app('router')->setCompiledRoutes(
         'controller' => 'App\\Http\\Controllers\\Web\\UserController@sendPasswordReset',
         'namespace' => NULL,
         'prefix' => '',
-        'where' => 
+        'where' =>
         array (
         ),
         'as' => 'password.reset',
       ),
       'fallback' => false,
-      'defaults' => 
+      'defaults' =>
       array (
       ),
-      'wheres' => 
+      'wheres' =>
       array (
       ),
-      'bindingFields' => 
+      'bindingFields' =>
       array (
       ),
       'lockSeconds' => NULL,

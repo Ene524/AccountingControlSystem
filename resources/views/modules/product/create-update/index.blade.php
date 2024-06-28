@@ -13,7 +13,7 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <form
-                            action="{{ isset($response) && $response->isSuccess() ? route('product.update', ['id' => $response->getData()->id]) : route('product.create') }}"
+                            action="{{ isset($response) && $response->isSuccess() ? route('product.edit', ['id' => $response->getData()->id]) : route('product.create') }}"
                             method="post">
                         @csrf
                         <div class="row">

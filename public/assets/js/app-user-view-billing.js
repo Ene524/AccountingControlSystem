@@ -45,7 +45,7 @@
     };
   }
 
-  // On edit address click, update text of add address modal
+  // On edit address click, edit text of add address modal
   const addressEdit = document.querySelector('.edit-address'),
     addressTitle = document.querySelector('.address-title'),
     addressSubTitle = document.querySelector('.address-subtitle');

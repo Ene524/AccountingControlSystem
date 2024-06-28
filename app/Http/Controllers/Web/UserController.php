@@ -29,7 +29,7 @@ class UserController extends Controller
     public function showRegister()
     {
         if (auth()->check()) {
-            return redirect()->route("dashboard.userCompanyDashboard");
+            return redirect()->route("dashboard.showUserCompanyDashboard");
         } else {
             return view('modules.authentication.register.index');
         }

@@ -6,7 +6,7 @@
 
 (async function () {
   let boards;
-  const kanbanSidebar = document.querySelector('.kanban-update-item-sidebar'),
+  const kanbanSidebar = document.querySelector('.kanban-edit-item-sidebar'),
     kanbanWrapper = document.querySelector('.kanban-wrapper'),
     commentEditor = document.querySelector('.comment-editor'),
     kanbanAddNewBoard = document.querySelector('.kanban-add-new-board'),
@@ -207,7 +207,7 @@
       kanbanSidebar.querySelector('#due-date').nextSibling.value = dateToUse;
 
       // ! Using jQuery method to get sidebar due to select2 dependency
-      $('.kanban-update-item-sidebar').find(select2).val(label).trigger('change');
+      $('.kanban-edit-item-sidebar').find(select2).val(label).trigger('change');
 
       // Remove & Update assigned
       kanbanSidebar.querySelector('.assigned').innerHTML = '';

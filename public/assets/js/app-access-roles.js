@@ -240,7 +240,7 @@ $(function () {
 });
 
 (function () {
-  // On edit role click, update text
+  // On edit role click, edit text
   var roleEditList = document.querySelectorAll('.role-edit-modal'),
     roleAdd = document.querySelector('.add-new-role'),
     roleTitle = document.querySelector('.role-title');
