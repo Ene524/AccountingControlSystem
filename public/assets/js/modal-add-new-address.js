@@ -23,7 +23,7 @@ $(function () {
 // Add New Address form validation
 document.addEventListener('DOMContentLoaded', function () {
   (function () {
-    // initCustomOptionCheck on modal show to update the custom select
+    // initCustomOptionCheck on modal show to edit the custom select
     let addNewAddress = document.getElementById('addNewAddress');
     addNewAddress.addEventListener('show.bs.modal', function (event) {
       // Init custom option check

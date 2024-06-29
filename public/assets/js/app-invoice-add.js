@@ -61,7 +61,7 @@ $(function () {
     e.stopPropagation();
   });
 
-  // On tax change update it's value value
+  // On tax change edit it's value value
   function updateValue(listener, el) {
     listener.closest('.repeater-wrapper').find(el).text(listener.val());
   }

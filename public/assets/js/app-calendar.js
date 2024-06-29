@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       inlineCalendar = document.querySelector('.inline-calendar');
 
     let eventToUpdate,
-      currentEvents = events, // Assign app-calendar-events.js file events (assume events from API) to currentEvents (browser store/object) to manage and update calender events
+      currentEvents = events, // Assign app-calendar-events.js file events (assume events from API) to currentEvents (browser store/object) to manage and edit calender events
       isFormValid = false,
       inlineCalInstance;
 
@@ -154,12 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
         window.open(eventToUpdate.url, '_blank');
       }
       bsAddEventSidebar.show();
-      // For update event set offcanvas title text: Update Event
+      // For edit event set offcanvas title text: Update Event
       if (offcanvasTitle) {
         offcanvasTitle.innerHTML = 'Update Event';
       }
       btnSubmit.innerHTML = 'Update';
-      btnSubmit.classList.add('btn-update-event');
+      btnSubmit.classList.add('btn-edit-event');
       btnSubmit.classList.remove('btn-add-event');
       btnDeleteEvent.classList.remove('d-none');
 
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function () {
           offcanvasTitle.innerHTML = 'Add Event';
         }
         btnSubmit.innerHTML = 'Add';
-        btnSubmit.classList.remove('btn-update-event');
+        btnSubmit.classList.remove('btn-edit-event');
         btnSubmit.classList.add('btn-add-event');
         btnDeleteEvent.classList.add('d-none');
         eventStartDate.value = date;
@@ -373,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
       currentEvents.push(eventData);
       calendar.refetchEvents();
 
-      // ? To add event directly to calender (won't update currentEvents object)
+      // ? To add event directly to calender (won't edit currentEvents object)
       // calendar.addEvent(eventData);
     }
 
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
       currentEvents[currentEvents.findIndex(el => el.id === eventData.id)] = eventData; // Update event by id
       calendar.refetchEvents();
 
-      // ? To update event directly to calender (won't update currentEvents object)
+      // ? To edit event directly to calender (won't edit currentEvents object)
       // let propsToUpdate = ['id', 'title', 'url'];
       // let extendedPropsToUpdate = ['calendar', 'guests', 'location', 'description'];
 
@@ -404,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       calendar.refetchEvents();
 
-      // ? To delete event directly to calender (won't update currentEvents object)
+      // ? To delete event directly to calender (won't edit currentEvents object)
       // removeEventInCalendar(eventId);
     }
 
@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function () {
         offcanvasTitle.innerHTML = 'Add Event';
       }
       btnSubmit.innerHTML = 'Add';
-      btnSubmit.classList.remove('btn-update-event');
+      btnSubmit.classList.remove('btn-edit-event');
       btnSubmit.classList.add('btn-add-event');
       btnDeleteEvent.classList.add('d-none');
       appCalendarSidebar.classList.remove('show');

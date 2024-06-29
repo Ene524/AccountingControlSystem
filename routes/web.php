@@ -15,7 +15,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('getAll', [UserController::class, 'getAll'])->name('user.getAll');
         Route::get('findByEmail', [UserController::class, 'findByEmail'])->name('user.findByEmail');
         Route::post('getById', [UserController::class, 'getById'])->name('user.getById');
-        Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.update');
+        Route::post('updatePassword', [UserController::class, 'updatePassword'])->name('password.edit');
         Route::delete('delete', [UserController::class, 'delete'])->name('user.delete');
     });
 
@@ -28,7 +28,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('create', [CompanyController::class, 'store'])->name('company.store');
         Route::get('edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
-        Route::post('update', [CompanyController::class, 'update'])->name('company.update');
+        Route::post('edit', [CompanyController::class, 'update']);
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
@@ -64,10 +64,9 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [ProductController::class, 'create'])->name('product.create');
         Route::post('create', [ProductController::class, 'store']);
         Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
-        Route::post('edit/{id}', [ProductController::class, 'update'])->name('product.update');
+        Route::post('edit/{id}', [ProductController::class, 'update']);
         Route::delete('delete', [ProductController::class, 'delete'])->name('product.delete');
     });
-
 });
 
 #region Public Routes
