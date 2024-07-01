@@ -10,7 +10,7 @@ interface IProductService extends IEloquentService
         int     $company_id,
         string  $code,
         string  $name,
-        string  $description,
+        ?string  $description,
         int     $type,
         ?float  $sell_price,
         ?float  $purchase_price,

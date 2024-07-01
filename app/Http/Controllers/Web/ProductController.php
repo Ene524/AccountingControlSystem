@@ -49,7 +49,6 @@ class ProductController extends Controller
 
     public function store(CreateRequest $request)
     {
-        dd($request->all());
         $response = $this->productService->create(
             company_id: auth()->user()->company_id,
             code: $request->code,

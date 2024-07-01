@@ -15,36 +15,54 @@
 
     <title>Email Doğrulama</title>
 
-    <meta name="description" content=""/>
+    <meta name="description"
+          content=""/>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{asset('assets')}}/img/favicon/favicon.ico"/>
+    <link rel="icon"
+          type="image/x-icon"
+          href="{{asset('assets')}}/img/favicon/favicon.ico"/>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com"/>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin/>
     <link
         href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
         rel="stylesheet"/>
 
     <!-- Icons -->
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/fonts/fontawesome.css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/fonts/tabler-icons.css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/fonts/flag-icons.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/fonts/fontawesome.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/fonts/tabler-icons.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/fonts/flag-icons.css"/>
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/css/rtl/core.css" class="template-customizer-core-css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/css/rtl/theme-default.css" class="template-customizer-theme-css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/css/demo.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/css/rtl/core.css"
+          class="template-customizer-core-css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/css/rtl/theme-default.css"
+          class="template-customizer-theme-css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/css/demo.css"/>
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/libs/node-waves/node-waves.css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/libs/typeahead-js/typeahead.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/libs/node-waves/node-waves.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/libs/typeahead-js/typeahead.css"/>
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="{{asset('assets')}}/vendor/css/pages/page-auth.css"/>
+    <link rel="stylesheet"
+          href="{{asset('assets')}}/vendor/css/pages/page-auth.css"/>
 
     <!-- Helpers -->
     <script src="{{asset('assets')}}/vendor/js/helpers.js"></script>
@@ -65,9 +83,14 @@
             <div class="card-body">
                 <!-- Logo -->
                 <div class="app-brand justify-content-center mb-4 mt-2">
-                    <a href="index.html" class="app-brand-link gap-2">
+                    <a href="index.html"
+                       class="app-brand-link gap-2">
                 <span class="app-brand-logo demo">
-                  <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="32"
+                       height="22"
+                       viewBox="0 0 32 22"
+                       fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
                     <path
                         fill-rule="evenodd"
                         clip-rule="evenodd"
@@ -98,7 +121,8 @@
                 <!-- /Logo -->
                 <h4 class="mb-1 pt-2">Email adresini doğrula</h4>
                 <p class="text-start mb-4">
-                    Hesap aktivasyon bağlantısı e-posta adresinize gönderildi: <b>{{$user->email}} </b> Devam etmek için içindeki bağlantıyı takip edin.
+                    Hesap aktivasyon bağlantısı e-posta adresinize gönderildi: <b>{{$user->email}} </b> Devam etmek için posta kutunuzu
+                    kontrol edin.
                 </p>
 
                 @if(session()->has('success'))
@@ -109,18 +133,25 @@
 
                 @if ($errors->all())
                     @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger alert-dismissible" role="alert">
+                        <div class="alert alert-danger alert-dismissible"
+                             role="alert">
                             {{$error}}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                         </div>
                     @endforeach
                 @endif
 
-                <form action="{{route('verification.resend')}}" method="post">
+                <form action="{{route('verification.resend')}}"
+                      method="post">
                     @csrf
                     <p class="text-center mb-0">
                         Maili almadınız mı?
-                        <button type="submit" class="text-primary" style="background: none;border: none"><b>Tekrar Gönder</b></button>
+                        <button type="submit"
+                                class="text-primary"
+                                style="background: none;border: none"><b>Tekrar Gönder</b></button>
                     </p>
                 </form>
 

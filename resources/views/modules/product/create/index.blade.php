@@ -5,7 +5,8 @@
     <h4 class="py-1 mb-2">
         <span class="text-muted fw-light">
             <a href="{{ route('customer.index') }}">Müşteriler</a>
-            /</span>{{ isset($response) && $response->isSuccess() ? 'Ürün/Hizmet Güncelle' : 'Ürün/Hizmet Ekle' }}
+            /</span>
+        'Ürün/Hizmet Ekle'
     </h4>
 
     <div class="row">
@@ -13,8 +14,8 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <form
-                            action="{{ isset($response) && $response->isSuccess() ? route('product.edit', ['id' => $response->getData()->id]) : route('product.create') }}"
-                            method="post">
+                        action="{{ route('product.create') }}"
+                        method="post">
                         @csrf
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
@@ -27,7 +28,7 @@
                                        class="form-control "
                                        maxlength="50"
                                        placeholder="Kodu"
-                                       value="{{ isset($response) ? $response->getData()->code ?? old('code') : old('code') }}">
+                                       value="{{ old('code') }}">
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
                             </div>
 
@@ -41,7 +42,7 @@
                                        class="form-control "
                                        maxlength="200"
                                        placeholder="Adı"
-                                       value="{{ isset($response) ? $response->getData()->name ?? old('name') : old('name') }}">
+                                       value="{{ old('name') }}">
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('name') ?? '' }}</span>
                             </div>
                         </div>
@@ -56,9 +57,9 @@
                                        class="form-control "
                                        maxlength="255"
                                        placeholder="Açıklama"
-                                       value="{{ isset($response) ? $response->getData()->description ?? old('description') : old('description') }}">
+                                       value="{{ old('description') }}">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -74,7 +75,7 @@
                                            name="type"
                                            id="type"
                                            value="1"
-                                            {{ (old('type') == '1') || (isset($response) && $response->isSuccess() && $response->getData()->type == 1) ? 'checked' : '' }}>
+                                        {{ (old('type') == '1')  ? 'checked' : '' }}>
                                     <label class="form-check-label"
                                            for="type1">Ürün
                                     </label>
@@ -86,7 +87,7 @@
                                            name="type"
                                            id="type2"
                                            value="2"
-                                            {{ (old('type') == '2') || (isset($response) && $response->isSuccess() && $response->getData()->type == 2) ? 'checked' : '' }}>
+                                        {{ (old('type') == '2')  ? 'checked' : '' }}>
                                     <label class="form-check-label"
                                            for="type2">Hizmet
                                     </label>
@@ -108,7 +109,7 @@
                                        value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}"
                                 >
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end"
                                    for="purchase_price">Alış Fiyatı
@@ -123,7 +124,7 @@
                                        value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}"
                                 >
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -134,10 +135,22 @@
                                 <select class="form-control select2"
                                         name="vat"
                                         id="vat">
-                                    <option value="0" {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>0%</option>
-                                    <option value="1" {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>1%</option>
-                                    <option value="10" {{isset($response) && $response->getData()->vat==10 ? 'selected' : ''}}>10%</option>
-                                    <option value="20" {{isset($response) && $response->getData()->vat==20 ? 'selected' : ''}}>20%</option>
+                                    <option
+                                        value="0" {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>
+                                        0%
+                                    </option>
+                                    <option
+                                        value="1" {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>
+                                        1%
+                                    </option>
+                                    <option
+                                        value="10" {{isset($response) && $response->getData()->vat==10 ? 'selected' : ''}}>
+                                        10%
+                                    </option>
+                                    <option
+                                        value="20" {{isset($response) && $response->getData()->vat==20 ? 'selected' : ''}}>
+                                        20%
+                                    </option>
                                 </select>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
                             </div>
@@ -154,7 +167,7 @@
                                     @endforeach
                                 </select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -168,7 +181,7 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -192,7 +205,7 @@
                                     <span class="switch-label">Tevkifatlı mı?</span>
                                 </label>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('is_witholding') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('is_witholding') ?? '' }}</span>
                             </div>
 
 
@@ -206,11 +219,12 @@
                                         disabled>
                                     <option value="">Seçiniz</option>
                                     @foreach($witholdings as $witholding)
-                                        <option value="{{ $witholding->id }}">{{ $witholding->code." - ". $witholding->name ."-". $witholding->numerator."/10" }}</option>
+                                        <option
+                                            value="{{ $witholding->id }}">{{ $witholding->code." - ". $witholding->name ."-". $witholding->numerator."/10" }}</option>
                                     @endforeach
                                 </select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('witholding_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('witholding_id') ?? '' }}</span>
                             </div>
 
                         </div>
@@ -222,11 +236,12 @@
                                         id="tax_exemption_id">
                                     <option value="">Seçiniz</option>
                                     @foreach($taxExemptions as $taxExemption)
-                                        <option value="{{ $taxExemption->id }}">{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
+                                        <option
+                                            value="{{ $taxExemption->id }}">{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
                                     @endforeach
                                 </select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
                             </div>
                             <div class="col-sm-5">
                                 <select class="form-control select2"
@@ -237,7 +252,8 @@
                                         <option value="{{ $tax->id }}">{{ $tax->code." - ". $tax->name  }}</option>
                                     @endforeach
                                 </select>
-                                <span class="help-block error-help-block mx-1">{{ $errors->first('tax_id') ?? '' }}</span>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('tax_id') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -251,7 +267,7 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode1') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode1') ?? '' }}</span>
                             </div>
 
 
@@ -262,7 +278,7 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode2') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode2') ?? '' }}</span>
                             </div>
 
 
@@ -273,7 +289,7 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode3') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode3') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -285,15 +301,15 @@
                                         name="is_active"
                                         class="form-select select2">
                                     <option value=""
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
+                                        {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
                                         Seçiniz
                                     </option>
                                     <option value="1"
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
+                                        {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
                                         Evet
                                     </option>
                                     <option value="0"
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
+                                        {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
                                         Hayır
                                     </option>
                                 </select>

@@ -13,9 +13,8 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <form
-                            action="{{ isset($response) && $response->isSuccess() ? route('product.edit', ['id' => $response->getData()->id]) : route('product.create') }}"
-                            method="post">
-                        @csrf
+                        action="{{ route('product.edit', ['id' => $response->getData()->id]) }}"
+                        method="post">@csrf
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
                                    for="code">Kodu
@@ -28,9 +27,9 @@
                                        maxlength="50"
                                        placeholder="Kodu"
                                        value="{{ isset($response) ? $response->getData()->code ?? old('code') : old('code') }}">
-                                <span class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
                             </div>
-
                             <label class="col-sm-1 col-form-label"
                                    for="name">Adı
                             </label>
@@ -42,7 +41,8 @@
                                        maxlength="200"
                                        placeholder="Adı"
                                        value="{{ isset($response) ? $response->getData()->name ?? old('name') : old('name') }}">
-                                <span class="help-block error-help-block mx-1">{{ $errors->first('name') ?? '' }}</span>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('name') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -58,7 +58,7 @@
                                        placeholder="Açıklama"
                                        value="{{ isset($response) ? $response->getData()->description ?? old('description') : old('description') }}">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -69,26 +69,28 @@
                                  style="line-height: 30px">
                                 <div class="form-check form-check-inline"
                                      style="line-height: 30px">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="type"
-                                           id="type"
-                                           value="1"
-                                            {{ (old('type') == '1') || (isset($response) && $response->isSuccess() && $response->getData()->type == 1) ? 'checked' : '' }}>
-                                    <label class="form-check-label"
-                                           for="type1">Ürün
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="type"
+                                        id="type"
+                                        value="1"{{ (old('type') == '1') || (isset($response) && $response->isSuccess() && $response->getData()->type == 1) ? 'checked' : '' }}>
+                                    <label
+                                        class="form-check-label"
+                                        for="type1">Ürün
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline"
                                      style="line-height: 30px">
-                                    <input class="form-check-input"
-                                           type="radio"
-                                           name="type"
-                                           id="type2"
-                                           value="2"
-                                            {{ (old('type') == '2') || (isset($response) && $response->isSuccess() && $response->getData()->type == 2) ? 'checked' : '' }}>
-                                    <label class="form-check-label"
-                                           for="type2">Hizmet
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        name="type"
+                                        id="type2"
+                                        value="2"{{ (old('type') == '2') || (isset($response) && $response->isSuccess() && $response->getData()->type == 2) ? 'checked' : '' }}>
+                                    <label
+                                        class="form-check-label"
+                                        for="type2">Hizmet
                                     </label>
                                 </div>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('type') ?? '' }}</span>
@@ -105,10 +107,9 @@
                                        class="form-control"
                                        step="1"
                                        placeholder="0,00"
-                                       value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}"
-                                >
+                                       value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('sell_price') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end"
                                    for="purchase_price">Alış Fiyatı
@@ -120,10 +121,9 @@
                                        class="form-control"
                                        step="1"
                                        placeholder="0,00"
-                                       value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}"
-                                >
+                                       value="{{ isset($response) ? $response->getData()->sell_price ?? old('sell_price') : old('sell_price')}}">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('purchase_price') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -134,12 +134,25 @@
                                 <select class="form-control select2"
                                         name="vat"
                                         id="vat">
-                                    <option value="0" {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>0%</option>
-                                    <option value="1" {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>1%</option>
-                                    <option value="10" {{isset($response) && $response->getData()->vat==10 ? 'selected' : ''}}>10%</option>
-                                    <option value="20" {{isset($response) && $response->getData()->vat==20 ? 'selected' : ''}}>20%</option>
+                                    <option
+                                        value="0" {{isset($response) && $response->getData()->vat==0 ? 'selected' : ''}}>
+                                        0%
+                                    </option>
+                                    <option
+                                        value="1" {{isset($response) && $response->getData()->vat==1 ? 'selected' : ''}}>
+                                        1%
+                                    </option>
+                                    <option
+                                        value="10" {{isset($response) && $response->getData()->vat==10 ? 'selected' : ''}}>
+                                        10%
+                                    </option>
+                                    <option
+                                        value="20" {{isset($response) && $response->getData()->vat==20 ? 'selected' : ''}}>
+                                        20%
+                                    </option>
                                 </select>
-                                <span class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('vat') ?? '' }}</span>
                             </div>
                             <label class="col-sm-3 col-form-label text-end"
                                    for="unit_id">Birim
@@ -154,7 +167,7 @@
                                     @endforeach
                                 </select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('unit_id') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -168,12 +181,13 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="is_witholding">Tevkifat Bilgisi
+                                   for="is_witholding">Tevkifat
+                                Bilgisi
                             </label>
                             <div class="col-sm-5 checkbox-inline">
                                 <label class="switch switch-square switch-lg">
@@ -182,20 +196,12 @@
                                            id="is_witholding"
                                            name="is_witholding">
                                     <span class="switch-toggle-slider">
-                                        <span class="switch-on">
-                                            <i class="ti ti-check"></i>
-                                        </span>
-                                        <span class="switch-off">
-                                            <i class="ti ti-x"></i>
-                                        </span>
-                                    </span>
+                                        <span class="switch-on"><i class="ti ti-check"></i></span><span class="switch-off"><i class="ti ti-x"></i></span></span>
                                     <span class="switch-label">Tevkifatlı mı?</span>
                                 </label>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('is_witholding') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('is_witholding') ?? '' }}</span>
                             </div>
-
-
                             <label class="col-sm-1 col-form-label"
                                    for="witholding_id">Tevkifat Kodu
                             </label>
@@ -204,15 +210,13 @@
                                         name="witholding_id"
                                         id="witholding_id"
                                         disabled>
-                                    <option value="">Seçiniz</option>
-                                    @foreach($witholdings as $witholding)
-                                        <option value="{{ $witholding->id }}">{{ $witholding->code." - ". $witholding->name ."-". $witholding->numerator."/10" }}</option>
-                                    @endforeach
-                                </select>
+                                    <option value="">Seçiniz</option>@foreach($witholdings as $witholding)
+                                        <option
+                                            value="{{ $witholding->id }}">{{ $witholding->code." - ". $witholding->name ."-". $witholding->numerator."/10" }}</option>
+                                    @endforeach</select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('witholding_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('witholding_id') ?? '' }}</span>
                             </div>
-
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label">Exemption/TaxId</label>
@@ -220,24 +224,22 @@
                                 <select class="form-control select2"
                                         name="tax_exemption_id"
                                         id="tax_exemption_id">
-                                    <option value="">Seçiniz</option>
-                                    @foreach($taxExemptions as $taxExemption)
-                                        <option value="{{ $taxExemption->id }}">{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
-                                    @endforeach
-                                </select>
+                                    <option value="">Seçiniz</option>@foreach($taxExemptions as $taxExemption)
+                                        <option
+                                            value="{{ $taxExemption->id }}">{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
+                                    @endforeach</select>
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
                             </div>
                             <div class="col-sm-5">
                                 <select class="form-control select2"
                                         name="tax_id"
                                         id="tax_id">
-                                    <option value="">Seçiniz</option>
-                                    @foreach($taxes as $tax)
+                                    <option value="">Seçiniz</option>@foreach($taxes as $tax)
                                         <option value="{{ $tax->id }}">{{ $tax->code." - ". $tax->name  }}</option>
-                                    @endforeach
-                                </select>
-                                <span class="help-block error-help-block mx-1">{{ $errors->first('tax_id') ?? '' }}</span>
+                                    @endforeach</select>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('tax_id') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -251,10 +253,8 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode1') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode1') ?? '' }}</span>
                             </div>
-
-
                             <div class="col-sm-3">
                                 <input type="text"
                                        id="specode2"
@@ -262,10 +262,8 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode2') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode2') ?? '' }}</span>
                             </div>
-
-
                             <div class="col-sm-3">
                                 <input type="text"
                                        id="specode3"
@@ -273,7 +271,7 @@
                                        class="form-control"
                                        maxlength="50">
                                 <span
-                                        class="help-block error-help-block mx-1">{{ $errors->first('specode3') ?? '' }}</span>
+                                    class="help-block error-help-block mx-1">{{ $errors->first('specode3') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -284,21 +282,21 @@
                                 <select id="is_active"
                                         name="is_active"
                                         class="form-select select2">
-                                    <option value=""
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
+                                    <option
+                                        value=""{{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) === '' ? 'selected' : '' }}>
                                         Seçiniz
                                     </option>
-                                    <option value="1"
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
+                                    <option
+                                        value="1"{{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '1' ? 'selected' : '' }}>
                                         Evet
                                     </option>
-                                    <option value="0"
-                                            {{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
+                                    <option
+                                        value="0"{{ old('is_active', isset($response) && $response->isSuccess() ? $response->getData()->is_active : null) == '0' && old('is_active') !== '' ? 'selected' : '' }}>
                                         Hayır
                                     </option>
                                 </select>
-                                <span class="help-block error-help-block mx-1">
-                                    {{ $errors->first('is_active') ?? '' }}</span>
+                                <span
+                                    class="help-block error-help-block mx-1">{{ $errors->first('is_active') ?? '' }}</span>
                             </div>
                         </div>
                         <div class="row">
@@ -307,9 +305,7 @@
                                         class="btn btn-primary float-end mx-2">Oluştur
                                 </button>
                                 <a href="{{ route('product.index') }}"
-                                   class="btn btn-info float-end">Geri Dön
-                                </a>
-                            </div>
+                                   class="btn btn-info float-end">Geri Dön</a></div>
                         </div>
                     </form>
                 </div>

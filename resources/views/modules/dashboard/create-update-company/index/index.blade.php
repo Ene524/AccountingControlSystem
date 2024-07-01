@@ -12,7 +12,7 @@
                 <h6 class="card-header text-center ">Temel Bilgiler</h6>
                 <div class="card-body">
                     <form
-                            action="{{ isset($response) && $response->isSuccess() ? route('company.edit') : route('company.create') }}"
+                            action="{{ isset($response) && $response->isSuccess() ? route('company.edit',['id' => $response->getData()->id]) : route('company.create') }}"
                             method="post">
                         @csrf
                         <input type="hidden" name="id"

@@ -97,7 +97,7 @@ class CompanyService implements ICompanyService
         ?string $last_name,
         ?string $tax_number,
         ?string $identity_number,
-        string $address,
+        ?string $address,
         string $city,
         string $town,
         string $country,
