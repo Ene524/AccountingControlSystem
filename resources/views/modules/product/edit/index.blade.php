@@ -26,7 +26,7 @@
                                        class="form-control "
                                        maxlength="50"
                                        placeholder="Kodu"
-                                       value="{{ isset($response) ? $response->getData()->code ?? old('code') : old('code') }}">
+                                       value="{{ old('code', $response->getData()->code) }}">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
                             </div>
@@ -40,7 +40,7 @@
                                        class="form-control "
                                        maxlength="200"
                                        placeholder="Adı"
-                                       value="{{ isset($response) ? $response->getData()->name ?? old('name') : old('name') }}">
+                                       value="{{ old('name', $response->getData()->name) }}">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('name') ?? '' }}</span>
                             </div>
@@ -56,7 +56,7 @@
                                        class="form-control "
                                        maxlength="255"
                                        placeholder="Açıklama"
-                                       value="{{ isset($response) ? $response->getData()->description ?? old('description') : old('description') }}">
+                                       value="{{ old('description', $response->getData()->description) }}">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('description') ?? '' }}</span>
                             </div>
@@ -73,8 +73,7 @@
                                         class="form-check-input"
                                         type="radio"
                                         name="type"
-                                        id="type"
-                                        value="1"{{ (old('type') == '1') || (isset($response) && $response->isSuccess() && $response->getData()->type == 1) ? 'checked' : '' }}>
+                                        value="1"  {{ old('type')==1 || ($response->getData()->type)==1 ? 'checked':'' }} >
                                     <label
                                         class="form-check-label"
                                         for="type1">Ürün
@@ -86,8 +85,7 @@
                                         class="form-check-input"
                                         type="radio"
                                         name="type"
-                                        id="type2"
-                                        value="2"{{ (old('type') == '2') || (isset($response) && $response->isSuccess() && $response->getData()->type == 2) ? 'checked' : '' }}>
+                                        value="2"  {{ old('type')==2 || ($response->getData()->type)==2 ? 'checked':'' }} >
                                     <label
                                         class="form-check-label"
                                         for="type2">Hizmet

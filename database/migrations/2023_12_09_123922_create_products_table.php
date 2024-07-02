@@ -21,14 +21,14 @@ return new class extends Migration {
             $table->decimal('purchase_price', 10, 2)->nullable();
             $table->unsignedBigInteger('unit_id')->nullable();
             $table->tinyInteger('vat')->nullable();
-            $table->string('barcode', 50);
+            $table->string('barcode', 50)->nullable();
             $table->boolean('is_witholding')->default(false)->nullable();
             $table->unsignedBigInteger('witholding_id')->nullable();
             $table->unsignedBigInteger('tax_exemption_id')->nullable();
             $table->unsignedBigInteger('tax_id')->nullable();
-            $table->string('specode1', 50);
-            $table->string('specode2', 50);
-            $table->string('specode3', 50);
+            $table->string('specode1', 50)->nullable();
+            $table->string('specode2', 50)->nullable();
+            $table->string('specode3', 50)->nullable();
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
             $table->softDeletes();
