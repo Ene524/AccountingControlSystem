@@ -3,7 +3,7 @@
 
 <script>
     $(document).ready(function () {
-        getProductList();
+        getCustomers();
     });
 
     var columnDefs = [
@@ -18,114 +18,124 @@
             width: 100,
         },
         {
-            headerName: 'KO',
-            field: 'title',
+            headerName: 'Kodu',
+            field: 'code',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
-        },
-        {
-            headerName: 'Vergi Numarası',
-            field: 'tax_number',
-            sortable: true,
-            filter: 'agTextColumnFilter',
-            width: 150,
-        },
-        {
-            headerName: 'Tc Kimlik Numarası',
-            field: 'identity_number',
-            sortable: true,
-            filter: 'agTextColumnFilter',
-            width: 150,
-        },
-        {
-            headerName: 'Durum',
-            field: 'is_active',
-            sortable: true,
-            filter: 'agSetColumnFilter',
-            width: 200,
-            cellRenderer: customerActive,
-            filterParams: {
-                values: ['1', '0'],
-                cellRenderer: customerActive,
-                valueFormatter: function (params) {
-                    return params.value === '1' ? 'Aktif' : 'Pasif';
-                },
-                textCustomComparator: function (filter, value, filterText) {
-                    return value === filterText;
-                }
-            },
-        },
-        {
-            headerName: 'Müşteri Tipi',
-            field: 'is_person',
-            sortable: true,
-            filter: 'agSetColumnFilter',
-            width: 200,
-            cellRenderer: customerType,
-            filterParams: {
-                values: ['1', '0'],
-                cellRenderer: customerType,
-                valueFormatter: function (params) {
-                    return params.value === '1' ? 'Şahıs Firması' : 'Tüzel Firma';
-                },
-                textCustomComparator: function (filter, value, filterText) {
-                    return value === filterText;
-                }
-            },
         },
         {
             headerName: 'Adı',
             field: 'name',
             sortable: true,
             filter: 'agTextColumnFilter',
+            width: 150,
+        },
+        {
+            headerName: 'Açıklama',
+            field: 'description',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 150,
+        },
+        {
+            headerName: 'Tür',
+            field: 'type',
+            sortable: true,
+            filter: 'agSetColumnFilter',
+            width: 200,
+            cellRenderer: productType,
+            filterParams: {
+                values: ['1', '2'],
+                cellRenderer: productType,
+                valueFormatter: function (params) {
+                    return params.value === '1' ? 'Malzeme' : 'Hizmet';
+                },
+                textCustomComparator: function (filter, value, filterText) {
+                    return value === filterText;
+                }
+            },
+        },
+        {
+            headerName: 'Satış Fiyatı',
+            field: 'sell_price',
+            sortable: true,
+            filter: 'agTextColumnFilter',
             width: 160,
         },
         {
-            headerName: 'Soyadı',
-            field: 'surname',
+            headerName: 'Alış Fiyatı',
+            field: 'purchase_price',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 160,
         },
         {
-            headerName: 'Telefon',
-            field: 'phone',
+            headerName: 'Birim',
+            field: 'unit_id',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 160,
+        },
+        {
+            headerName: 'Kdv',
+            field: 'vat',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 100,
+        },
+        {
+            headerName: 'Barkod',
+            field: 'barcode',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
-            headerName: 'Email',
-            field: 'email',
+            headerName: 'Tevkifatlı mı?',
+            field: 'is_witholding',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
-            headerName: 'Adres',
-            field: 'address',
+            headerName: 'Tevkifat Kodu',
+            field: 'witholding_id',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
-            headerName: 'Şehir',
-            field: 'city',
+            headerName: 'Vergi Muafiyet Kodu',
+            field: 'tax_exemption_id',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
-            headerName: 'Ülke',
-            field: 'country',
+            headerName: 'Ek Vergi Kodu',
+            field: 'tax_id',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
-            headerName: 'Posta Kodu',
-            field: 'postal_code',
+            headerName: 'Özel Kodu1',
+            field: 'specode1',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 200,
+        },
+        {
+            headerName: 'Özel Kodu2',
+            field: 'specode2',
+            sortable: true,
+            filter: 'agTextColumnFilter',
+            width: 200,
+        },
+        {
+            headerName: 'Özel Kodu3',
+            field: 'specode3',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
@@ -178,28 +188,7 @@
 
     };
 
-    function customerType(params) {
-        if (params.value === "" || params.value === undefined || params.value === null) {
-            return '';
-        } else {
-            var title = "";
-            var color = "";
-
-            if (params.value == "1") {
-                color = "primary";
-                title = "Şahıs Firması";
-            }
-            if (params.value == "0") {
-                color = "info";
-                title = "Tüzel Firma";
-            }
-
-            var actions = '<span class="badge bg-' + color + '  badge-pill">' + title + '</span>';
-            return actions;
-        }
-    }
-
-    function customerActive(params) {
+    function productType(params) {
         if (params.value === "" || params.value === undefined || params.value === null) {
             return '';
         } else {
@@ -208,11 +197,11 @@
 
             if (params.value == "1") {
                 color = "success";
-                title = "Aktif";
+                title = "Malzeme";
             }
-            if (params.value == "0") {
-                color = "danger";
-                title = "Pasif";
+            if (params.value == "2") {
+                color = "primary";
+                title = "Hizmet";
             }
 
             var actions = '<span class="badge bg-' + color + '  badge-pill">' + title + '</span>';
@@ -287,11 +276,9 @@
     document.addEventListener('DOMContentLoaded', function () {
         var gridDiv2 = document.querySelector('#myGrid');
         new agGrid.Grid(gridDiv2, gridOptions);
-
-
     });
 
-    function getProductList() {
+    function getCustomers() {
         $.ajax({
             url: '{{route('product.getCustomers')}}',
             type: 'GET',
