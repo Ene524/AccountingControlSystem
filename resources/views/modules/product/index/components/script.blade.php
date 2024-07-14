@@ -72,7 +72,7 @@
         },
         {
             headerName: 'Birim',
-            field: 'unit_id',
+            field: 'units.name',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 160,
@@ -100,21 +100,21 @@
         },
         {
             headerName: 'Tevkifat Kodu',
-            field: 'witholding_id',
+            field: 'witholdings.code',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
             headerName: 'Vergi Muafiyet Kodu',
-            field: 'tax_exemption_id',
+            field: 'tax_exemptions.code',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
         },
         {
             headerName: 'Ek Vergi Kodu',
-            field: 'tax_id',
+            field: 'taxes.code',
             sortable: true,
             filter: 'agTextColumnFilter',
             width: 200,
@@ -138,20 +138,6 @@
             field: 'specode3',
             sortable: true,
             filter: 'agTextColumnFilter',
-            width: 200,
-        },
-        {
-            headerName: 'Oluşturulma Tarihi',
-            field: 'created_at',
-            sortable: true,
-            filter: 'agDateColumnFilter',
-            width: 200,
-        },
-        {
-            headerName: 'Güncelleme Tarihi',
-            field: 'updated_at',
-            sortable: true,
-            filter: 'agDateColumnFilter',
             width: 200,
         },
     ];
@@ -221,7 +207,7 @@
                 name: 'Sil',
                 action: function () {
                     Swal.fire({
-                        title: 'Firmanızı silmek istediğinizden emin misiniz?',
+                        title: 'Ürün/hizmet kartınızı silmek istediğinizden emin misiniz?',
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonText: 'Evet',
@@ -248,7 +234,7 @@
                                         Swal.fire({
                                             icon: 'success',
                                             title: 'Silindi!',
-                                            text: 'Firmanız başarıyla silindi.',
+                                            text: 'Ürün/hizmet kartınız başarıyla silindi.',
                                             customClass: {
                                                 confirmButton: 'btn btn-success waves-effect waves-light'
                                             }

@@ -18,7 +18,8 @@ class ProductService implements IProductService
      */
     public function getAll(): ServiceResponse
     {
-        $products = Product::where('company_id', auth()->user()->company_id)->get();
+        $products = Product::with('units','witholdings','tax_exemptions','taxes')
+        ->where('company_id', auth()->user()->company_id)->get();
         return new ServiceResponse(true, "Ürünler getirildi", $products, 200);
     }
 

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'company_id',
@@ -29,4 +29,26 @@ class Product extends Model
         'specode2',
         'specode3'
     ];
+
+    public function units()
+    {
+        return $this->belongsTo(Unit::class, 'unit_id');
+    }
+
+    public function witholdings()
+    {
+        return $this->belongsTo(WitholdingCode::class, 'witholding_id');
+    }
+
+    public function tax_exemptions()
+    {
+        return $this->belongsTo(TaxExemptionCode::class, 'tax_exemption_id');
+    }
+
+    public function taxes()
+    {
+        return $this->belongsTo(TaxCode::class, 'tax_id');
+    }
+
+
 }

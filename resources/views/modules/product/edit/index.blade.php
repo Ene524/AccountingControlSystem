@@ -1,11 +1,12 @@
 @extends('layouts.master')
-@section('title', 'Ürün/Hizmet Ekle')
+@section('title', 'Ürün/Hizmet Güncelle')
 @section('content')
 
     <h4 class="py-1 mb-2">
         <span class="text-muted fw-light">
-            <a href="{{ route('customer.index') }}">Müşteriler</a>
-            /</span>{{ isset($response) && $response->isSuccess() ? 'Ürün/Hizmet Güncelle' : 'Ürün/Hizmet Ekle' }}
+            <a href="{{ route('product.index') }}">Ürünler/Hizmetler</a>
+            /
+        </span>Ürün/Hizmet Güncelle
     </h4>
 
     <div class="row">
@@ -169,7 +170,7 @@
                         </div>
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
-                                   for="barcode">Barcode
+                                   for="barcode">Barkod
                             </label>
                             <div class="col-sm-9">
                                 <input type="text"
@@ -177,7 +178,7 @@
                                        name="barcode"
                                        class="form-control"
                                        maxlength="50"
-                                       value="{{ old('purchase_price', $response->getData()->barcode) }}">
+                                       value="{{ old('barcode', $response->getData()->barcode) }}">
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('barcode') ?? '' }}</span>
                             </div>
@@ -193,7 +194,7 @@
                                            class="switch-input"
                                            id="is_witholding"
                                            name="is_witholding"
-                                           {{$response->getData()->is_witholding==1 ? 'checked' : ''}}
+                                        {{$response->getData()->is_witholding==1 ? 'checked' : ''}}
                                     >
                                     <span class="switch-toggle-slider">
                                         <span class="switch-on">
@@ -231,7 +232,7 @@
                                         id="tax_exemption_id">
                                     <option value="">Seçiniz</option>@foreach($taxExemptions as $taxExemption)
                                         <option
-                                            value="{{ $taxExemption->id }}">{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
+                                            value="{{ $taxExemption->id }}" {{$taxExemption->id==$response->getData()->tax_exemption_id ? 'selected':''}}>{{ $taxExemption->code." - ". $taxExemption->name  }}</option>
                                     @endforeach</select>
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('tax_exemption_id') ?? '' }}</span>
@@ -240,8 +241,10 @@
                                 <select class="form-control select2"
                                         name="tax_id"
                                         id="tax_id">
-                                    <option value="">Seçiniz</option>@foreach($taxes as $tax)
-                                        <option value="{{ $tax->id }}">{{ $tax->code." - ". $tax->name  }}</option>
+                                    <option value="">Seçiniz</option>
+                                    @foreach($taxes as $tax)
+                                        <option
+                                            value="{{ $tax->id }}" {{$tax->id==$response->getData()->tax_id ? 'selected':''}}>{{ $tax->code." - ". $tax->name  }}</option>
                                     @endforeach</select>
                                 <span
                                     class="help-block error-help-block mx-1">{{ $errors->first('tax_id') ?? '' }}</span>
@@ -310,7 +313,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <button type="submit"
-                                        class="btn btn-primary float-end mx-2">Oluştur
+                                        class="btn btn-primary float-end mx-2">Güncelle
                                 </button>
                                 <a href="{{ route('product.index') }}"
                                    class="btn btn-info float-end">Geri Dön</a></div>

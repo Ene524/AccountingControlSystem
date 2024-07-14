@@ -70,7 +70,7 @@ class ProductController extends Controller
         );
 
         if ($response->isSuccess()) {
-            return redirect()->route('customer.index')->with('success', $response->getMessage());
+            return redirect()->route('product.index')->with('success', $response->getMessage());
         } else {
             return redirect()->route('product.create')->with('error', $response->getMessage());
         }
@@ -92,9 +92,8 @@ class ProductController extends Controller
 
     public function update(CreateRequest $request)
     {
-        $response = $this->customerService->update(
+        $response = $this->productService->update(
             id: $request->id,
-            company_id: $request->company_id,
             code: $request->code,
             name: $request->name,
             description: $request->description,
@@ -122,7 +121,7 @@ class ProductController extends Controller
 
     public function delete()
     {
-        $response = $this->customerService->delete(request()->id);
+        $response = $this->productService->delete(request()->id);
 
         return $this->httpResponse(
             $response->isSuccess(),
