@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('company_id');
             $table->string('code', 50);
             $table->string('name', 200);
-            $table->string('description', 255);
+            $table->string('description', 255)->nullable();
             $table->tinyInteger('type')->default(1)->comment('1: Product, 2: Service');
             $table->decimal('sell_price', 10, 2)->nullable();
             $table->decimal('purchase_price', 10, 2)->nullable();
