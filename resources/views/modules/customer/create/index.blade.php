@@ -4,18 +4,30 @@
 
     <h4 class="py-1 mb-2">
         <span
-                class="text-muted fw-light">
+            class="text-muted fw-light">
             <a href="{{route('customer.index')}}">Müşteriler</a>
-            /</span>
+            /
+        </span>
         Müşteri Ekle
     </h4>
 
     <div class="row">
-        <div class="col-xxl">
-            <div class="card mb-4"><h6 class="card-header text-center ">Temel Bilgiler</h6>
-                <div class="card-body">
-                    <form action="{{route('customer.create')}}"
-                          method="post">@csrf
+        <form action="{{route('customer.create')}}"
+              method="post">
+            @csrf
+            <div class="col-xxl">
+                <div class="card mb-4">
+                    <h6 class="card-header d-flex justify-content-between align-items-center">
+                        <div class="flex-grow-1 text-center">Temel Bilgiler</div>
+                        <span>
+                            <button type="submit" class="btn btn-primary mx-2">Oluştur</button>
+                            <a href="{{ route('customer.index') }}" class="btn btn-info">Geri Dön</a>
+                        </span>
+                    </h6>
+
+
+                    <div class="card-body">
+
                         <input type="hidden"
                                name="id"
                                value="">
@@ -29,11 +41,14 @@
                                         class="form-select select2">
                                     <option value="" {{ old('is_person') === '' ? 'selected' : '' }}> Seçiniz</option>
                                     <option value="1" {{ old('is_person') == '1' ? 'selected' : '' }}>Evet</option>
-                                    <option value="0" {{ old('is_person') == '0' && old('is_person') !== '' ? 'selected' : '' }}>Hayır</option>
+                                    <option value="0" {{ old('is_person') == '0' && old('is_person') !== '' ? 'selected' : '' }}>
+                                        Hayır
+                                    </option>
                                 </select>
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('is_person') ?? '' }}</span>
                             </div>
                         </div>
+
                         <div class="row">
                             <label class="col-sm-3 col-form-label"
                                    for="code">Müşteri Kodu
@@ -42,7 +57,7 @@
                                 <input type="text"
                                        id="code"
                                        name="code"
-                                       class="form-control required"
+                                       class="form-control"
                                        placeholder="Kısa ünvan"
                                        value="{{old('code') }}">
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('code') ?? '' }}</span>
@@ -309,20 +324,11 @@
                                 <span class="help-block error-help-block mx-1">{{ $errors->first('is_active') ?? '' }}</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <button type="submit"
-                                        class="btn btn-primary float-end mx-2">Oluştur
-                                </button>
-                                <a href="{{ route('customer.index') }}"
-                                   class="btn btn-info float-end">Geri Dön
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
+        </form>
+    </div>
+    </div>
+    </div>
     </div>
 
 @endsection

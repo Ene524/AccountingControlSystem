@@ -144,6 +144,45 @@
             sortable: true,
             filter: 'agDateColumnFilter',
             width: 200,
+            valueGetter: (params) => {
+                if (params.data && params.data.created_at) {
+                    // Date string to Date object in UTC
+                    return new Date(params.data.created_at);
+                }
+                return null;
+            },
+            valueFormatter: (params) => {
+                if (params.value) {
+                    // Convert UTC Date to local string
+                    return params.value.toLocaleString('tr-TR', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                    });
+                }
+                return null;
+            },
+            filterParams: {
+                comparator: (filterLocalDateAtMidnight, cellValue) => {
+                    if (cellValue == null) return -1;
+
+                    // Assume cellValue is a Date object in UTC
+                    const cellDate = new Date(cellValue);
+
+                    // Compare the UTC dates correctly
+                    if (filterLocalDateAtMidnight.getTime() === cellDate.setHours(0, 0, 0, 0)) {
+                        return 0;
+                    }
+
+                    if (cellDate < filterLocalDateAtMidnight) {
+                        return -1;
+                    }
+
+                    if (cellDate > filterLocalDateAtMidnight) {
+                        return 1;
+                    }
+                },
+            },
         },
         {
             headerName: 'Güncelleme Tarihi',
@@ -151,6 +190,36 @@
             sortable: true,
             filter: 'agDateColumnFilter',
             width: 200,
+            valueFormatter: (params) => {
+                if (params.value) {
+                    return new Date(params.value).toLocaleDateString();
+                }
+                return null;
+            },
+            filterParams: {
+                comparator: (filterLocalDateAtMidnight, cellValue) => {
+                    if (cellValue == null) return -1;
+
+                    const dateParts = cellValue.split('T')[0].split('-');
+                    const year = Number(dateParts[0]);
+                    const month = Number(dateParts[1]) - 1;
+                    const day = Number(dateParts[2]);
+
+                    const cellDate = new Date(year, month, day);
+
+                    if (filterLocalDateAtMidnight.getTime() === cellDate.getTime()) {
+                        return 0;
+                    }
+
+                    if (cellDate < filterLocalDateAtMidnight) {
+                        return -1;
+                    }
+
+                    if (cellDate > filterLocalDateAtMidnight) {
+                        return 1;
+                    }
+                },
+            },
         },
     ];
 
