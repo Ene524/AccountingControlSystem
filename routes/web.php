@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\CompanyController;
 use App\Http\Controllers\Web\CompanyUserConnectController;
 use App\Http\Controllers\Web\CustomerController;
 use App\Http\Controllers\Web\DashboardController;
+use App\Http\Controllers\Web\InvoiceController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\UserController;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,16 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('edit/{id}', [ProductController::class, 'update']);
         Route::delete('delete', [ProductController::class, 'delete'])->name('product.delete');
+    });
+
+    Route::prefix('invoice')->group(function () {
+        Route::get('index', [InvoiceController::class, 'index'])->name('invoice.index');
+        Route::get('getInvoices', [InvoiceController::class, 'getInvoices'])->name('invoice.getCustomers');
+        Route::get('create', [InvoiceController::class, 'create'])->name('invoice.create');
+        Route::post('create', [InvoiceController::class, 'store']);
+        Route::get('edit/{id}', [InvoiceController::class, 'edit'])->name('invoice.edit');
+        Route::post('edit/{id}', [InvoiceController::class, 'update']);
+        Route::delete('delete', [InvoiceController::class, 'delete'])->name('invoice.delete');
     });
 });
 

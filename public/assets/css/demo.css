@@ -173,5 +173,11 @@
     line-height: 26px!important;
 }
 .form-control{
-    height: 36px;
+    height: 32px;
+    border-radius: 5px !important;
+}
+
+.select2-container .select2-choice, .select2-result-label {
+    height: 32px;
+    overflow: auto;
 }

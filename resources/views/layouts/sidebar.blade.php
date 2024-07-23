@@ -66,76 +66,12 @@
                 <div data-i18n="Malzeme ve Hizmetler">Malzeme ve Hizmetler</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-layout-navbar"></i>
-                <div data-i18n="Satışlar">Satışlar</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Satış Faturaları">Satış Faturaları</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Satış İrsaliyeleri">Satış İrsaliyeleri</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Satış Siparişler">Satış Siparişler</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Satış Teklifleri">Satış Teklifleri</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons ti ti-layout-navbar"></i>
-                <div data-i18n="Alışlar">Alışlar</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Alış Faturaları">Alış Faturaları</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Alış İrsaliyeleri">Alış İrsaliyeleri</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Alış Siparişler">Alış Siparişler</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Alış Teklifleri">Alış Teklifleri</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
         <li class="menu-item">
-            <a href="#"
+            <a href="{{route('invoice.index')}}"
                class="menu-link">
-                <i class="menu-icon ti ti-users"></i>
-                <div data-i18n="Kasalar">Kasalar</div>
-            </a>
-        </li>
-
-        <li class="menu-item">
-            <a href="#"
-               class="menu-link">
-                <i class="menu-icon ti ti-users"></i>
-                <div data-i18n="Bankalar">Bankalar</div>
+                <i class="menu-icon ti ti-package"></i>
+                <div data-i18n="Faturalar">Faturalar</div>
             </a>
         </li>
     </ul>

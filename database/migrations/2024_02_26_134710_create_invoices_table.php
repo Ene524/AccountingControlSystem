@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('invoice_number',16);
             $table->date('due_date');
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('payment_term_id');
             $table->unsignedBigInteger('currency_id');
             $table->decimal('exchange_rate', 12, 4)->default(1.0);
             $table->decimal('gross_total', 15, 6);
