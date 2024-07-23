@@ -18,26 +18,28 @@
                         method="post">
                         @csrf
 
-                        <div class="container mt-5">
-                            <div class="row">
-                                <div class="col">
-                                    <h2>New Invoice</h2>
-                                    <button type="button" class="btn btn-primary float-right ml-2">Save and continue</button>
-                                    <button type="button" class="btn btn-secondary float-right">Preview</button>
+                        <div class="container">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2>New Invoice</h2>
+                                <div>
+                                    <button type="button" class="btn btn-primary ml-2">Save and continue</button>
+                                    <button type="button" class="btn btn-secondary">Preview</button>
                                 </div>
                             </div>
+
 
                             <div class="row mt-3">
                                 <div class="col-12">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-6">
-                                                    <div class="border p-3 text-center">
+                                                <div class="col-4">
+                                                    <div class="border d-flex justify-content-center align-items-center" style="height: 180px">
                                                         <p>Add a customer</p>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-4"></div>
+                                                <div class="col-4">
                                                     <form>
                                                         <div class="form-group">
                                                             <label for="invoiceNumber">Invoice number</label>
@@ -58,7 +60,6 @@
                                                     </form>
                                                 </div>
                                             </div>
-                                            <button type="button" class="btn btn-link mt-3">Edit columns</button>
                                         </div>
                                     </div>
                                 </div>
