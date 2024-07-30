@@ -33,9 +33,18 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-4">
-                                                    <div class="border d-flex justify-content-center align-items-center" style="height: 180px">
-                                                        <p>Add a customer</p>
+
+                                                <div class="col-4 cursor-pointer">
+                                                    <div class="card" id="cariCard">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Cari Seçimi</h5>
+                                                            <div id="cariInfo">
+                                                                <p class="text-muted">Cari seçmek için tıklayınız.</p>
+                                                            </div>
+                                                            <div id="cariSelectContainer" style="display: none;">
+                                                                <select id="cariSelect"></select>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-4"></div>

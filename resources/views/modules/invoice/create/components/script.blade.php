@@ -2,16 +2,73 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 <script>
-    $('.select2').select2();
-    let is_witholding = $('#is_witholding');
-    let witholding_id = $('#witholding_id');
-    is_witholding.on('change', function () {
-        if ($(this).is(':checked')) {
-            witholding_id.prop('disabled', false);
-        } else {
-            witholding_id.prop('disabled', true);
-        }
+    // $("#cariCard").click(function () {
+    //
+    // });
+
+    $(document).ready(function () {
+        var cariList = [];
+
+        $.ajax({
+            url: '{{ route('customer.getCustomers') }}',
+            type: 'GET',
+            success: function (response) {
+                console.log('Response:', response); // response'u konsola yazdır
+
+                // Response'u uygun formata dönüştür
+                if (response && Array.isArray(response.response)) {
+                    cariList = response.response.map(function (customer) {
+                        return {
+                            id: customer.id,
+                            text: customer.title,
+                            tax_number: customer.tax_number,
+                            tax_office: customer.tax_office,
+                            address: customer.address,
+                            city: customer.city,
+                            town: customer.town,
+                            country: customer.country
+                        };
+                    });
+                    console.log('Mapped cariList:', cariList); // Mapped veriyi konsola yazdır
+                } else {
+                    console.error("Unexpected response format or response.response is not an array");
+                }
+
+                $('#cariSelect').select2({
+                    data: [{id: '{{null}}', text: 'Seçiniz'}].concat(cariList),
+                    dropdownParent: $('#cariCard')
+                });
+            },
+            error: function (xhr, status, error) {
+                console.error('AJAX request failed:', error);
+            }
+        });
+
+        $('#cariCard').on('click', function () {
+            $('#cariSelectContainer').show();
+            $('#cariSelect').select2('open');
+        });
+
+        $('#cariSelect').on('select2:select', function (e) {
+            if (e.params.data.id === '{{null}}') {
+                return;
+            } else {
+                var selectedData = e.params.data;
+                $('#cariInfo').html(`
+            <p><strong>Firma:</strong> ${selectedData.text}</p>
+            <p><strong>VKN:</strong> ${selectedData.tax_number}</p>
+            <p><strong>Vergi Dairesi:</strong> ${selectedData.tax_office}</p>
+            <p><strong>Adres:</strong> ${selectedData.address}</p>
+            <p><strong>Şehir:</strong> ${selectedData.city}</p>
+            <p><strong>İlçe:</strong> ${selectedData.town}</p>
+            <p><strong>Ülke:</strong> ${selectedData.country}</p>
+        `);
+                $('#cariSelectContainer').hide();
+            }
+        });
     });
+
+
 </script>
 
 
