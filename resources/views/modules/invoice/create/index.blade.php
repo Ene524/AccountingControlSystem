@@ -5,7 +5,8 @@
     <h4 class="py-1 mb-2">
         <span class="text-muted fw-light">
             <a href="{{ route('invoice.index') }}">Faturalar</a>
-            /</span>
+            /
+        </span>
         Fatura ekle
     </h4>
 
@@ -22,8 +23,14 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h2>New Invoice</h2>
                                 <div>
-                                    <button type="button" class="btn btn-primary ml-2">Save and continue</button>
-                                    <button type="button" class="btn btn-secondary">Preview</button>
+                                    <button type="button"
+                                            id="saveInvoice"
+                                            class="btn btn-primary ml-2">Save and continue
+                                    </button>
+                                    <button type="button"
+                                            id="previewInvoice"
+                                            class="btn btn-secondary">Preview
+                                    </button>
                                 </div>
                             </div>
 
@@ -35,13 +42,15 @@
                                             <div class="row">
 
                                                 <div class="col-4 cursor-pointer">
-                                                    <div class="card" id="cariCard">
+                                                    <div class="card"
+                                                         id="cariCard">
                                                         <div class="card-body">
                                                             <h5 class="card-title">Cari Seçimi</h5>
                                                             <div id="cariInfo">
                                                                 <p class="text-muted">Cari seçmek için tıklayınız.</p>
                                                             </div>
-                                                            <div id="cariSelectContainer" style="display: none;">
+                                                            <div id="cariSelectContainer"
+                                                                 style="display: none;">
                                                                 <select id="cariSelect"></select>
                                                             </div>
                                                         </div>
@@ -52,19 +61,30 @@
                                                     <form>
                                                         <div class="form-group">
                                                             <label for="invoiceNumber">Invoice number</label>
-                                                            <input type="text" class="form-control form-control-sm" id="invoiceNumber" value="2">
+                                                            <input type="text"
+                                                                   class="form-control form-control-sm"
+                                                                   id="invoiceNumber"
+                                                                   value="2">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="poNumber">P.O./S.O. number</label>
-                                                            <input type="text" class="form-control form-control-sm" id="poNumber">
+                                                            <input type="text"
+                                                                   class="form-control form-control-sm"
+                                                                   id="poNumber">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="invoiceDate">Invoice date</label>
-                                                            <input type="date" class="form-control form-control-sm" id="invoiceDate" value="2021-01-26">
+                                                            <input type="date"
+                                                                   class="form-control form-control-sm"
+                                                                   id="invoiceDate"
+                                                                   value="2021-01-26">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="paymentDue">Payment due</label>
-                                                            <input type="date" class="form-control form-control-sm" id="paymentDue" value="2021-01-26">
+                                                            <input type="date"
+                                                                   class="form-control form-control-sm"
+                                                                   id="paymentDue"
+                                                                   value="2021-01-26">
                                                         </div>
                                                     </form>
                                                 </div>
@@ -76,7 +96,8 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <table class="table table-bordered" style="margin:0px;padding:0px;">
+                                    <table class="table table-bordered"
+                                           style="margin:0px;padding:0px;">
                                         <thead>
                                         <tr>
                                             <th>Items</th>
@@ -87,14 +108,35 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td><input type="text" class="form-control form-control-sm"  placeholder="Item name"></td>
-                                            <td><input type="number" class="form-control form-control-sm" placeholder="Quantity"></td>
-                                            <td><input type="number" class="form-control form-control-sm" placeholder="Price"></td>
-                                            <td><input type="number" class="form-control form-control-sm" placeholder="Amount" readonly></td>
+                                            <td>
+                                                <select class="form-control form-control-sm">
+                                                    <option value="1">Test1</option>
+                                                    <option value="1">Test1</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <input type="number"
+                                                       class="form-control form-control-sm"
+                                                       placeholder="Quantity">
+                                            </td>
+                                            <td>
+                                                <input type="number"
+                                                       class="form-control form-control-sm"
+                                                       placeholder="Price">
+                                            </td>
+                                            <td>
+                                                <input type="number"
+                                                       class="form-control form-control-sm"
+                                                       placeholder="Amount"
+                                                       readonly>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4" class="text-center">
-                                                <button type="button" class="btn btn-link">Add an item</button>
+                                            <td colspan="4"
+                                                class="text-center">
+                                                <button type="button"
+                                                        class="btn btn-link">Add an item
+                                                </button>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -112,7 +154,12 @@
                                         </tr>
                                         <tr>
                                             <th class="text-right">Total:</th>
-                                            <td class="text-right"><select class="form-control form-control-sm d-inline-block w-auto"><option>USD ($) - U.S. dollar</option></select> $0.00</td>
+                                            <td class="text-right">
+                                                <select class="form-control form-control-sm d-inline-block w-auto">
+                                                    <option>USD ($) - U.S. dollar</option>
+                                                </select>
+                                                $0.00
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -121,11 +168,12 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <textarea class="form-control" rows="3" placeholder="Notes / Terms"></textarea>
+                                    <textarea class="form-control"
+                                              rows="3"
+                                              placeholder="Notes / Terms"></textarea>
                                 </div>
                             </div>
                         </div>
-
 
 
                     </form>

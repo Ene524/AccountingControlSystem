@@ -39,8 +39,8 @@ class InvoiceController extends Controller
 
     public function store(CreateRequest $request)
     {
+        dd($request->all());
         $response = $this->invoiceService->create(
-
         );
 
         if ($response->isSuccess()) {

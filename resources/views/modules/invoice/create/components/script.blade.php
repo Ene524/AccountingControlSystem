@@ -2,10 +2,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 <script>
-    // $("#cariCard").click(function () {
-    //
-    // });
-
     $(document).ready(function () {
         var cariList = [];
 
@@ -13,7 +9,6 @@
             url: '{{ route('customer.getCustomers') }}',
             type: 'GET',
             success: function (response) {
-                console.log('Response:', response); // response'u konsola yazdır
 
                 // Response'u uygun formata dönüştür
                 if (response && Array.isArray(response.response)) {
@@ -29,7 +24,6 @@
                             country: customer.country
                         };
                     });
-                    console.log('Mapped cariList:', cariList); // Mapped veriyi konsola yazdır
                 } else {
                     console.error("Unexpected response format or response.response is not an array");
                 }
@@ -68,7 +62,19 @@
         });
     });
 
-
+    $("#saveInvoice").click(function () {
+        $.ajax({
+            url: '{{route('invoice.create')}}',
+            type: 'POST',
+            data: {
+                "_token": "{{ csrf_token() }}",
+                'invoice_number': "123123",
+            },
+            success: function (response) {
+                console.log(response);
+            }
+        })
+    });
 </script>
 
 
