@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('invoice_lines', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
             $table->decimal('quantity', 10, 2);
             $table->decimal('price', 10, 2);
             $table->tinyInteger('vat');

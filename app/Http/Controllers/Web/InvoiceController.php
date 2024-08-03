@@ -6,6 +6,7 @@ use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\InvoiceController\CreateRequest;
 use App\Interfaces\Eloquent\IInvoiceService;
+use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
@@ -37,10 +38,11 @@ class InvoiceController extends Controller
         return view('modules.invoice.create.index');
     }
 
-    public function store(CreateRequest $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $response = $this->invoiceService->create(
+            //company_id:$request->company_id
         );
 
         if ($response->isSuccess()) {
