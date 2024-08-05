@@ -129,8 +129,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <table class="table table-bordered"
-                                           id="invoiceLine">
+                                    <table class="table table-bordered" id="invoiceLine">
                                         <thead>
                                         <tr>
                                             <th>Items</th>
@@ -142,7 +141,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
+                                        <tr class="invoice-row">
                                             <td>
                                                 <select class="form-control form-control-sm product_id">
                                                     <option value="1">Item 1</option>
@@ -150,49 +149,31 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="number"
-                                                       class="form-control form-control-sm quantity"
-                                                       placeholder="Quantity"
-                                                       name="quantity">
+                                                <input type="number" class="form-control form-control-sm quantity" placeholder="Quantity" name="quantity">
                                             </td>
                                             <td>
-                                                <input type="number"
-                                                       class="form-control form-control-sm price"
-                                                       placeholder="Price"
-                                                       name="price">
-
-                                            <td>
-                                                <input type="number"
-                                                       class="form-control form-control-sm vat"
-                                                       placeholder="Vat"
-                                                       name="Vat">
+                                                <input type="number" class="form-control form-control-sm price" placeholder="Price" name="price">
                                             </td>
                                             <td>
-                                                <input type="text"
-                                                       class="form-control form-control-sm description"
-                                                       placeholder="Description"
-                                                       name="Description">
+                                                <input type="number" class="form-control form-control-sm vat" placeholder="Vat" name="Vat">
                                             </td>
                                             <td>
-                                                <input type="number"
-                                                       class="form-control form-control-sm total"
-                                                       placeholder="Total"
-                                                       name="Total"
-                                                       readonly>
+                                                <input type="text" class="form-control form-control-sm description" placeholder="Description" name="Description">
+                                            </td>
+                                            <td>
+                                                <input type="number" class="form-control form-control-sm total" placeholder="Total" name="Total" readonly>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="4"
-                                                class="text-center">
-                                                <button type="button"
-                                                        class="btn btn-link">Add an item
-                                                </button>
+                                            <td colspan="6" class="text-center">
+                                                <button type="button" class="btn btn-link" id="addItemBtn">Add an item</button>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
+
 
                             <div class="row mt-3 justify-content-end">
                                 <div class="col-4">
