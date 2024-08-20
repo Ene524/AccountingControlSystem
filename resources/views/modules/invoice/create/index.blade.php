@@ -42,84 +42,71 @@
                                                 <div class="col-md-4">
                                                     <div class="card cursor-pointer"
                                                          id="cariCard">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">Cari Seçimi</h5>
-                                                            <div id="cariInfo">
-                                                                <p class="text-muted">Cari seçmek için tıklayınız.</p>
-                                                            </div>
-                                                            <div id="cariSelectContainer"
-                                                                 style="display: none;">
-                                                                <select id="customer_id"
-                                                                        name="customer_id"></select>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </div>
 
-                                                <!-- Sağ kısım (2/3 genişlikte) -->
-                                                <div class="col-md-8">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="invoiceType">Invoice Type</label>
-                                                                <select class="form-control form-control-sm"
-                                                                        id="invoice_type"
-                                                                        name="invoice_type">
-                                                                    <option value="1">Sales</option>
-                                                                    <option value="2">Purchase</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="invoiceNumber">Invoice Number</label>
-                                                                <input type="text"
-                                                                       class="form-control form-control-sm"
-                                                                       id="invoice_number"
-                                                                       name="invoice_number">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="invoiceDate">Invoice Date</label>
-                                                                <input type="date"
-                                                                       class="form-control form-control-sm"
-                                                                       id="invoice_date"
-                                                                       name="invoice_date">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="dueDate">Due Date</label>
-                                                                <input type="date"
-                                                                       class="form-control form-control-sm"
-                                                                       id="due_date"
-                                                                       name="due_date">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="category">Category</label>
-                                                                <select class="form-control form-control-sm"
-                                                                        id="category_id"
-                                                                        name="category_id">
-                                                                    <!-- Kategori seçenekleri buraya eklenecek -->
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="currency">Currency</label>
-                                                                <select class="form-control form-control-sm"
-                                                                        id="currency_id"
-                                                                        name="currency_id">
-                                                                    <!-- Para birimi seçenekleri buraya eklenecek -->
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="exchangeRate">Exchange Rate</label>
-                                                                <input type="number"
-                                                                       class="form-control form-control-sm"
-                                                                       id="exchange_rate"
-                                                                       name="exchange_rate"
-                                                                       step="0.0001"
-                                                                       value="1.0">
-                                                            </div>
-                                                        </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="invoiceType">Invoice Type</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="invoice_type"
+                                                                name="invoice_type">
+                                                            <option value="1">Sales</option>
+                                                            <option value="2">Purchase</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="invoiceNumber">Invoice Number</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-sm"
+                                                               id="invoice_number"
+                                                               name="invoice_number">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="invoiceDate">Invoice Date</label>
+                                                        <input type="date"
+                                                               class="form-control form-control-sm"
+                                                               id="invoice_date"
+                                                               name="invoice_date">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="dueDate">Due Date</label>
+                                                        <input type="date"
+                                                               class="form-control form-control-sm"
+                                                               id="due_date"
+                                                               name="due_date">
                                                     </div>
                                                 </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="category">Category</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="category_id"
+                                                                name="category_id">
+                                                            <!-- Kategori seçenekleri buraya eklenecek -->
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="currency">Currency</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="currency_id"
+                                                                name="currency_id">
+                                                            <!-- Para birimi seçenekleri buraya eklenecek -->
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exchangeRate">Exchange Rate</label>
+                                                        <input type="number"
+                                                               class="form-control form-control-sm"
+                                                               id="exchange_rate"
+                                                               name="exchange_rate"
+                                                               step="0.0001"
+                                                               value="1.0">
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -149,24 +136,30 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm quantity" placeholder="Quantity" name="quantity">
+                                                <input type="number" class="form-control form-control-sm quantity"
+                                                       placeholder="Quantity" name="quantity">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm price" placeholder="Price" name="price">
+                                                <input type="number" class="form-control form-control-sm price"
+                                                       placeholder="Price" name="price">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm vat" placeholder="Vat" name="Vat">
+                                                <input type="number" class="form-control form-control-sm vat"
+                                                       placeholder="Vat" name="Vat">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm description" placeholder="Description" name="Description">
+                                                <input type="text" class="form-control form-control-sm description"
+                                                       placeholder="Description" name="Description">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm total" placeholder="Total" name="Total" readonly>
+                                                <input type="number" class="form-control form-control-sm total"
+                                                       placeholder="Total" name="Total" readonly>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td colspan="6" class="text-center">
-                                                <button type="button" class="btn btn-link" id="addItemBtn">Add an item</button>
+                                                <button type="button" class="btn btn-link" id="addItemBtn">Add an item
+                                                </button>
                                             </td>
                                         </tr>
                                         </tbody>
