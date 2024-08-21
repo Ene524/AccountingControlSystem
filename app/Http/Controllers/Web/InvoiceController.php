@@ -43,7 +43,21 @@ class InvoiceController extends Controller
     {
         dd($request->all());
         $response = $this->invoiceService->create(
-            //company_id:$request->company_id
+            company_id: auth()->user()->company_id,
+            customer_id: $request->customer_id,
+            invoice_date: $request->invoice_date,
+            invoice_number: $request->invoice_number,
+            due_date: $request->due_date,
+            category_id: $request->category_id,
+            currency_id: $request->currency_id,
+            exchange_rate: $request->exchange_rate,
+            gross_total: $request->gross_total,
+            discount_total: $request->discount_total,
+            vat_total: $request->vat_total,
+            charge_total: $request->charge_total,
+            deduct_total: $request->deduct_total,
+            grand_total: $request->grand_total,
+            net_total: $request->net_total
         );
 
         if ($response->isSuccess()) {

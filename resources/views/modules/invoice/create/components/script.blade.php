@@ -36,6 +36,7 @@
         var items = [];
         $("#invoiceLine tbody tr").each(function () {
             var item = {
+                "product_id":$(this).find(".product_id").val(),
                 "quantity": $(this).find(".quantity").val(),
                 "price": $(this).find(".price").val(),
                 "vat": $(this).find(".vat").val(),
