@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\InvoiceController\CreateRequest;
+use App\Interfaces\Eloquent\ICommonService;
 use App\Interfaces\Eloquent\IInvoiceService;
 use Illuminate\Http\Request;
 
@@ -12,15 +13,17 @@ class InvoiceController extends Controller
 {
     use HttpResponse;
     private IInvoiceService $invoiceService;
-    public function __construct(IInvoiceService $invoiceService)
+    private ICommonService $commonService;
+
+    public function __construct(IInvoiceService $invoiceService, ICommonService $commonService)
     {
         $this->invoiceService = $invoiceService;
+        $this->commonService = $commonService;
     }
     public function index()
     {
         return view('modules.invoice.index.index');
     }
-
     public function getInvoices()
     {
         $response = $this->invoiceService->getAll();
@@ -32,15 +35,13 @@ class InvoiceController extends Controller
             $response->getStatusCode()
         );
     }
-
     public function create()
     {
         return view('modules.invoice.create.index');
     }
-
     public function store(Request $request)
     {
-        //dd($request->all());
+        dd($request->all());
         $response = $this->invoiceService->create(
             //company_id:$request->company_id
         );
@@ -51,7 +52,6 @@ class InvoiceController extends Controller
             return redirect()->route('invoice.create')->with('error', $response->getMessage());
         }
     }
-
     public function edit($id)
     {
         $response = $this->invoiceService->getById($id);
@@ -61,7 +61,6 @@ class InvoiceController extends Controller
             return view('modules.invoice.index.index', compact('response'))->with('error', $response->getMessage());
         }
     }
-
     public function update(CreateRequest $request)
     {
         $response = $this->invoiceService->update(
@@ -74,7 +73,6 @@ class InvoiceController extends Controller
             return redirect()->route('invoice.edit', $request->id)->with('error', $response->getMessage());
         }
     }
-
     public function delete()
     {
         $response = $this->invoiceService->delete(request()->id);

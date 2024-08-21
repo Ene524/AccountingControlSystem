@@ -38,15 +38,24 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row">
-                                                <!-- Sol kısım (1/3 genişlikte) -->
                                                 <div class="col-md-4">
-                                                    <div class="card cursor-pointer"
-                                                         id="cariCard">
+                                                    <div class="form-group">
+                                                        <label for="customer_id">Customer</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="customer_id"
+                                                                name="customer_id">
 
+                                                        </select>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="invoiceNumber">Invoice Number</label>
+                                                        <input type="text"
+                                                               class="form-control form-control-sm"
+                                                               id="invoice_number"
+                                                               name="invoice_number">
+                                                    </div>
+
                                                 </div>
-
-
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="invoiceType">Invoice Type</label>
@@ -57,13 +66,7 @@
                                                             <option value="2">Purchase</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="invoiceNumber">Invoice Number</label>
-                                                        <input type="text"
-                                                               class="form-control form-control-sm"
-                                                               id="invoice_number"
-                                                               name="invoice_number">
-                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="invoiceDate">Invoice Date</label>
                                                         <input type="date"
@@ -71,7 +74,8 @@
                                                                id="invoice_date"
                                                                name="invoice_date">
                                                     </div>
-                                                    <div class="form-group">
+                                                    <div class="form-group"
+                                                         style="display: none">
                                                         <label for="dueDate">Due Date</label>
                                                         <input type="date"
                                                                class="form-control form-control-sm"
@@ -80,14 +84,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="category">Category</label>
-                                                        <select class="form-control form-control-sm"
-                                                                id="category_id"
-                                                                name="category_id">
-                                                            <!-- Kategori seçenekleri buraya eklenecek -->
-                                                        </select>
-                                                    </div>
+
                                                     <div class="form-group">
                                                         <label for="currency">Currency</label>
                                                         <select class="form-control form-control-sm"
@@ -97,6 +94,15 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="category">Category</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="category_id"
+                                                                name="category_id">
+                                                            <!-- Kategori seçenekleri buraya eklenecek -->
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group"
+                                                         style="display: none">
                                                         <label for="exchangeRate">Exchange Rate</label>
                                                         <input type="number"
                                                                class="form-control form-control-sm"
@@ -116,7 +122,13 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <table class="table table-bordered" id="invoiceLine">
+                                    <button type="button"
+                                            class="btn btn-success btn-sm"
+                                            onclick="addInvoiceLine()"
+                                            style="float:right">Add an item
+                                    </button>
+                                    <table class="table table-bordered"
+                                           id="invoiceLine">
                                         <thead>
                                         <tr>
                                             <th>Items</th>
@@ -125,10 +137,11 @@
                                             <th>Vat</th>
                                             <th>Description</th>
                                             <th>Total</th>
+                                            <th>...</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr class="invoice-row">
+                                        <tr>
                                             <td>
                                                 <select class="form-control form-control-sm product_id">
                                                     <option value="1">Item 1</option>
@@ -136,30 +149,41 @@
                                                 </select>
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm quantity"
-                                                       placeholder="Quantity" name="quantity">
+                                                <input type="number"
+                                                       class="form-control form-control-sm quantity"
+                                                       placeholder="Quantity"
+                                                       name="quantity">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm price"
-                                                       placeholder="Price" name="price">
+                                                <input type="number"
+                                                       class="form-control form-control-sm price"
+                                                       placeholder="Price"
+                                                       name="price">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm vat"
-                                                       placeholder="Vat" name="Vat">
+                                                <input type="number"
+                                                       class="form-control form-control-sm vat"
+                                                       placeholder="Vat"
+                                                       name="Vat">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm description"
-                                                       placeholder="Description" name="Description">
+                                                <input type="text"
+                                                       class="form-control form-control-sm description"
+                                                       placeholder="Description"
+                                                       name="Description">
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control form-control-sm total"
-                                                       placeholder="Total" name="Total" readonly>
+                                                <input type="number"
+                                                       class="form-control form-control-sm total"
+                                                       placeholder="Total"
+                                                       name="Total"
+                                                       readonly>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="6" class="text-center">
-                                                <button type="button" class="btn btn-link" id="addItemBtn">Add an item
-                                                </button>
+                                            <td>
+                                                <span style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <button class="btn btn-danger btn-sm"
+                                                            onclick="deleteRow(this)"
+                                                            type="button"><i class="fa-solid fa-trash"></i></button></span>
                                             </td>
                                         </tr>
                                         </tbody>

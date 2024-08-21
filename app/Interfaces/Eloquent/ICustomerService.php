@@ -62,6 +62,4 @@ interface ICustomerService extends IEloquentService
         ?string $note,
         bool    $is_active
     ): ServiceResponse;
-
-
 }

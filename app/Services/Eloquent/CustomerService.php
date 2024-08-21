@@ -211,7 +211,7 @@ class CustomerService implements ICustomerService
         if ($customer) {
             return new ServiceResponse(true, "Müşteri bulundu", $customer, 200);
         } else {
-            return new ServiceResponse(false, $message, null, 404);
+            return new ServiceResponse(false, "Müşteri bulunamadı", null, 404);
         }
     }
 }
