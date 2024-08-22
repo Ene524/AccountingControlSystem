@@ -176,8 +176,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm total"
                                                        placeholder="Total"
-                                                       name="Total"
-                                                       readonly>
+                                                       name="Total">
                                             </td>
                                             <td>
                                                 <span style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -202,7 +201,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="gross_total"
-                                                       readonly>
+                                                       id="gross_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -211,7 +210,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="discount_total"
-                                                       value="0">
+                                                       id="discount_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -220,7 +219,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="vat_total"
-                                                       value="0">
+                                                       id="vat_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -229,7 +228,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="charge_total"
-                                                       value="0">
+                                                       id="charge_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -238,7 +237,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="deduct_total"
-                                                       value="0">
+                                                       id="deduct_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -247,7 +246,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="grand_total"
-                                                       readonly>
+                                                       id="grand_total">
                                             </td>
                                         </tr>
                                         <tr>
@@ -256,7 +255,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="net_total"
-                                                       readonly>
+                                                       id="net_total">
                                             </td>
                                         </tr>
                                         </tbody>

@@ -20,10 +20,14 @@
                 "invoice_number": $("#invoice_number").val(),
                 "category_id": $("#category_id").val(),
                 "currency_id": $("#currency_id").val(),
-                "total_amount": $("#total_amount").val(),
-                "items": JSON.stringify(getInvoiceItems()), // Fatura kalemlerini JSON formatında gönderiyoruz
-                "tax": $("#tax").val(),
-                "note": $("#note").val(),
+                "gross_total": $("#gross_total").val(),
+                "discount_total": $("#discount_total").val(),
+                "vat_total": $("#vat_total").val(),
+                "charge_total": $("#charge_total").val(),
+                "deduct_total": $("#deduct_total").val(),
+                "grand_total": $("#grand_total").val(),
+                "net_total": $("#net_total").val(),
+                "invoice_lines": JSON.stringify(getInvoiceItems()),
             },
             success: function (response) {
                 console.log(response);
@@ -33,9 +37,9 @@
 
 
     function getInvoiceItems() {
-        var items = [];
+        var invoice_lines = [];
         $("#invoiceLine tbody tr").each(function () {
-            var item = {
+            var line = {
                 "product_id":$(this).find(".product_id").val(),
                 "quantity": $(this).find(".quantity").val(),
                 "price": $(this).find(".price").val(),
@@ -43,9 +47,9 @@
                 "total": $(this).find(".total").val(),
                 "description": $(this).find(".description").val()
             };
-            items.push(item);
+            invoice_lines.push(line);
         });
-        return items;
+        return invoice_lines;
     }
 
     function getCustomers() {

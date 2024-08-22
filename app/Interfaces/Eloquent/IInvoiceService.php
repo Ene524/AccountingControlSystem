@@ -3,9 +3,7 @@
 namespace App\Interfaces\Eloquent;
 
 use App\Core\ServiceResponse;
-use App\Models\Invoice;
 use DateTime;
-use Exception;
 
 interface IInvoiceService extends IEloquentService
 {
@@ -15,16 +13,19 @@ interface IInvoiceService extends IEloquentService
         int      $invoice_type,
         DateTime $invoice_date,
         string   $invoice_number,
-        DateTime $due_date,
-        int      $category_id,
-        int      $currency_id,
-        float    $exchange_rate,
+        ?DateTime $due_date,
+        ?int      $category_id,
+        ?int      $currency_id,
+        ?float    $exchange_rate,
         float    $gross_total,
-        float    $discount_total = 0,
-        float    $vat_total = 0,
-        float    $charge_total = 0,
-        float    $deduct_total = 0,
+        float     $discount_total,
+        float     $vat_total,
+        float     $charge_total,
+        float     $deduct_total,
         float    $grand_total,
-        float    $net_total
+        float     $net_total,
+        mixed     $invoice_lines
     ): ServiceResponse;
+
+
 }

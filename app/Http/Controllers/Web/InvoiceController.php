@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use _PHPStan_27631a2e0\Nette\Utils\DateTime;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\InvoiceController\CreateRequest;
@@ -41,13 +42,14 @@ class InvoiceController extends Controller
     }
     public function store(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $response = $this->invoiceService->create(
             company_id: auth()->user()->company_id,
             customer_id: $request->customer_id,
-            invoice_date: $request->invoice_date,
+            invoice_date: new DateTime($request->invoice_date),
+            invoice_type: $request->invoice_type,
             invoice_number: $request->invoice_number,
-            due_date: $request->due_date,
+            due_date: new DateTime($request->due_date),
             category_id: $request->category_id,
             currency_id: $request->currency_id,
             exchange_rate: $request->exchange_rate,
@@ -57,7 +59,8 @@ class InvoiceController extends Controller
             charge_total: $request->charge_total,
             deduct_total: $request->deduct_total,
             grand_total: $request->grand_total,
-            net_total: $request->net_total
+            net_total: $request->net_total,
+            invoice_lines: $request->invoice_lines
         );
 
         if ($response->isSuccess()) {
