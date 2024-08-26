@@ -163,8 +163,8 @@
                                             <td>
                                                 <input type="number"
                                                        class="form-control form-control-sm vat"
-                                                       placeholder="Vat"
-                                                       name="Vat">
+                                                       placeholder="vat"
+                                                       name="vat">
                                             </td>
                                             <td>
                                                 <input type="text"

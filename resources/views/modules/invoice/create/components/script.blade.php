@@ -27,6 +27,7 @@
                 "deduct_total": $("#deduct_total").val(),
                 "grand_total": $("#grand_total").val(),
                 "net_total": $("#net_total").val(),
+                "exchange_rate": $("#exchange_rate").val(),
                 "invoice_lines": JSON.stringify(getInvoiceItems()),
             },
             success: function (response) {

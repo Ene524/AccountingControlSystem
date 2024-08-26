@@ -80,11 +80,17 @@ class InvoiceService implements IInvoiceService
             'net_total' => $net_total,
         ]);
 
+
+        $invoice_lines = json_decode($invoice_lines, true);
+
+
         foreach ($invoice_lines as $line) {
+
             InvoiceLine::create([
                 'invoice_id' => $invoice->id,
                 'product_id' => $line['product_id'],
                 'quantity' => $line['quantity'],
+                'vat' => $line['vat'],
                 'price' => $line['price'],
                 'total' => $line['total'],
             ]);
