@@ -29,7 +29,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
         Route::get('create', [CompanyController::class, 'create'])->name('company.create');
         Route::post('create', [CompanyController::class, 'store'])->name('company.store');
         Route::get('edit/{id}', [CompanyController::class, 'edit'])->name('company.edit');
-        Route::post('edit', [CompanyController::class, 'update']);
+        Route::post('edit/{id}', [CompanyController::class, 'update']);
         Route::get('getAll', [CompanyController::class, 'getAll'])->name('company.getAll');
         Route::get('getById', [CompanyController::class, 'getById'])->name('company.getById');
         Route::delete('delete', [CompanyController::class, 'delete'])->name('company.delete');
@@ -71,7 +71,7 @@ Route::middleware(["auth", "checkVerified", "checkSelectedCompany"])->group(func
 
     Route::prefix('invoice')->group(function () {
         Route::get('index', [InvoiceController::class, 'index'])->name('invoice.index');
-        Route::get('getInvoices', [InvoiceController::class, 'getInvoices'])->name('invoice.getCustomers');
+        Route::get('getInvoices', [InvoiceController::class, 'getInvoices'])->name('invoice.getInvoices');
         Route::get('create', [InvoiceController::class, 'create'])->name('invoice.create');
         Route::post('create', [InvoiceController::class, 'store']);
         Route::get('edit/{id}', [InvoiceController::class, 'edit'])->name('invoice.edit');

@@ -5,17 +5,23 @@ namespace App\Http\Controllers\Web;
 use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Web\InvoiceController\CreateRequest;
+use App\Interfaces\Eloquent\ICustomerService;
 use App\Interfaces\Eloquent\IInvoiceService;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
     use HttpResponse;
+
     private IInvoiceService $invoiceService;
-    public function __construct(IInvoiceService $invoiceService)
+    private ICustomerService $customerService;
+
+    public function __construct(IInvoiceService $invoiceService, ICustomerService $customerService)
     {
         $this->invoiceService = $invoiceService;
+        $this->customerService = $customerService;
     }
+
     public function index()
     {
         return view('modules.invoice.index.index');
@@ -35,14 +41,15 @@ class InvoiceController extends Controller
 
     public function create()
     {
-        return view('modules.invoice.create.index');
+        $customers = $this->customerService->getAll();
+        return view('modules.invoice.create.index', compact("customers"));
     }
 
     public function store(Request $request)
     {
-        //dd($request->all());
+        dd($request->all());
         $response = $this->invoiceService->create(
-            //company_id:$request->company_id
+        //company_id:$request->company_id
         );
 
         if ($response->isSuccess()) {
@@ -64,9 +71,7 @@ class InvoiceController extends Controller
 
     public function update(CreateRequest $request)
     {
-        $response = $this->invoiceService->update(
-
-        );
+        $response = $this->invoiceService->update();
 
         if ($response->isSuccess()) {
             return redirect()->route('invoice.index')->with('success', $response->getMessage());
