@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('invoice_lines', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
+//            $table->unsignedBigInteger('product_id');
             $table->decimal('quantity', 10, 2);
             $table->decimal('price', 10, 2);
             $table->tinyInteger('vat');
             $table->decimal('total', 10, 2);
             $table->text('description')->nullable();
-            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
-            //$table->foreignId('product_id')->constrained()->cascadeOnDelete();
-
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained();
         });
     }
 

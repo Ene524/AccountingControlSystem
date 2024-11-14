@@ -58,7 +58,6 @@ class CompanyService implements ICompanyService
         }
     }
 
-
     /**
      * @param string $title
      * @param string $short_title
@@ -71,7 +70,7 @@ class CompanyService implements ICompanyService
      * @param string $city
      * @param string $town
      * @param string $country
-     * @param string|null $tax_office
+     * @param string $tax_office
      * @param string $email
      * @param string $phone
      * @param string|null $fax
@@ -102,7 +101,7 @@ class CompanyService implements ICompanyService
         string $city,
         string $town,
         string $country,
-        ?string $tax_office,
+        string $tax_office,
         string $email,
         string $phone,
         ?string $fax,
@@ -195,35 +194,35 @@ class CompanyService implements ICompanyService
      * @return ServiceResponse
      */
     public function update(
-        int $id,
-        string $title,
-        string $short_title,
-        bool $is_person,
+        int     $id,
+        string  $title,
+        string  $short_title,
+        bool    $is_person,
         ?string $first_name,
         ?string $last_name,
         ?string $tax_number,
         ?string $identity_number,
-        string $address,
-        string $city,
-        string $town,
-        string $country,
-        string $tax_office,
-        string $email,
-        string $phone,
+        ?string  $address,
+        string  $city,
+        string  $town,
+        string  $country,
+        string  $tax_office,
+        string  $email,
+        string  $phone,
         ?string $fax,
         ?string $postal_code,
         ?string $web_site,
         ?string $commercial_register_number,
         ?string $mernis_number,
-        ?bool $e_invoice_status,
-        ?bool $e_archive_status,
-        ?bool $e_dispatch_status,
-        ?bool $e_producer_status,
-        ?bool $e_voucher_status,
+        ?bool   $e_invoice_status,
+        ?bool   $e_archive_status,
+        ?bool   $e_dispatch_status,
+        ?bool   $e_producer_status,
+        ?bool   $e_voucher_status,
         ?string $web_service_username,
         ?string $web_service_password,
-        ?int $integrator_id,
-        bool $is_active
+        ?int    $integrator_id,
+        bool    $is_active,
     ): ServiceResponse {
         $company = $this->getById($id)->getData();
 

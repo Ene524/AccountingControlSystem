@@ -44,18 +44,20 @@
                                                         <select class="form-control form-control-sm"
                                                                 id="customer_id"
                                                                 name="customer_id">
-
+                                                            @foreach($customers->getData() as $customer)
+                                                                <option>{{$customer->title}}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="invoiceNumber">Invoice Number</label>
-                                                        <input type="text"
+                                                        <label for="invoiceDate">Invoice Date</label>
+                                                        <input type="date"
                                                                class="form-control form-control-sm"
-                                                               id="invoice_number"
-                                                               name="invoice_number">
+                                                               id="invoice_date"
+                                                               name="invoice_date">
                                                     </div>
-
                                                 </div>
+
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="invoiceType">Invoice Type</label>
@@ -66,33 +68,23 @@
                                                             <option value="2">Purchase</option>
                                                         </select>
                                                     </div>
-
                                                     <div class="form-group">
-                                                        <label for="invoiceDate">Invoice Date</label>
-                                                        <input type="date"
+                                                        <label for="invoiceNumber">Invoice Number</label>
+                                                        <input type="text"
                                                                class="form-control form-control-sm"
-                                                               id="invoice_date"
-                                                               name="invoice_date">
+                                                               id="invoice_number"
+                                                               name="invoice_number">
                                                     </div>
-                                                    <div class="form-group"
-                                                         style="display: none">
-                                                        <label for="dueDate">Due Date</label>
-                                                        <input type="date"
-                                                               class="form-control form-control-sm"
-                                                               id="due_date"
-                                                               name="due_date">
-                                                    </div>
+
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="dueDate">Due Date</label>--}}
+{{--                                                        <input type="date"--}}
+{{--                                                               class="form-control form-control-sm"--}}
+{{--                                                               id="due_date"--}}
+{{--                                                               name="due_date">--}}
+{{--                                                    </div>--}}
                                                 </div>
                                                 <div class="col-md-4">
-
-                                                    <div class="form-group">
-                                                        <label for="currency">Currency</label>
-                                                        <select class="form-control form-control-sm"
-                                                                id="currency_id"
-                                                                name="currency_id">
-                                                            <!-- Para birimi seçenekleri buraya eklenecek -->
-                                                        </select>
-                                                    </div>
                                                     <div class="form-group">
                                                         <label for="category">Category</label>
                                                         <select class="form-control form-control-sm"
@@ -101,18 +93,24 @@
                                                             <!-- Kategori seçenekleri buraya eklenecek -->
                                                         </select>
                                                     </div>
-                                                    <div class="form-group"
-                                                         style="display: none">
-                                                        <label for="exchangeRate">Exchange Rate</label>
-                                                        <input type="number"
-                                                               class="form-control form-control-sm"
-                                                               id="exchange_rate"
-                                                               name="exchange_rate"
-                                                               step="0.0001"
-                                                               value="1.0">
+                                                    <div class="form-group">
+                                                        <label for="currency">Currency</label>
+                                                        <select class="form-control form-control-sm"
+                                                                id="currency_id"
+                                                                name="currency_id">
+                                                            <!-- Para birimi seçenekleri buraya eklenecek -->
+                                                        </select>
                                                     </div>
+{{--                                                    <div class="form-group">--}}
+{{--                                                        <label for="exchangeRate">Exchange Rate</label>--}}
+{{--                                                        <input type="number"--}}
+{{--                                                               class="form-control form-control-sm"--}}
+{{--                                                               id="exchange_rate"--}}
+{{--                                                               name="exchange_rate"--}}
+{{--                                                               step="0.0001"--}}
+{{--                                                               value="1.0">--}}
+{{--                                                    </div>--}}
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -122,11 +120,6 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <button type="button"
-                                            class="btn btn-success btn-sm"
-                                            onclick="addInvoiceLine()"
-                                            style="float:right">Add an item
-                                    </button>
                                     <table class="table table-bordered"
                                            id="invoiceLine">
                                         <thead>
@@ -137,11 +130,10 @@
                                             <th>Vat</th>
                                             <th>Description</th>
                                             <th>Total</th>
-                                            <th>...</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
+                                        <tr class="invoice-row">
                                             <td>
                                                 <select class="form-control form-control-sm product_id">
                                                     <option value="1">Item 1</option>
@@ -163,8 +155,8 @@
                                             <td>
                                                 <input type="number"
                                                        class="form-control form-control-sm vat"
-                                                       placeholder="vat"
-                                                       name="vat">
+                                                       placeholder="Vat"
+                                                       name="Vat">
                                             </td>
                                             <td>
                                                 <input type="text"
@@ -176,13 +168,17 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm total"
                                                        placeholder="Total"
-                                                       name="Total">
+                                                       name="Total"
+                                                       readonly>
                                             </td>
-                                            <td>
-                                                <span style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <button class="btn btn-danger btn-sm"
-                                                            onclick="deleteRow(this)"
-                                                            type="button"><i class="fa-solid fa-trash"></i></button></span>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6"
+                                                class="text-center">
+                                                <button type="button"
+                                                        class="btn btn-link"
+                                                        id="addItemBtn">Add an item
+                                                </button>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -201,7 +197,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="gross_total"
-                                                       id="gross_total">
+                                                       readonly>
                                             </td>
                                         </tr>
                                         <tr>
@@ -210,7 +206,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="discount_total"
-                                                       id="discount_total">
+                                                       value="0">
                                             </td>
                                         </tr>
                                         <tr>
@@ -219,7 +215,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="vat_total"
-                                                       id="vat_total">
+                                                       value="0">
                                             </td>
                                         </tr>
                                         <tr>
@@ -228,7 +224,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="charge_total"
-                                                       id="charge_total">
+                                                       value="0">
                                             </td>
                                         </tr>
                                         <tr>
@@ -237,7 +233,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="deduct_total"
-                                                       id="deduct_total">
+                                                       value="0">
                                             </td>
                                         </tr>
                                         <tr>
@@ -246,7 +242,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="grand_total"
-                                                       id="grand_total">
+                                                       readonly>
                                             </td>
                                         </tr>
                                         <tr>
@@ -255,7 +251,7 @@
                                                 <input type="number"
                                                        class="form-control form-control-sm text-right"
                                                        name="net_total"
-                                                       id="net_total">
+                                                       readonly>
                                             </td>
                                         </tr>
                                         </tbody>

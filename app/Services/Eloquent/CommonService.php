@@ -6,7 +6,6 @@ use App\Core\ServiceResponse;
 use App\Interfaces\Eloquent\ICommonService;
 use App\Models\City;
 use App\Models\Country;
-use App\Models\Currency;
 use App\Models\Integrators;
 use App\Models\TaxCode;
 use App\Models\TaxExemptionCode;
@@ -78,11 +77,5 @@ class CommonService implements ICommonService
     {
         $witholdings=WitholdingCode::all();
         return new ServiceResponse(true,"Tevkifat kodları getirildi",$witholdings,200);
-    }
-
-    public function getCurrencies(): ServiceResponse
-    {
-        $currencies = Currency::all();
-        return new ServiceResponse(true, "Para birimleri başarıyla getirildi", $currencies, 200);
     }
 }

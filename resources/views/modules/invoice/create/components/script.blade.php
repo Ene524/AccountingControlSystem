@@ -4,7 +4,6 @@
 <script>
     $(document).ready(function () {
         getCustomers();
-        getCurrencies();
     });
 
     $("#saveInvoice").click(function () {
@@ -20,15 +19,10 @@
                 "invoice_number": $("#invoice_number").val(),
                 "category_id": $("#category_id").val(),
                 "currency_id": $("#currency_id").val(),
-                "gross_total": $("#gross_total").val(),
-                "discount_total": $("#discount_total").val(),
-                "vat_total": $("#vat_total").val(),
-                "charge_total": $("#charge_total").val(),
-                "deduct_total": $("#deduct_total").val(),
-                "grand_total": $("#grand_total").val(),
-                "net_total": $("#net_total").val(),
-                "exchange_rate": $("#exchange_rate").val(),
-                "invoice_lines": JSON.stringify(getInvoiceItems()),
+                "total_amount": $("#total_amount").val(),
+                "items": JSON.stringify(getInvoiceLines()), // Fatura kalemlerini JSON formatında gönderiyoruz
+                "tax": $("#tax").val(),
+                "note": $("#note").val(),
             },
             success: function (response) {
                 console.log(response);
@@ -36,86 +30,30 @@
         })
     });
 
-
-    function getInvoiceItems() {
-        var invoice_lines = [];
-        $("#invoiceLine tbody tr").each(function () {
-            var line = {
-                "product_id":$(this).find(".product_id").val(),
+    function getInvoiceLines() {
+        var items = [];
+        $("#invoiceLine").each(function () {
+            var item = {
                 "quantity": $(this).find(".quantity").val(),
                 "price": $(this).find(".price").val(),
                 "vat": $(this).find(".vat").val(),
                 "total": $(this).find(".total").val(),
                 "description": $(this).find(".description").val()
             };
-            invoice_lines.push(line);
+            items.push(item);
         });
-        return invoice_lines;
+        return items;
     }
 
     function getCustomers() {
         $.ajax({
-            async: false,
-            url: '{{ route('customer.getCustomers') }}',
+            url: '{{route('customer.getCustomers')}}',
             type: 'GET',
-            success: function (data) {
-                for (var i = 0; i < data.response.length; i++) {
-                    var option = "<option value='" + data.response[i].id + "'>" + data.response[i].title + "</option>";
-                    $('#customer_id').append(option).trigger('change');
-                }
+            success: function (response) {
+
             }
-        });
-    }
+        })
 
-    function getCurrencies() {
-        $.ajax({
-            async: false,
-            url: '{{ route('common.getCurrencies') }}',
-            type: 'GET',
-            success: function (data) {
-                for (var i = 0; i < data.response.length; i++) {
-                    var option = "<option value='" + data.response[i].id + "'>" + data.response[i].name + "</option>";
-                    $('#currency_id').append(option).trigger('change');
-                }
-            }
-        });
-    }
-
-    function addInvoiceLine() {
-        var newRow = document.createElement('tr');
-
-        newRow.innerHTML = `
-        <td>
-            <select class="form-control form-control-sm product_id">
-                <option value="1">Item 1</option>
-                <option value="2">Item 2</option>
-            </select>
-        </td>
-        <td>
-            <input type="number" class="form-control form-control-sm quantity" placeholder="Quantity" name="quantity">
-        </td>
-        <td>
-            <input type="number" class="form-control form-control-sm price" placeholder="Price" name="price">
-        </td>
-        <td>
-            <input type="number" class="form-control form-control-sm vat" placeholder="Vat" name="Vat">
-        </td>
-        <td>
-            <input type="text" class="form-control form-control-sm description" placeholder="Description" name="Description">
-        </td>
-        <td>
-            <input type="number" class="form-control form-control-sm total" placeholder="Total" name="Total" readonly="">
-        </td>
-        <td>
-            <span style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-danger btn-sm" onclick="deleteRow(this)" type="button"><i class="fa-solid fa-trash"></i></button></span>
-        </td>
-    `;
-        document.querySelector('#invoiceLine tbody').appendChild(newRow);
-    }
-
-    function deleteRow(button) {
-        $(button).closest('tr').remove();
     }
 </script>
 

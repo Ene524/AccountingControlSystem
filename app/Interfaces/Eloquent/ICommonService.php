@@ -15,6 +15,4 @@ interface ICommonService
     public function getTaxExemptions():ServiceResponse;
     public function getTaxes():ServiceResponse;
     public function getWitholdings():ServiceResponse;
-
-    public function getCurrencies(): ServiceResponse;
 }

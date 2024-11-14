@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Core\HttpResponse;
 use App\Http\Controllers\Controller;
 use App\Interfaces\Eloquent\ICommonService;
 use Illuminate\Http\Request;
@@ -10,7 +9,6 @@ use Illuminate\Http\Request;
 class CommonController extends Controller
 {
     private ICommonService $commonService;
-    use HttpResponse;
 
     public function __construct(ICommonService $commonService)
     {
@@ -39,16 +37,5 @@ class CommonController extends Controller
     {
         $taxoffices = $this->commonService->getTaxOffices($request->get('query'));
         return json_encode($taxoffices->getData());
-    }
-
-    public function getCurrencies()
-    {
-        $response = $this->commonService->getCurrencies();
-        return $this->httpResponse(
-            $response->isSuccess(),
-            $response->getMessage(),
-            $response->getData(),
-            $response->getStatusCode()
-        );
     }
 }

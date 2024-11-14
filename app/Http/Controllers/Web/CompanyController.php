@@ -37,7 +37,7 @@ class CompanyController extends Controller
         $towns = $this->commonService->getTowns();
         $taxOffices = $this->commonService->getTaxOffices();
         $integrators = $this->commonService->getIntegrators();
-        return view('modules.dashboard.create-update-company.index.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+        return view('modules.dashboard.company-create.index', compact('countries', 'cities', 'towns', 'taxOffices', 'integrators'));
     }
     public function store(CreateRequest $request)
     {
@@ -125,7 +125,7 @@ class CompanyController extends Controller
         $towns = $this->commonService->getTowns();
         $taxOffices = $this->commonService->getTaxOffices();
         $integrators = $this->commonService->getIntegrators();
-        return view('modules.dashboard.create-update-company.index.index', compact('response', 'countries', 'cities', 'towns', 'taxOffices', 'integrators'));
+        return view('modules.dashboard.company-edit.index', compact('response', 'countries', 'cities', 'towns', 'taxOffices', 'integrators'));
     }
 
     public function getAll()
