@@ -18,7 +18,7 @@ interface ICompanyService extends IEloquentService
         string  $city,
         string  $town,
         string  $country,
-        string  $tax_office,
+        ?string $tax_office,
         string  $email,
         string  $phone,
         ?string $fax,

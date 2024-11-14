@@ -19,11 +19,11 @@ return new class extends Migration
             $table->tinyInteger('vat');
             $table->decimal('total', 10, 2);
             $table->text('description')->nullable();
+            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
+            //$table->foreignId('product_id')->constrained()->cascadeOnDelete();
+
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreignId('invoice_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         });
     }
 

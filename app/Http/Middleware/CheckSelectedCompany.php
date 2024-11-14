@@ -39,7 +39,7 @@ class CheckSelectedCompany
 
                 return $next($request);
             } else {
-                return redirect()->route('dashboard.showUserCompanyDashboard');
+                return redirect()->route('dashboard.showUserCompanyDashboard')->with("error", "Firma seçimi yapılmalıdır");
             }
         }
         return $next($request);

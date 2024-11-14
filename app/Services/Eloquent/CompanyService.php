@@ -58,6 +58,7 @@ class CompanyService implements ICompanyService
         }
     }
 
+
     /**
      * @param string $title
      * @param string $short_title
@@ -66,11 +67,11 @@ class CompanyService implements ICompanyService
      * @param string|null $last_name
      * @param string|null $tax_number
      * @param string|null $identity_number
-     * @param string $address
+     * @param string|null $address
      * @param string $city
      * @param string $town
      * @param string $country
-     * @param string $tax_office
+     * @param string|null $tax_office
      * @param string $email
      * @param string $phone
      * @param string|null $fax
@@ -101,7 +102,7 @@ class CompanyService implements ICompanyService
         string $city,
         string $town,
         string $country,
-        string $tax_office,
+        ?string $tax_office,
         string $email,
         string $phone,
         ?string $fax,
