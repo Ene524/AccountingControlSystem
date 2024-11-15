@@ -76,13 +76,13 @@
                                                                name="invoice_number">
                                                     </div>
 
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <label for="dueDate">Due Date</label>--}}
-{{--                                                        <input type="date"--}}
-{{--                                                               class="form-control form-control-sm"--}}
-{{--                                                               id="due_date"--}}
-{{--                                                               name="due_date">--}}
-{{--                                                    </div>--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <label for="dueDate">Due Date</label>--}}
+                                                    {{--                                                        <input type="date"--}}
+                                                    {{--                                                               class="form-control form-control-sm"--}}
+                                                    {{--                                                               id="due_date"--}}
+                                                    {{--                                                               name="due_date">--}}
+                                                    {{--                                                    </div>--}}
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
@@ -101,15 +101,15 @@
                                                             <!-- Para birimi seçenekleri buraya eklenecek -->
                                                         </select>
                                                     </div>
-{{--                                                    <div class="form-group">--}}
-{{--                                                        <label for="exchangeRate">Exchange Rate</label>--}}
-{{--                                                        <input type="number"--}}
-{{--                                                               class="form-control form-control-sm"--}}
-{{--                                                               id="exchange_rate"--}}
-{{--                                                               name="exchange_rate"--}}
-{{--                                                               step="0.0001"--}}
-{{--                                                               value="1.0">--}}
-{{--                                                    </div>--}}
+                                                    {{--                                                    <div class="form-group">--}}
+                                                    {{--                                                        <label for="exchangeRate">Exchange Rate</label>--}}
+                                                    {{--                                                        <input type="number"--}}
+                                                    {{--                                                               class="form-control form-control-sm"--}}
+                                                    {{--                                                               id="exchange_rate"--}}
+                                                    {{--                                                               name="exchange_rate"--}}
+                                                    {{--                                                               step="0.0001"--}}
+                                                    {{--                                                               value="1.0">--}}
+                                                    {{--                                                    </div>--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -120,6 +120,15 @@
 
                             <div class="row mt-3">
                                 <div class="col-12">
+                                    <div style="text-align: right; margin-top: 10px;">
+                                        <button type="button"
+                                                class="btn btn-success"
+                                                id="addItemBtn"
+                                                onclick="addInvoiceLine()"
+                                                style="">
+                                            + Satır Ekle
+                                        </button>
+                                    </div>
                                     <table class="table table-bordered"
                                            id="invoiceLine">
                                         <thead>
@@ -127,7 +136,7 @@
                                             <th>Items</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
-                                            <th>Vat</th>
+                                            <th>VAT</th>
                                             <th>Description</th>
                                             <th>Total</th>
                                         </tr>
@@ -155,34 +164,34 @@
                                             <td>
                                                 <input type="number"
                                                        class="form-control form-control-sm vat"
-                                                       placeholder="Vat"
-                                                       name="Vat">
+                                                       placeholder="VAT"
+                                                       name="vat">
                                             </td>
                                             <td>
                                                 <input type="text"
                                                        class="form-control form-control-sm description"
                                                        placeholder="Description"
-                                                       name="Description">
+                                                       name="description">
                                             </td>
                                             <td>
                                                 <input type="number"
                                                        class="form-control form-control-sm total"
                                                        placeholder="Total"
-                                                       name="Total"
+                                                       name="total"
                                                        readonly>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="6"
-                                                class="text-center">
+                                            <td>
                                                 <button type="button"
-                                                        class="btn btn-link"
-                                                        id="addItemBtn">Add an item
+                                                        class="btn btn-default btn-sm deleteRowBtn"
+                                                        style="margin:0px;padding: 0px;height: 30px;width: 30px;">
+                                                    <i class="bx bx-x">-</i>
                                                 </button>
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
+
+
                                 </div>
                             </div>
 
