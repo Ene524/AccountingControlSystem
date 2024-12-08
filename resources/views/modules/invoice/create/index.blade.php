@@ -180,9 +180,9 @@
                                                        name="total"
                                                        readonly>
                                             </td>
-                                            <td>
+                                            <td style="height: 30px;width: 30px;">
                                                 <button type="button"
-                                                        class="btn btn-default btn-sm deleteRowBtn"
+                                                        class="btn btn-danger btn-sm deleteRowBtn"
                                                         style="margin:0px;padding: 0px;height: 30px;width: 30px;">
                                                     <i class="bx bx-x">-</i>
                                                 </button>

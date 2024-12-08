@@ -92,7 +92,7 @@
         if (rows.length > 1) {
             $(this).closest("tr").remove();
         } else {
-            alert("En az bir fatura kalemi olmalıdır.");
+            toastr["info"]("En az bir fatura kalemi olmalıdır.");
         }
     });
 
